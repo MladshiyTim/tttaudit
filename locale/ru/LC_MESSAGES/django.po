@@ -1,0 +1,1230 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tttaudit\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+
+#: core/templates/core/_lead.html
+msgid "%(mb)s MB gacha: PDF, Excel, Word, DWG, ZIP, rasm"
+msgstr "До %(mb)s МБ: PDF, Excel, Word, DWG, ZIP, изображение"
+
+#: core/templates/core/team.html
+msgid "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan."
+msgstr "%(n)s специалистов: по энергоаудиту и контрольным измерениям в строительстве, с сертификатами государственного образца."
+
+#: core/templates/core/registry.html
+msgid "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil."
+msgstr "%(total)s работ по энергоаудиту и контрольным измерениям, 2019–2025: заказчик, направление, год."
+
+#: core/models.py
+msgid "Agrosanoat va oziq-ovqat"
+msgstr "Агропромышленность и продовольствие"
+
+#: core/models.py
+msgid "Akkreditatsiya"
+msgstr "Аккредитация"
+
+#: core/templates/core/base.html
+#: core/templates/core/contact.html
+#: core/views.py
+msgid "Aloqa"
+msgstr "Контакты"
+
+#: core/templates/core/home.html
+msgid "Aloqa va xarita"
+msgstr "Контакты и карта"
+
+#: core/templates/core/direction.html
+#: core/templates/core/instruments.html
+msgid "Amal qiladi"
+msgstr "Действует"
+
+#: core/models.py
+msgid "Aniqlangan farq"
+msgstr "Выявленное расхождение"
+
+#: core/models.py
+msgid "Anonim: «4 qavatli maʼmuriy bino»"
+msgstr "Анонимно: «4-этажное административное здание»"
+
+#: core/templates/core/direction.html
+#: core/templates/core/instruments.html
+#: core/models.py
+msgid "Asbob"
+msgstr "Прибор"
+
+#: core/models.py
+msgid "Asboblar"
+msgstr "Приборы"
+
+#: core/templates/core/home.html
+msgid "Asos"
+msgstr "Основание"
+
+#: core/templates/core/base.html
+msgid "Asosiy mazmunga oʻtish"
+msgstr "Перейти к основному содержанию"
+
+#: core/templates/core/base.html
+msgid "Asosiy menyu"
+msgstr "Основное меню"
+
+#: core/models.py
+msgid "Aʼzolik"
+msgstr "Членство"
+
+#: core/templates/core/direction.html
+msgid "Bajarilgan ishlar"
+msgstr "Выполненные работы"
+
+#: core/templates/core/base.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
+#: core/views.py
+msgid "Bajarilgan ishlar reestri"
+msgstr "Реестр выполненных работ"
+
+#: core/templates/core/requisites.html
+msgid "Bank rekvizitlari"
+msgstr "Банковские реквизиты"
+
+#: core/compliance.py
+msgid "Bank talabi"
+msgstr "Требование банка"
+
+#: core/templates/core/home.html
+msgid "Barcha hujjatlar"
+msgstr "Все документы"
+
+#: core/templates/core/home.html
+#: core/templates/core/legislation.html
+#: core/templates/core/registry.html
+msgid "Barchasi"
+msgstr "Все"
+
+#: core/models.py
+msgid "Belgining ostida mayda harflarda beriladi."
+msgstr "Указывается мелким шрифтом под знаком."
+
+#: core/compliance.py
+msgid "Besh yilda kamida bir marta"
+msgstr "Не реже одного раза в пять лет"
+
+#: core/compliance.py
+msgid "Bino energopasporti va A–G toifasi"
+msgstr "Энергопаспорт здания и категория A–G"
+
+#: core/templates/core/_energy.html
+msgid "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G)."
+msgstr "Предварительная категория энергоэффективности (A–G) по площади здания и годовому потреблению электроэнергии."
+
+#: core/models.py
+msgid "Bir vaqtda faqat bitta raqam — issiq nuqta qoidasi."
+msgstr "Одновременно выделяется только одна цифра — правило горячей точки."
+
+#: core/models.py
+msgid "Bogʻlanildi"
+msgstr "Связались"
+
+#: core/templates/core/company.html
+#: core/templates/core/team.html
+msgid "Bosh direktor"
+msgstr "Генеральный директор"
+
+#: core/templates/core/contact.html
+#: core/templates/core/home.html
+#: core/models.py
+msgid "Bosh ofis"
+msgstr "Головной офис"
+
+#: core/templates/core/_crumbs.html
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+#: core/models.py
+msgid "Bosh sahifada"
+msgstr "На главной странице"
+
+#: core/templates/core/404.html
+msgid "Bosh sahifaga"
+msgstr "На главную"
+
+#: core/templates/core/post.html
+msgid "Boshqa maqolalar"
+msgstr "Другие статьи"
+
+#: core/models.py
+msgid "Boʻlim"
+msgstr "Отдел"
+
+#: core/models.py
+msgid "Boʻsh boʻlsa blok suratsiz chiqadi. Stok foto ishlatilmaydi."
+msgstr "Если пусто, блок выводится без фото. Стоковые фото не используются."
+
+#: core/models.py
+msgid "Boʻsh boʻlsa hujjat saytda koʻrsatilmaydi. Raqam, nom va talabni amaldagi tahrir bilan solishtirgandan keyingina toʻldiring."
+msgstr "Если пусто, документ не отображается на сайте. Заполняйте номер, название и требование только после сверки с действующей редакцией."
+
+#: core/models.py
+msgid "Boʻsh boʻlsa saytda koʻrsatilmaydi. Faqat mijoz tasdiqlagan raqam."
+msgstr "Если пусто, на сайте не отображается. Указывается только цифра, подтверждённая клиентом."
+
+#: core/models.py
+msgid "Brauzer yorligʻi va qidiruv natijasi uchun. Geroy gapidan farq qiladi: bu yerda kalit soʻzlar boʻlishi kerak."
+msgstr "Для вкладки браузера и результата поиска. Отличается от текста в шапке: здесь должны быть ключевые слова."
+
+#: core/forms.py
+msgid "Bu fayl turi qabul qilinmaydi. Ruxsat etilgan: %(list)s"
+msgstr "Этот тип файла не принимается. Разрешены: %(list)s"
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
+#: core/models.py
+msgid "Buyurtmachi"
+msgstr "Заказчик"
+
+#: core/templates/core/registry.html
+msgid "Buyurtmachi yoki ish nomi"
+msgstr "Заказчик или название работы"
+
+#: core/templates/core/company.html
+msgid "Buyurtmachilar orasida"
+msgstr "Среди заказчиков"
+
+#: core/templates/core/_compliance.html
+msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
+msgstr "Объём работ, выполненных за счёт бюджетных средств, проходит контрольное измерение; стоимость услуги не превышает 0,3% от стоимости строительства."
+
+#: core/compliance.py
+msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
+msgstr "На объекте, финансируемом за счёт бюджетных средств, измерение проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
+
+#: core/compliance.py
+msgid "Byudjet obyektlarida oʻlchov tartibi"
+msgstr "Порядок измерения на бюджетных объектах"
+
+#: core/templates/core/_energy.html
+msgid "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi."
+msgstr "Границы ориентировочные; официальная категория указывается в энергопаспорте."
+
+#: core/templates/core/home.html
+msgid "Dalolatnoma, energopasport yoki ekspert xulosasi — imzo va muhr bilan."
+msgstr "Акт, энергопаспорт или экспертное заключение — с подписью и печатью."
+
+#: core/compliance.py
+msgid "Dalolatnomani imzolashdan oldin"
+msgstr "До подписания акта"
+
+#: core/templates/core/_compliance.html
+msgid "Davriy energoaudit — %(years)s yilda kamida bir marta (ЗРУ-940)."
+msgstr "Периодический энергоаудит — не реже одного раза в %(years)s лет (ЗРУ-940)."
+
+#: core/templates/core/_lead.html
+#: core/templates/core/home.html
+#: core/templates/core/request.html
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "E-pochta"
+msgstr "E-mail"
+
+#: core/templates/core/company.html
+msgid "Ekspert tashkiloti"
+msgstr "Экспертная организация"
+
+#: core/templates/core/base.html
+msgid "Ekspert tashkiloti, 1997-yildan"
+msgstr "Экспертная организация, с 1997 года"
+
+#: core/models.py
+msgid "Energetika va neft-gaz"
+msgstr "Энергетика и нефтегазовая отрасль"
+
+#: core/models.py
+msgid "Energetika va qurilish yoʻnalishiga yaqin, taniqli tashkilotlar."
+msgstr "Известные организации, близкие к сфере энергетики и строительства."
+
+#: core/models.py
+msgid "Energiya toifasi"
+msgstr "Категория энергоэффективности"
+
+#: core/templates/core/home.html
+msgid "Energiyani tejash, undan oqilona foydalanish va energiya samaradorligini oshirish toʻgʻrisida"
+msgstr "Об энергосбережении, рациональном использовании энергии и повышении энергоэффективности"
+
+#: core/templates/core/team.html
+#: core/models.py
+msgid "Energoaudit"
+msgstr "Энергоаудит"
+
+#: core/views.py
+msgid "Energoaudit kimga majburiy?"
+msgstr "Кому энергоаудит обязателен?"
+
+#: core/templates/core/services.html
+msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
+msgstr "Энергоаудит, энергопаспорт здания, контрольные измерения в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
+
+#: core/templates/core/legislation.html
+msgid "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda."
+msgstr "Показаны только документы, сверенные с действующей редакцией на lex.uz. Дата проверки — в каждой строке."
+
+#: core/templates/core/company.html
+msgid "Fargʻona"
+msgstr "Фергана"
+
+#: core/templates/core/_lead.html
+#: core/models.py
+msgid "Fayl"
+msgstr "Файл"
+
+#: core/forms.py
+msgid "Fayl hajmi %(mb)d MB dan oshmasligi kerak."
+msgstr "Размер файла не должен превышать %(mb)d МБ."
+
+#: core/templates/core/request.html
+msgid "Forma toʻldirilmagan: ism va telefon majburiy."
+msgstr "Форма не заполнена: имя и телефон обязательны."
+
+#: core/templates/core/_compliance.html
+msgid "Foydalaniladigan maydoni %(area)s m² dan katta binoga energosamaradorlik toifasi va energopasport belgilanadi."
+msgstr "Для здания с используемой площадью более %(area)s м² устанавливается категория энергоэффективности и энергопаспорт."
+
+#: core/views.py
+msgid "Foydalaniladigan maydoni 200 m² dan katta bino va inshootlarga. Energopasport yangi, mavjud, rekonstruksiya va modernizatsiya qilinayotgan obyektlar uchun rasmiylashtiriladi."
+msgstr "Для зданий и сооружений с используемой площадью более 200 м². Энергопаспорт оформляется на новые, существующие, реконструируемые и модернизируемые объекты."
+
+#: core/compliance.py
+msgid "Foydalanishga topshirishdan oldin yoki audit natijasida"
+msgstr "До ввода в эксплуатацию или по результатам аудита"
+
+#: core/compliance.py
+msgid "Foydali maydon chegaradan katta — binoga energosamaradorlik toifasi belgilanadi va energopasport rasmiylashtiriladi."
+msgstr "Полезная площадь превышает порог — зданию присваивается категория энергоэффективности и оформляется энергопаспорт."
+
+#: core/models.py
+msgid "Geroy kadri"
+msgstr "Главный кадр"
+
+#: core/models.py
+msgid "Geroy ostida"
+msgstr "Под главным блоком"
+
+#: core/templates/core/direction.html
+#: core/templates/core/instruments.html
+msgid "Guvohnoma"
+msgstr "Свидетельство"
+
+#: core/views.py
+msgid "Ha — aksincha, oʻlchovlar real ish rejimida olinishi kerak."
+msgstr "Да — напротив, измерения должны проводиться в реальном режиме работы."
+
+#: core/templates/core/company.html
+msgid "Hamkorlik"
+msgstr "Сотрудничество"
+
+#: core/compliance.py
+msgid "Har bir transhdan oldin"
+msgstr "До каждого транша"
+
+#: core/models.py
+msgid "Har qatorda bitta"
+msgstr "По одному в строке"
+
+#: core/templates/core/registry.html
+msgid "Hech narsa topilmadi."
+msgstr "Ничего не найдено."
+
+#: core/compliance.py
+msgid "Hisob-kitobdan oldin"
+msgstr "До расчёта"
+
+#: core/templates/core/home.html
+#: core/templates/core/news.html
+msgid "Hozircha yangiliklar yoʻq."
+msgstr "Пока новостей нет."
+
+#: core/templates/core/legislation.html
+#: core/models.py
+msgid "Hujjat"
+msgstr "Документ"
+
+#: core/templates/core/base.html
+msgid "Hujjat skani"
+msgstr "Скан документа"
+
+#: core/templates/core/base.html
+#: core/templates/core/credentials.html
+#: core/templates/core/home.html
+#: core/views.py
+msgid "Hujjatlar"
+msgstr "Документы"
+
+#: core/views.py
+msgid "Hujjatlarimiz uchinchi shaxsga beriladimi?"
+msgstr "Передаются ли наши документы третьим лицам?"
+
+#: core/templates/core/services.html
+msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida."
+msgstr "Два направления: проверка энергопотребления и измерение объёма выполненных строительных работ. Оба — на основании полномочий, подтверждённых государственным документом."
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
+msgid "Ish"
+msgstr "Работа"
+
+#: core/templates/core/home.html
+#: core/templates/core/service.html
+msgid "Ish tartibi"
+msgstr "Порядок работы"
+
+#: core/views.py
+msgid "Ishlab chiqarishni toʻxtatmasdan energoaudit qilsa boʻladimi?"
+msgstr "Можно ли провести энергоаудит без остановки производства?"
+
+#: core/templates/core/_lead.html
+#: core/models.py
+msgid "Ism"
+msgstr "Имя"
+
+#: core/models.py
+msgid "Ism familiya"
+msgstr "Имя и фамилия"
+
+#: core/models.py
+msgid "Ism familiya (kirill)"
+msgstr "Имя и фамилия (кириллица)"
+
+#: core/models.py
+msgid "Issiq — energoaudit"
+msgstr "Тёплый — энергоаудит"
+
+#: core/compliance.py
+msgid "Isteʼmol koʻrsatkichlari reestr mezonidan past. Majburiy audit talab qilinmasligi mumkin, lekin reestrdagi holatni rasmiy tekshirish kerak."
+msgstr "Показатели потребления ниже критерия реестра. Обязательный аудит может не требоваться, но статус в реестре нужно проверить официально."
+
+#: core/compliance.py
+msgid "Ixtiyoriy nazorat oʻlchovi"
+msgstr "Добровольное контрольное измерение"
+
+#: core/templates/core/_lead.html
+#: core/models.py
+msgid "Izoh"
+msgstr "Комментарий"
+
+#: core/templates/core/team.html
+msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar."
+msgstr "Всего %(n)s сотрудников: %(e)s — энергоаудит, %(c)s — технический надзор. Ниже — специалисты, указанные в бюллетене."
+
+#: core/templates/core/registry.html
+msgid "Jami %(total)s ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek."
+msgstr "Всего %(total)s работ. Источник: информационные бюллетени организации за 2026 год; названия заказчиков — как в бюллетене."
+
+#: core/templates/core/request.html
+#: core/views.py
+msgid "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling."
+msgstr "Слишком много запросов. Повторите попытку позже или позвоните."
+
+#: core/templates/core/requisites.html
+msgid "Kasbiy javobgarlik — 10 mlrd soʻm, «Imkon-sugʻurta» AJ"
+msgstr "Профессиональная ответственность — 10 млрд сумов, АО «Imkon-sugʻurta»"
+
+#: core/templates/core/contact.html
+msgid "Kattaroq xarita"
+msgstr "Карта крупнее"
+
+#: core/templates/core/legislation.html
+msgid "Kimga tegishli"
+msgstr "Кого касается"
+
+#: core/compliance.py
+msgid "Kiritilgan maʼlumot boʻyicha aniq majburiyat koʻrinmadi. Obyekt tafsilotlarini yuboring — muhandis rasmiy javob beradi."
+msgstr "По введённым данным чёткое обязательство не выявлено. Отправьте подробности об объекте — инженер даст официальный ответ."
+
+#: core/templates/core/home.html
+msgid "Koʻp soʻraladigan savollar"
+msgstr "Часто задаваемые вопросы"
+
+#: core/compliance.py
+msgid "Kredit mablagʻi hisobiga qurilishda bank odatda bajarilgan hajmning mustaqil tasdigʻini talab qiladi."
+msgstr "При строительстве за счёт кредитных средств банк, как правило, требует независимого подтверждения выполненного объёма."
+
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "Litsenziya"
+msgstr "Лицензия"
+
+#: core/models.py
+msgid "Litsenziya va akkreditatsiya"
+msgstr "Лицензия и аккредитация"
+
+#: core/templates/core/credentials.html
+msgid "Litsenziya va reestr maʼlumotlarini rasmiy manbada tekshirish mumkin: litsenziya — license.gov.uz, energoaudit reestri — Energosamaradorlik milliy agentligi."
+msgstr "Данные лицензии и реестра можно проверить в официальном источнике: лицензия — license.gov.uz, реестр энергоаудита — Национальное агентство по энергоэффективности."
+
+#: core/templates/core/base.html
+msgid "Litsenziya va sertifikatlar"
+msgstr "Лицензия и сертификаты"
+
+#: core/templates/core/credentials.html
+msgid "Litsenziya, reestr, sertifikatlar"
+msgstr "Лицензия, реестр, сертификаты"
+
+#: core/models.py
+msgid "Logotip belgisi"
+msgstr "Знак логотипа"
+
+#: core/models.py
+msgid "Logotip ostidagi qator"
+msgstr "Строка под логотипом"
+
+#: core/models.py
+msgid "Logotipdagi yirik qism. Qisqa boʻlgani maʼqul."
+msgstr "Крупная часть логотипа. Желательно короткая."
+
+#: core/models.py
+msgid "Lotin yozuvida — uz va en sahifalar uchun"
+msgstr "Латиницей — для страниц uz и en"
+
+#: core/models.py
+msgid "Loyiha"
+msgstr "Проект"
+
+#: core/templates/core/home.html
+msgid "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz."
+msgstr "Проектно-сметная документация, акты или данные о потреблении — список направим заранее."
+
+#: core/models.py
+msgid "Loyihalar"
+msgstr "Проекты"
+
+#: core/compliance.py
+msgid "Majburiy davriy energoaudit"
+msgstr "Обязательный периодический энергоаудит"
+
+#: core/compliance.py
+msgid "Majburiy emas, lekin f-2 dalolatnomasiga imzo qoʻyishdan oldin hajmni tasdiqlash — eng arzon nazorat."
+msgstr "Не обязательно, но подтверждение объёма перед подписанием акта ф-2 — самый экономный вид контроля."
+
+#: core/templates/core/404.html
+msgid "Manzil oʻzgargan yoki notoʻgʻri terilgan boʻlishi mumkin."
+msgstr "Возможно, адрес изменился или введён неверно."
+
+#: core/models.py
+msgid "Maqola"
+msgstr "Статья"
+
+#: core/models.py
+msgid "Masʼul"
+msgstr "Ответственный"
+
+#: core/templates/core/base.html
+msgid "Maxsus imkoniyatlar"
+msgstr "Специальные возможности"
+
+#: core/models.py
+msgid "Maydon, m2"
+msgstr "Площадь, м²"
+
+#: core/models.py
+msgid "Maʼlumoti va malakasi"
+msgstr "Образование и квалификация"
+
+#: core/templates/core/_lead.html
+msgid "Maʼlumotlar faqat murojaatni koʻrib chiqish uchun ishlatiladi."
+msgstr "Данные используются только для рассмотрения обращения."
+
+#: core/templates/core/base.html
+msgid "Menyu"
+msgstr "Меню"
+
+#: core/models.py
+msgid "Metrologik tekshiruv"
+msgstr "Метрологическая поверка"
+
+#: core/templates/core/direction.html
+#: core/templates/core/post.html
+#: core/templates/core/service.html
+msgid "Meʼyoriy asos"
+msgstr "Нормативная база"
+
+#: core/models.py
+msgid "Meʼyoriy hujjat"
+msgstr "Нормативный документ"
+
+#: core/templates/core/home.html
+#: core/templates/core/legislation.html
+msgid "Meʼyoriy hujjatlar"
+msgstr "Нормативные документы"
+
+#: core/models.py
+msgid "Mijoz"
+msgstr "Клиент"
+
+#: core/models.py
+msgid "Mijozlar"
+msgstr "Клиенты"
+
+#: core/models.py
+msgid "Model"
+msgstr "Модель"
+
+#: core/templates/core/legislation.html
+#: core/templates/core/service.html
+msgid "Muddat"
+msgstr "Срок"
+
+#: core/templates/core/_compliance.html
+msgid "Muhandisdan soʻrash"
+msgstr "Спросить у инженера"
+
+#: core/views.py
+msgid "Murojaat"
+msgstr "Обращение"
+
+#: core/templates/core/request.html
+#: core/views.py
+msgid "Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi."
+msgstr "Обращение принято. В течение одного рабочего дня с Вами свяжется инженер."
+
+#: core/templates/core/home.html
+msgid "Murojaat va suhbat"
+msgstr "Обращение и консультация"
+
+#: core/templates/core/base.html
+#: core/templates/core/contact.html
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/post.html
+#: core/templates/core/request.html
+#: core/templates/core/service.html
+#: core/templates/core/services.html
+msgid "Murojaat yuborish"
+msgstr "Отправить обращение"
+
+#: core/models.py
+msgid "Mutaxassis"
+msgstr "Специалист"
+
+#: core/templates/core/home.html
+msgid "Natija yoʻnaltiruvchi hisob, rasmiy xulosa emas — aniq talab va muddat hujjatlaringiz asosida tasdiqlanadi."
+msgstr "Результат — ориентировочный расчёт, а не официальное заключение; точное требование и срок подтверждаются на основании Ваших документов."
+
+#: core/templates/core/direction.html
+#: core/templates/core/service.html
+msgid "Natijada olasiz"
+msgstr "В результате Вы получите"
+
+#: core/compliance.py
+msgid "Nazorat oʻlchovi tartibga solingan"
+msgstr "Контрольное измерение регламентировано"
+
+#: core/views.py
+msgid "Nazorat oʻlchovi uchun qurilishni toʻxtatish kerakmi?"
+msgstr "Нужно ли останавливать строительство для контрольного измерения?"
+
+#: core/compliance.py
+msgid "Nizo koʻrib chiqilgunga qadar"
+msgstr "До рассмотрения спора"
+
+#: core/compliance.py
+msgid "Nizoda mustaqil ekspert xulosasi"
+msgstr "Независимое экспертное заключение при споре"
+
+#: core/views.py
+msgid "Notoʻgʻri qiymat"
+msgstr "Неверное значение"
+
+#: core/templates/core/request.html
+msgid "Obyekt haqida qisqacha yozing yoki qoʻngʻiroq qiling. Qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaymiz."
+msgstr "Кратко расскажите об объекте или позвоните. Какое требование применимо и какой объём работ — определим уже при первом разговоре."
+
+#: core/templates/core/direction.html
+msgid "Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaydi."
+msgstr "Кратко расскажите об объекте — инженер определит, какое требование применимо, и объём работ уже при первом разговоре."
+
+#: core/templates/core/_lead.html
+#: core/models.py
+msgid "Obyekt turi"
+msgstr "Тип объекта"
+
+#: core/templates/core/home.html
+msgid "Obyekt, maqsad va muddatni aniqlaymiz, qaysi talab tegishli ekanini aytamiz."
+msgstr "Уточним объект, цель и срок, скажем, какое требование применимо."
+
+#: core/templates/core/home.html
+msgid "Obyektda oʻlchov"
+msgstr "Измерение на объекте"
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+msgid "Obyektingizga qaysi talab tegishli?"
+msgstr "Какое требование применимо к Вашему объекту?"
+
+#: core/templates/core/contact.html
+#: core/models.py
+msgid "Ofis"
+msgstr "Офис"
+
+#: core/models.py
+msgid "Ofislar"
+msgstr "Офисы"
+
+#: core/templates/core/base.html
+#: core/views.py
+msgid "Oʻlchov asboblari"
+msgstr "Измерительные приборы"
+
+#: core/templates/core/direction.html
+#: core/templates/core/instruments.html
+msgid "Oʻlchov asboblari va qiyoslash"
+msgstr "Измерительные приборы и калибровка"
+
+#: core/templates/core/direction.html
+#: core/templates/core/instruments.html
+#: core/models.py
+msgid "Oʻlchov chegarasi"
+msgstr "Диапазон измерения"
+
+#: core/templates/core/home.html
+msgid "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan."
+msgstr "Измерение и осмотр — с участием сторон, калиброванными приборами."
+
+#: core/templates/core/company.html
+msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
+msgstr "Член Ассоциации инженеров-консультантов Узбекистана (UZACE)"
+
+#: core/views.py
+msgid "Qaysi binolarga energosamaradorlik toifasi belgilanadi?"
+msgstr "Каким зданиям присваивается категория энергоэффективности?"
+
+#: core/templates/core/home.html
+msgid "Qaysi talab tegishli?"
+msgstr "Какое требование применимо?"
+
+#: core/templates/core/services.html
+msgid "Qaysi xizmat kerakligini bilmaysizmi? Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini birinchi suhbatda aytadi."
+msgstr "Не знаете, какая услуга нужна? Кратко расскажите об объекте — инженер скажет, какое требование применимо, уже при первом разговоре."
+
+#: core/templates/core/registry.html
+msgid "Qidirish"
+msgstr "Поиск"
+
+#: core/models.py
+msgid "Qidiruv sarlavhasi"
+msgstr "Заголовок для поиска"
+
+#: core/models.py
+msgid "Qiymat"
+msgstr "Значение"
+
+#: core/templates/core/instruments.html
+msgid "Qiyoslangan"
+msgstr "Калибровано"
+
+#: core/templates/core/instruments.html
+msgid "Qiyoslanmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan."
+msgstr "Измерение, выполненное неповеренным прибором, в отчёт не включается. Свидетельства о калибровке выданы государственным учреждением «Узбекский национальный институт метрологии»."
+
+#: core/models.py
+msgid "Qiyoslash amal qiladi"
+msgstr "Калибровка действует"
+
+#: core/templates/core/base.html
+#: core/templates/core/service.html
+#: core/models.py
+#: core/views.py
+msgid "Qonunchilik"
+msgstr "Законодательство"
+
+#: core/templates/core/legislation.html
+msgid "Qonunchilik — energoaudit va nazorat oʻlchovi"
+msgstr "Законодательство — энергоаудит и контрольное измерение"
+
+#: core/models.py
+msgid "Qonunga tayangan maqola manba tekshirilmaguncha oʻchiq turadi."
+msgstr "Статья, основанная на законе, остаётся скрытой до проверки источника."
+
+#: core/models.py
+msgid "Qoʻshimcha telefon"
+msgstr "Дополнительный телефон"
+
+#: core/models.py
+msgid "Qurilish va suv xoʻjaligi"
+msgstr "Строительство и водное хозяйство"
+
+#: core/templates/core/company.html
+msgid "Qurilish va uy-joy kommunal xoʻjaligi vazirligi bilan hamkorlik"
+msgstr "Сотрудничество с Министерством строительства и жилищно-коммунального хозяйства"
+
+#: core/templates/core/requisites.html
+msgid "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)"
+msgstr "Лицензия Министерства строительства № 518159 (без срока действия)"
+
+#: core/templates/core/credentials.html
+msgid "Qurilish vazirligi litsenziyasi № 518159, energoaudit reestri, UZACE aʼzoligi, ISO 9001/45001/27001, kasbiy javobgarlik sugʻurtasi — skanlar bilan."
+msgstr "Лицензия Министерства строительства № 518159, реестр энергоаудита, членство в UZACE, ISO 9001/45001/27001, страхование профессиональной ответственности — со сканами."
+
+#: core/templates/core/team.html
+#: core/models.py
+msgid "Qurilishda nazorat oʻlchovi"
+msgstr "Контрольные измерения в строительстве"
+
+#: core/templates/core/company.html
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "Rahbar"
+msgstr "Руководитель"
+
+#: core/templates/core/team.html
+#: core/models.py
+msgid "Rahbariyat"
+msgstr "Руководство"
+
+#: core/templates/core/base.html
+#: core/templates/core/company.html
+#: core/templates/core/team.html
+#: core/models.py
+#: core/views.py
+msgid "Rahbariyat va mutaxassislar"
+msgstr "Руководство и специалисты"
+
+#: core/models.py
+msgid "Raqam"
+msgstr "Номер"
+
+#: core/models.py
+msgid "Raqami"
+msgstr "Номер документа"
+
+#: core/models.py
+msgid "Raqamlar chizigʻi"
+msgstr "Строка цифр"
+
+#: core/templates/core/requisites.html
+msgid "Rasmiy nomi"
+msgstr "Официальное название"
+
+#: core/templates/core/base.html
+#: core/templates/core/company.html
+#: core/models.py
+msgid "Reestr"
+msgstr "Реестр"
+
+#: core/templates/core/direction.html
+msgid "Reestrda koʻrish"
+msgstr "Смотреть в реестре"
+
+#: core/models.py
+msgid "Rejali"
+msgstr "Плановый"
+
+#: core/templates/core/base.html
+#: core/templates/core/requisites.html
+#: core/views.py
+msgid "Rekvizitlar"
+msgstr "Реквизиты"
+
+#: core/models.py
+msgid "Reyting"
+msgstr "Рейтинг"
+
+#: core/models.py
+msgid "Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi."
+msgstr "Для русской страницы. Если пусто, используется латиница."
+
+#: core/templates/core/base.html
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "STIR"
+msgstr "ИНН"
+
+#: core/templates/core/404.html
+msgid "Sahifa topilmadi"
+msgstr "Страница не найдена"
+
+#: core/templates/core/registry.html
+msgid "Sahifalar"
+msgstr "Страницы"
+
+#: core/models.py
+msgid "Sanoat"
+msgstr "Промышленность"
+
+#: core/models.py
+msgid "Sarlavhaning ikkinchi qatori — urgʻu rangida beriladi."
+msgstr "Вторая строка заголовка — выделяется акцентным цветом."
+
+#: core/models.py
+msgid "Sarlavhaning urgʻuli qatori"
+msgstr "Акцентная строка заголовка"
+
+#: core/models.py
+msgid "Savdo, transport va xizmatlar"
+msgstr "Торговля, транспорт и услуги"
+
+#: core/templates/core/service.html
+msgid "Savollar"
+msgstr "Вопросы"
+
+#: core/models.py
+msgid "Sayt sozlamalari"
+msgstr "Настройки сайта"
+
+#: core/models.py
+msgid "Saytda"
+msgstr "На сайте"
+
+#: core/models.py
+msgid "Sertifikat"
+msgstr "Сертификат"
+
+#: core/models.py
+msgid "Sertifikat raqami"
+msgstr "Номер сертификата"
+
+#: core/models.py
+msgid "Shartnoma"
+msgstr "Договор"
+
+#: core/compliance.py
+msgid "Shartnoma asosida"
+msgstr "На договорной основе"
+
+#: core/models.py
+msgid "Shoshilinch"
+msgstr "Срочно"
+
+#: core/templates/core/service.html
+msgid "Shu yoʻnalishdagi boshqa xizmatlar"
+msgstr "Другие услуги этого направления"
+
+#: core/templates/core/_crumbs.html
+msgid "Siz bu yerdasiz"
+msgstr "Вы здесь"
+
+#: core/templates/core/company.html
+msgid "Skanlar bilan"
+msgstr "Со сканами"
+
+#: core/models.py
+msgid "Smeta qiymati"
+msgstr "Стоимость по смете"
+
+#: core/templates/core/_energy.html
+msgid "Solishtirma isteʼmol, kVt·soat/m²·yil"
+msgstr "Удельное потребление, кВт·ч/м²·год"
+
+#: core/models.py
+msgid "Sovuq — oʻlchov auditi"
+msgstr "Холодный — обмерный аудит"
+
+#: core/models.py
+msgid "Soʻrov"
+msgstr "Заявка"
+
+#: core/models.py
+msgid "Soʻrovlar"
+msgstr "Заявки"
+
+#: core/compliance.py
+msgid "Sud yoki tomonlar talabi"
+msgstr "По требованию суда или сторон"
+
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "Sugʻurta"
+msgstr "Страхование"
+
+#: core/models.py
+msgid "Taklif yuborildi"
+msgstr "Предложение отправлено"
+
+#: core/templates/core/legislation.html
+msgid "Talab"
+msgstr "Требование"
+
+#: core/templates/core/_lead.html
+msgid "Tanlang"
+msgstr "Выберите"
+
+#: core/models.py
+msgid "Tashkil topgan yil"
+msgstr "Год основания"
+
+#: core/templates/core/base.html
+#: core/views.py
+msgid "Tashkilot"
+msgstr "Организация"
+
+#: core/models.py
+msgid "Tashkilot (rasmiy nomi)"
+msgstr "Организация (официальное название)"
+
+#: core/templates/core/base.html
+#: core/templates/core/company.html
+msgid "Tashkilot haqida"
+msgstr "Об организации"
+
+#: core/templates/core/legislation.html
+msgid "Tekshirilgan"
+msgstr "Проверено"
+
+#: core/templates/core/_lead.html
+#: core/templates/core/home.html
+#: core/templates/core/request.html
+#: core/templates/core/requisites.html
+#: core/models.py
+msgid "Telefon"
+msgstr "Телефон"
+
+#: core/forms.py
+msgid "Telefon raqami toʻliq emas."
+msgstr "Номер телефона неполный."
+
+#: core/templates/core/base.html
+msgid "Til"
+msgstr "Язык"
+
+#: core/templates/core/_energy.html
+msgid "Toifa"
+msgstr "Категория"
+
+#: core/templates/core/registry.html
+msgid "Topildi: %(n)s ta"
+msgstr "Найдено: %(n)s"
+
+#: core/models.py
+msgid "Toshkent ofisi"
+msgstr "Офис в Ташкенте"
+
+#: core/templates/core/registry.html
+msgid "Tozalash"
+msgstr "Очистить"
+
+#: core/templates/core/home.html
+msgid "Toʻliq reestr"
+msgstr "Полный реестр"
+
+#: core/templates/core/direction.html
+msgid "Toʻliq roʻyxat"
+msgstr "Полный список"
+
+#: core/compliance.py
+msgid "Transh oldidan hajm tekshiruvi"
+msgstr "Проверка объёма перед траншем"
+
+#: core/templates/core/legislation.html
+msgid "Tushuntirishlar"
+msgstr "Разъяснения"
+
+#: core/templates/core/_compliance.html
+msgid "Uch savolga javob bering — obyektingizga qaysi talab tegishli ekanini, muddatini va qonuniy asosini koʻrasiz."
+msgstr "Ответьте на три вопроса — узнаете, какое требование применимо к Вашему объекту, срок и правовое основание."
+
+#: core/models.py
+msgid "Urgʻu bilan"
+msgstr "С акцентом"
+
+#: core/templates/core/home.html
+msgid "VM qarori"
+msgstr "Постановление Кабинета Министров"
+
+#: core/templates/core/request.html
+msgid "Vakolat"
+msgstr "Полномочия"
+
+#: core/templates/core/home.html
+msgid "Vakolat hujjatlari"
+msgstr "Разрешительные документы"
+
+#: core/templates/core/company.html
+msgid "Vakolat va sifat hujjatlari"
+msgstr "Разрешительные документы и документы качества"
+
+#: core/templates/core/credentials.html
+msgid "Vakolat va sifat hujjatlari. Asl nusxalar Fargʻonadagi bosh ofisda; skanni kattalashtirish uchun ustiga bosing."
+msgstr "Разрешительные документы и документы качества. Оригиналы — в головном офисе в Фергане; нажмите на скан, чтобы увеличить."
+
+#: core/templates/core/direction.html
+msgid "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673), 24 mutaxassis"
+msgstr "Полномочия: реестр Национального агентства по энергоэффективности (Постановление КМ № 673), 24 специалиста"
+
+#: core/templates/core/direction.html
+msgid "Vakolat: Qurilish vazirligi litsenziyasi № 518159, 16 mutaxassis"
+msgstr "Полномочия: лицензия Министерства строительства № 518159, 16 специалистов"
+
+#: core/templates/core/company.html
+msgid "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik"
+msgstr "Сотрудничество с Инспекцией по контролю за использованием электроэнергии, нефтепродуктов и газа при Кабинете Министров"
+
+#: core/templates/core/_lead.html
+#: core/models.py
+msgid "Viloyat"
+msgstr "Область"
+
+#: core/models.py
+msgid "Xalqaro loyihalar va jamoat tashkilotlari"
+msgstr "Международные проекты и общественные организации"
+
+#: core/templates/core/contact.html
+msgid "Xarita"
+msgstr "Карта"
+
+#: core/models.py
+msgid "Xarita iframe kodi"
+msgstr "Код карты (iframe)"
+
+#: core/models.py
+msgid "Xizmat"
+msgstr "Услуга"
+
+#: core/templates/core/base.html
+#: core/templates/core/home.html
+#: core/templates/core/services.html
+#: core/models.py
+#: core/views.py
+msgid "Xizmatlar"
+msgstr "Услуги"
+
+#: core/templates/core/home.html
+msgid "Xulosa"
+msgstr "Заключение"
+
+#: core/compliance.py
+msgid "Xulosa dalil kuchiga ega boʻlishi uchun oʻlchov tomonlar ishtirokida va bayonnoma bilan rasmiylashtiriladi."
+msgstr "Чтобы заключение имело силу доказательства, измерение оформляется с участием сторон и протоколом."
+
+#: core/models.py
+msgid "Xulosa muddati, ish kuni"
+msgstr "Срок заключения, раб. дней"
+
+#: core/models.py
+msgid "Yangi"
+msgstr "Новая"
+
+#: core/templates/core/base.html
+#: core/models.py
+#: core/views.py
+msgid "Yangiliklar"
+msgstr "Новости"
+
+#: core/templates/core/home.html
+#: core/templates/core/news.html
+msgid "Yangiliklar va tushuntirishlar"
+msgstr "Новости и разъяснения"
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
+msgid "Yil"
+msgstr "Год"
+
+#: core/models.py
+msgid "Yillik isteʼmol"
+msgstr "Годовое потребление"
+
+#: core/templates/core/_compliance.html
+msgid "Yillik isteʼmol %(kwh)s kVt·soat elektr yoki %(gas)s m³ gazdan oshsa — Davlat energetika reestri subyekti, davriy energoaudit majburiy."
+msgstr "Если годовое потребление превышает %(kwh)s кВт·ч электроэнергии или %(gas)s м³ газа — субъект Государственного энергетического реестра, периодический энергоаудит обязателен."
+
+#: core/compliance.py
+msgid "Yillik isteʼmol boʻyicha obyekt Davlat energetika reestri mezonlaridan oshadi. Davriy audit majburiy, muddat oxirgi audit sanasidan hisoblanadi."
+msgstr "По годовому потреблению объект превышает критерии Государственного энергетического реестра. Периодический аудит обязателен, срок отсчитывается от даты последнего аудита."
+
+#: core/models.py
+msgid "Yopildi"
+msgstr "Закрыта"
+
+#: core/templates/core/_lead.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
+#: core/models.py
+msgid "Yoʻnalish"
+msgstr "Направление"
+
+#: core/templates/core/services.html
+msgid "Yoʻnalish sahifasi"
+msgstr "Страница направления"
+
+#: core/models.py
+msgid "Yoʻnalishlar"
+msgstr "Направления"
+
+#: core/views.py
+msgid "Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 boʻyicha sertifikatlangan."
+msgstr "Нет. Документы используются только в рамках договора; система информационной безопасности сертифицирована по ISO 27001:2022."
+
+#: core/views.py
+msgid "Yoʻq. Oʻlchov ish jarayoniga xalaqit bermaydi; yashirin ishlar yopilishidan oldin qayd etiladi."
+msgstr "Нет. Измерение не мешает рабочему процессу; скрытые работы фиксируются до их закрытия."
+
+#: core/templates/core/_lead.html
+msgid "Yuborish"
+msgstr "Отправить"
+
+#: core/templates/core/requisites.html
+msgid "Yuridik manzil"
+msgstr "Юридический адрес"
+
+#: core/templates/core/instruments.html
+#: core/models.py
+msgid "Zavod raqami"
+msgstr "Заводской номер"
+
+#: core/models.py
+msgid "[{\"q\": {\"uz\": \"...\"}, \"a\": {\"uz\": \"...\"}}]"
+msgstr "[{\"q\": {\"uz\": \"...\"}, \"a\": {\"uz\": \"...\"}}]"
+
+#: core/models.py
+msgid "[{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}] koʻrinishida"
+msgstr "В виде [{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}]"
+
+#: core/templates/core/credentials.html
+#: core/templates/core/home.html
+msgid "amal qiladi"
+msgstr "действует"
+
+#: core/templates/core/credentials.html
+msgid "berilgan"
+msgstr "выдано"
+
+#: core/templates/core/base.html
+msgid "bosh sahifa"
+msgstr "главная страница"
+
+#: core/models.py
+msgid "lex.uz bilan tekshirilgan sana"
+msgstr "дата проверки по lex.uz"
+
+#: core/templates/core/registry.html
+msgid "masalan, AGROBANK"
+msgstr "например, AGROBANK"
+
+#: core/templates/core/_lead.html
+msgid "masalan, maʼmuriy bino, 4 qavat"
+msgstr "например, административное здание, 4 этажа"
+
+#: core/templates/core/credentials.html
+#: core/templates/core/home.html
+msgid "muddatsiz"
+msgstr "без срока действия"
+
+#: core/templates/core/requisites.html
+msgid "skan"
+msgstr "скан"
+
+#: core/models.py
+msgid "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
+msgstr "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
+
+#: core/views.py
+msgid "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy."
+msgstr "В соответствии с Законом ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
+
+#: core/templates/core/legislation.html
+msgid "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi."
+msgstr "ЗРУ-940, Постановление КМ № 690 и другие нормативные документы: кого касается, требование, срок, ссылка на lex.uz."
