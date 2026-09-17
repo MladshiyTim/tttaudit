@@ -12,11 +12,11 @@ msgstr "До %(mb)s МБ: PDF, Excel, Word, DWG, ZIP, изображение"
 
 #: core/templates/core/team.html
 msgid "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan."
-msgstr "%(n)s специалистов: по энергоаудиту и контрольным измерениям в строительстве, с сертификатами государственного образца."
+msgstr "Специалистов: %(n)s — по энергоаудиту и контрольному обмеру в строительстве, с сертификатами государственного образца."
 
 #: core/templates/core/registry.html
 msgid "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil."
-msgstr "%(total)s работ по энергоаудиту и контрольным измерениям, 2019–2025: заказчик, направление, год."
+msgstr "Реестр работ по энергоаудиту и контрольному обмеру (всего: %(total)s), 2019–2025: заказчик, направление, год."
 
 #: core/models.py
 msgid "Agrosanoat va oziq-ovqat"
@@ -196,15 +196,15 @@ msgstr "Среди заказчиков"
 
 #: core/templates/core/_compliance.html
 msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi."
-msgstr "Объём работ, выполненных за счёт бюджетных средств, проходит контрольное измерение; стоимость услуги не превышает 0,3% от стоимости строительства."
+msgstr "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру; стоимость услуги не превышает 0,3% от стоимости строительства."
 
 #: core/compliance.py
 msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
-msgstr "На объекте, финансируемом за счёт бюджетных средств, измерение проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
+msgstr "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
 
 #: core/compliance.py
 msgid "Byudjet obyektlarida oʻlchov tartibi"
-msgstr "Порядок измерения на бюджетных объектах"
+msgstr "Порядок обмера на бюджетных объектах"
 
 #: core/templates/core/_energy.html
 msgid "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi."
@@ -220,7 +220,7 @@ msgstr "До подписания акта"
 
 #: core/templates/core/_compliance.html
 msgid "Davriy energoaudit — %(years)s yilda kamida bir marta (ЗРУ-940)."
-msgstr "Периодический энергоаудит — не реже одного раза в %(years)s лет (ЗРУ-940)."
+msgstr "Периодический энергоаудит — не реже одного раза в %(years)s лет (Закон № ЗРУ-940)."
 
 #: core/templates/core/_lead.html
 #: core/templates/core/home.html
@@ -265,7 +265,7 @@ msgstr "Кому энергоаудит обязателен?"
 
 #: core/templates/core/services.html
 msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
-msgstr "Энергоаудит, энергопаспорт здания, контрольные измерения в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
+msgstr "Энергоаудит, энергопаспорт здания, контрольный обмер в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
 
 #: core/templates/core/legislation.html
 msgid "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda."
@@ -408,7 +408,7 @@ msgstr "Показатели потребления ниже критерия р
 
 #: core/compliance.py
 msgid "Ixtiyoriy nazorat oʻlchovi"
-msgstr "Добровольное контрольное измерение"
+msgstr "Добровольный контрольный обмер"
 
 #: core/templates/core/_lead.html
 #: core/models.py
@@ -417,11 +417,11 @@ msgstr "Комментарий"
 
 #: core/templates/core/team.html
 msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar."
-msgstr "Всего %(n)s сотрудников: %(e)s — энергоаудит, %(c)s — технический надзор. Ниже — специалисты, указанные в бюллетене."
+msgstr "Всего сотрудников: %(n)s (энергоаудит — %(e)s, технический надзор — %(c)s). Ниже — специалисты, указанные в бюллетене."
 
 #: core/templates/core/registry.html
 msgid "Jami %(total)s ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek."
-msgstr "Всего %(total)s работ. Источник: информационные бюллетени организации за 2026 год; названия заказчиков — как в бюллетене."
+msgstr "Работ в реестре: %(total)s. Источник: информационные бюллетени организации за 2026 год; названия заказчиков — как в бюллетене."
 
 #: core/templates/core/request.html
 #: core/views.py
@@ -620,11 +620,11 @@ msgstr "В результате Вы получите"
 
 #: core/compliance.py
 msgid "Nazorat oʻlchovi tartibga solingan"
-msgstr "Контрольное измерение регламентировано"
+msgstr "Контрольный обмер регламентирован"
 
 #: core/views.py
 msgid "Nazorat oʻlchovi uchun qurilishni toʻxtatish kerakmi?"
-msgstr "Нужно ли останавливать строительство для контрольного измерения?"
+msgstr "Нужно ли останавливать строительство для контрольного обмера?"
 
 #: core/compliance.py
 msgid "Nizo koʻrib chiqilgunga qadar"
@@ -681,7 +681,7 @@ msgstr "Измерительные приборы"
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
 msgid "Oʻlchov asboblari va qiyoslash"
-msgstr "Измерительные приборы и калибровка"
+msgstr "Измерительные приборы и поверка"
 
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
@@ -691,7 +691,7 @@ msgstr "Диапазон измерения"
 
 #: core/templates/core/home.html
 msgid "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan."
-msgstr "Измерение и осмотр — с участием сторон, калиброванными приборами."
+msgstr "Измерение и осмотр — с участием сторон, поверенными приборами."
 
 #: core/templates/core/company.html
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
@@ -723,15 +723,15 @@ msgstr "Значение"
 
 #: core/templates/core/instruments.html
 msgid "Qiyoslangan"
-msgstr "Калибровано"
+msgstr "Поверено"
 
 #: core/templates/core/instruments.html
 msgid "Qiyoslanmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan."
-msgstr "Измерение, выполненное неповеренным прибором, в отчёт не включается. Свидетельства о калибровке выданы государственным учреждением «Узбекский национальный институт метрологии»."
+msgstr "Измерение, выполненное неповеренным прибором, в отчёт не включается. Свидетельства о поверке выданы государственным учреждением «Узбекский национальный институт метрологии»."
 
 #: core/models.py
 msgid "Qiyoslash amal qiladi"
-msgstr "Калибровка действует"
+msgstr "Поверка действует"
 
 #: core/templates/core/base.html
 #: core/templates/core/service.html
@@ -742,7 +742,7 @@ msgstr "Законодательство"
 
 #: core/templates/core/legislation.html
 msgid "Qonunchilik — energoaudit va nazorat oʻlchovi"
-msgstr "Законодательство — энергоаудит и контрольное измерение"
+msgstr "Законодательство — энергоаудит и контрольный обмер"
 
 #: core/models.py
 msgid "Qonunga tayangan maqola manba tekshirilmaguncha oʻchiq turadi."
@@ -771,7 +771,7 @@ msgstr "Лицензия Министерства строительства №
 #: core/templates/core/team.html
 #: core/models.py
 msgid "Qurilishda nazorat oʻlchovi"
-msgstr "Контрольные измерения в строительстве"
+msgstr "Контрольный обмер в строительстве"
 
 #: core/templates/core/company.html
 #: core/templates/core/requisites.html
@@ -1129,7 +1129,7 @@ msgstr "Годовое потребление"
 
 #: core/templates/core/_compliance.html
 msgid "Yillik isteʼmol %(kwh)s kVt·soat elektr yoki %(gas)s m³ gazdan oshsa — Davlat energetika reestri subyekti, davriy energoaudit majburiy."
-msgstr "Если годовое потребление превышает %(kwh)s кВт·ч электроэнергии или %(gas)s м³ газа — субъект Государственного энергетического реестра, периодический энергоаудит обязателен."
+msgstr "Если годовое потребление превышает %(kwh)s кВт·ч электроэнергии или %(gas)s м³ газа, организация является субъектом Государственного энергетического реестра; периодический энергоаудит обязателен."
 
 #: core/compliance.py
 msgid "Yillik isteʼmol boʻyicha obyekt Davlat energetika reestri mezonlaridan oshadi. Davriy audit majburiy, muddat oxirgi audit sanasidan hisoblanadi."
@@ -1160,7 +1160,7 @@ msgstr "Нет. Документы используются только в ра
 
 #: core/views.py
 msgid "Yoʻq. Oʻlchov ish jarayoniga xalaqit bermaydi; yashirin ishlar yopilishidan oldin qayd etiladi."
-msgstr "Нет. Измерение не мешает рабочему процессу; скрытые работы фиксируются до их закрытия."
+msgstr "Нет. Обмер не мешает рабочему процессу; скрытые работы фиксируются до их закрытия."
 
 #: core/templates/core/_lead.html
 msgid "Yuborish"
@@ -1223,8 +1223,8 @@ msgstr "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}]
 
 #: core/views.py
 msgid "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy."
-msgstr "В соответствии с Законом ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
+msgstr "В соответствии с Законом № ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
 
 #: core/templates/core/legislation.html
 msgid "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi."
-msgstr "ЗРУ-940, Постановление КМ № 690 и другие нормативные документы: кого касается, требование, срок, ссылка на lex.uz."
+msgstr "Закон № ЗРУ-940, Постановление КМ № 690 и другие нормативные документы: кого касается, требование, срок, ссылка на lex.uz."

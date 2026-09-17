@@ -24,6 +24,7 @@ class StaticSitemap(Sitemap):
 class DirectionSitemap(Sitemap):
     i18n = True
     alternates = True
+    x_default = True
     priority = 0.9
 
     def items(self):
@@ -33,6 +34,7 @@ class DirectionSitemap(Sitemap):
 class ServiceSitemap(Sitemap):
     i18n = True
     alternates = True
+    x_default = True
     priority = 0.9
 
     def items(self):
@@ -42,6 +44,7 @@ class ServiceSitemap(Sitemap):
 class PostSitemap(Sitemap):
     i18n = True
     alternates = True
+    x_default = True
     changefreq = "weekly"
 
     def items(self):

@@ -12,11 +12,11 @@ msgstr "Up to %(mb)s MB: PDF, Excel, Word, DWG, ZIP, image"
 
 #: core/templates/core/team.html
 msgid "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan."
-msgstr "%(n)s specialists: in energy audit and construction control measurement, with state-issued certificates."
+msgstr "Specialists: %(n)s — in energy audit and construction control measurement, with state-issued certificates."
 
 #: core/templates/core/registry.html
 msgid "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil."
-msgstr "%(total)s energy audit and control measurement projects, 2019–2025: client, direction, year."
+msgstr "Registry of energy audit and control measurement projects (total: %(total)s), 2019–2025: client, practice area, year."
 
 #: core/models.py
 msgid "Agrosanoat va oziq-ovqat"
@@ -196,15 +196,15 @@ msgstr "Among our clients"
 
 #: core/templates/core/_compliance.html
 msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi."
-msgstr "Volume of work funded from the budget undergoes control measurement; the service fee does not exceed 0.3% of the construction cost."
+msgstr "The volume of work performed in budget-funded construction is subject to control measurement; the service fee does not exceed 0.3% of the construction cost."
 
 #: core/compliance.py
 msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
-msgstr "On a facility financed from the budget, the measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost."
+msgstr "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost."
 
 #: core/compliance.py
 msgid "Byudjet obyektlarida oʻlchov tartibi"
-msgstr "Measurement procedure at budget-funded facilities"
+msgstr "Control measurement procedure at budget-funded facilities"
 
 #: core/templates/core/_energy.html
 msgid "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi."
@@ -220,7 +220,7 @@ msgstr "Before signing the certificate of acceptance"
 
 #: core/templates/core/_compliance.html
 msgid "Davriy energoaudit — %(years)s yilda kamida bir marta (ЗРУ-940)."
-msgstr "Periodic energy audit — at least once every %(years)s years (Law No. ЗРУ-940)."
+msgstr "Periodic energy audit — at least once every %(years)s years (Law No. ZRU-940)."
 
 #: core/templates/core/_lead.html
 #: core/templates/core/home.html
@@ -368,7 +368,7 @@ msgstr "Are our documents shared with third parties?"
 
 #: core/templates/core/services.html
 msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida."
-msgstr "Two directions: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document."
+msgstr "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document."
 
 #: core/templates/core/direction.html
 #: core/templates/core/home.html
@@ -413,15 +413,15 @@ msgstr "Voluntary control measurement"
 #: core/templates/core/_lead.html
 #: core/models.py
 msgid "Izoh"
-msgstr "Notes"
+msgstr "Comment"
 
 #: core/templates/core/team.html
 msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar."
-msgstr "Total %(n)s staff: %(e)s in energy audit, %(c)s in technical supervision. Below are the specialists listed in the bulletin."
+msgstr "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(c)s). Below are the specialists listed in the bulletin."
 
 #: core/templates/core/registry.html
 msgid "Jami %(total)s ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek."
-msgstr "Total %(total)s projects. Source: the organisation's 2026 information bulletins; client names as listed in the bulletin."
+msgstr "Projects in the registry: %(total)s. Source: the organisation's 2026 information bulletins; client names as listed in the bulletin."
 
 #: core/templates/core/request.html
 #: core/views.py
@@ -649,7 +649,7 @@ msgstr "Briefly describe the facility — an engineer will determine which requi
 #: core/templates/core/_lead.html
 #: core/models.py
 msgid "Obyekt turi"
-msgstr "Object type"
+msgstr "Facility type"
 
 #: core/templates/core/home.html
 msgid "Obyekt, maqsad va muddatni aniqlaymiz, qaysi talab tegishli ekanini aytamiz."
@@ -681,7 +681,7 @@ msgstr "Measuring instruments"
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
 msgid "Oʻlchov asboblari va qiyoslash"
-msgstr "Measuring instruments and calibration"
+msgstr "Measuring instruments and verification"
 
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
@@ -691,7 +691,7 @@ msgstr "Measurement range"
 
 #: core/templates/core/home.html
 msgid "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan."
-msgstr "Measurement and inspection are carried out with the parties present, using calibrated instruments."
+msgstr "Measurement and inspection are carried out with the parties present, using verified instruments."
 
 #: core/templates/core/company.html
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
@@ -723,15 +723,15 @@ msgstr "Value"
 
 #: core/templates/core/instruments.html
 msgid "Qiyoslangan"
-msgstr "Calibrated"
+msgstr "Verified"
 
 #: core/templates/core/instruments.html
 msgid "Qiyoslanmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan."
-msgstr "A measurement taken with an uncalibrated instrument is not included in the report. Calibration certificates are issued by the state institution 'Uzbek National Institute of Metrology'."
+msgstr "A measurement taken with an unverified instrument is not included in the report. Metrological verification certificates are issued by the state institution 'Uzbek National Institute of Metrology'."
 
 #: core/models.py
 msgid "Qiyoslash amal qiladi"
-msgstr "Calibration valid"
+msgstr "Verification valid"
 
 #: core/templates/core/base.html
 #: core/templates/core/service.html
@@ -762,7 +762,7 @@ msgstr "Cooperation with the Ministry of Construction and Housing and Communal S
 
 #: core/templates/core/requisites.html
 msgid "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)"
-msgstr "Ministry of Construction licence No. 518159 (indefinite)"
+msgstr "Ministry of Construction licence No. 518159 (no expiry date)"
 
 #: core/templates/core/credentials.html
 msgid "Qurilish vazirligi litsenziyasi № 518159, energoaudit reestri, UZACE aʼzoligi, ISO 9001/45001/27001, kasbiy javobgarlik sugʻurtasi — skanlar bilan."
@@ -900,7 +900,7 @@ msgstr "Urgent"
 
 #: core/templates/core/service.html
 msgid "Shu yoʻnalishdagi boshqa xizmatlar"
-msgstr "Other services in this direction"
+msgstr "Other services in this practice area"
 
 #: core/templates/core/_crumbs.html
 msgid "Siz bu yerdasiz"
@@ -1129,7 +1129,7 @@ msgstr "Annual consumption"
 
 #: core/templates/core/_compliance.html
 msgid "Yillik isteʼmol %(kwh)s kVt·soat elektr yoki %(gas)s m³ gazdan oshsa — Davlat energetika reestri subyekti, davriy energoaudit majburiy."
-msgstr "If annual consumption exceeds %(kwh)s kWh of electricity or %(gas)s m³ of gas — the entity is subject to the State Energy Registry, and periodic energy audit is mandatory."
+msgstr "If annual consumption exceeds %(kwh)s kWh of electricity or %(gas)s m³ of gas, the entity is a subject of the State Energy Registry; periodic energy audit is mandatory."
 
 #: core/compliance.py
 msgid "Yillik isteʼmol boʻyicha obyekt Davlat energetika reestri mezonlaridan oshadi. Davriy audit majburiy, muddat oxirgi audit sanasidan hisoblanadi."
@@ -1144,15 +1144,15 @@ msgstr "Closed"
 #: core/templates/core/registry.html
 #: core/models.py
 msgid "Yoʻnalish"
-msgstr "Practice"
+msgstr "Practice area"
 
 #: core/templates/core/services.html
 msgid "Yoʻnalish sahifasi"
-msgstr "Direction page"
+msgstr "Practice area page"
 
 #: core/models.py
 msgid "Yoʻnalishlar"
-msgstr "Practices"
+msgstr "Practice areas"
 
 #: core/views.py
 msgid "Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 boʻyicha sertifikatlangan."
@@ -1211,7 +1211,7 @@ msgstr "e.g. administrative building, 4 storeys"
 #: core/templates/core/credentials.html
 #: core/templates/core/home.html
 msgid "muddatsiz"
-msgstr "indefinite"
+msgstr "no expiry date"
 
 #: core/templates/core/requisites.html
 msgid "skan"
@@ -1223,8 +1223,8 @@ msgstr "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}]
 
 #: core/views.py
 msgid "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy."
-msgstr "Under Law No. ЗРУ-940, periodic energy audit is mandatory at least once every five years. For enterprises included in the State Energy Registry and organisations with state participation, the audit is mandatory; for others, it is voluntary."
+msgstr "Under Law No. ZRU-940, periodic energy audit is mandatory at least once every five years. For enterprises included in the State Energy Registry and organisations with state participation, the audit is mandatory; for others, it is voluntary."
 
 #: core/templates/core/legislation.html
 msgid "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi."
-msgstr "Law No. ЗРУ-940, Cabinet of Ministers Resolution No. 690 and other regulatory documents: who it applies to, requirement, deadline, link to lex.uz."
+msgstr "Law No. ZRU-940, Cabinet of Ministers Resolution No. 690 and other regulatory documents: who it applies to, requirement, deadline, link to lex.uz."

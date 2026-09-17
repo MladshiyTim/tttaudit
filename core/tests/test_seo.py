@@ -62,3 +62,14 @@ def test_percent_sign_survives_translation(client):
     html = client.get("/ru/xizmatlar/energoaudit/").content.decode()
     assert "Byudjet mablagʻi hisobiga" not in html
     assert "0,3%" in html
+
+
+@pytest.mark.django_db
+def test_registry_ru_avoids_bad_number_agreement(client):
+    """Oʻzgaruvchan sonlar otdan oldin turgan ruscha satrlar har qanday son
+    uchun grammatik boʻlishi kerak — «Всего 143 работ» kabi kelishik xatosi
+    boʻlmasin (143 -> genitiv birlik «работы» talab qiladi, koʻplik «работ» emas)."""
+    html = client.get("/ru/reestr/").content.decode()
+    assert "Всего 143 работ" not in html
+    assert "Работ в реестре:" in html
+    assert "Найдено:" in html

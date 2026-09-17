@@ -4,12 +4,12 @@
     "ru": "До %(mb)s МБ: PDF, Excel, Word, DWG, ZIP, изображение"
   },
   "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan.": {
-    "en": "%(n)s specialists: in energy audit and construction control measurement, with state-issued certificates.",
-    "ru": "%(n)s специалистов: по энергоаудиту и контрольным измерениям в строительстве, с сертификатами государственного образца."
+    "en": "Specialists: %(n)s — in energy audit and construction control measurement, with state-issued certificates.",
+    "ru": "Специалистов: %(n)s — по энергоаудиту и контрольному обмеру в строительстве, с сертификатами государственного образца."
   },
   "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil.": {
-    "en": "%(total)s energy audit and control measurement projects, 2019–2025: client, direction, year.",
-    "ru": "%(total)s работ по энергоаудиту и контрольным измерениям, 2019–2025: заказчик, направление, год."
+    "en": "Registry of energy audit and control measurement projects (total: %(total)s), 2019–2025: client, practice area, year.",
+    "ru": "Реестр работ по энергоаудиту и контрольному обмеру (всего: %(total)s), 2019–2025: заказчик, направление, год."
   },
   "Agrosanoat va oziq-ovqat": {
     "en": "Agro-industry and food",
@@ -236,7 +236,7 @@
     "ru": "Кому нужна эта услуга"
   },
   "Bu yoʻnalish boʻyicha keys hali qoʻshilmagan.": {
-    "en": "No cases have been added for this practice yet.",
+    "en": "No cases have been added for this practice area yet.",
     "ru": "По этому направлению кейсы пока не добавлены."
   },
   "Buyurtmachi": {
@@ -252,16 +252,16 @@
     "ru": "Среди заказчиков"
   },
   "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi.": {
-    "en": "Volume of work funded from the budget undergoes control measurement; the service fee does not exceed 0.3% of the construction cost.",
-    "ru": "Объём работ, выполненных за счёт бюджетных средств, проходит контрольное измерение; стоимость услуги не превышает 0,3% от стоимости строительства."
+    "en": "The volume of work performed in budget-funded construction is subject to control measurement; the service fee does not exceed 0.3% of the construction cost.",
+    "ru": "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру; стоимость услуги не превышает 0,3% от стоимости строительства."
   },
   "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi.": {
-    "en": "On a facility financed from the budget, the measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost.",
-    "ru": "На объекте, финансируемом за счёт бюджетных средств, измерение проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
+    "en": "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost.",
+    "ru": "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
   },
   "Byudjet obyektlarida oʻlchov tartibi": {
-    "en": "Measurement procedure at budget-funded facilities",
-    "ru": "Порядок измерения на бюджетных объектах"
+    "en": "Control measurement procedure at budget-funded facilities",
+    "ru": "Порядок обмера на бюджетных объектах"
   },
   "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi.": {
     "en": "The thresholds are indicative; the official category is set in the energy passport.",
@@ -284,8 +284,8 @@
     "ru": "Для субъектов Государственного энергетического реестра периодический энергоаудит обязателен не реже одного раза в пять лет. Категорию вашего объекта определим на предварительной оценке."
   },
   "Davriy energoaudit — %(years)s yilda kamida bir marta (ЗРУ-940).": {
-    "en": "Periodic energy audit — at least once every %(years)s years (Law No. ЗРУ-940).",
-    "ru": "Периодический энергоаудит — не реже одного раза в %(years)s лет (ЗРУ-940)."
+    "en": "Periodic energy audit — at least once every %(years)s years (Law No. ZRU-940).",
+    "ru": "Периодический энергоаудит — не реже одного раза в %(years)s лет (Закон № ЗРУ-940)."
   },
   "Dizayn varianti": {
     "en": "Design variant",
@@ -337,7 +337,7 @@
   },
   "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab.": {
     "en": "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan.",
-    "ru": "Энергоаудит, энергопаспорт здания, контрольные измерения в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
+    "ru": "Энергоаудит, энергопаспорт здания, контрольный обмер в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
   },
   "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda.": {
     "en": "Only documents checked against the current edition on lex.uz are shown. The verification date is in each row.",
@@ -480,7 +480,7 @@
     "ru": "РАБ. ДНЕЙ"
   },
   "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida.": {
-    "en": "Two directions: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document.",
+    "en": "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document.",
     "ru": "Два направления: проверка энергопотребления и измерение объёма выполненных строительных работ. Оба — на основании полномочий, подтверждённых государственным документом."
   },
   "Institutsional": {
@@ -537,19 +537,19 @@
   },
   "Ixtiyoriy nazorat oʻlchovi": {
     "en": "Voluntary control measurement",
-    "ru": "Добровольное контрольное измерение"
+    "ru": "Добровольный контрольный обмер"
   },
   "Izoh": {
-    "en": "Notes",
+    "en": "Comment",
     "ru": "Комментарий"
   },
   "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar.": {
-    "en": "Total %(n)s staff: %(e)s in energy audit, %(c)s in technical supervision. Below are the specialists listed in the bulletin.",
-    "ru": "Всего %(n)s сотрудников: %(e)s — энергоаудит, %(c)s — технический надзор. Ниже — специалисты, указанные в бюллетене."
+    "en": "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(c)s). Below are the specialists listed in the bulletin.",
+    "ru": "Всего сотрудников: %(n)s (энергоаудит — %(e)s, технический надзор — %(c)s). Ниже — специалисты, указанные в бюллетене."
   },
   "Jami %(total)s ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek.": {
-    "en": "Total %(total)s projects. Source: the organisation's 2026 information bulletins; client names as listed in the bulletin.",
-    "ru": "Всего %(total)s работ. Источник: информационные бюллетени организации за 2026 год; названия заказчиков — как в бюллетене."
+    "en": "Projects in the registry: %(total)s. Source: the organisation's 2026 information bulletins; client names as listed in the bulletin.",
+    "ru": "Работ в реестре: %(total)s. Источник: информационные бюллетени организации за 2026 год; названия заказчиков — как в бюллетене."
   },
   "Jamoa": {
     "en": "Team",
@@ -849,11 +849,11 @@
   },
   "Nazorat oʻlchovi tartibga solingan": {
     "en": "Control measurement is regulated",
-    "ru": "Контрольное измерение регламентировано"
+    "ru": "Контрольный обмер регламентирован"
   },
   "Nazorat oʻlchovi uchun qurilishni toʻxtatish kerakmi?": {
     "en": "Does construction need to stop for control measurement?",
-    "ru": "Нужно ли останавливать строительство для контрольного измерения?"
+    "ru": "Нужно ли останавливать строительство для контрольного обмера?"
   },
   "Nizo koʻrib chiqilgunga qadar": {
     "en": "Until the dispute is resolved",
@@ -892,7 +892,7 @@
     "ru": "Отправьте данные объекта — в течение одного рабочего дня свяжется инженер. Предварительная оценка бесплатна."
   },
   "Obyekt turi": {
-    "en": "Object type",
+    "en": "Facility type",
     "ru": "Тип объекта"
   },
   "Obyekt, maqsad va muddatni aniqlaymiz, qaysi talab tegishli ekanini aytamiz.": {
@@ -940,8 +940,8 @@
     "ru": "Измерительные приборы"
   },
   "Oʻlchov asboblari va qiyoslash": {
-    "en": "Measuring instruments and calibration",
-    "ru": "Измерительные приборы и калибровка"
+    "en": "Measuring instruments and verification",
+    "ru": "Измерительные приборы и поверка"
   },
   "Oʻlchov asboblari: model, vazifasi, metrologik tekshiruv sanasi va sertifikat raqami.": {
     "en": "Measuring instruments: model, purpose, calibration date and certificate number.",
@@ -952,8 +952,8 @@
     "ru": "Диапазон измерения"
   },
   "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan.": {
-    "en": "Measurement and inspection are carried out with the parties present, using calibrated instruments.",
-    "ru": "Измерение и осмотр — с участием сторон, калиброванными приборами."
+    "en": "Measurement and inspection are carried out with the parties present, using verified instruments.",
+    "ru": "Измерение и осмотр — с участием сторон, поверенными приборами."
   },
   "Oʻxshash ishlar": {
     "en": "Similar projects",
@@ -1004,16 +1004,16 @@
     "ru": "Значение"
   },
   "Qiyoslangan": {
-    "en": "Calibrated",
-    "ru": "Калибровано"
+    "en": "Verified",
+    "ru": "Поверено"
   },
   "Qiyoslanmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan.": {
-    "en": "A measurement taken with an uncalibrated instrument is not included in the report. Calibration certificates are issued by the state institution 'Uzbek National Institute of Metrology'.",
-    "ru": "Измерение, выполненное неповеренным прибором, в отчёт не включается. Свидетельства о калибровке выданы государственным учреждением «Узбекский национальный институт метрологии»."
+    "en": "A measurement taken with an unverified instrument is not included in the report. Metrological verification certificates are issued by the state institution 'Uzbek National Institute of Metrology'.",
+    "ru": "Измерение, выполненное неповеренным прибором, в отчёт не включается. Свидетельства о поверке выданы государственным учреждением «Узбекский национальный институт метрологии»."
   },
   "Qiyoslash amal qiladi": {
-    "en": "Calibration valid",
-    "ru": "Калибровка действует"
+    "en": "Verification valid",
+    "ru": "Поверка действует"
   },
   "Qonunchilik": {
     "en": "Legislation",
@@ -1025,7 +1025,7 @@
   },
   "Qonunchilik — energoaudit va nazorat oʻlchovi": {
     "en": "Legislation — energy audit and control measurement",
-    "ru": "Законодательство — энергоаудит и контрольное измерение"
+    "ru": "Законодательство — энергоаудит и контрольный обмер"
   },
   "Qonunga tayangan maqola manba tekshirilmaguncha oʻchiq turadi.": {
     "en": "An article based on legislation stays hidden until the source is verified.",
@@ -1052,7 +1052,7 @@
     "ru": "Сотрудничество с Министерством строительства и жилищно-коммунального хозяйства"
   },
   "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)": {
-    "en": "Ministry of Construction licence No. 518159 (indefinite)",
+    "en": "Ministry of Construction licence No. 518159 (no expiry date)",
     "ru": "Лицензия Министерства строительства № 518159 (без срока действия)"
   },
   "Qurilish vazirligi litsenziyasi № 518159, energoaudit reestri, UZACE aʼzoligi, ISO 9001/45001/27001, kasbiy javobgarlik sugʻurtasi — skanlar bilan.": {
@@ -1061,7 +1061,7 @@
   },
   "Qurilishda nazorat oʻlchovi": {
     "en": "Construction control measurement",
-    "ru": "Контрольные измерения в строительстве"
+    "ru": "Контрольный обмер в строительстве"
   },
   "Quyidagi maʼlumot amaldagi hujjatlar asosida tayyorlangan. Qaror qabul qilishdan oldin lex.uz dagi joriy tahrirni tekshiring — qonunchilik 2024-yildan beri faol oʻzgarmoqda.": {
     "en": "The information below is based on the acts in force. Check the current version on lex.uz before deciding, as the legislation has been changing actively since 2024.",
@@ -1196,15 +1196,15 @@
     "ru": "Услуги для этой ситуации"
   },
   "Shu yoʻnalishdagi boshqa xizmatlar": {
-    "en": "Other services in this direction",
+    "en": "Other services in this practice area",
     "ru": "Другие услуги этого направления"
   },
   "Shu yoʻnalishdagi ishlar": {
-    "en": "Projects in this practice",
+    "en": "Projects in this practice area",
     "ru": "Работы по этому направлению"
   },
   "Shu yoʻnalishning boshqa xizmatlari": {
-    "en": "Other services in this practice",
+    "en": "Other services in this practice area",
     "ru": "Другие услуги этого направления"
   },
   "Shunga oʻxshash obyektingiz bormi?": {
@@ -1512,8 +1512,8 @@
     "ru": "Годовое потребление"
   },
   "Yillik isteʼmol %(kwh)s kVt·soat elektr yoki %(gas)s m³ gazdan oshsa — Davlat energetika reestri subyekti, davriy energoaudit majburiy.": {
-    "en": "If annual consumption exceeds %(kwh)s kWh of electricity or %(gas)s m³ of gas — the entity is subject to the State Energy Registry, and periodic energy audit is mandatory.",
-    "ru": "Если годовое потребление превышает %(kwh)s кВт·ч электроэнергии или %(gas)s м³ газа — субъект Государственного энергетического реестра, периодический энергоаудит обязателен."
+    "en": "If annual consumption exceeds %(kwh)s kWh of electricity or %(gas)s m³ of gas, the entity is a subject of the State Energy Registry; periodic energy audit is mandatory.",
+    "ru": "Если годовое потребление превышает %(kwh)s кВт·ч электроэнергии или %(gas)s м³ газа, организация является субъектом Государственного энергетического реестра; периодический энергоаудит обязателен."
   },
   "Yillik isteʼmol boʻyicha obyekt Davlat energetika reestri mezonlaridan oshadi. Davriy audit majburiy, muddat oxirgi audit sanasidan hisoblanadi.": {
     "en": "Based on annual consumption, the facility exceeds the State Energy Registry thresholds. Periodic audit is mandatory; the deadline is counted from the date of the last audit.",
@@ -1528,19 +1528,19 @@
     "ru": "Путь"
   },
   "Yoʻnalish": {
-    "en": "Practice",
+    "en": "Practice area",
     "ru": "Направление"
   },
   "Yoʻnalish sahifasi": {
-    "en": "Direction page",
+    "en": "Practice area page",
     "ru": "Страница направления"
   },
   "Yoʻnalishga oʻtish": {
-    "en": "Go to the practice",
+    "en": "Go to the practice area",
     "ru": "Перейти к направлению"
   },
   "Yoʻnalishlar": {
-    "en": "Practices",
+    "en": "Practice areas",
     "ru": "Направления"
   },
   "Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 boʻyicha sertifikatlangan.": {
@@ -1549,7 +1549,7 @@
   },
   "Yoʻq. Oʻlchov ish jarayoniga xalaqit bermaydi; yashirin ishlar yopilishidan oldin qayd etiladi.": {
     "en": "No. Measurement does not interfere with the work process; concealed works are recorded before they are closed up.",
-    "ru": "Нет. Измерение не мешает рабочему процессу; скрытые работы фиксируются до их закрытия."
+    "ru": "Нет. Обмер не мешает рабочему процессу; скрытые работы фиксируются до их закрытия."
   },
   "Yuborilgan hujjatlar uchinchi shaxsga berilmaydi.": {
     "en": "Documents you send are not shared with third parties.",
@@ -1612,7 +1612,7 @@
     "ru": "например, административное здание, 4 этажа"
   },
   "muddatsiz": {
-    "en": "indefinite",
+    "en": "no expiry date",
     "ru": "без срока действия"
   },
   "qonunchilik oʻzgarishlari va amaliy tushuntirishlar": {
@@ -1640,11 +1640,11 @@
     "ru": "{{ years }} лет"
   },
   "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy.": {
-    "en": "Under Law No. ЗРУ-940, periodic energy audit is mandatory at least once every five years. For enterprises included in the State Energy Registry and organisations with state participation, the audit is mandatory; for others, it is voluntary.",
-    "ru": "В соответствии с Законом ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
+    "en": "Under Law No. ZRU-940, periodic energy audit is mandatory at least once every five years. For enterprises included in the State Energy Registry and organisations with state participation, the audit is mandatory; for others, it is voluntary.",
+    "ru": "В соответствии с Законом № ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
   },
   "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi.": {
-    "en": "Law No. ЗРУ-940, Cabinet of Ministers Resolution No. 690 and other regulatory documents: who it applies to, requirement, deadline, link to lex.uz.",
-    "ru": "ЗРУ-940, Постановление КМ № 690 и другие нормативные документы: кого касается, требование, срок, ссылка на lex.uz."
+    "en": "Law No. ZRU-940, Cabinet of Ministers Resolution No. 690 and other regulatory documents: who it applies to, requirement, deadline, link to lex.uz.",
+    "ru": "Закон № ЗРУ-940, Постановление КМ № 690 и другие нормативные документы: кого касается, требование, срок, ссылка на lex.uz."
   }
 }
