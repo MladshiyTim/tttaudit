@@ -181,6 +181,19 @@
     <p class="sh__k">{% translate "Aloqa" %}</p>
     <div><h2>{% translate "Bosh ofis, Fargʻona" %}</h2></div>
   </div>
+  {% office_map site as om %}{% if om %}
+  {% include "core/_office_map.html" %}
+  <div class="offx">
+    <dl class="offx__dl">
+      {% if site|tr:"director" %}<div><dt>{% translate "Rahbar" %}</dt><dd>{{ site|tr:"director" }}</dd></div>{% endif %}
+      <div><dt>{% translate "STIR" %}</dt><dd class="num">{{ site.tin }}</dd></div>
+    </dl>
+    <div class="off__cta">
+      <a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+      <a class="btn btn--ghost" href="{% url 'core:contact' %}">{% translate "Aloqa sahifasi" %}</a>
+    </div>
+  </div>
+  {% else %}
   <div class="off">
     <dl class="addr">
       <dt>{% translate "Manzil" %}</dt><dd>{{ site|tr:"address" }}</dd>
@@ -198,5 +211,6 @@
       </div>
     </div>
   </div>
+  {% endif %}
 </div></section>
 {% endblock %}

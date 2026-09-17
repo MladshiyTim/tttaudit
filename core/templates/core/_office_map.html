@@ -1,0 +1,18 @@
+{% load i18n sitetags %}{# Bosh ofis xaritada. Kontekst: om = {% office_map site %} (None boʻlsa blok chiqmaydi). #}
+{% if om %}<div class="omap">
+  <div class="omap__frame"><iframe title="{% translate "Bosh ofis xaritada" %}" src="{{ om.embed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  <div class="omap__card">
+    <p class="omap__k">{% translate "Ofis" %}</p>
+    <p class="omap__addr">{{ site|tr:"address" }}</p>
+    <ul class="omap__list">
+      <li><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></li>
+      {% if site.phone_second %}<li><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a></li>{% endif %}
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    </ul>
+    <div class="omap__acts">
+      <a class="btn btn--sm btn--line" href="{{ om.yandex }}" target="_blank" rel="noopener noreferrer">{% translate "Yandex Xarita" %}</a>
+      <a class="btn btn--sm btn--line" href="{{ om.route }}" target="_blank" rel="noopener noreferrer">{% translate "Marshrut" %}</a>
+      <a class="btn btn--sm btn--line" href="{{ om.google }}" target="_blank" rel="noopener noreferrer">{% translate "Google Xarita" %}</a>
+    </div>
+  </div>
+</div>{% endif %}

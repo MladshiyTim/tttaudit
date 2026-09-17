@@ -28,8 +28,8 @@
     "website": "tttaudit.uz",
     "director": "Botirov Mahammad Hoshimovich",
     "director_ru": "Ботиров Махаммад Хошимович",
-    "map_lat": 40.40663,
-    "map_lng": 71.77930,
+    "map_lat": 40.406844,
+    "map_lng": 71.782245,
     "partners_uz": [
       "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi",
       "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik",
@@ -40,7 +40,8 @@
       "staff": "byulleten: 50 xodim, 24 energoaudit, 16 texnik nazorat",
       "tin": "litsenziya № 518159 va energoaudit reestri",
       "address": "litsenziya № 518159, byulleten sarlavhasi",
-      "phone": "byulleten sarlavhasi va «НАШИ КООРДИНАТЫ»"
+      "phone": "byulleten sarlavhasi va «НАШИ КООРДИНАТЫ»",
+      "map": "Yandex: Fargʻona, Yangiobod koʻchasi 5 — bmmaudit.uz bilan bir bino"
     }
   },
 

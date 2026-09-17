@@ -298,11 +298,7 @@ def _wants_json(request) -> bool:
 
 
 def contact(request):
-    site = SiteSettings.load()
-    map_bbox = ""
-    if site.map_lat and site.map_lng:
-        map_bbox = f"{site.map_lng - 0.01:.5f},{site.map_lat - 0.006:.5f},{site.map_lng + 0.01:.5f},{site.map_lat + 0.006:.5f}"
-    context = {"branches": Branch.objects.all(), "map_bbox": map_bbox}
+    context = {"branches": Branch.objects.all()}
     context.update(form_context())
     return page(request, "core/contact.html", nav="contact", crumbs=[(_("Aloqa"), None)], **context)
 

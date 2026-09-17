@@ -99,6 +99,8 @@ Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun f
 - Loyihalar joylashuvi (`data/tttaudit/project_locations.json`) ish nomi va buyurtmachi matnidan aniqlangan. Joyi
   matnda aniq (`high`) boʻlganlari xaritada; taxminiylari (`medium`, masalan nomida shahar boʻlgan kompaniya) yashirin —
   mijoz tasdiqlasa admin panelda «Loyihalar joyi» → `is_public`. Xorijdagi 2 ish faqat reestrda.
+- Ofis koordinatasi (Yandex: 40.406844, 71.782245) — prodda eski qiymat qolgan boʻlsa admin panelda yoki
+  `import_tttaudit --force` bilan yangilanadi (flagsiz import tahrirlangan rekvizitga tegmaydi).
 - Loyiha nomlari ingliz tilida — hozir /en/ da oʻzbekcha chiqadi.
 - Mutaxassislar sertifikatlari ru/en tarjimasi — hozir oʻzbekcha.
 - Asosiy e-pochta manzili.

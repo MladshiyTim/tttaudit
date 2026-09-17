@@ -6,6 +6,6 @@
 <div class="branches">
 {% for b in branches %}<section class="branch"><span class="branch__k{% if b.is_head_office %} branch__k--head{% endif %}">{% if b.is_head_office %}{% translate "Bosh ofis" %}{% else %}{% translate "Ofis" %}{% endif %}</span><h2>{{ b|tr:"city" }}</h2><p>{{ b|tr:"address" }}</p>{% if b.phone %}<p><a href="tel:{{ b.phone|cut:' ' }}">{{ b.phone }}</a></p>{% endif %}{% if b.head %}<p class="muted">{{ b.head }}</p>{% endif %}</section>{% endfor %}
 </div>
-{% if map_bbox %}<section class="block"><div class="map"><iframe title="{% translate "Xarita" %}" width="100%" height="380" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox={{ map_bbox|urlencode }}&amp;layer=mapnik&amp;marker={{ site.map_lat }}%2C{{ site.map_lng }}"></iframe></div><p class="map__link"><a class="more" href="https://www.openstreetmap.org/?mlat={{ site.map_lat }}&amp;mlon={{ site.map_lng }}#map=17/{{ site.map_lat }}/{{ site.map_lng }}" rel="noopener" target="_blank">{% translate "Kattaroq xarita" %} →</a></p></section>{% endif %}
+{% office_map site as om %}{% if om %}<section class="block">{% include "core/_office_map.html" %}</section>{% endif %}
 <section class="block"><div class="sh sh--sm"><p class="sh__k">{% translate "Murojaat" %}</p><div><h2>{% translate "Murojaat yuborish" %}</h2></div></div><div class="panel panel--form">{% include "core/_lead.html" %}</div></section>
 </div>{% endblock %}

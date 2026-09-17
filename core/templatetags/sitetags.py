@@ -82,3 +82,11 @@ def service_tag(service):
     from core.home import SERVICE_TAGS
 
     return service.tr("duration") or SERVICE_TAGS.get(service.slug, "")
+
+
+@register.simple_tag
+def office_map(site):
+    """Ofis xaritasi havolalari (Yandex vidjeti, Yandex/Google xarita, marshrut) yoki None."""
+    from core.maps import office_map as build
+
+    return build(site)

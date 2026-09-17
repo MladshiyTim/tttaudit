@@ -7,7 +7,7 @@ hududda boʻlsa, har birida bir marta).
 from dataclasses import dataclass, field
 
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import get_language, gettext as _
 
 from .geo.projection import HEIGHT, WIDTH, project
 from .geo.regions import REGIONS, region_name, uzmap
@@ -202,3 +202,25 @@ def registry_map_context(request, direction_slug, region):
         return f"?{query.urlencode()}#xarita" if query else "?#xarita"
 
     return projects_map_context(Project.objects.all(), dept=dept, region=region, tab_url=tab_url, live=False)
+
+
+
+# Yandex vidjetida oʻzbek tili yoʻq — oʻzbekcha sahifada ruscha
+YANDEX_LANG = {"uz": "ru_RU", "ru": "ru_RU", "en": "en_US"}
+
+
+def office_map(site) -> dict | None:
+    """Ofis xaritasi havolalari; koordinata boʻlmasa None (xarita bloki chiqmaydi).
+
+    Yandex'da `ll` va `pt` — uzunlik,kenglik; `rtext` — kenglik,uzunlik.
+    """
+    if site.map_lat is None or site.map_lng is None:
+        return None
+    lat, lon = f"{site.map_lat:.6f}", f"{site.map_lng:.6f}"
+    lang = YANDEX_LANG.get((get_language() or "uz").split("-")[0], "ru_RU")
+    return {
+        "embed": f"https://yandex.uz/map-widget/v1/?ll={lon}%2C{lat}&z=17&pt={lon},{lat},pm2rdm&lang={lang}",
+        "yandex": f"https://yandex.uz/maps/?ll={lon},{lat}&z=17&pt={lon},{lat},pm2rdm",
+        "route": f"https://yandex.uz/maps/?rtext=~{lat},{lon}&rtt=auto",
+        "google": f"https://maps.google.com/maps?q={lat},{lon}",
+    }
