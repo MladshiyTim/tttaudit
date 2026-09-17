@@ -6,9 +6,9 @@ app_name = "core"
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("xizmatlar/", views.home, name="services"),
-    path("xizmatlar/<slug:direction_slug>/", views.home, name="direction"),
-    path("xizmatlar/<slug:direction_slug>/<slug:slug>/", views.home, name="service"),
+    path("xizmatlar/", views.services, name="services"),
+    path("xizmatlar/<slug:direction_slug>/", views.direction, name="direction"),
+    path("xizmatlar/<slug:direction_slug>/<slug:slug>/", views.service, name="service"),
     path("reestr/", views.home, name="registry"),
     path("hujjatlar/", views.home, name="credentials"),
     path("qonunchilik/", views.home, name="legislation"),
@@ -21,4 +21,5 @@ urlpatterns = [
     path("aloqa/", views.home, name="contact"),
     path("murojaat/", views.home, name="request"),
     path("api/compliance/", views.home, name="compliance_check"),
+    path("api/energy-estimate/", views.home, name="energy_estimate"),
 ]

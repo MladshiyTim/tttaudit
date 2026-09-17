@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{% translate "Xizmatlar" %} — TTT Audit{% endblock %}
+{% block description %}{% translate "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab." %}{% endblock %}
+{% block main %}<div class="wrap">
+<div class="phead"><h1>{% translate "Xizmatlar" %}</h1><p>{% translate "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida." %}</p></div>
+<div class="grid grid--2">
+{% for d in directions %}
+  <article class="card cat">
+    <span class="cat__ico">{% if d.accent == "amber" %}{% include "core/_icon.html" with name="bolt" %}{% else %}{% include "core/_icon.html" with name="ruler" %}{% endif %}</span>
+    <h3><a href="{{ d.get_absolute_url }}">{{ d|tr:"title" }}</a></h3>
+    <p class="muted">{{ d|tr:"summary" }}</p>
+    <ul>{% for s in d.services.all %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a><br><small class="muted">{{ s|tr:"summary" }}</small></li>{% endfor %}</ul>
+    <a class="cat__all" href="{{ d.get_absolute_url }}">{% translate "Yoʻnalish sahifasi" %} →</a>
+  </article>
+{% endfor %}
+</div>
+<div class="sec"><div class="notice"><p>{% translate "Qaysi xizmat kerakligini bilmaysizmi? Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini birinchi suhbatda aytadi." %} <a href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %} →</a></p></div></div>
+</div>{% endblock %}

@@ -2,11 +2,12 @@
 import json
 
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from . import compliance, energy
-from .models import Credential, Direction, Post, Project, Stat
+from .models import Credential, Direction, Instrument, LegalAct, Post, Project, Service, Stat
 
 
 def page(request, template, nav="", crumbs=(), **context):
@@ -75,3 +76,45 @@ def home(request):
     }
     context.update(compliance_context())
     return page(request, "core/home.html", **context)
+
+
+def services(request):
+    return page(
+        request, "core/services.html", nav="services",
+        crumbs=[(_("Xizmatlar"), None)],
+        directions=Direction.objects.prefetch_related("services").all(),
+    )
+
+
+def direction(request, direction_slug):
+    obj = get_object_or_404(Direction.objects.prefetch_related("services", "legal_acts"), slug=direction_slug)
+    is_energy = obj.accent == Direction.ACCENT_AMBER
+    context = {
+        "direction": obj,
+        "is_energy": is_energy,
+        "services": obj.services.all(),
+        "legal_acts": obj.legal_acts.filter(verified_on__isnull=False),
+        "projects": obj.projects.exclude(year__isnull=True)[:6],
+        "instruments": Instrument.objects.all() if not is_energy else [],
+        "project_total": obj.projects.count(),
+    }
+    if is_energy:
+        context.update(compliance_context())
+        context.update(energy_context())
+    return page(
+        request, "core/direction.html", nav="services",
+        crumbs=[(_("Xizmatlar"), reverse("core:services")), (obj.tr("title"), None)],
+        **context,
+    )
+
+
+def service(request, direction_slug, slug):
+    obj = get_object_or_404(Service.objects.select_related("direction"), direction__slug=direction_slug, slug=slug)
+    return page(
+        request, "core/service.html", nav="services",
+        crumbs=[(_("Xizmatlar"), reverse("core:services")),
+                (obj.direction.tr("title"), obj.direction.get_absolute_url()), (obj.tr("title"), None)],
+        service=obj, direction=obj.direction,
+        siblings=obj.direction.services.exclude(pk=obj.pk),
+        legal_acts=obj.direction.legal_acts.filter(verified_on__isnull=False),
+    )
