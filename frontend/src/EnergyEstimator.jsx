@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { t } from "./i18n.js";
 
 /**
  * Dastlabki baholash: maydon + yillik iste'mol -> A..G toifasi.
@@ -71,11 +72,11 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
       </div>
 
       <div className="est">
-        <div className="est__head">Dastlabki baholash</div>
+        <div className="est__head">{t("ee.head")}</div>
         <div className="est__body">
           <div className="est__fields">
             <label className="field">
-              <span className="field__label">Foydali maydon, m²</span>
+              <span className="field__label">{t("common.fieldArea")}</span>
               <input
                 className="input"
                 type="number"
@@ -83,11 +84,11 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
                 inputMode="numeric"
                 value={area}
                 onChange={(event) => setArea(event.target.value)}
-                placeholder="1 200"
+                placeholder={t("common.placeholderArea")}
               />
             </label>
             <label className="field">
-              <span className="field__label">Yillik isteʼmol, kVt·soat</span>
+              <span className="field__label">{t("common.fieldKwhConsumption")}</span>
               <input
                 className="input"
                 type="number"
@@ -95,7 +96,7 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
                 inputMode="numeric"
                 value={kwh}
                 onChange={(event) => setKwh(event.target.value)}
-                placeholder="140 000"
+                placeholder={t("common.placeholderKwh")}
               />
             </label>
           </div>
@@ -104,19 +105,19 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
             <div className="est__out">
               <span className="est__cat">{result.category}</span>
               <span className="est__val nums">
-                {result.specific} kVt·soat / m² · yil
+                {result.specific} {t("ee.unit")}
               </span>
             </div>
           ) : null}
 
           <p className={`est__note${result && result.passport_required ? " est__note--flag" : ""}`}>
             {busy
-              ? "Hisoblanmoqda…"
+              ? t("ee.busy")
               : result && result.ok
                 ? result.passport_required
-                  ? `Foydali maydon ${threshold} m² dan katta — binoga energopasport talab qilinadi.`
-                  : `Foydali maydon ${threshold} m² dan kichik — energopasport talabi tegishli emas.`
-                : "Ikki qiymatni kiriting — toifa darhol koʻrsatiladi. Bu dastlabki baho, rasmiy energopasport toʻliq audit natijasida beriladi."}
+                  ? t("ee.aboveThreshold", { threshold })
+                  : t("ee.belowThreshold", { threshold })
+                : t("ee.fallback")}
           </p>
         </div>
       </div>

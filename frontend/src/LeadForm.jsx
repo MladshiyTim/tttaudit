@@ -1,21 +1,22 @@
 import { useMemo, useState } from "react";
 import { csrfToken } from "./csrf.js";
+import { t } from "./i18n.js";
 
-const REGIONS = [
-  "Toshkent shahri",
-  "Toshkent viloyati",
-  "Andijon",
-  "Buxoro",
-  "Fargʻona",
-  "Jizzax",
-  "Xorazm",
-  "Namangan",
-  "Navoiy",
-  "Qashqadaryo",
-  "Qoraqalpogʻiston",
-  "Samarqand",
-  "Sirdaryo",
-  "Surxondaryo",
+const REGIONS = () => [
+  t("lf.regions.tashkentCity"),
+  t("lf.regions.tashkentRegion"),
+  t("lf.regions.andijan"),
+  t("lf.regions.bukhara"),
+  t("lf.regions.fergana"),
+  t("lf.regions.jizzakh"),
+  t("lf.regions.khorezm"),
+  t("lf.regions.namangan"),
+  t("lf.regions.navoiy"),
+  t("lf.regions.kashkadarya"),
+  t("lf.regions.karakalpakstan"),
+  t("lf.regions.samarkand"),
+  t("lf.regions.sirdarya"),
+  t("lf.regions.surkhandarya"),
 ];
 
 const ALLOWED = [
@@ -49,6 +50,8 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(null);
 
+  const regions = REGIONS();
+
   const accent = useMemo(() => {
     const found = directions.find((d) => String(d.id) === String(values.direction));
     return found ? found.accent : null;
@@ -74,7 +77,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
     if (!ALLOWED.includes(extension)) {
       setErrors((prev) => ({
         ...prev,
-        attachment: [`Bu fayl turi qabul qilinmaydi. Ruxsat etilgan: ${ALLOWED.join(", ")}`],
+        attachment: [t("lf.attachmentTypeError", { list: ALLOWED.join(", ") })],
       }));
       event.target.value = "";
       setFile(null);
@@ -83,7 +86,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
     if (picked.size > maxMb * 1024 * 1024) {
       setErrors((prev) => ({
         ...prev,
-        attachment: [`Fayl hajmi ${maxMb} MB dan oshmasligi kerak.`],
+        attachment: [t("lf.attachmentSizeError", { maxMb })],
       }));
       event.target.value = "";
       setFile(null);
@@ -122,12 +125,10 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
         setDone(data.message);
       } else {
         setErrors(data.errors || {});
-        setFormError(data.error || "Formada xatolik bor — belgilangan maydonlarni tekshiring.");
+        setFormError(data.error || t("lf.formErrorDefault"));
       }
     } catch (error) {
-      setFormError(
-        "Soʻrov yuborilmadi. Internet aloqasini tekshiring yoki telefon orqali bogʻlaning."
-      );
+      setFormError(t("lf.networkError"));
     } finally {
       setBusy(false);
     }
@@ -136,7 +137,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
   if (done) {
     return (
       <div className="form-done">
-        <span className="form-done__t">Soʻrov qabul qilindi</span>
+        <span className="form-done__t">{t("lf.doneTitle")}</span>
         <p className="form-done__d">{done}</p>
       </div>
     );
@@ -149,13 +150,13 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
       {formError ? <div className="form-error">{formError}</div> : null}
 
       <label className="field">
-        <span className="field__label">Yoʻnalish</span>
+        <span className="field__label">{t("lf.direction")}</span>
         <select
           className="select"
           value={values.direction}
           onChange={(event) => set("direction", event.target.value)}
         >
-          <option value="">Tanlang</option>
+          <option value="">{t("common.selectPlaceholder")}</option>
           {directions.map((direction) => (
             <option key={direction.id} value={direction.id}>
               {direction.title}
@@ -166,26 +167,26 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
       </label>
 
       <label className="field">
-        <span className="field__label">Obyekt turi</span>
+        <span className="field__label">{t("common.objectType")}</span>
         <input
           className="input"
           type="text"
           value={values.object_type}
           onChange={(event) => set("object_type", event.target.value)}
-          placeholder="Maʼmuriy bino, sex, maktab…"
+          placeholder={t("lf.objectTypePlaceholder")}
         />
         {err("object_type")}
       </label>
 
       <label className="field">
-        <span className="field__label">Viloyat</span>
+        <span className="field__label">{t("lf.region")}</span>
         <select
           className="select"
           value={values.region}
           onChange={(event) => set("region", event.target.value)}
         >
-          <option value="">Tanlang</option>
-          {REGIONS.map((region) => (
+          <option value="">{t("common.selectPlaceholder")}</option>
+          {regions.map((region) => (
             <option key={region} value={region}>{region}</option>
           ))}
         </select>
@@ -195,7 +196,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
       {accent === "amber" ? (
         <>
           <label className="field">
-            <span className="field__label">Foydali maydon, m²</span>
+            <span className="field__label">{t("common.fieldArea")}</span>
             <input
               className="input"
               type="number"
@@ -203,12 +204,12 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
               inputMode="numeric"
               value={values.area_m2}
               onChange={(event) => set("area_m2", event.target.value)}
-              placeholder="1 200"
+              placeholder={t("common.placeholderArea")}
             />
             {err("area_m2")}
           </label>
           <label className="field">
-            <span className="field__label">Yillik isteʼmol, kVt·soat</span>
+            <span className="field__label">{t("common.fieldKwhConsumption")}</span>
             <input
               className="input"
               type="number"
@@ -216,7 +217,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
               inputMode="numeric"
               value={values.annual_kwh}
               onChange={(event) => set("annual_kwh", event.target.value)}
-              placeholder="140 000"
+              placeholder={t("common.placeholderKwh")}
             />
             {err("annual_kwh")}
           </label>
@@ -225,20 +226,20 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
 
       {accent === "steel" ? (
         <label className="field">
-          <span className="field__label">Smeta qiymati</span>
+          <span className="field__label">{t("lf.estimateLabel")}</span>
           <input
             className="input"
             type="text"
             value={values.estimate_value}
             onChange={(event) => set("estimate_value", event.target.value)}
-            placeholder="12,4 mlrd soʻm"
+            placeholder={t("lf.estimatePlaceholder")}
           />
           {err("estimate_value")}
         </label>
       ) : null}
 
       <div className="field form__full">
-        <span className="field__label">Muddat</span>
+        <span className="field__label">{t("lf.deadlineLabel")}</span>
         <div className="radios">
           <label>
             <input
@@ -248,7 +249,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
               checked={values.urgency === "planned"}
               onChange={(event) => set("urgency", event.target.value)}
             />
-            Rejali
+            {t("lf.planned")}
           </label>
           <label>
             <input
@@ -258,14 +259,14 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
               checked={values.urgency === "urgent"}
               onChange={(event) => set("urgency", event.target.value)}
             />
-            Shoshilinch
+            {t("lf.urgent")}
           </label>
         </div>
       </div>
 
       <label className="field">
         <span className="field__label">
-          Ism <span className="field__req">*</span>
+          {t("lf.name")} <span className="field__req">*</span>
         </span>
         <input
           className="input"
@@ -279,7 +280,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
 
       <label className="field">
         <span className="field__label">
-          Telefon <span className="field__req">*</span>
+          {t("lf.phone")} <span className="field__req">*</span>
         </span>
         <input
           className="input"
@@ -293,7 +294,7 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
       </label>
 
       <label className="field">
-        <span className="field__label">E-pochta</span>
+        <span className="field__label">{t("lf.email")}</span>
         <input
           className="input"
           type="email"
@@ -304,34 +305,33 @@ export default function LeadForm({ endpoint, directions, maxMb }) {
       </label>
 
       <div className="field form__full">
-        <span className="field__label">Hujjat biriktirish</span>
+        <span className="field__label">{t("lf.attachment")}</span>
         <div className="file">
           <input type="file" onChange={onFile} accept={ALLOWED.join(",")} />
           <span className="file__hint">
-            {file ? file.name : `SMETA · f-2 · ENERGIYA HISOBI · ${maxMb} MB GACHA`}
+            {file ? file.name : t("lf.fileHint", { maxMb })}
           </span>
         </div>
         {err("attachment")}
       </div>
 
       <label className="field form__full">
-        <span className="field__label">Izoh</span>
+        <span className="field__label">{t("common.comment")}</span>
         <textarea
           className="textarea"
           value={values.note}
           onChange={(event) => set("note", event.target.value)}
-          placeholder="Obyekt holati, muddat, nizo bormi…"
+          placeholder={t("lf.notePlaceholder")}
         />
         {err("note")}
       </label>
 
       <div className="form__foot">
         <button className="btn" type="submit" disabled={busy}>
-          {busy ? "Yuborilmoqda…" : "Soʻrov yuborish"}
+          {busy ? t("lf.sending") : t("common.sendRequest")}
         </button>
         <p className="form__privacy">
-          Yuborilgan hujjatlar uchinchi shaxsga berilmaydi. Bir ish kuni ichida
-          muhandis bogʻlanadi, dastlabki baholash bepul.
+          {t("lf.privacy")}
         </p>
       </div>
     </form>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { t } from "./i18n.js";
 
 /**
  * Talab tekshiruvi — saytning asosiy foydali asbobi.
@@ -9,26 +10,23 @@ import { useState } from "react";
  * faqat savol berish va natijani hujjat ko'rinishida chizish.
  */
 
-const KINDS = [
-  { key: "construction", title: "Qurilish obyekti",
-    note: "Qurilayotgan yoki topshirilgan bino, yoʻl, tarmoq" },
-  { key: "building", title: "Foydalanishdagi bino",
-    note: "Maʼmuriy, tijorat, turar-joy yoki byudjet binosi" },
-  { key: "industrial", title: "Sanoat korxonasi",
-    note: "Ishlab chiqarish, energiya isteʼmoli katta obyekt" },
+const KINDS = () => [
+  { key: "construction", title: t("cc.kind1Title"), note: t("cc.kind1Note") },
+  { key: "building", title: t("cc.kind2Title"), note: t("cc.kind2Note") },
+  { key: "industrial", title: t("cc.kind3Title"), note: t("cc.kind3Note") },
 ];
 
-const FUNDING = [
-  { key: "budget", title: "Byudjet mablagʻi" },
-  { key: "credit", title: "Bank krediti" },
-  { key: "own", title: "Oʻz mablagʻi" },
+const FUNDING = () => [
+  { key: "budget", title: t("cc.fundingBudget") },
+  { key: "credit", title: t("cc.fundingCredit") },
+  { key: "own", title: t("cc.fundingOwn") },
 ];
 
-const SEVERITY = {
-  required: "Majburiy",
-  likely: "Odatda talab qilinadi",
-  optional: "Ixtiyoriy",
-};
+const SEVERITY = () => ({
+  required: t("cc.severityRequired"),
+  likely: t("cc.severityLikely"),
+  optional: t("cc.severityOptional"),
+});
 
 export default function ComplianceCheck({ endpoint, requestUrl }) {
   const [step, setStep] = useState(0);
@@ -42,6 +40,10 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
   const [result, setResult] = useState(null);
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
+
+  const kinds = KINDS();
+  const fundingOptions = FUNDING();
+  const severity = SEVERITY();
 
   const needsEnergy = kind === "building" || kind === "industrial";
   const needsFunding = kind === "construction";
@@ -88,18 +90,18 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
   return (
     <div className="check">
       <div className="check__head">
-        <span className="check__label">Talab tekshiruvi</span>
+        <span className="check__label">{t("cc.label")}</span>
         <span className="check__step">
-          {step < 3 ? `${step + 1} / ${lastStep + 1}` : "Natija"}
+          {step < 3 ? `${step + 1} / ${lastStep + 1}` : t("cc.result")}
         </span>
       </div>
 
       <div className="check__body">
         {step === 0 && (
           <>
-            <p className="check__q">Obyekt qanday?</p>
+            <p className="check__q">{t("cc.q0")}</p>
             <div className="check__opts">
-              {KINDS.map((option) => (
+              {kinds.map((option) => (
                 <button
                   key={option.key}
                   type="button"
@@ -117,44 +119,44 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
         {step === 1 && (
           <>
             <p className="check__q">
-              {needsEnergy ? "Oʻlcham va isteʼmol" : "Obyekt qiymati"}
+              {needsEnergy ? t("cc.q1Energy") : t("cc.q1Value")}
             </p>
             <div className="check__fields">
               {needsEnergy && (
                 <>
                   <label className="field">
-                    <span className="field__label">Foydali maydon, m²</span>
+                    <span className="field__label">{t("common.fieldArea")}</span>
                     <input className="input" type="number" min="1" inputMode="numeric"
                            value={area} onChange={(e) => setArea(e.target.value)}
-                           placeholder="1 200" />
+                           placeholder={t("common.placeholderArea")} />
                   </label>
                   <label className="field">
-                    <span className="field__label">Yillik elektr, kVt·soat</span>
+                    <span className="field__label">{t("cc.fieldKwh")}</span>
                     <input className="input" type="number" min="1" inputMode="numeric"
                            value={kwh} onChange={(e) => setKwh(e.target.value)}
-                           placeholder="140 000" />
+                           placeholder={t("common.placeholderKwh")} />
                   </label>
                   {kind === "industrial" && (
                     <label className="field">
-                      <span className="field__label">Yillik gaz, m³</span>
+                      <span className="field__label">{t("cc.fieldGas")}</span>
                       <input className="input" type="number" min="1" inputMode="numeric"
                              value={gas} onChange={(e) => setGas(e.target.value)}
-                             placeholder="380 000" />
+                             placeholder={t("cc.placeholderGas")} />
                     </label>
                   )}
                 </>
               )}
               {!needsEnergy && (
                 <label className="field">
-                  <span className="field__label">Smeta qiymati, soʻm</span>
+                  <span className="field__label">{t("cc.fieldEstimate")}</span>
                   <input className="input" type="text" inputMode="numeric"
                          value={estimate} onChange={(e) => setEstimate(e.target.value)}
-                         placeholder="12 400 000 000" />
+                         placeholder={t("cc.placeholderEstimate")} />
                 </label>
               )}
             </div>
             <p className="check__hint">
-              Aniq raqam boʻlmasa taxminini kiriting — natija yoʻnaltiruvchi.
+              {t("cc.hintApprox")}
             </p>
           </>
         )}
@@ -162,11 +164,11 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
         {step === 2 && (
           <>
             <p className="check__q">
-              {needsFunding ? "Moliyalashtirish manbai" : "Qoʻshimcha holat"}
+              {needsFunding ? t("cc.q2Funding") : t("cc.q2Other")}
             </p>
             {needsFunding && (
               <div className="check__opts check__opts--row">
-                {FUNDING.map((option) => (
+                {fundingOptions.map((option) => (
                   <button
                     key={option.key}
                     type="button"
@@ -181,7 +183,7 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
             <label className="check__toggle">
               <input type="checkbox" checked={dispute}
                      onChange={(e) => setDispute(e.target.checked)} />
-              <span>Obyekt boʻyicha nizo bor yoki sudga chiqqan</span>
+              <span>{t("cc.disputeLabel")}</span>
             </label>
           </>
         )}
@@ -192,7 +194,7 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
               <div className="check__cat">
                 <span className="check__cat-v">{result.energy_category}</span>
                 <span className="check__cat-k">
-                  {result.specific_kwh} kVt·soat / m² · yil — dastlabki toifa
+                  {t("cc.resultCatLabel", { specific: result.specific_kwh })}
                 </span>
               </div>
             )}
@@ -204,13 +206,13 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
                     <div className="reqs__top">
                       <span className="reqs__t">{item.title}</span>
                       <span className={`reqs__sev reqs__sev--${item.severity}`}>
-                        {SEVERITY[item.severity] || item.severity}
+                        {severity[item.severity] || item.severity}
                       </span>
                     </div>
                     <p className="reqs__n">{item.note}</p>
                     <div className="reqs__meta">
-                      <span><b>Asos:</b> {item.basis}</span>
-                      <span><b>Muddat:</b> {item.deadline}</span>
+                      <span><b>{t("cc.basisLabel")}</b> {item.basis}</span>
+                      <span><b>{t("cc.deadlineLabel")}</b> {item.deadline}</span>
                       {item.service_url && (
                         <a href={item.service_url}>{item.service_title} &rarr;</a>
                       )}
@@ -222,8 +224,8 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
 
             {result.estimated_fee && (
               <p className="check__hint">
-                Nazorat oʻlchovi xizmat haqi chegarasi: <b>{result.estimated_fee} soʻm</b>
-                {" "}(qurilish qiymatining 0,3%).
+                {t("cc.feeLabel")} <b>{result.estimated_fee} {t("cc.feeUnit")}</b>
+                {" "}{t("cc.feeNote")}
               </p>
             )}
 
@@ -232,15 +234,14 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
             ))}
 
             <p className="check__hint check__hint--legal">
-              Bu dastlabki yoʻnaltiruvchi baho. Rasmiy javob obyekt hujjatlari
-              koʻrilgandan soʻng beriladi.
+              {t("cc.legalHint")}
             </p>
           </div>
         )}
 
         {failed && (
           <p className="check__hint check__hint--err">
-            Tekshiruv bajarilmadi. Internet aloqasini tekshiring yoki soʻrov qoldiring.
+            {t("cc.failed")}
           </p>
         )}
       </div>
@@ -248,26 +249,26 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
       <div className="check__foot">
         {step > 0 && step < 3 && (
           <button type="button" className="check__back" onClick={() => setStep(step - 1)}>
-            &larr; Orqaga
+            {t("common.back")}
           </button>
         )}
         {step < lastStep && (
           <button type="button" className="btn" disabled={!canNext}
                   onClick={() => setStep(step + 1)}>
-            Keyingi
+            {t("cc.next")}
           </button>
         )}
         {step === lastStep && (
           <button type="button" className="btn" disabled={!canNext || busy} onClick={check}>
-            {busy ? "Tekshirilmoqda…" : "Tekshirish"}
+            {busy ? t("cc.checking") : t("cc.check")}
           </button>
         )}
         {step === 3 && (
           <>
             <button type="button" className="check__back" onClick={restart}>
-              &larr; Qaytadan
+              {t("cc.restart")}
             </button>
-            <a className="btn" href={requestUrl}>Soʻrov yuborish</a>
+            <a className="btn" href={requestUrl}>{t("common.sendRequest")}</a>
           </>
         )}
       </div>
