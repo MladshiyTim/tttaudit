@@ -7,7 +7,7 @@ from core.models import Direction, SiteSettings
 
 @pytest.mark.django_db
 def test_tr_falls_back_to_uz_when_translation_empty():
-    d = Direction.objects.create(slug="energoaudit", title_uz="Energoaudit", title_ru="", summary_uz="x")
+    d = Direction.objects.create(slug="tr-fallback-check", title_uz="Energoaudit", title_ru="", summary_uz="x")
     with translation.override("ru"):
         assert d.tr("title") == "Energoaudit"
     d.title_ru = "Энергоаудит"
@@ -16,9 +16,10 @@ def test_tr_falls_back_to_uz_when_translation_empty():
 
 
 @pytest.mark.django_db
-def test_site_settings_load_creates_single_row():
-    assert SiteSettings.objects.count() == 0
+def test_site_settings_load_returns_singleton():
+    # seed_content/import_tttaudit already create the single row for the test session.
     site = SiteSettings.load()
+    assert SiteSettings.objects.count() == 1
     assert site.org_name_uz == "«TTTaudit» MChJ"
     assert SiteSettings.load().pk == site.pk
 
