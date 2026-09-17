@@ -1,0 +1,1329 @@
+{
+ "source": "ИНФОРМАЦИОННЫЙ БЮЛЛЕТЕНЬ ТТТ AUDIT 2025 (энергоаудит, обмер), mijoz bergan .docx",
+ "note": "Xom ma'lumot: ismlarning lotin yozuvi avtomatik o'girilgan, mijoz tasdiqlashi kerak.",
+ "staff": [
+  {
+   "name_ru": "СЕРТИФИКАТ СИСТЕМЫ МЕНЕДЖМЕНТА КАЧЕСТВА O`z DSt ISO 9001:2015",
+   "name_uz": "Sertifikat Sistemi Menedjmenta Kachestva O`z Dst Iso 9001:2015",
+   "role_ru": "",
+   "dept": "energy",
+   "photo": "img/staff/sertifikat-sistemi-menedjmenta-kachestva-o-z-dst-iso-9001-2015.jpg",
+   "source": "energo p5"
+  },
+  {
+   "name_ru": "СУЛТОНОВ РЎЗИМАТЖОН АНВАРЖОН ЎҒЛИ",
+   "name_uz": "Sultonov Roʻzimatjon Anvarjon Oʻgʻli",
+   "role_ru": "Главный специалист по энергетике",
+   "dept": "energy",
+   "photo": "img/staff/sultonov-rozimatjon-anvarjon-ogli.jpg",
+   "source": "energo p6"
+  },
+  {
+   "name_ru": "ХУДАЙБЕРДИЕВ ОТАБЕК ТАЛИПОВИЧ",
+   "name_uz": "Xudayberdiev Otabek Talipovich",
+   "role_ru": "Заместитель Генерального директора",
+   "dept": "energy",
+   "photo": "img/staff/xudayberdiev-otabek-talipovich.jpg",
+   "source": "energo p6"
+  },
+  {
+   "name_ru": "АМАНОВ ОЗОД БОТИРОВИЧ",
+   "name_uz": "Amanov Ozod Botirovich",
+   "role_ru": "Специалист по энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/amanov-ozod-botirovich.jpg",
+   "source": "energo p6"
+  },
+  {
+   "name_ru": "УСМОНОВ ШУКУРИЛЛО ЮЛБАРСОВИЧ",
+   "name_uz": "Usmonov Shukurillo Yulbarsovich",
+   "role_ru": "Начальник отдела энергетического аудита",
+   "dept": "energy",
+   "photo": "img/staff/usmonov-shukurillo-yulbarsovich.jpg",
+   "source": "energo p6"
+  },
+  {
+   "name_ru": "АКРАМОВ НОДИРБЕК НАБИЖОНОВИЧ",
+   "name_uz": "Akramov Nodirbek Nabijonovich",
+   "role_ru": "Главный энергоаудитор",
+   "dept": "energy",
+   "photo": "img/staff/akramov-nodirbek-nabijonovich.jpg",
+   "source": "energo p7"
+  },
+  {
+   "name_ru": "АЗИМЖОНОВ ШОХЖАХОН ДИЛШОДБЕК ЎҒЛИ",
+   "name_uz": "Azimjonov Shoxjaxon Dilshodbek Oʻgʻli",
+   "role_ru": "Энергоаудитор по зданиям, сооружениям и промышленным объектам",
+   "dept": "energy",
+   "photo": "img/staff/azimjonov-shoxjaxon-dilshodbek-ogli.jpg",
+   "source": "energo p7"
+  },
+  {
+   "name_ru": "БОТИРОВ ДАВРОНБЕК БАХТИЁРОВИЧ",
+   "name_uz": "Botirov Davronbek Baxtiyorovich",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/botirov-davronbek-baxtiyorovich.jpg",
+   "source": "energo p7"
+  },
+  {
+   "name_ru": "ЭРГАШБОЕВ ИМОНЖОН ЛУКМОНОН ЎҒЛИ",
+   "name_uz": "Ergashboev Imonjon Lukmonon Oʻgʻli",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/ergashboev-imonjon-lukmonon-ogli.jpg",
+   "source": "energo p7"
+  },
+  {
+   "name_ru": "ЖЎРАЕВ ЖАСУР АЛИШЕР ЎҒЛИ",
+   "name_uz": "Joʻraev Jasur Alisher Oʻgʻli",
+   "role_ru": "Энергоаудитор по зданиям, сооружениям и промышленным объектам",
+   "dept": "energy",
+   "photo": "img/staff/joraev-jasur-alisher-ogli.jpg",
+   "source": "energo p8"
+  },
+  {
+   "name_ru": "УРАИМОВ ИХТИЁР БАХТИЯРОВИЧ",
+   "name_uz": "Uraimov Ixtiyor Baxtiyarovich",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/uraimov-ixtiyor-baxtiyarovich.jpg",
+   "source": "energo p8"
+  },
+  {
+   "name_ru": "АБДУЛЛАХУЖАЕВ ДАВРОНХУЖА РАВШАНХУЖА УГЛИ",
+   "name_uz": "Abdullaxujaev Davronxuja Ravshanxuja Ugli",
+   "role_ru": "Специалист по информационной безопасности в области энергетического аудита",
+   "dept": "energy",
+   "photo": "img/staff/abdullaxujaev-davronxuja-ravshanxuja-ugli.jpg",
+   "source": "energo p8"
+  },
+  {
+   "name_ru": "ШЕРАЛИЕВ ОМАДБЕК ФУРКАТ УГЛИ",
+   "name_uz": "Sheraliev Omadbek Furkat Ugli",
+   "role_ru": "Специалист по энергоэффективности и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/sheraliev-omadbek-furkat-ugli.jpg",
+   "source": "energo p8"
+  },
+  {
+   "name_ru": "МАМАДАЛИЕВ МУСУЛМОНКУЛ ИМОМАЛИ ЎҒЛИ",
+   "name_uz": "Mamadaliev Musulmonkul Imomali Oʻgʻli",
+   "role_ru": "Специалист по энергосбережению",
+   "dept": "energy",
+   "photo": "img/staff/mamadaliev-musulmonkul-imomali-ogli.jpg",
+   "source": "energo p9"
+  },
+  {
+   "name_ru": "МУХАММАДЖОНОВ АЛИШЕР ВАХОБЖОН ЎҒЛИ",
+   "name_uz": "Muxammadjonov Alisher Vaxobjon Oʻgʻli",
+   "role_ru": "Энергоаудитор по зданиям, сооружениям и промышленным объектам",
+   "dept": "energy",
+   "photo": "img/staff/muxammadjonov-alisher-vaxobjon-ogli.jpg",
+   "source": "energo p9"
+  },
+  {
+   "name_ru": "НУРАЛИЕВ ШУКРУЛЛО РУСТАМЖОН ЎҒЛИ",
+   "name_uz": "Nuraliev Shukrullo Rustamjon Oʻgʻli",
+   "role_ru": "Энергоаудитор по зданиям, сооружениям и промышленным объектам",
+   "dept": "energy",
+   "photo": "img/staff/nuraliev-shukrullo-rustamjon-ogli.jpg",
+   "source": "energo p9"
+  },
+  {
+   "name_ru": "УРАИМОВ ДОСТОНБЕК БАХТИЁР УГЛИ",
+   "name_uz": "Uraimov Dostonbek Baxtiyor Ugli",
+   "role_ru": "Инженер",
+   "dept": "energy",
+   "photo": "img/staff/uraimov-dostonbek-baxtiyor-ugli.jpg",
+   "source": "energo p9"
+  },
+  {
+   "name_ru": "ШЕРМАТОВ БАХОДИРЖОН АЛИЖОН ЎҒЛИ",
+   "name_uz": "Shermatov Baxodirjon Alijon Oʻgʻli",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/shermatov-baxodirjon-alijon-ogli.jpg",
+   "source": "energo p10"
+  },
+  {
+   "name_ru": "КОМОЛОВ УСМОНАЛИ ЙИГИТАЛИ УГЛИ",
+   "name_uz": "Komolov Usmonali Yigitali Ugli",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/komolov-usmonali-yigitali-ugli.jpg",
+   "source": "energo p10"
+  },
+  {
+   "name_ru": "УРМАНОВ ФАЗЛИДДИН ХАСАНБОЕВИЧ",
+   "name_uz": "Urmanov Fazliddin Xasanboevich",
+   "role_ru": "Энергоаудитор по промышленным и строительным объектам",
+   "dept": "energy",
+   "photo": "img/staff/urmanov-fazliddin-xasanboevich.jpg",
+   "source": "energo p10"
+  },
+  {
+   "name_ru": "НУРМАМАТОВ ЖАСУРБЕК ШАВКАТЖОН УГЛИ",
+   "name_uz": "Nurmamatov Jasurbek Shavkatjon Ugli",
+   "role_ru": "Специалист по энергосбережению и энергоаудиту",
+   "dept": "energy",
+   "photo": "img/staff/nurmamatov-jasurbek-shavkatjon-ugli.jpg",
+   "source": "energo p10"
+  },
+  {
+   "name_ru": "АНВАРОВ БЕКМУРОД ДОНИЁРБЕК ЎҒЛИ",
+   "name_uz": "Anvarov Bekmurod Doniyorbek Oʻgʻli",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/anvarov-bekmurod-doniyorbek-ogli.jpg",
+   "source": "energo p11"
+  },
+  {
+   "name_ru": "СОБИРОВ МУРОДИЛЖОН НУСРОТИЛЛО ЎҒЛИ",
+   "name_uz": "Sobirov Murodiljon Nusrotillo Oʻgʻli",
+   "role_ru": "Специалист по теплоэнергетике и энергетическому аудиту",
+   "dept": "energy",
+   "photo": "img/staff/sobirov-murodiljon-nusrotillo-ogli.jpg",
+   "source": "energo p11"
+  },
+  {
+   "name_ru": "ТУХЛИБАЕВ УЛУ ЎҒЛИҒБЕК СОЙИБОВИЧ",
+   "name_uz": "Tuxlibaev Ulu Oʻgʻligʻbek Soyibovich",
+   "role_ru": "Технический сотрудник по контролю отчетов по энергоаудиту",
+   "dept": "energy",
+   "photo": "img/staff/tuxlibaev-ulu-ogligbek-soyibovich.jpg",
+   "source": "energo p11"
+  },
+  {
+   "name_ru": "АБДУСАМАТОВ УМИДЖОН РУЗМАМАТ УГЛИ.",
+   "name_uz": "Abdusamatov Umidjon Ruzmamat Ugli.",
+   "role_ru": "Специалист по промышленной теплоэнергетике и энергоаудиту",
+   "dept": "energy",
+   "photo": "img/staff/abdusamatov-umidjon-ruzmamat-ugli.jpg",
+   "source": "energo p11"
+  },
+  {
+   "name_ru": "ДОНИЁРЖОН ЎҒЛИ",
+   "name_uz": "Doniyorjon Oʻgʻli",
+   "role_ru": "Архитектор Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/doniyorjon-ogli.jpg",
+   "source": "obmer p6"
+  },
+  {
+   "name_ru": "ХУДАЙБЕРДИЕВ ОТАБЕК ТАЛИПОВИЧ",
+   "name_uz": "Xudayberdiev Otabek Talipovich",
+   "role_ru": "Заместитель Генерального директора по энергоаудиту контрольному обмеру в строительстве Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/xudayberdiev-otabek-talipovich.jpg",
+   "source": "obmer p6"
+  },
+  {
+   "name_ru": "НАЗАРОВ САРДОРЖОН ЎКТАМЖОН ЎҒЛИ",
+   "name_uz": "Nazarov Sardorjon Oʻktamjon Oʻgʻli",
+   "role_ru": "Архитектор Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/nazarov-sardorjon-oktamjon-ogli.jpg",
+   "source": "obmer p6"
+  },
+  {
+   "name_ru": "АСҚАРОВ ЖАВЛОН ХУСАН ЎҒЛИ",
+   "name_uz": "Asqarov Javlon Xusan Oʻgʻli",
+   "role_ru": "Специалист по контрольному обмеру на строительсвте Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/asqarov-javlon-xusan-ogli.jpg",
+   "source": "obmer p6"
+  },
+  {
+   "name_ru": "ТУЛАНОВ ХОТАМБЕК ТУЛАНОВИЧ",
+   "name_uz": "Tulanov Xotambek Tulanovich",
+   "role_ru": "Технический контроллёр на строительных объектах 3-категории сложности",
+   "dept": "construction",
+   "photo": "img/staff/tulanov-xotambek-tulanovich.jpg",
+   "source": "obmer p7"
+  },
+  {
+   "name_ru": "МУЙДИНОВ ХУРШИДБЕК",
+   "name_uz": "Muydinov Xurshidbek",
+   "role_ru": "Эксперт по строительно монтажным работам",
+   "dept": "construction",
+   "photo": "img/staff/muydinov-xurshidbek.jpg",
+   "source": "obmer p7"
+  },
+  {
+   "name_ru": "МУМИНОВ ХУРШИД АХАТОВИЧ",
+   "name_uz": "Muminov Xurshid Axatovich",
+   "role_ru": "Главный специалист по контрольным измерениям Сертифицированое контрольное",
+   "dept": "construction",
+   "photo": "img/staff/muminov-xurshid-axatovich.jpg",
+   "source": "obmer p7"
+  },
+  {
+   "name_ru": "МАТМУСАЕВ ГУЛОМЖОН ХАБИБУЛЛАЕВИЧ",
+   "name_uz": "Matmusaev Gulomjon Xabibullaevich",
+   "role_ru": "Главный специалист по контрольным измерениям Сертифицированое контрольное Инженер по надзору за строительством",
+   "dept": "construction",
+   "photo": "img/staff/matmusaev-gulomjon-xabibullaevich.jpg",
+   "source": "obmer p7"
+  },
+  {
+   "name_ru": "ЗАКИРОВ ЗОИР ТУРГУНОВИЧ",
+   "name_uz": "Zakirov Zoir Turgunovich",
+   "role_ru": "Инженер-проектировщик Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/zakirov-zoir-turgunovich.jpg",
+   "source": "obmer p8"
+  },
+  {
+   "name_ru": "ЭРГАШЕВ ШАВКАТ",
+   "name_uz": "Ergashev Shavkat",
+   "role_ru": "Конструктор Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/ergashev-shavkat.jpg",
+   "source": "obmer p8"
+  },
+  {
+   "name_ru": "РАШИДОВ ФАРРУХ ЗОКИРОВИЧ",
+   "name_uz": "Rashidov Farrux Zokirovich",
+   "role_ru": "Главный конструктор Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/rashidov-farrux-zokirovich.jpg",
+   "source": "obmer p8"
+  },
+  {
+   "name_ru": "ОРИФЖОНОВ ИСЛОМБЕК УМИДЖОН ЎГЛИ",
+   "name_uz": "Orifjonov Islombek Umidjon Oʻgli",
+   "role_ru": "Архитектор Сертифицированный “Авторский контроль“",
+   "dept": "construction",
+   "photo": "img/staff/orifjonov-islombek-umidjon-ogli.jpg",
+   "source": "obmer p8"
+  },
+  {
+   "name_ru": "МИРЗАШАРИПОВ ДИНМУХАММАД МИРЗАМИРОВИЧ",
+   "name_uz": "Mirzasharipov Dinmuxammad Mirzamirovich",
+   "role_ru": "Главный инженер проекта Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/mirzasharipov-dinmuxammad-mirzamirovich.jpg",
+   "source": "obmer p9"
+  },
+  {
+   "name_ru": "БОЛТАБОЕВ ДОНИЁРЖОН НЕЪМАТИЛЛО ЎҒЛИ",
+   "name_uz": "Boltaboev Doniyorjon Neʼmatillo Oʻgʻli",
+   "role_ru": "Главный инженер-проектировщик по техническому контролю строительства Сертифицированое контрольное",
+   "dept": "construction",
+   "photo": "img/staff/boltaboev-doniyorjon-nematillo-ogli.jpg",
+   "source": "obmer p9"
+  },
+  {
+   "name_ru": "ПАРПИЕВ ШУХРАТЖАН МАМУРЖАНОВИЧ",
+   "name_uz": "Parpiev Shuxratjan Mamurjanovich",
+   "role_ru": "МАМУРЖАНОВИЧ Специалист по контрольному обмеру на строительсвте Сертифицированое контрольное измерение",
+   "dept": "construction",
+   "photo": "img/staff/parpiev-shuxratjan-mamurjanovich.jpg",
+   "source": "obmer p9"
+  }
+ ],
+ "projects": [
+  {
+   "no": 1,
+   "title_ru": "Оказание услуг по проведению энергетического аудита. Оценка эффективности использования университетом электрической и тепловой энергии, природного газа и водных ресурсов, выявление потерь энергии, а также разработка мероприятий по энергосбережению.",
+   "client_ru": "Каршинский государственный технический университет",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 2,
+   "title_ru": "Проведение энергетического аудита здания головного офиса банка.",
+   "client_ru": "АКБ «AGROBANK»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 3,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "Территориальный филиал Республики Каракалпакстан АО «HUDUDIY ELEKTR TARMOQLARI»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 4,
+   "title_ru": "Проведение энергетического аудита в Ташкентском государственном юридическом университете и студенческих общежитиях.",
+   "client_ru": "Ташкентский государственный юридический университет",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 5,
+   "title_ru": "Оказание услуг по проведению энергетического аудита в 16 школах Кашкадарьинской и Сурхандарьинской областей.",
+   "client_ru": "«ПРЕДСТАВИТЕЛЬСТВО ПРОГРАММЫ РАЗВИТИЯ ООН»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 6,
+   "title_ru": "Проведение энергетического аудита в ГУ «Fargʻona tuman yoʻllardan foydalanish».",
+   "client_ru": "ГУ «Ферганское районное управление по эксплуатации автомобильных дорог»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 7,
+   "title_ru": "«Услуги по проведению энергоаудита энергетического хозяйства насосной станции \"Ширмонбулок\" в Булакбашинском районе»",
+   "client_ru": "Норин-Корадаре ирригация тизимлари хавза бошкармаси хузуридаги Насос станциялари ва энергетика бошкармаси",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 8,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО \"O`ZTRANSGAZ\"",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 9,
+   "title_ru": "Услуга по проведение энергоаудита по объектам Мубарекского НГДУ",
+   "client_ru": "АО \"O`ZBEKNEFTGAZ\"",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 10,
+   "title_ru": "Проведение энергоаудита по объектам АО «Узбекнефтегаз» Газлийского НГДУ на 2025 год",
+   "client_ru": "АО \"O`ZBEKNEFTGAZ\"",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 11,
+   "title_ru": "Услуги по проведению энергоаудита объектов ООО «COSCOM» в Андижанской и Самаркандской областях",
+   "client_ru": "ООО “COSCOM”",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 12,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "ООО “Uzbekistan Airways Technics”",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 13,
+   "title_ru": "Проведению энергетического аудита объектов АО “Узбекгидроэнерго”",
+   "client_ru": "АО \"O`ZBEKGIDROENERGO\"",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 14,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО “HUDUDGAZTA`MINOT”",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 15,
+   "title_ru": "роведению энергоаудита зданий АО “Национальный банк Узбекистана” с целью повышения их энергоэффективности и обеспечения энергосбережения.",
+   "client_ru": "АО “Национальный банк Узбекистана”",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 16,
+   "title_ru": "Услуга по энергетическому обследованию объекта АО «O`ZBEKTELEKOM»",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 17,
+   "title_ru": "Услуга по энергетическому обследованию объекта АО «O`ZBEKTELEKOM»",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 18,
+   "title_ru": "Услуга по энергетическому обследованию объекта АО «O`ZBEKTELEKOM»",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 19,
+   "title_ru": "Услуга по проведению энергетического обследования 7 объектов АО «O‘ZBEKTELEKOM»",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 20,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 21,
+   "title_ru": "Проведение энергетического обследования (энергоаудита) объектов",
+   "client_ru": "АО «Узтрансгаз», Управление магистральных газопроводов Самарканда",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 22,
+   "title_ru": "“Ўзбекистон миллий электр тармоқлари” АЖда энергия аудит ўтказиш",
+   "client_ru": "АО «Национальные электрические сети Узбекистана»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 23,
+   "title_ru": "Проведение энергетического обследования (энергоаудита) Объектов",
+   "client_ru": "АО «Узтрансгаз», Управление магистральных газопроводов Когон",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 24,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 25,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 26,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "АО «O`ZBEKTELEKOM»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 27,
+   "title_ru": "Ўзйўлкўприк \" кластери Навоий филиали ДМ да энергетик текширув (энергоаудит) ўтказиш хизмати.",
+   "client_ru": "ГУ Навоийский филиал кластера «Уз йўл кўприк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 28,
+   "title_ru": "Проведение энергоаудита зданий филиалов Самаркандского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 29,
+   "title_ru": "Проведение энергоаудита зданий филиалов Андижанского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 30,
+   "title_ru": "Проведение энергоаудита зданий филиалов Ферганского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 31,
+   "title_ru": "Проведение энергоаудита зданий филиалов Наманганского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 32,
+   "title_ru": "Проведение энергоаудита зданий филиалов Бухарского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 33,
+   "title_ru": "Проведение энергоаудита зданий филиалов Кашкадарьинского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 34,
+   "title_ru": "Проведение энергоаудита зданий филиалов Навоинского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 35,
+   "title_ru": "Проведение энергоаудита зданий филиалов Хорезмского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 36,
+   "title_ru": "Проведение энергоаудита зданий филиалов Жиззахского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 37,
+   "title_ru": "Проведение энергоаудита зданий филиалов Сырдарьинского областного управления АКБ «Агробанк»",
+   "client_ru": "АКБ «Агробанк»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 38,
+   "title_ru": "Проведение обязательного энергетического аудита на объектах и в системах энергопотребления ООО \"KHAT PRINT PRO\"",
+   "client_ru": "ООО «KHAT PRINT PRO»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 39,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "AMU-BUXORO MASHINA KANALI QIZILTEPA TUMAN BOSHQARMASI DM",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 40,
+   "title_ru": "Проведение первичного энергетического обследования (энергоаудита) насосной станции “Корсув” в Гузарском районе, находящейся в ведении Управления насосных станций и энергетики при Кашкадарьинском ИТХБ.",
+   "client_ru": "Аму-Кашкадарё ирригация тизимлари хавза бошкармаси хузуридаги Насос станциялари ва энергетика бошкармаси",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 41,
+   "title_ru": "Оказание услуг по проведению энергоаудита насосной станции “Джиззах-2”, находящейся в ведении Управления главной насосной станции Джиззака.",
+   "client_ru": "Жиззах бош насос станцияси бошкармаси",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 42,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "UZBEKISTAN AIRWAYS AJ",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 43,
+   "title_ru": "На проведенье энергетического аудита объектов Ургенчского УМГ (п.пл.Сарымай).",
+   "client_ru": "URGANCHTRANSGAZ UK",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 44,
+   "title_ru": "Проведение комплексной проверки энергопотребления (энергоаудит)",
+   "client_ru": "АО «DEHQONOBOD KALIY ZAVODI»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 45,
+   "title_ru": "Услуга по энергетическому обследованию",
+   "client_ru": "CHIRCHIQ DAVLAT PEDAGOGIKA UNIVERSITETI",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 46,
+   "title_ru": "«O’zChasys» ООО СП — проведение энергетического аудита объектов энергопотребления предприятия.",
+   "client_ru": "СП ООО «O’zChasys»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 47,
+   "title_ru": "Проведение аудиторской проверки по расходу энергетических ресурсов и топлива, изучение расхода энергии в каждом отделе и разработка предложений по повышению экономии",
+   "client_ru": "ИЙФУК ДМ «Қамчиқавтойўл»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 48,
+   "title_ru": "Услуга – проведение добровольного энергетического аудита на предприятии по производству технических газов",
+   "client_ru": "ООО «OXYGEN TASHKENT»",
+   "dept": "energy",
+   "year": null
+  },
+  {
+   "no": 1,
+   "title_ru": "\"Farg'ona xalqaro aeroporti\" MCHJда “Халқаро учиб кетувчилар учун кутиш зали қурилиши” объекти бўйича амалда бажарилган иш ҳажмларини назорат ўлчовидан ўтказиш хизмати",
+   "client_ru": "ООО “FARG’ONA XALQARO AEROPORTI”",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 2,
+   "title_ru": "Определение организации на проведение контрольного обмера завершенных строительно-монтажных работ по объекту современного торгового комплекса на территории туристско-рекреационной зоны \"Мираки\" Шахрисабзского района Кашкадарьинской области в соответствии с проектно-сметной документацией, прошедшей экспертизу в ГУ \"Республиканский центр экспертизы градостроительной документации.",
+   "client_ru": "ООО «MIRAKI MOUNTAINS»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 3,
+   "title_ru": "Услуги по проведению контрольного обмера объекта «Создание инженерной инфраструктуры для Центра обработки данных» АО «Узнацбанк»",
+   "client_ru": "АО «O’zbekiston Respublikasi Tashqi iqtisodiy faoliyat milliy bank»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 4,
+   "title_ru": "Строительство электросети напряжением 110 кВ протяженностью 40,0 км для подстанции мощностью 2х40 МВА, запланированной к строительству на территории Шараф-Рашидовского района СЭЗ \"Джизак\"",
+   "client_ru": "ООО «INJENER ELEKTRO TEXNIK LABORATORIYA»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 5,
+   "title_ru": "Проведение контрольного обмера головного здания АКБ “Туронбанк”",
+   "client_ru": "АКБ «TURON BANK»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 6,
+   "title_ru": "Контрольный обмер фактически выполненных объемов работ по объекту: Строительство терминала обслуживания пассажиров c благоустройством и строительство вспомогательных зданий и сооружений на аэродроме Сариосиё",
+   "client_ru": "АО «UZBEKISTAN AIRPORTS»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 7,
+   "title_ru": "Контрольный обмер фактически выполненных объемов работ по объекту: Реконструкция элементов покрытия взлетно-посадочных полос аэродрома Сариосиё",
+   "client_ru": "АО «UZBEKISTAN AIRPORTS»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 8,
+   "title_ru": "Контрольный обмер фактически выполненных объемов работ по объекту: Реконструкция элементов покрытия взлетно-посадочных полос аэродрома Шахрисабз",
+   "client_ru": "АО «UZBEKISTAN AIRPORTS»",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 9,
+   "title_ru": "Осуществление мониторинга работ по модернизации и строительно-монтажных работ в учреждениях (приложение 1), в которые были внесены инвестиции со стороны ООО «UMUM BARAKA SAVDO INVEST»",
+   "client_ru": "OOO “UMUM BARAKA SAVDO INVEST\"",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 10,
+   "title_ru": "Проведение контрольного обмера работ по ремонту системы коллектора «Туркистон» в Кибрайском районе Ташкентской области",
+   "client_ru": "ООО “YANGI TURMUSH BINOKORI\"",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 11,
+   "title_ru": "Услуги по проведению контрольного обмера работ по текущему ремонту школы №15, расположенной в махалле «Уймовут» Кибрайского района Ташкентской области.",
+   "client_ru": "ООО \"SHERXON-2004 M.M\"",
+   "dept": "construction",
+   "year": null
+  },
+  {
+   "no": 8,
+   "title_ru": "Контрольный обмер",
+   "client_ru": "ООО “Salom Chimyon”",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 9,
+   "title_ru": "Проведение контрольного обмера выполненных строительно-монтажных работ на объектах апарт-отеля, ресторана и магазинов, расположенных в туристско-рекреационной зоне «Центр исламской цивилизации» в г. Ташкенте",
+   "client_ru": "OOO \"FAYZLI XAST IMOM\"",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 10,
+   "title_ru": "Проведение контрольного обмера на объекте после завершения строительно-монтажных работ.",
+   "client_ru": "ООО «SHOVOT TEXTILE PROJECT INVEST»",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 11,
+   "title_ru": "Проведение контрольного обмера на объекте после завершения строительно-монтажных работ.",
+   "client_ru": "ООО «TECHNO PAINT GROUP»",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 12,
+   "title_ru": "Проведение контрольного обмера на объекте, принадлежащем ООО «SHOVOT LOGISTIC SERVIS».",
+   "client_ru": "ООО «SHOVOT LOGISTIC SERVIS»",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 13,
+   "title_ru": "Проведение контрольного обмера выполненных строительно-монтажных работ на строительном объекте, принадлежащем ООО «NBU JEWELRY GROUP», расположенном по адресу: г. Ташкент, Яккасарайский район, ул. А. Авлоний, дом 20А.",
+   "client_ru": "ООО «NBU JEWELRY GROUP»",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 14,
+   "title_ru": "Проведение контрольного обмера выполненных строительно-монтажных работ на строительном объекте, принадлежащем ООО \"CHORVOQ RESORT COMPLEX\". Сумма СМР: более 1 трлн. сумовСумма договора: 2 500 000 000",
+   "client_ru": "ООО “CHORVOQ RESORT COMPLEX”",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 15,
+   "title_ru": "Хоразм вилояти Хива шахридаги савдо, ҳунарманд ва меҳмон уйлари, ҳамда умумий овқатланиш мажмуасини қурилиш объектини назорат ўлчовидан ўтказиш",
+   "client_ru": "KHIVA BUSINESS VENTURES",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 16,
+   "title_ru": "Услуга проведения контрольного обмера Выполненных строительно-ремонтных работ",
+   "client_ru": "MILLIY GVARDIYASI QO`RIQLASH BOSH BOSHQARMASI",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 17,
+   "title_ru": "Контрольный обмер фактически выполненных объёмов работ по объкту: Сижжак пляж, Боллар пляж, Поляна, Ангар 1 (2-3), Причал.",
+   "client_ru": "ООО \"UNG BO`STONLIQ\"",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 18,
+   "title_ru": "Проведение контрольного обмера выполненных строительных и ремонтных работ.",
+   "client_ru": "NEW SILK ROAD OIL AND GAS QMJ",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 19,
+   "title_ru": "Проведение контрольного обмера выполненных строительных и ремонтных работ.",
+   "client_ru": "UNICON.UZ-FAN-TEXNIKA VA MARKETING TADQIQOTLARI MARKAZI MCHJ",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 20,
+   "title_ru": "Проведение контрольно измеретельных работ электроснабжения на объекте реконструкции семейной поликлиники №69, расположенной в города Ташкента Бектемирском районе.",
+   "client_ru": "ООО «MDF FORMATION»",
+   "dept": "construction",
+   "year": 2025
+  },
+  {
+   "no": 21,
+   "title_ru": "Контрольный обмер фактически выполненных объемов строительных и монтажных работ в соответствии с требованиями постановления Кабинета Министров №321.",
+   "client_ru": "UZ.RES.MG QO`RIQLASH BOSH BOSHQARMASIDAVLAT ORGANLARI OB`EKTLARINI QO`RIQLASH BB",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 22,
+   "title_ru": "Проведение контрольного обмера работ по ремонту электроснабжения. Анализ финансовых и экономических рисков реконструкции и восстановления объекта.",
+   "client_ru": "АО «Узбекнефтгаз»",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 23,
+   "title_ru": "Проведение контрольного обмера по объекту: «Капитальный ремонт и реконструкция пансионата «Рохат НБУ», расположенного в селе Кора-Ой, Иссык-Кульской области, Кыргызской Республики, принадлежащего АО «Национальный банк внешнеэкономической деятельности Республики Узбекистан»»",
+   "client_ru": "АО “Национальный банк ВЭД РУз”",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 24,
+   "title_ru": "Экспертиза ПСД и выдача заключенния эксперта",
+   "client_ru": "Parkent tuman yo`llaridan foydalanish DUK",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 25,
+   "title_ru": "Контрольный обмер завершённых строительно-ремонтных работ",
+   "client_ru": "АО “Agro Finans Lizing”",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 26,
+   "title_ru": "Контрольный обмер выполненных строительно-ремонтных работ",
+   "client_ru": "Бухарский Государственный Университет",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 27,
+   "title_ru": "Контрольный замер (обмер)",
+   "client_ru": "АО “Региональные электрические сети”",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 28,
+   "title_ru": "Контрольный обмер услуг по разработке дизайнпроекта, создание экспозиции Музея Олимпийской и параолимпийской славы и оказание услуг по художественному оформлению",
+   "client_ru": "Музей олимпийской славы",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 29,
+   "title_ru": "Услуга проведения контрольного обмера выполненных строительно-ремонтных работ",
+   "client_ru": "Янгиерский филиал Ташкентского химико-технологического института",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 30,
+   "title_ru": "Проведение услуг по контрольному обмеру объектов",
+   "client_ru": "O`zbekiston Davlat Jismoniy Tarbiya Va Sport Universiteti Dm",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 31,
+   "title_ru": "Контрольный обмер",
+   "client_ru": "Burchmullo O'rmon Xo'jalik Korxonasi",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 32,
+   "title_ru": "На приобретения услуги по проведению экспертизы проект-сметной документации объектов Мубарекского НГДУ",
+   "client_ru": "\"O'ZBEKNEFTGAZ\" AJ",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 33,
+   "title_ru": "На оказание услуг по контрольному обмеру по объекту капитального ремонта и строительство: «Шуртанского НГДУ 2017-2018-2019-2020-2021- 2022-2023-2024 года»",
+   "client_ru": "\"O'ZBEKNEFTGAZ\" AJ",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 34,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "«ANGREN EIZ» ДУК",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 35,
+   "title_ru": "Экспертиза (Услуга на проведение экспертизы промышленной безопасности 10 проектов)",
+   "client_ru": "АО «NAVOIYAZOT»",
+   "dept": "construction",
+   "year": 2024
+  },
+  {
+   "no": 36,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания) (Таджикистан)",
+   "client_ru": "АО \"O‘ZBEKNEFTGAZ\"",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 37,
+   "title_ru": "Экспертиза (Экспертиза сметной документации)",
+   "client_ru": "ЧП «FAVORIT SNAB-TRADE»",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 38,
+   "title_ru": "Контрольный обмер строительно-монтажных работ, выполненных на 7 объектах Андижанского государственного института иностранных языков",
+   "client_ru": "“Андижанский государственный институт иностранных языков”",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 39,
+   "title_ru": "Контрольный обмер (вспомогательного здания, прилегающего к существующему литейному цеху)",
+   "client_ru": "АО “UZAUTO MOTORS POWERTRAIN”",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 40,
+   "title_ru": "Экспертиза (Экспертиза сметной документации)",
+   "client_ru": "“SHOVOZSOY BARAKA MARKET” ООО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 41,
+   "title_ru": "Контрольный обмер (обмер Газопровода)",
+   "client_ru": "«Biokimyo» АЖ, Тошкент, Янгиюль",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 42,
+   "title_ru": "Экспертиза (Экспертиза отчёта об оценке)",
+   "client_ru": "\"ROYAL THAY BRANCH\" ООО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 43,
+   "title_ru": "Контрольный обмер (Обмер электрических сетей)",
+   "client_ru": "Иссиқлик электр станцияси",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 44,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "Асака банк",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 45,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "\"ROYAL THAY BRANCH\" ООО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 46,
+   "title_ru": "Экспертиза (Экспертиза отчёта об оценке)",
+   "client_ru": "“ZAMAN BUILDING” ООО Janob Muhandis",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 47,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "“Қувасой Насли Парранда\" ООО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 48,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "Узбекистон мудофасига кумаклашувчи “Ватанпарвар” ташкилоти Дангара туман укув спорт техника клуби",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 49,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "Язявон автомобиль мактаби",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 50,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 51,
+   "title_ru": "Экспертиза (Экспертиза сметной документации)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 52,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "«ОРЗУ» ишлаб чикариш тижорат фирмаси",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 53,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "«Фаргона ёг-мой» ОАО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 54,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "«Фаргона вилоят педогог кадрларни кайта тайёрлаш ва малака ошириш институти”",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 55,
+   "title_ru": "Экспертиза (Экспертиза отчёта об оценке)",
+   "client_ru": "«QURILISH IPAK YO`LI» ООО",
+   "dept": "construction",
+   "year": 2023
+  },
+  {
+   "no": 56,
+   "title_ru": "Контрольный обмер (Специальные вопросы)",
+   "client_ru": "“ERGOHAUS” ООО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 57,
+   "title_ru": "Экспертиза (Экспертиза отчета о контрольном обмере)",
+   "client_ru": "“FARG`ONA YO`L QURILISH UFK” ООО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 58,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 59,
+   "title_ru": "Контрольный обмер",
+   "client_ru": "«FERPI MECH-TECHNO» UK",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 60,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "“Бешариқ паҳта тозалаш заводи” ОАО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 61,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "“Тошлок пахта тозалаш заводи\" ОАО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 62,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "Узбекистон тумани “Ўзбекистон паҳта тозалаш заводи” ОАО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 63,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "Фаргона вилояти Бешарик туман«Матлуботсавдо» акциядорлик жамияти",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 64,
+   "title_ru": "Экспертиза (Экспертиза сметной документации)",
+   "client_ru": "“FARG`ONA YO`L QURILISH UFK” ООО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 65,
+   "title_ru": "Экспертиза (Экспертиза сметной документации)",
+   "client_ru": "“JANOB MUHANDIS” ООО",
+   "dept": "construction",
+   "year": 2022
+  },
+  {
+   "no": 66,
+   "title_ru": "Экспертиза",
+   "client_ru": "“JANOB MUHANDIS” ООО",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 67,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта), (Защита Заказчика в судебном процессе)",
+   "client_ru": "ООО «Абдувохид Курилиш Таъмир» (Жиззах вил. Зомин Фарм Эркин Худудий Зонаси)",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 68,
+   "title_ru": "Экспертиза",
+   "client_ru": "“FARG`ONA YO`L QURILISH UFK” ООО",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 69,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "ООО «FERGANA MOTORS»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 70,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "АО «Фаргонадон махсулотлари»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 71,
+   "title_ru": "Контрольный обмер (Обмер, крупная сделка, Специальные вопросы)",
+   "client_ru": "АО «Багдод ПТЗ»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 72,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "ЧП «PLANETA SERVIS»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 73,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "АО «Фаргонадон махсулотлари»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 74,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта), (Защита Заказчика в судебном процессе)",
+   "client_ru": "ООО «Сугдиёна PIPEPLAST» (Жиззах вил. №37 МТМ)",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 75,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта), (Защита Заказчика в судебном процессе)",
+   "client_ru": "ООО «Сугдиёна PIPEPLAST» (Жиззах вил. №2 МТМ)",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 76,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта), (Защита Заказчика в судебном процессе)",
+   "client_ru": "ООО «Абдувохид Курилиш Таъмир» (Жиззах вил. Зарбдор тум. хокимияти биноси)",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 77,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "ООО «Фаргона Капитал Строй Сервис»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 78,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "ЧП «DO’STLIK BOYS»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 79,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "ООО «Фаргона Нефть-Кимё монтаж»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 80,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "ООО «GOLDEN VALLEY PARTNERS»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 81,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "ООО «Водий Савдогар Парвози»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 82,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "АО «CRAPERS &amp; GARDENS INVESTMENT»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 83,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "ООО «Фаргона Кимё Заводи»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 84,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "ООО «Термиз-Шайхун Кластер»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 85,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "АО «Наманган Дори-Дармон»",
+   "dept": "construction",
+   "year": 2021
+  },
+  {
+   "no": 86,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2020
+  },
+  {
+   "no": 87,
+   "title_ru": "Контрольный обмер (Обмер строительства нового здания)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2020
+  },
+  {
+   "no": 88,
+   "title_ru": "Контрольный обмер (Обмер Капитального ремонта)",
+   "client_ru": "АО «Фаргонадон махсулотлари»",
+   "dept": "construction",
+   "year": 2020
+  },
+  {
+   "no": 89,
+   "title_ru": "Контрольный обмер (Защита Заказчика в судебном процессе)",
+   "client_ru": "«Марварид Шахло» МТМ (Янги бино қурилиши)",
+   "dept": "construction",
+   "year": 2020
+  },
+  {
+   "no": 90,
+   "title_ru": "Контрольный обмер (Канализационное сооружение)",
+   "client_ru": "«Ферганский политехнический институт»",
+   "dept": "construction",
+   "year": 2020
+  },
+  {
+   "no": 91,
+   "title_ru": "Контрольный обмер (По специальным вопросам)",
+   "client_ru": "Учебно-спортивный технический клуб Коштепинского района",
+   "dept": "construction",
+   "year": 2019
+  }
+ ]
+}

@@ -1,0 +1,193 @@
+{
+  "note": "Saytga chiqadigan faktlar. Manba: mijoz bergan 2026-yilgi axborot byulletenlari (energoaudit va nazorat o'lchovi) hamda ulardagi hujjat skanlari. Eski tttaudit.uz saytidagi moliyaviy audit ma'lumotlari saytdan olib tashlandi — mijozning ko'rsatmasi: faqat energetika va qurilish.",
+
+  "company": {
+    "brand_name": "TTT AUDIT",
+    "legal_name_uz": "«TTTaudit» MChJ",
+    "legal_name_ru": "ООО «TTT-AUDIT»",
+    "legal_name_en": "TTTaudit LLC",
+    "tagline_uz": "Energoaudit va qurilishda nazorat oʻlchovi",
+    "tagline_ru": "Энергоаудит и контрольный обмер в строительстве",
+    "tagline_en": "Energy audit and construction control measurement",
+    "tin": "202216926",
+    "founded_year": 1997,
+    "founded_note_uz": "Ekspert tashkiloti sifatida 1997-yil 12-martdan faoliyat yuritadi",
+    "experience_years": 29,
+    "staff_total": 50,
+    "staff_energy": 24,
+    "staff_supervision": 16,
+    "address_uz": "Fargʻona shahri, Yangiobod koʻchasi, 5-uy (moʻljal: «Avtosalon» Juydam)",
+    "address_ru": "г. Фергана, ул. Янгиобод, дом 5 (ориентир: «Автосалон» Жуйдам)",
+    "address_en": "5 Yangiobod Street, Fergana (landmark: Juydam car showroom)",
+    "phone": "+998 33 000 48 00",
+    "phone_second": "+998 99 851 80 13",
+    "email": "info@tttaudit.uz",
+    "email_second": "tttaudit@mail.ru",
+    "office_tashkent_uz": "Toshkent filiali: Avisozlar, 4-kvartal, 14-uy",
+    "office_tashkent_ru": "Ташкентский филиал: Ависозлар, 4-квартал, дом 14",
+    "website": "tttaudit.uz",
+    "director": "Botirov Mahammad Hoshimovich",
+    "director_ru": "Ботиров Махаммад Хошимович",
+    "map_lat": 40.40663,
+    "map_lng": 71.77930,
+    "partners_uz": [
+      "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi",
+      "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik",
+      "Qurilish va uy-joy kommunal xoʻjaligi vazirligi bilan hamkorlik"
+    ],
+    "sources": {
+      "founded_year": "byulleten: «Экспертная организация официально начала действовать... с 12 марта 1997 года»",
+      "staff": "byulleten: 50 xodim, 24 energoaudit, 16 texnik nazorat",
+      "tin": "litsenziya № 518159 va energoaudit reestri",
+      "address": "litsenziya № 518159, byulleten sarlavhasi",
+      "phone": "byulleten sarlavhasi va «НАШИ КООРДИНАТЫ»"
+    }
+  },
+
+  "credentials": [
+    {
+      "kind": "license",
+      "number": "№ 518159",
+      "issuer_uz": "Oʻzbekiston Respublikasi Qurilish va uy-joy kommunal xoʻjaligi vazirligi",
+      "issuer_ru": "Министерство строительства и жилищно-коммунального хозяйства Республики Узбекистан",
+      "issuer_en": "Ministry of Construction and Housing and Communal Services of Uzbekistan",
+      "scope_uz": "Arxitektura-shaharsozlik hujjatlarini ishlab chiqish faoliyati",
+      "scope_ru": "Деятельность по разработке архитектурно-градостроительной документации",
+      "scope_en": "Development of architectural and urban planning documentation",
+      "issued_on": "2024-12-06",
+      "valid_until": null,
+      "valid_note_uz": "Muddatsiz",
+      "scan": "img/docs/qurilish-litsenziyasi.png",
+      "note": "Litsenziya reestri boʻyicha tartib raqami L-5239509.",
+      "show": true
+    },
+    {
+      "kind": "registry",
+      "number": "10-oʻrin, reyting 14.5",
+      "issuer_uz": "Vazirlar Mahkamasi huzuridagi Energosamaradorlik milliy agentligi",
+      "issuer_ru": "Национальное агентство по энергоэффективности при Кабинете Министров",
+      "issuer_en": "National Agency for Energy Efficiency under the Cabinet of Ministers",
+      "scope_uz": "Davlat ishtirokidagi korxonalarda energoaudit oʻtkazishga vakolatli yuridik shaxslar reestri",
+      "scope_ru": "Реестр юридических лиц, уполномоченных на проведение энергоаудита предприятий с государственным участием",
+      "scope_en": "Registry of entities authorised to audit state-participation enterprises",
+      "issued_on": "2025-10-24",
+      "valid_until": null,
+      "scan": "img/docs/energoaudit-reestri.png",
+      "note": "Vazirlar Mahkamasining 2025-yil 24-oktyabrdagi 673-son qaroriga muvofiq.",
+      "show": true
+    },
+    {
+      "kind": "membership",
+      "number": "MA-030-son",
+      "issuer_uz": "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE)",
+      "issuer_ru": "Ассоциация инженеров-консультантов Узбекистана (UZACE)",
+      "issuer_en": "Association of Consulting Engineers of Uzbekistan (UZACE)",
+      "scope_uz": "Uyushma aʼzoligi guvohnomasi",
+      "scope_ru": "Свидетельство о членстве в ассоциации",
+      "scope_en": "Membership certificate",
+      "issued_on": "2025-10-21",
+      "valid_until": "2026-10-11",
+      "scan": "img/docs/uzace.png",
+      "show": true
+    },
+    {
+      "kind": "certificate",
+      "number": "QMS-25-2706-TTT",
+      "issuer_uz": "QRS Certification",
+      "issuer_ru": "QRS Certification",
+      "issuer_en": "QRS Certification",
+      "scope_uz": "ISO 9001:2015 — sifat menejmenti tizimi",
+      "scope_ru": "ISO 9001:2015 — система менеджмента качества",
+      "scope_en": "ISO 9001:2015 — quality management system",
+      "issued_on": "2025-06-27",
+      "valid_until": "2026-06-26",
+      "scan": "img/docs/iso-9001.png",
+      "show": true
+    },
+    {
+      "kind": "certificate",
+      "number": "OHSMS-25-0110-TTT",
+      "issuer_uz": "QRS Certification",
+      "issuer_ru": "QRS Certification",
+      "issuer_en": "QRS Certification",
+      "scope_uz": "ISO 45001:2018 — mehnat xavfsizligi va sogʻligʻi menejmenti",
+      "scope_ru": "ISO 45001:2018 — система менеджмента охраны труда",
+      "scope_en": "ISO 45001:2018 — occupational health and safety management",
+      "issued_on": "2025-10-01",
+      "valid_until": "2026-09-30",
+      "scan": "img/docs/iso-45001.png",
+      "show": true
+    },
+    {
+      "kind": "certificate",
+      "number": "ISMS-26-0903-TTT",
+      "issuer_uz": "QRS Certification",
+      "issuer_ru": "QRS Certification",
+      "issuer_en": "QRS Certification",
+      "scope_uz": "ISO/IEC 27001:2022 — axborot xavfsizligi menejmenti",
+      "scope_ru": "ISO/IEC 27001:2022 — система менеджмента информационной безопасности",
+      "scope_en": "ISO/IEC 27001:2022 — information security management",
+      "issued_on": "2026-03-09",
+      "valid_until": "2027-03-08",
+      "scan": "img/docs/iso-27001.png",
+      "show": true
+    },
+    {
+      "kind": "certificate",
+      "number": "UZ.SMT.04-0040-26000857/26",
+      "issuer_uz": "«Iso Hujjatlar Uyushmasi» MChJ — Oʻzbekiston milliy sertifikatlashtirish tizimi",
+      "issuer_ru": "ООО «Iso Hujjatlar Uyushmasi» — Национальная система сертификации Узбекистана",
+      "issuer_en": "Iso Hujjatlar Uyushmasi LLC — National certification system of Uzbekistan",
+      "scope_uz": "Oʻz DSt ISO 9001:2015 — muhandislik izlanishlari va texnik konsultatsiya sohasida sifat menejmenti",
+      "scope_ru": "O`z DSt ISO 9001:2015 — менеджмент качества в области инженерных изысканий и технических консультаций",
+      "scope_en": "Uz DSt ISO 9001:2015 — quality management for engineering surveys and technical consulting",
+      "issued_on": "2026-02-16",
+      "valid_until": "2029-02-16",
+      "scan": "img/docs/ozdst-iso-9001.png",
+      "show": true
+    },
+    {
+      "kind": "insurance",
+      "number": "EISD № 0219853",
+      "issuer_uz": "«Imkon-Sugʻurta» AJ",
+      "issuer_ru": "АО «Imkon-sug'urta»",
+      "issuer_en": "Imkon-Sugurta JSC",
+      "scope_uz": "Fuqarolik va kasbiy javobgarlik sugʻurtasi — 10 000 000 000 soʻm",
+      "scope_ru": "Страхование гражданской и профессиональной ответственности — 10 000 000 000 сум",
+      "scope_en": "Civil and professional liability insurance — UZS 10,000,000,000",
+      "issued_on": "2025-11-10",
+      "valid_until": "2026-11-10",
+      "scan": "img/docs/sugurta.png",
+      "note": "Shartnoma 13-057/0002652. Qamrov: energoaudit, nazorat oʻlchovi, loyiha-smeta hujjatlari ekspertizasi.",
+      "show": true
+    }
+  ],
+
+  "instruments": [
+    {"name_uz": "Lazerli masofaoʻlchagich SNOWAY SW-M100", "serial": "29745194", "cert": "№ 20745-0115/2026", "verified_on": "2026-02-17", "valid_until": "2027-02-17", "range_uz": "50 m gacha, xatolik ±2 mm"},
+    {"name_uz": "Lazerli masofaoʻlchagich SW-50G", "serial": "230642237", "cert": "№ 20785-0115/2026", "verified_on": "2026-02-17", "valid_until": "2027-02-17", "range_uz": "50 m gacha, xatolik ±2 mm"},
+    {"name_uz": "Lazerli masofaoʻlchagich ELM-40", "serial": "№ 01", "cert": "№ 20796-0115/2026", "verified_on": "2026-02-17", "valid_until": "2027-02-17", "range_uz": "40 m gacha, xatolik ±2 mm"},
+    {"name_uz": "Elektron mikrometr MKU", "serial": "№ 01", "cert": "№ 20688-0115/2026", "verified_on": "2026-02-17", "valid_until": "2027-02-17", "range_uz": "0–25 mm, xatolik ±0,001 mm"},
+    {"name_uz": "Dataloger termogigrometr Enkor 4127", "serial": "", "cert": "№ 20745-0115/2026", "verified_on": "2026-02-17", "valid_until": "2027-02-17", "range_uz": "Harorat va namlik qaydi"}
+  ],
+  "instruments_note_uz": "Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan.",
+
+  "stats": [
+    {"value": "1997", "label_uz": "yildan ekspert tashkiloti", "label_ru": "года — экспертная организация", "label_en": "expert organisation since"},
+    {"value": "50", "label_uz": "xodim, shundan 24 tasi energoauditor", "label_ru": "сотрудников, 24 из них энергоаудиторы", "label_en": "staff, 24 of them energy auditors"},
+    {"value": "143", "label_uz": "loyiha, 2019–2025", "label_ru": "проекта, 2019–2025", "label_en": "projects, 2019–2025"},
+    {"value": "10 mlrd", "label_uz": "soʻm kasbiy javobgarlik sugʻurtasi", "label_ru": "сум страхования ответственности", "label_en": "UZS liability insurance"}
+  ],
+
+  "open_questions": [
+    "Tashkilot 1997-yildan ishlaydi deb koʻrsatamizmi? Eski saytda 1999-yil deb yozilgan edi.",
+    "Asosiy e-pochta qaysi: byulletendagi tttaudit@mail.ru yoki eski saytdagi info@tttaudit.uz?",
+    "Toshkent filiali (Avisozlar, 4-kvartal, 14) saytda koʻrsatilsinmi? Mijoz filiallar boʻlimini olib tashlashni soʻradi.",
+    "Byulletendagi mijozlar logotiplarini saytga qoʻyishga ruxsat bormi?",
+    "Moliya vazirligining auditorlik litsenziyasi (АФ № 00773) endi saytda koʻrsatilmaydi — tasdiqlaysizmi?",
+    "Loyihalar roʻyxatida buyurtmachi nomlari ochiq koʻrsatilsinmi (byulletendagidek)?",
+    "Xodimlarning ism-sharifi lotin yozuvida avtomatik oʻgirildi — roʻyxatni tekshirib berish kerak.",
+    "Obyektlarda ishlayotgan jamoaning suratlari (energoaudit, oʻlchov jarayoni) bormi?",
+    "Logotip vektor formatda (SVG yoki AI)."
+  ]
+}
