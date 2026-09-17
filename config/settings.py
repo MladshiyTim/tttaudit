@@ -2,10 +2,17 @@
 from pathlib import Path
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-only-not-for-production-change-me")
+DEV_SECRET_KEY = "dev-only-not-for-production-change-me"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY") or DEV_SECRET_KEY
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
+if not DEBUG and SECRET_KEY == DEV_SECRET_KEY:
+    raise ImproperlyConfigured(
+        "DJANGO_DEBUG=0 da DJANGO_SECRET_KEY muhit oʻzgaruvchisi majburiy (dev kaliti bilan prod ishga tushmaydi)."
+    )
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
@@ -30,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "core.middleware.MaxBodySizeMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -101,6 +109,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+# /media/ ostida faqat shu papkalar ommaga xizmat qilinadi (DEBUG va prodda bir xil).
+# Qolganlari — xususan leads/ (mijoz yuklagan fayllar) — 404; ular faqat admin orqali yuklab olinadi.
+PUBLIC_MEDIA_PREFIXES = ("credentials", "team", "instruments", "projects", "directions", "hero")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -129,6 +140,9 @@ else:
 LEAD_MAX_UPLOAD_BYTES = 25 * 1024 * 1024
 LEAD_ALLOWED_EXTENSIONS = [".pdf", ".xlsx", ".xls", ".docx", ".doc", ".dwg", ".zip", ".rar", ".jpg", ".jpeg", ".png"]
 
+# Soʻrov tanasi chegarasi: CSRF va forma tahlilidan oldin MaxBodySizeMiddleware tekshiradi
+MAX_REQUEST_BODY_BYTES = LEAD_MAX_UPLOAD_BYTES + 2 * 1024 * 1024
+
 DATA_UPLOAD_MAX_MEMORY_SIZE = LEAD_MAX_UPLOAD_BYTES + 1024 * 1024
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 
@@ -136,9 +150,10 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 if not DEBUG:
     # Lokal prod-rejim testi uchun DJANGO_SSL_REDIRECT=0 bilan o'chiriladi.
     SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SSL_REDIRECT", "1") == "1"
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    # HSTS ehtiyotkorlik bilan: domen faqat HTTPS ekani tasdiqlangach 31536000 ga koʻtariladi
+    SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_HSTS_SECONDS", "3600"))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get("DJANGO_HSTS_INCLUDE_SUBDOMAINS", "0") == "1"
+    SECURE_HSTS_PRELOAD = os.environ.get("DJANGO_HSTS_PRELOAD", "0") == "1"
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

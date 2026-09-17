@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.urls import reverse
+from django.utils.html import format_html
 
 from .models import (
     Branch, Client, Credential, Direction, Instrument, Lead, LegalAct, Post, Project,
@@ -130,9 +132,16 @@ class StatAdmin(admin.ModelAdmin):
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
-    list_display = ["created_at", "name", "phone", "direction", "urgency", "status"]
+    list_display = ["created_at", "name", "phone", "direction", "urgency", "status", "attachment_link"]
     list_filter = ["status", "urgency", "direction", "language"]
     search_fields = ["name", "phone", "email", "object_type", "note"]
     list_editable = ["status"]
     date_hierarchy = "created_at"
-    readonly_fields = ["created_at", "source", "language"]
+    readonly_fields = ["created_at", "source", "language", "attachment_link"]
+
+    @admin.display(description="Faylni yuklab olish")
+    def attachment_link(self, obj):
+        """leads/ ommaga ochiq emas — fayl faqat xodim uchun view orqali beriladi."""
+        if not obj.pk or not obj.attachment:
+            return "—"
+        return format_html('<a href="{}">{}</a>', reverse("lead_attachment", args=[obj.pk]), "Yuklab olish")

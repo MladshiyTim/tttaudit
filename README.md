@@ -43,12 +43,21 @@ Telegram: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
 Mijoz admin panelda xizmat matnlarini tahrirlay boshlagach `seed_content` ni Dockerfile CMD dan olib tashlang.
 
 ### Prod: muhim
-- **`DJANGO_DEBUG=0` majburiy.** Docker tashqarisida (masalan toʻgʻridan-toʻgʻri server yoki boshqa PaaS'da)
-  joylashtirilganda ham bu oʻzgaruvchini aniq qoʻying — aks holda `media/` katalogidagi yuklangan fayllar
-  (murojaat qildirilgan hujjatlar, xodim suratlari, kredential skanlari) **hammaga ochiq xizmat qilinadi**.
-- **Teskari proksi orqasida ishlatiladi**, boʻlmasa Django yuklamani (`request body`) tekshirishdan oldin
-  diskka/xotiraga toʻliq yozib oladi. Proksida soʻrov hajmini cheklang, masalan nginx'da:
+- **`DJANGO_DEBUG=0` va haqiqiy `DJANGO_SECRET_KEY` majburiy.** `DEBUG=0` da maxfiy kalit berilmasa (yoki dev
+  kaliti qolsa) sayt `ImproperlyConfigured` bilan ishga tushmaydi. Docker build'dagi `collectstatic`
+  `DJANGO_SECRET_KEY=build-only` bilan ishlaydi.
+- **Media fayllar.** `/media/` ostida faqat `settings.PUBLIC_MEDIA_PREFIXES` papkalari (`credentials/`, `team/`,
+  `instruments/`, `projects/`, `directions/`, `hero/`) ilovaning oʻzi tomonidan xizmat qilinadi — DEBUG va prodda
+  bir xil. `leads/` (mijoz yuklagan fayllar) hech qachon ommaga ochiq emas: admin paneldagi murojaat sahifasida
+  «Yuklab olish» havolasi (`/admin-files/lead/<id>/`, faqat `is_staff`) orqali olinadi. Prodda shu prefikslar
+  uchun teskari proksida alias (masalan nginx `location /media/credentials/ { alias ...; }`) tezroq, lekin
+  ilova usiz ham ishlaydi. `leads/` uchun alias **qoʻymang**.
+- **Soʻrov hajmi.** `MaxBodySizeMiddleware` `Content-Length` > `MAX_REQUEST_BODY_BYTES` (fayl chegarasi + 2 MB)
+  boʻlsa CSRF va forma tahlilidan oldin 413 qaytaradi. Proksida ham cheklash foydali, masalan nginx'da
   `client_max_body_size 30m;`.
+- **HSTS.** `DJANGO_HSTS_SECONDS` (standart `3600`), `DJANGO_HSTS_INCLUDE_SUBDOMAINS` va `DJANGO_HSTS_PRELOAD`
+  (standart `0`). Domen (va subdomenlar) faqat HTTPS orqali ishlashi tasdiqlangandan keyingina `31536000` ga
+  koʻtaring — HSTS brauzerlarda keshlanadi va orqaga qaytarish qiyin.
 - **`TRUST_X_REAL_IP=1` ni faqat** `X-Real-IP` sarlavhasini **oʻzi qayta yozadigan** teskari proksi ortida
   yoqing (Railway, toʻgʻri sozlangan nginx). Aks holda barcha tashrif buyuruvchilar bitta chegara
   hisoblagichini (`LEAD_RATE_LIMIT`) baham koʻradi, yoki sarlavha soxtalashtirilib chegara chetlab oʻtiladi.
