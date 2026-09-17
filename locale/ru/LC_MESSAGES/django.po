@@ -14,6 +14,14 @@ msgstr "До %(mb)s МБ: PDF, Excel, Word, DWG, ZIP, изображение"
 msgid "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan."
 msgstr "Специалистов: %(n)s — по энергоаудиту и контрольному обмеру в строительстве, с сертификатами государственного образца."
 
+#: core/templates/core/direction.html
+msgid "%(n)s nafar energoaudit mutaxassisi"
+msgstr "Специалистов по энергоаудиту: %(n)s"
+
+#: core/templates/core/direction.html
+msgid "%(n)s nafar texnik nazorat xodimi"
+msgstr "Сотрудников технического надзора: %(n)s"
+
 #: core/templates/core/registry.html
 msgid "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil."
 msgstr "Реестр работ по энергоаудиту и контрольному обмеру (всего: %(total)s), 2019–2025: заказчик, направление, год."
@@ -835,6 +843,10 @@ msgstr "Реквизиты"
 msgid "Reyting"
 msgstr "Рейтинг"
 
+#: core/templates/core/team.html
+msgid "Roʻyxatda: %(total)s"
+msgstr "В списке: %(total)s"
+
 #: core/models.py
 msgid "Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi."
 msgstr "Для русской страницы. Если пусто, используется латиница."
@@ -1053,12 +1065,12 @@ msgid "Vakolat va sifat hujjatlari. Asl nusxalar Fargʻonadagi bosh ofisda; skan
 msgstr "Разрешительные документы и документы качества. Оригиналы — в головном офисе в Фергане; нажмите на скан, чтобы увеличить."
 
 #: core/templates/core/direction.html
-msgid "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673), 24 mutaxassis"
-msgstr "Полномочия: реестр Национального агентства по энергоэффективности (Постановление КМ № 673), 24 специалиста"
+msgid "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)"
+msgstr "Полномочия: реестр Национального агентства по энергоэффективности (Постановление КМ № 673)"
 
 #: core/templates/core/direction.html
-msgid "Vakolat: Qurilish vazirligi litsenziyasi № 518159, 16 mutaxassis"
-msgstr "Полномочия: лицензия Министерства строительства № 518159, 16 специалистов"
+msgid "Vakolat: Qurilish vazirligi litsenziyasi № 518159"
+msgstr "Полномочия: лицензия Министерства строительства № 518159"
 
 #: core/templates/core/company.html
 msgid "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik"

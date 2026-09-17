@@ -7,7 +7,6 @@
   <tr><th>{% translate "STIR" %}</th><td class="nums">{{ site.tin }}</td></tr>
   <tr><th>{% translate "Rahbar" %}</th><td>{{ site|tr:"director" }}</td></tr>
   <tr><th>{% translate "Yuridik manzil" %}</th><td>{{ site|tr:"address" }}</td></tr>
-  {% for b in branches %}{% if not b.is_head_office %}<tr><th>{{ b|tr:"city" }}</th><td>{{ b|tr:"address" }}{% if b.phone %} · {{ b.phone }}{% endif %}</td></tr>{% endif %}{% endfor %}
   <tr><th>{% translate "Telefon" %}</th><td>{{ site.phone }}{% if site.phone_second %}, {{ site.phone_second }}{% endif %}</td></tr>
   <tr><th>{% translate "E-pochta" %}</th><td><a href="mailto:{{ site.email }}">{{ site.email }}</a></td></tr>
   {% if site|tr:"bank_details" %}<tr><th>{% translate "Bank rekvizitlari" %}</th><td>{{ site|tr:"bank_details"|linebreaksbr }}</td></tr>{% endif %}

@@ -3,7 +3,7 @@
 {% block description %}{{ direction|tr:"summary" }}{% endblock %}
 {% block main %}<div class="wrap">
 <div class="phead"><h1>{{ direction|tr:"title" }}</h1><p>{{ direction|tr:"summary" }}</p>
-  <div class="phead__meta">{% if is_energy %}{% translate "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673), 24 mutaxassis" %}{% else %}{% translate "Vakolat: Qurilish vazirligi litsenziyasi № 518159, 16 mutaxassis" %}{% endif %}</div></div>
+  <div class="phead__meta">{% if is_energy %}{% translate "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)" %} · {% blocktranslate with n=site.staff_energy %}{{ n }} nafar energoaudit mutaxassisi{% endblocktranslate %}{% else %}{% translate "Vakolat: Qurilish vazirligi litsenziyasi № 518159" %} · {% blocktranslate with n=site.staff_supervision %}{{ n }} nafar texnik nazorat xodimi{% endblocktranslate %}{% endif %}</div></div>
 
 <div class="grid grid--2">
 {% for s in services %}<article class="card"><h3><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></h3><p class="muted">{{ s|tr:"summary" }}</p>{% if s|tr:"duration" %}<span class="badge">{{ s|tr:"duration" }}</span>{% endif %}</article>{% endfor %}

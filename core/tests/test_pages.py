@@ -49,6 +49,20 @@ def test_energy_direction_has_widgets_and_legal_basis(client):
 
 
 @pytest.mark.django_db
+def test_direction_headcount_comes_from_site_settings(client):
+    from core.models import SiteSettings
+
+    site = SiteSettings.load()
+    site.staff_energy, site.staff_supervision = 31, 17
+    site.save()
+    energy = client.get("/uz/xizmatlar/energoaudit/").content.decode()
+    construction = client.get("/uz/xizmatlar/olchov-auditi/").content.decode()
+    assert "31 nafar energoaudit mutaxassisi" in energy and "24 mutaxassis" not in energy
+    assert "17 nafar texnik nazorat xodimi" in construction and "16 mutaxassis" not in construction
+    assert "Специалистов по энергоаудиту: 31" in client.get("/ru/xizmatlar/energoaudit/").content.decode()
+
+
+@pytest.mark.django_db
 def test_energy_direction_hides_unverified_bands_and_fee(client):
     html = client.get("/uz/xizmatlar/energoaudit/").content.decode()
     assert '<span class="badge">A</span>' not in html and '<span class="badge">G</span>' not in html
@@ -150,6 +164,8 @@ def test_team_page_groups_by_department(client):
     html = client.get("/uz/tashkilot/mutaxassislar/").content.decode()
     assert "Rahbariyat va mutaxassislar" in html
     assert html.count('class="card person"') == 39      # 38 mutaxassis (takror birlashtirilgan) + direktor kartasi
+    assert "Jami 50 xodim" in html and "Roʻyxatda: 38" in html
+    assert "Listed: 38" in client.get("/en/tashkilot/mutaxassislar/").content.decode()
     assert "Energoaudit" in html and "Qurilishda nazorat oʻlchovi" in html
     assert "Jamoa" not in html
     # "== 1" emas: fotosurati bor har bir xodim nomi img alt'da HAM <b> ichida
@@ -163,13 +179,14 @@ def test_requisites_page(client):
     html = client.get("/uz/tashkilot/rekvizitlar/").content.decode()
     assert "202216926" in html and "«TTTaudit» MChJ" in html
     assert "filial" not in html.lower()
-    assert "Avisozlar" in html
+    assert "Avisozlar" not in html                          # spec 3-qoida: Toshkent ofisi faqat aloqa sahifasida
 
 
 @pytest.mark.django_db
 def test_contact_and_request_pages(client):
     contact = client.get("/uz/aloqa/").content.decode()
     assert "Toshkent" in contact and "Yangiobod" in contact and 'data-react="lead-form"' in contact
+    assert "Avisozlar" in contact
     request_page = client.get("/uz/murojaat/").content.decode()
     assert 'name="csrfmiddlewaretoken"' in request_page and 'enctype="multipart/form-data"' in request_page
     sent = client.get("/uz/murojaat/?sent=1").content.decode()

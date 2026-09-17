@@ -7,6 +7,14 @@
     "en": "Specialists: %(n)s — in energy audit and construction control measurement, with state-issued certificates.",
     "ru": "Специалистов: %(n)s — по энергоаудиту и контрольному обмеру в строительстве, с сертификатами государственного образца."
   },
+  "%(n)s nafar energoaudit mutaxassisi": {
+    "en": "Energy audit specialists: %(n)s",
+    "ru": "Специалистов по энергоаудиту: %(n)s"
+  },
+  "%(n)s nafar texnik nazorat xodimi": {
+    "en": "Technical supervision staff: %(n)s",
+    "ru": "Сотрудников технического надзора: %(n)s"
+  },
   "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil.": {
     "en": "Registry of energy audit and control measurement projects (total: %(total)s), 2019–2025: client, practice area, year.",
     "ru": "Реестр работ по энергоаудиту и контрольному обмеру (всего: %(total)s), 2019–2025: заказчик, направление, год."
@@ -1099,6 +1107,10 @@
     "en": "Rating",
     "ru": "Рейтинг"
   },
+  "Roʻyxatda: %(total)s": {
+    "en": "Listed: %(total)s",
+    "ru": "В списке: %(total)s"
+  },
   "Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi.": {
     "en": "For the Russian page. If empty, Latin script is used.",
     "ru": "Для русской страницы. Если пусто, используется латиница."
@@ -1407,13 +1419,13 @@
     "en": "Authorisation and quality documents. Originals are kept at the head office in Fergana; click a scan to enlarge it.",
     "ru": "Разрешительные документы и документы качества. Оригиналы — в головном офисе в Фергане; нажмите на скан, чтобы увеличить."
   },
-  "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673), 24 mutaxassis": {
-    "en": "Authority: National Agency for Energy Efficiency registry (Cabinet of Ministers Resolution No. 673), 24 specialists",
-    "ru": "Полномочия: реестр Национального агентства по энергоэффективности (Постановление КМ № 673), 24 специалиста"
+  "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)": {
+    "en": "Authority: National Agency for Energy Efficiency registry (Cabinet of Ministers Resolution No. 673)",
+    "ru": "Полномочия: реестр Национального агентства по энергоэффективности (Постановление КМ № 673)"
   },
-  "Vakolat: Qurilish vazirligi litsenziyasi № 518159, 16 mutaxassis": {
-    "en": "Authority: Ministry of Construction licence No. 518159, 16 specialists",
-    "ru": "Полномочия: лицензия Министерства строительства № 518159, 16 специалистов"
+  "Vakolat: Qurilish vazirligi litsenziyasi № 518159": {
+    "en": "Authority: Ministry of Construction licence No. 518159",
+    "ru": "Полномочия: лицензия Министерства строительства № 518159"
   },
   "Vazifa": {
     "en": "Task",

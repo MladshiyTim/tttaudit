@@ -183,7 +183,6 @@ def requisites(request):
     return page(
         request, "core/requisites.html", nav="company",
         crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Rekvizitlar"), None)],
-        branches=Branch.objects.all(),
     )
 
 
