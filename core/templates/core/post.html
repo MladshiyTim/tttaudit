@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{{ post|tr:"title" }} — TTT Audit{% endblock %}
+{% block description %}{{ post|tr:"excerpt" }}{% endblock %}
+{% block og_title %}{{ post|tr:"title" }}{% endblock %}
+{% block main %}<div class="wrap"><div class="split">
+  <article>
+    <div class="phead"><h1>{{ post|tr:"title" }}</h1><div class="phead__meta"><time datetime="{{ post.published_on|date:'Y-m-d' }}">{{ post.published_on|date:"d.m.Y" }}</time>{% if post.legal_act %} · {{ post.legal_act.number }}{% endif %}</div></div>
+    <div class="card prose">{{ post|tr:"body"|linebreaks }}</div>
+  </article>
+  <aside>
+    {% if post.legal_act %}<div class="card"><h3>{% translate "Meʼyoriy asos" %}</h3><p><b>{{ post.legal_act.number }}</b><br>{{ post.legal_act|tr:"title" }}</p>{% if post.legal_act.lex_url %}<a href="{{ post.legal_act.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</div>{% endif %}
+    {% if others %}<div class="card"><h3>{% translate "Boshqa maqolalar" %}</h3><ul>{% for o in others %}<li><a href="{{ o.get_absolute_url }}">{{ o|tr:"title" }}</a></li>{% endfor %}</ul></div>{% endif %}
+    <a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+  </aside>
+</div></div>{% endblock %}

@@ -138,6 +138,33 @@ def instruments(request):
     )
 
 
+def legislation(request):
+    return page(
+        request, "core/legislation.html", nav="legislation",
+        crumbs=[(_("Qonunchilik"), None)],
+        acts=LegalAct.objects.prefetch_related("directions").filter(verified_on__isnull=False),
+        posts=Post.objects.filter(is_published=True)[:4],
+    )
+
+
+def news(request):
+    return page(
+        request, "core/news.html", nav="news",
+        crumbs=[(_("Yangiliklar"), None)],
+        posts=Post.objects.filter(is_published=True),
+    )
+
+
+def post(request, slug):
+    published = Post.objects.filter(is_published=True).select_related("legal_act")
+    obj = get_object_or_404(published, slug=slug)
+    return page(
+        request, "core/post.html", nav="news",
+        crumbs=[(_("Yangiliklar"), reverse("core:news")), (obj.tr("title"), None)],
+        post=obj, others=published.exclude(pk=obj.pk)[:3],
+    )
+
+
 REGISTRY_PAGE_SIZE = 25
 
 

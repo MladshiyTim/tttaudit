@@ -102,3 +102,19 @@ def test_instruments_page_table(client):
     html = client.get("/uz/tashkilot/asboblar/").content.decode()
     assert html.count("<tr>") == 6                          # sarlavha + 5 asbob
     assert "Milliy Metrologiya" in html
+
+
+@pytest.mark.django_db
+def test_legislation_shows_only_verified_acts(client):
+    html = client.get("/uz/qonunchilik/").content.decode()
+    assert "ЗРУ-940" in html and "lex.uz" in html
+    assert "A–G toifalari" not in html                     # verified_on=None — koʻrinmaydi
+
+
+@pytest.mark.django_db
+def test_news_list_and_detail(client):
+    html = client.get("/uz/yangiliklar/").content.decode()
+    assert "energoaudit-kimga-majburiy" in html
+    detail = client.get("/uz/yangiliklar/energoaudit-kimga-majburiy/")
+    assert detail.status_code == 200
+    assert client.get("/uz/yangiliklar/yoq-maqola/").status_code == 404
