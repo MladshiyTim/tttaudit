@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{% translate "Murojaat yuborish" %} — TTT Audit{% endblock %}
+{% block description %}{% translate "Energoaudit yoki qurilishda nazorat oʻlchovi uchun murojaat: obyekt haqida yozing va hujjatlarni biriktiring." %}{% endblock %}
 {% block main %}<div class="wrap">
 <div class="phead"><h1>{% translate "Murojaat yuborish" %}</h1><p>{% translate "Obyekt haqida qisqacha yozing yoki qoʻngʻiroq qiling. Qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaymiz." %}</p></div>
 {% if sent %}<div class="notice notice--ok"><p>{% translate "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." %}</p></div>

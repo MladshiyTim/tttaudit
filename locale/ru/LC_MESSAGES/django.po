@@ -212,7 +212,7 @@ msgstr "На объекте, финансируемом за счёт бюдже
 
 #: core/compliance.py
 msgid "Byudjet obyektlarida oʻlchov tartibi"
-msgstr "Порядок обмера на бюджетных объектах"
+msgstr "Порядок контрольного обмера на бюджетных объектах"
 
 #: core/templates/core/_energy.html
 msgid "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi."
@@ -270,6 +270,14 @@ msgstr "Энергоаудит"
 #: core/views.py
 msgid "Energoaudit kimga majburiy?"
 msgstr "Кому энергоаудит обязателен?"
+
+#: core/templates/core/news.html
+msgid "Energoaudit va nazorat oʻlchovi boʻyicha yangiliklar: qonunchilikdagi oʻzgarishlar, majburiy talablar va amaliy tushuntirishlar."
+msgstr "Новости по энергоаудиту и контрольному обмеру: изменения законодательства, обязательные требования и практические разъяснения."
+
+#: core/templates/core/request.html
+msgid "Energoaudit yoki qurilishda nazorat oʻlchovi uchun murojaat: obyekt haqida yozing va hujjatlarni biriktiring."
+msgstr "Обращение по энергоаудиту или контрольному обмеру в строительстве: опишите объект и приложите документы."
 
 #: core/templates/core/services.html
 msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
@@ -638,6 +646,10 @@ msgstr "Контрольный обмер регламентирован"
 msgid "Nazorat oʻlchovi uchun qurilishni toʻxtatish kerakmi?"
 msgstr "Нужно ли останавливать строительство для контрольного обмера?"
 
+#: core/templates/core/instruments.html
+msgid "Nazorat oʻlchovida ishlatiladigan asboblar: model, zavod raqami, oʻlchov chegarasi, qiyoslash guvohnomasi va amal qilish muddati."
+msgstr "Приборы для контрольного обмера: модель, заводской номер, диапазон измерений, свидетельство о поверке и срок действия."
+
 #: core/compliance.py
 msgid "Nizo koʻrib chiqilgunga qadar"
 msgstr "До рассмотрения спора"
@@ -954,6 +966,10 @@ msgstr "По требованию суда или сторон"
 msgid "Sugʻurta"
 msgstr "Страхование"
 
+#: core/templates/core/contact.html
+msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi."
+msgstr "Контакты TTT Audit: адреса головного офиса в Фергане и офиса в Ташкенте, телефоны, эл. почта и форма обращения."
+
 #: core/models.py
 msgid "Taklif yuborildi"
 msgstr "Предложение отправлено"
@@ -1236,9 +1252,22 @@ msgstr "скан"
 msgid "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
 msgstr "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
 
+#: core/templates/core/requisites.html
+msgid "«TTTaudit» MChJ rekvizitlari: rasmiy nomi, STIR, rahbar, yuridik manzil, telefon, e-pochta, litsenziya va sugʻurta."
+msgstr "Реквизиты ООО «TTTaudit»: официальное наименование, ИНН, руководитель, юридический адрес, телефон, эл. почта, лицензия и страхование."
+
+#: core/templates/core/home.html
+#: core/compliance.py
+msgid "ЗРУ-940"
+msgstr "Закон № ЗРУ-940"
+
 #: core/views.py
 msgid "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy."
 msgstr "В соответствии с Законом № ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
+
+#: core/compliance.py
+msgid "ЗРУ-940 · VM № 690"
+msgstr "Закон № ЗРУ-940 · Постановление КМ № 690"
 
 #: core/templates/core/legislation.html
 msgid "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi."

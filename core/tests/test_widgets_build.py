@@ -19,7 +19,9 @@ def test_widget_bundle_has_ru_and_en_strings():
     js = (DIST / "widgets.js").read_text(encoding="utf-8")
     assert "Отправить заявку" in js  # LeadForm/ComplianceCheck submit tugmasi — ru
     assert "Send a request" in js  # LeadForm/ComplianceCheck submit tugmasi — en
-    assert "Soʻrov yuborish" in js  # xuddi shu tugma — uz (fallback / default til)
+    assert "Murojaat yuborish" in js  # xuddi shu tugma — uz (fallback / default til)
+    assert "Soʻrov yuborish" not in js
+    assert "Андижанская область" in js and "Ташкент (город)" in js
 
 
 def test_widget_bundle_has_no_unsourced_claims():

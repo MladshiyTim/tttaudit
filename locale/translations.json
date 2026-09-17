@@ -64,7 +64,7 @@
     "ru": "Список приборов пока не заполнен."
   },
   "Asboblar tekshiruvi": {
-    "en": "Instrument calibration",
+    "en": "Instrument verification",
     "ru": "Поверка приборов"
   },
   "Asl matn": {
@@ -265,7 +265,7 @@
   },
   "Byudjet obyektlarida oʻlchov tartibi": {
     "en": "Control measurement procedure at budget-funded facilities",
-    "ru": "Порядок обмера на бюджетных объектах"
+    "ru": "Порядок контрольного обмера на бюджетных объектах"
   },
   "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi.": {
     "en": "The thresholds are indicative; the official category is set in the energy passport.",
@@ -338,6 +338,14 @@
   "Energoaudit va nazorat oʻlchovi boʻyicha qonunchilik oʻzgarishlari, amaliy tushuntirishlar.": {
     "en": "Legislative changes on energy audits and control measurement, with practical explanations.",
     "ru": "Изменения законодательства по энергоаудиту и контрольному обмеру, практические разъяснения."
+  },
+  "Energoaudit va nazorat oʻlchovi boʻyicha yangiliklar: qonunchilikdagi oʻzgarishlar, majburiy talablar va amaliy tushuntirishlar.": {
+    "en": "News on energy audit and control measurement: legislative changes, mandatory requirements and practical explanations.",
+    "ru": "Новости по энергоаудиту и контрольному обмеру: изменения законодательства, обязательные требования и практические разъяснения."
+  },
+  "Energoaudit yoki qurilishda nazorat oʻlchovi uchun murojaat: obyekt haqida yozing va hujjatlarni biriktiring.": {
+    "en": "Request an energy audit or construction control measurement: describe the facility and attach documents.",
+    "ru": "Обращение по энергоаудиту или контрольному обмеру в строительстве: опишите объект и приложите документы."
   },
   "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab.": {
     "en": "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan.",
@@ -424,7 +432,7 @@
     "ru": "Сотрудничество"
   },
   "Har bir asbob metrologik tekshiruvdan oʻtgan. Tekshiruv sanasi va sertifikat raqami quyida — bu hisobotimizning dalil kuchini taʼminlaydi.": {
-    "en": "Every instrument is metrologically calibrated. The calibration date and certificate number are listed below, and that is what gives our report its evidential weight.",
+    "en": "Every instrument has passed metrological verification. The verification date and certificate number are listed below; this is what gives our report its evidential weight.",
     "ru": "Каждый прибор прошёл метрологическую поверку. Дата поверки и номер сертификата указаны ниже — это обеспечивает доказательную силу нашего отчёта."
   },
   "Har bir segment auditorga oʻz sababi bilan keladi. Oʻz holatingizni tanlang — nima qilishimizni va qanday hujjat berishimizni koʻrasiz.": {
@@ -752,11 +760,11 @@
     "ru": "Меню"
   },
   "Metrologik tekshiruv": {
-    "en": "Calibration",
+    "en": "Metrological verification",
     "ru": "Метрологическая поверка"
   },
   "Metrologik tekshiruvdan oʻtmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Tekshiruv sertifikatlarining nusxasini shartnoma bilan birga taqdim etamiz.": {
-    "en": "A measurement taken with an uncalibrated instrument is not included in the report. Calibration certificates are provided with the contract.",
+    "en": "A measurement taken with an instrument that has not passed verification is not included in the report. Copies of the verification certificates are provided with the contract.",
     "ru": "Измерение прибором без действующей поверки в отчёт не включается. Копии сертификатов поверки предоставляем вместе с договором."
   },
   "Meʼyoriy asos": {
@@ -855,6 +863,10 @@
     "en": "Does construction need to stop for control measurement?",
     "ru": "Нужно ли останавливать строительство для контрольного обмера?"
   },
+  "Nazorat oʻlchovida ishlatiladigan asboblar: model, zavod raqami, oʻlchov chegarasi, qiyoslash guvohnomasi va amal qilish muddati.": {
+    "en": "Instruments used for control measurement: model, serial number, measuring range, verification certificate and validity period.",
+    "ru": "Приборы для контрольного обмера: модель, заводской номер, диапазон измерений, свидетельство о поверке и срок действия."
+  },
   "Nizo koʻrib chiqilgunga qadar": {
     "en": "Until the dispute is resolved",
     "ru": "До рассмотрения спора"
@@ -936,7 +948,7 @@
     "ru": "Измерительные приборы и поверка"
   },
   "Oʻlchov asboblari: model, vazifasi, metrologik tekshiruv sanasi va sertifikat raqami.": {
-    "en": "Measuring instruments: model, purpose, calibration date and certificate number.",
+    "en": "Measuring instruments: model, purpose, verification date and certificate number.",
     "ru": "Измерительные приборы: модель, назначение, дата поверки и номер сертификата."
   },
   "Oʻlchov chegarasi": {
@@ -1275,6 +1287,10 @@
     "en": "Insurance",
     "ru": "Страхование"
   },
+  "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi.": {
+    "en": "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form.",
+    "ru": "Контакты TTT Audit: адреса головного офиса в Фергане и офиса в Ташкенте, телефоны, эл. почта и форма обращения."
+  },
   "Tajriba": {
     "en": "Experience",
     "ru": "Опыт"
@@ -1320,7 +1336,7 @@
     "ru": "Проверено"
   },
   "Tekshiruv": {
-    "en": "Calibration",
+    "en": "Verification",
     "ru": "Поверка"
   },
   "Telefon": {
@@ -1635,9 +1651,21 @@
     "en": "{{ years }} years",
     "ru": "{{ years }} лет"
   },
+  "«TTTaudit» MChJ rekvizitlari: rasmiy nomi, STIR, rahbar, yuridik manzil, telefon, e-pochta, litsenziya va sugʻurta.": {
+    "en": "TTTaudit LLC company details: legal name, TIN, director, registered address, phone, email, licence and insurance.",
+    "ru": "Реквизиты ООО «TTTaudit»: официальное наименование, ИНН, руководитель, юридический адрес, телефон, эл. почта, лицензия и страхование."
+  },
+  "ЗРУ-940": {
+    "en": "ZRU-940",
+    "ru": "Закон № ЗРУ-940"
+  },
   "ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun audit majburiy; boshqalar uchun ixtiyoriy.": {
     "en": "Under Law No. ZRU-940, periodic energy audit is mandatory at least once every five years. For enterprises included in the State Energy Registry and organisations with state participation, the audit is mandatory; for others, it is voluntary.",
     "ru": "В соответствии с Законом № ЗРУ-940 периодический энергоаудит обязателен не реже одного раза в пять лет. Для предприятий, включённых в Государственный энергетический реестр, и организаций с государственным участием аудит обязателен; для остальных — добровольный."
+  },
+  "ЗРУ-940 · VM № 690": {
+    "en": "ZRU-940 · CM Resolution No. 690",
+    "ru": "Закон № ЗРУ-940 · Постановление КМ № 690"
   },
   "ЗРУ-940, VM qarori № 690 va boshqa meʼyoriy hujjatlar: kimga tegishli, talab, muddat, lex.uz havolasi.": {
     "en": "Law No. ZRU-940, Cabinet of Ministers Resolution No. 690 and other regulatory documents: who it applies to, requirement, deadline, link to lex.uz.",

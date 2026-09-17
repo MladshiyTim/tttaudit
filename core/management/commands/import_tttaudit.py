@@ -7,7 +7,7 @@ Oldin `seed_content` ishga tushirilgan boʻlishi shart (yoʻnalishlar kerak).
 
 Manba fayllar:
     facts.json     kompaniya rekvizitlari, hujjatlar (skan bilan), asboblar, raqamlar
-    staff.json     39 mutaxassis (byulleten), suratlar img/staff/
+    staff.json     39 qator (byulleten; takror birlashtirilgach 38 mutaxassis), suratlar img/staff/
     projects.json  143 loyiha (byulleten), buyurtmachi nomi bilan
     clients.json   eski saytdagi mijozlar roʻyxati (soha bilan)
 
@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 from pathlib import Path
 
 from django.conf import settings
@@ -33,6 +34,32 @@ from core.models import (
 DATA_DIR = Path(settings.BASE_DIR) / "data" / "tttaudit"
 DEPT_TO_DIRECTION = {"energy": "energoaudit", "construction": "olchov-auditi"}
 LEADERSHIP_WORDS = ("директор", "начальник", "руководител")
+
+# Asbob nomining umumiy (modelsiz) qismi: uz -> (ru, en). Model nomi oʻzgarmaydi.
+INSTRUMENT_NAMES = {
+    "Lazerli masofaoʻlchagich": ("Лазерный дальномер", "Laser distance meter"),
+    "Elektron mikrometr": ("Электронный микрометр", "Electronic micrometer"),
+    "Dataloger termogigrometr": ("Даталоггер-термогигрометр", "Temperature and humidity data logger"),
+}
+# Oʻlchov chegarasi: toʻliq matn boʻyicha mos kelmasa «X gacha, xatolik Y» shakli tahlil qilinadi
+INSTRUMENT_RANGES = {
+    "Harorat va namlik qaydi": ("Регистрация температуры и влажности", "Temperature and humidity logging"),
+}
+RANGE_PATTERN = re.compile(r"^(?:(?P<upto>.+?) gacha|(?P<span>[^,]+?)), xatolik (?P<error>.+)$")
+
+# staff.json da lotin yozuvi (name_uz) boʻsh qatorlar: name_ru (katta harf, bitta boʻshliq) -> lotin
+STAFF_LATIN_NAMES = {
+    "ЗУҲРИДДИНОВ ТЕМУРЖОН ДОНИЁРЖОН ЎҒЛИ": "Zuhriddinov Temurjon Doniyorjon oʻgʻli",
+    "ЭРГАШЕВ ШАВКАТ РАШИТОВИЧ": "Ergashev Shavkat Rashitovich",
+}
+
+# Reyestr hujjati: facts.json dagi `number` aslida reyting — raqam VM qarori, reyting doirasiga qoʻshiladi
+REGISTRY_NUMBER = "VM qarori № 673"
+REGISTRY_RANKING = {
+    "uz": " (10-oʻrin, reyting 14.5)",
+    "ru": " (10-е место, рейтинг 14,5)",
+    "en": " (10th place, rating 14.5)",
+}
 
 
 def load_json(name: str) -> dict:
@@ -49,6 +76,37 @@ def parse_date(value: str | None) -> dt.date | None:
 def strip_label(value: str) -> str:
     """"Toshkent filiali: ..." kabi oldindagi yorliqni olib tashlaydi (birinchi ": " gacha)."""
     return value.split(": ", 1)[1] if ": " in value else value
+
+
+def normalize_name(value: str) -> str:
+    return " ".join((value or "").split()).upper()
+
+
+def instrument_name(name_uz: str) -> tuple[str, str]:
+    """«Lazerli masofaoʻlchagich SW-50G» -> («Лазерный дальномер SW-50G», "Laser distance meter SW-50G")."""
+    for generic, (ru, en) in INSTRUMENT_NAMES.items():
+        if name_uz.startswith(generic):
+            model = name_uz[len(generic):]
+            return ru + model, en + model
+    return "", ""
+
+
+def instrument_range(range_uz: str) -> tuple[str, str]:
+    """«50 m gacha, xatolik ±2 mm» -> («до 50 м, погрешность ±2 мм», "up to 50 m, error ±2 mm")."""
+    if range_uz in INSTRUMENT_RANGES:
+        return INSTRUMENT_RANGES[range_uz]
+    match = RANGE_PATTERN.match(range_uz or "")
+    if not match:
+        return "", ""
+    error_ru, error_en = _ru_units(match["error"]), match["error"].replace(",", ".")
+    if match["upto"]:
+        return f"до {_ru_units(match['upto'])}, погрешность {error_ru}", f"up to {match['upto']}, error {error_en}"
+    return f"{_ru_units(match['span'])}, погрешность {error_ru}", f"{match['span']}, error {error_en}"
+
+
+def _ru_units(text: str) -> str:
+    """Rus matnida birliklar kirillda: m -> м, mm -> мм."""
+    return re.sub(r"\bmm\b", "мм", re.sub(r"\bm\b", "м", text))
 
 
 def attach(field, rel_path: str | None) -> None:
@@ -155,10 +213,14 @@ class Command(BaseCommand):
         for order, c in enumerate(c for c in credentials if c.get("show")):
             if c["kind"] not in valid:
                 raise CommandError(f"facts.json: nomalum hujjat turi {c['kind']!r}, ruxsat: {sorted(valid)}")
+            number, scope = c["number"], {lang: c[f"scope_{lang}"] for lang in ("uz", "ru", "en")}
+            if c["kind"] == "registry":
+                number = REGISTRY_NUMBER
+                scope = {lang: text + REGISTRY_RANKING[lang] for lang, text in scope.items()}
             obj = Credential(
-                kind=c["kind"], number=c["number"],
+                kind=c["kind"], number=number,
                 issuer_uz=c["issuer_uz"], issuer_ru=c["issuer_ru"], issuer_en=c["issuer_en"],
-                scope_uz=c["scope_uz"], scope_ru=c["scope_ru"], scope_en=c["scope_en"],
+                scope_uz=scope["uz"], scope_ru=scope["ru"], scope_en=scope["en"],
                 issued_on=parse_date(c.get("issued_on")), valid_until=parse_date(c.get("valid_until")),
                 show_in_hero=order < 3, order=order,
             )
@@ -167,15 +229,18 @@ class Command(BaseCommand):
 
     def _instruments(self, instruments: list[dict], directions: dict) -> None:
         construction = directions["olchov-auditi"]
-        Instrument.objects.bulk_create([
-            Instrument(
-                name_uz=i["name_uz"], name_ru=i.get("name_ru", ""), name_en=i.get("name_en", ""),
+        rows = []
+        for order, i in enumerate(instruments):
+            name_ru, name_en = instrument_name(i["name_uz"])
+            range_ru, range_en = instrument_range(i.get("range_uz", ""))
+            rows.append(Instrument(
+                name_uz=i["name_uz"], name_ru=i.get("name_ru") or name_ru, name_en=i.get("name_en") or name_en,
                 serial=i.get("serial", ""), certificate_no=i.get("cert", ""),
                 verified_on=parse_date(i.get("verified_on")), valid_until=parse_date(i.get("valid_until")),
-                range_uz=i.get("range_uz", ""), direction=construction, order=order,
-            )
-            for order, i in enumerate(instruments)
-        ])
+                range_uz=i.get("range_uz", ""), range_ru=range_ru, range_en=range_en,
+                direction=construction, order=order,
+            ))
+        Instrument.objects.bulk_create(rows)
 
     def _stats(self, stats: list[dict]) -> None:
         Stat.objects.bulk_create([
@@ -188,14 +253,14 @@ class Command(BaseCommand):
         seen_names: set[str] = set()
         skipped = 0
         for order, row in enumerate(staff):
-            key = " ".join((row.get("name_ru") or "").split()).upper()
+            key = normalize_name(row.get("name_ru"))
             if key and key in seen_names:
                 skipped += 1
                 continue
             seen_names.add(key)
             role_ru = (row.get("role_ru") or "").lower()
             obj = TeamMember(
-                full_name=row["name_uz"] or row["name_ru"], full_name_ru=row["name_ru"],
+                full_name=row["name_uz"] or STAFF_LATIN_NAMES.get(key) or row["name_ru"], full_name_ru=row["name_ru"],
                 role_uz=row["role_uz"], role_ru=row["role_ru"], role_en=row["role_en"],
                 certificates_uz=row.get("cert_uz", ""), dept=row["dept"],
                 is_leadership=any(word in role_ru for word in LEADERSHIP_WORDS), order=order,

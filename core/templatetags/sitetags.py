@@ -22,13 +22,20 @@ def translate_list(obj, field):
     return []
 
 
+from django.conf import settings
 from django.urls import translate_url
 
 
 @register.simple_tag
+def alt_path(request, lang_code):
+    """Joriy sahifaning boshqa tildagi nisbiy yoʻli (til almashtirgich)."""
+    return translate_url(request.path, lang_code)
+
+
+@register.simple_tag
 def alt_url(request, lang_code):
-    """Joriy sahifaning boshqa tildagi mutlaq manzili (hreflang, til almashtirgich)."""
-    return request.build_absolute_uri(translate_url(request.path, lang_code))
+    """hreflang uchun mutlaq manzil: SITE_URL + tarjima qilingan yoʻl (Host sarlavhasiga bogʻliq emas)."""
+    return settings.SITE_URL + translate_url(request.path, lang_code)
 
 
 @register.simple_tag(takes_context=True)

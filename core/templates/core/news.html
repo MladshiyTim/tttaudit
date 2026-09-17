@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{% translate "Yangiliklar va tushuntirishlar" %} — TTT Audit{% endblock %}
+{% block description %}{% translate "Energoaudit va nazorat oʻlchovi boʻyicha yangiliklar: qonunchilikdagi oʻzgarishlar, majburiy talablar va amaliy tushuntirishlar." %}{% endblock %}
 {% block main %}<div class="wrap">
 <div class="phead"><h1>{% translate "Yangiliklar va tushuntirishlar" %}</h1></div>
 {% for p in posts %}<article class="card news"><time datetime="{{ p.published_on|date:'Y-m-d' }}">{{ p.published_on|date:"d.m.Y" }}</time>{% if p.legal_act %} <span class="badge">{{ p.legal_act.number }}</span>{% endif %}<h3><a href="{{ p.get_absolute_url }}">{{ p|tr:"title" }}</a></h3><p>{{ p|tr:"excerpt" }}</p></article>{% empty %}<p class="muted">{% translate "Hozircha yangiliklar yoʻq." %}</p>{% endfor %}

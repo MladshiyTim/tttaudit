@@ -84,3 +84,29 @@ def test_registry_ru_avoids_bad_number_agreement(client):
     assert "Всего 143 работ" not in html
     assert "Работ в реестре:" in html
     assert "Найдено:" in html
+
+
+@pytest.mark.django_db
+def test_hreflang_uses_site_url_and_switcher_is_relative(client):
+    html = client.get("/uz/xizmatlar/", HTTP_HOST="localhost").content.decode()
+    hreflangs = re.findall(r'<link rel="alternate" hreflang="[^"]+" href="([^"]+)"', html)
+    assert len(hreflangs) == 4
+    assert all(href.startswith("https://tttaudit.uz/") for href in hreflangs), hreflangs
+    assert '<link rel="alternate" hreflang="en" href="https://tttaudit.uz/en/xizmatlar/">' in html
+    assert '<a href="/ru/xizmatlar/" hreflang="ru"' in html
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("path", ["/yangiliklar/", "/tashkilot/asboblar/", "/tashkilot/rekvizitlar/", "/aloqa/", "/murojaat/"])
+def test_pages_have_specific_meta_description(client, path):
+    from core.models import SiteSettings
+
+    default = SiteSettings.load().hero_text_en[:40]
+    for lang in ("uz", "en"):
+        html = client.get(f"/{lang}{path}").content.decode()
+        match = re.search(r'<meta name="description" content="([^"]*)">', html)
+        assert match and 40 <= len(match.group(1)) <= 160, (lang, path)
+        assert not match.group(1).startswith(default[:30])
+    en = client.get(f"/en{path}").content.decode()
+    en_description = re.search(r'<meta name="description" content="([^"]*)">', en).group(1)
+    assert "oʻ" not in en_description and "boʻyicha" not in en_description

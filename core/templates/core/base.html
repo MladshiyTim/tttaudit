@@ -36,7 +36,7 @@
   </div>
   <div class="ubar__r">
     <button class="a11y-btn" type="button" data-a11y-toggle aria-pressed="false">{% translate "Maxsus imkoniyatlar" %}</button>
-    <nav class="lang" aria-label="{% translate "Til" %}">{% for code, name in langs %}<a href="{% alt_url request code %}" hreflang="{{ code }}" lang="{{ code }}"{% if code == LANGUAGE_CODE %} aria-current="true"{% endif %}>{{ code }}</a>{% endfor %}</nav>
+    <nav class="lang" aria-label="{% translate "Til" %}">{% for code, name in langs %}<a href="{% alt_path request code %}" hreflang="{{ code }}" lang="{{ code }}"{% if code == LANGUAGE_CODE %} aria-current="true"{% endif %}>{{ code }}</a>{% endfor %}</nav>
   </div>
 </div></div>
 

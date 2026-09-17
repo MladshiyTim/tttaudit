@@ -97,7 +97,7 @@ def evaluate(object_kind="", area_m2=None, annual_kwh=None, annual_gas_m3=None,
         result.requirements.append(Requirement(
             key="mandatory_energy_audit",
             title=_("Majburiy davriy energoaudit"),
-            basis="ЗРУ-940 · VM № 690",
+            basis=_("ЗРУ-940 · VM № 690"),
             deadline=_("Besh yilda kamida bir marta"),
             note=_(
                 "Yillik isteʼmol boʻyicha obyekt Davlat energetika reestri "
@@ -117,7 +117,7 @@ def evaluate(object_kind="", area_m2=None, annual_kwh=None, annual_gas_m3=None,
         result.requirements.append(Requirement(
             key="energy_passport",
             title=_("Bino energopasporti va energosamaradorlik toifasi"),
-            basis="ЗРУ-940",
+            basis=_("ЗРУ-940"),
             deadline=_("Foydalanishga topshirishdan oldin yoki audit natijasida"),
             note=_(
                 "Foydali maydon chegaradan katta — binoga energosamaradorlik "

@@ -37,7 +37,7 @@ DIRECTIONS = [
         "title_ru": "Аудит энергоэффективности",
         "title_en": "Energy efficiency audit",
         "summary_uz": "ЗРУ-940 boʻyicha majburiy energoaudit, bino energopasporti va energosamaradorlik toifasi.",
-        "summary_ru": "Обязательный энергоаудит по ЗРУ-940, энергопаспорт здания и категория энергоэффективности.",
+        "summary_ru": "Обязательный энергоаудит по Закону № ЗРУ-940, энергопаспорт здания и категория энергоэффективности.",
         "summary_en": "Mandatory energy audit under ZRU-940, building energy passport and efficiency category.",
         "problem_title_uz": "Nega bu endi majburiy",
         "problem_title_ru": "Почему это теперь обязательно",
@@ -70,7 +70,7 @@ DIRECTIONS = [
             "We establish which requirement applies to your site, and when, at the first meeting."
         ),
         "legal_note_uz": "Energoaudit majburiy va ixtiyoriy shaklda tashkil etiladi (ЗРУ-940).",
-        "legal_note_ru": "Энергоаудит организуется в виде обязательного и добровольного (ЗРУ-940).",
+        "legal_note_ru": "Энергоаудит организуется в обязательной и добровольной форме (Закон № ЗРУ-940).",
         "legal_note_en": "Energy audits are organised as mandatory or voluntary (ZRU-940).",
         "process": [
             t("Dastlabki suhbat: obyekt turi, maydon, isteʼmol, oldingi auditlar",
@@ -167,9 +167,11 @@ SERVICES = {
             "body_uz": ("ЗРУ-940 ga koʻra periodik energoaudit majburiy tartibda besh yilda kamida "
                         "bir marta oʻtkaziladi. Audit natijasida energetik pasport va tadbirlar "
                         "rejasi tuziladi."),
-            "body_ru": ("По ЗРУ-940 периодический энергоаудит проводится в обязательном порядке не "
-                        "реже одного раза в пять лет. По итогам составляется энергетический паспорт "
-                        "и план мероприятий."),
+            "body_ru": ("Согласно Закону № ЗРУ-940 периодический энергоаудит проводится в обязательном "
+                        "порядке не реже одного раза в пять лет. По его итогам составляются энергетический "
+                        "паспорт и план мероприятий."),
+            "body_en": ("Under ZRU-940, a periodic energy audit is mandatory at least once every five "
+                        "years. The audit results in an energy passport and an action plan."),
             "process": [
                 t("Reestrdagi holat va audit muddatini aniqlash", "Статус в реестре и срок аудита", "Register status and audit deadline"),
                 t("Uch yillik isteʼmol maʼlumotlarini yigʻish", "Сбор данных о потреблении за три года", "Three years of consumption data"),
@@ -198,9 +200,12 @@ SERVICES = {
                         "qurilgan, mavjud, rekonstruksiya va modernizatsiya qilingan obyektlar uchun "
                         "tuziladi (VM qarori № 690)."),
             "body_ru": ("Для зданий и сооружений с используемой площадью более 200 м² определяется "
-                        "категория энергоэффективности (ЗРУ-940). Энергопаспорт составляется для "
+                        "категория энергоэффективности (Закон № ЗРУ-940). Энергопаспорт составляется для "
                         "новых, существующих, реконструируемых и модернизируемых объектов "
                         "(Постановление КМ № 690)."),
+            "body_en": ("Buildings and structures with a usable area over 200 m² are assigned an energy "
+                        "efficiency category (ZRU-940). An energy passport is prepared for newly built, "
+                        "existing, reconstructed and modernised facilities (CM Resolution No. 690)."),
             "process": [
                 t("Bino konstruksiyalari va muhandislik tizimlarini oʻrganish", "Изучение конструкций и инженерных систем", "Envelope and building services review"),
                 t("Isteʼmol maʼlumotlari va hisoblagichlar", "Данные потребления и приборы учёта", "Consumption data and meters"),
@@ -222,6 +227,10 @@ SERVICES = {
                         "контуры, примыкания кровли и фундамента.\n\n"
                         "Обследование проводится при достаточной разнице внутренней и наружной "
                         "температуры — иначе результат недостоверен."),
+            "body_en": ("A thermal imaging camera shows where a building loses heat: thermal bridges, "
+                        "window perimeters, roof and foundation junctions.\n\n"
+                        "The survey is carried out only when the difference between indoor and outdoor "
+                        "temperatures is sufficient — otherwise the result is unreliable."),
             "process": [
                 t("Sharoitni tekshirish va sanani belgilash", "Проверка условий и выбор даты", "Checking conditions and scheduling"),
                 t("Fasad va ichki yuzalarni suratga olish", "Съёмка фасада и внутренних поверхностей", "Imaging facades and interiors"),
@@ -243,6 +252,9 @@ SERVICES = {
             "body_ru": ("По данным потребления и параметрам здания рассчитывается удельный расход. "
                         "Результат — основание для решения о полном аудите. Экспресс-оценка не "
                         "является официальным документом."),
+            "body_en": ("Specific consumption is calculated from consumption data and building "
+                        "parameters. The result serves as the basis for deciding whether a full audit "
+                        "is needed. The express assessment is not an official document."),
             "process": [
                 t("Isteʼmol va maydon maʼlumotlari", "Данные о потреблении и площади", "Consumption and area data"),
                 t("Solishtirma sarf hisobi", "Расчёт удельного расхода", "Specific consumption"),
@@ -268,6 +280,11 @@ SERVICES = {
                         "расчёт.\n\n"
                         "По каждой сметной позиции составляется ведомость в три колонки: по "
                         "документу, фактически, разница."),
+            "body_en": ("Control measurement establishes the volume of construction and installation "
+                        "work actually performed. Visual inspection, instrumental measurement and "
+                        "calculation are used together.\n\n"
+                        "For each estimate item a three-column statement is prepared: per document, "
+                        "actual, difference."),
             "process": [
                 t("Loyiha-smeta hujjati va dalolatnomalarni qabul qilish", "Приём ПСД и актов", "Receiving estimate and acts"),
                 t("Kameral tahlil", "Камеральный анализ", "Desk review"),
@@ -291,6 +308,8 @@ SERVICES = {
                         "takrorlangan pozitsiya, asossiz koeffitsiyent."),
             "body_ru": ("Проводится по документам, без выезда на объект: неверные расценки, "
                         "повторяющиеся позиции, необоснованные коэффициенты."),
+            "body_en": ("Carried out on the basis of documents, without a site visit: incorrect unit "
+                        "rates, duplicated items, unjustified coefficients."),
             "process": [
                 t("Smeta va loyiha hujjatini qabul qilish", "Приём сметы и проекта", "Receiving the estimate"),
                 t("Normativ bazaga solishtirish", "Сверка с нормативной базой", "Checking against norms"),
@@ -310,6 +329,8 @@ SERVICES = {
                         "tasdiqlanadi, yashirin ishlar yopilishidan oldin qayd etiladi."),
             "body_ru": ("Чтобы не платить за невыполненное: на каждом этапе подтверждаются объём и "
                         "качество, скрытые работы фиксируются до закрытия."),
+            "body_en": ("So that you do not pay for work not yet done: volume and quality are confirmed "
+                        "at each stage, and hidden works are recorded before they are covered."),
             "process": [
                 t("Bosqichlar jadvalini kelishish", "Согласование графика этапов", "Agreeing the stage schedule"),
                 t("Har bosqichda obyektga chiqish", "Выезд на каждом этапе", "Site visit at each stage"),
@@ -330,6 +351,9 @@ SERVICES = {
                         "bayonnoma bilan rasmiylashtiriladi."),
             "body_ru": ("Когда стороны приводят противоположные цифры, нужна независимая третья "
                         "сторона. Замер проводится в присутствии обеих сторон и оформляется протоколом."),
+            "body_en": ("When the parties present conflicting figures, an independent third party is "
+                        "needed. The measurement is carried out in the presence of both parties and "
+                        "recorded in minutes."),
             "process": [
                 t("Nizo hujjatlarini oʻrganish", "Изучение документов спора", "Reviewing the dispute file"),
                 t("Tomonlarni oʻlchovga chaqirish", "Приглашение сторон на замер", "Inviting both parties"),
@@ -353,7 +377,7 @@ ACTS = [
      "applies_to_en": "Energy entities, buildings and structures",
      "requirement_uz": ("Energoaudit majburiy va ixtiyoriy shaklda tashkil etiladi. Foydalaniladigan "
                         "maydoni 200 m² dan katta bino va inshootlar uchun energosamaradorlik toifasi belgilanadi."),
-     "requirement_ru": ("Энергоаудит организуется в виде обязательного и добровольного. Для зданий и "
+     "requirement_ru": ("Энергоаудит организуется в обязательной и добровольной форме. Для зданий и "
                         "сооружений с используемой площадью более 200 м² определяется категория энергоэффективности."),
      "requirement_en": ("Energy audits are mandatory or voluntary. Buildings over 200 m² of usable area "
                         "are assigned an energy efficiency category."),
@@ -386,14 +410,22 @@ ACTS = [
      "title_ru": "Категории энергоэффективности зданий и сооружений",
      "title_en": "Energy efficiency categories for buildings",
      "applies_to_uz": "Foydalaniladigan maydoni 200 m² dan katta bino va inshootlar",
+     "applies_to_ru": "Здания и сооружения с используемой площадью более 200 м²",
+     "applies_to_en": "Buildings and structures with a usable area over 200 m²",
      "requirement_uz": "Toifalar shkalasi va chegaralari meʼyoriy hujjatdan olinishi kerak (ЗРУ-940 da shkala yoʻq).",
+     "requirement_ru": "Шкала категорий и её границы должны быть взяты из нормативного документа (в Законе № ЗРУ-940 шкалы нет).",
+     "requirement_en": "The category scale and its thresholds must be taken from a normative document (ZRU-940 contains no scale).",
      "verified_on": None},
     {"number": "Nazorat oʻlchovi tartibi", "order": 3, "directions": ["olchov-auditi"],
      "title_uz": "Byudjet mablagʻlari hisobidan moliyalashtiriladigan obyektlarda nazorat oʻlchovi oʻtkazish tartibi",
      "title_ru": "Порядок проведения контрольного обмера на объектах, финансируемых из бюджета",
      "title_en": "Procedure for control measurement on budget-funded construction",
      "applies_to_uz": "Byudjet mablagʻlari hisobiga moliyalashtiriladigan qurilish obyektlari",
+     "applies_to_ru": "Строительные объекты, финансируемые за счёт бюджетных средств",
+     "applies_to_en": "Construction projects financed from the state budget",
      "requirement_uz": "Hujjat raqami, sanasi va talablari lex.uz dan topilishi kerak.",
+     "requirement_ru": "Номер, дата и требования документа должны быть сверены с lex.uz.",
+     "requirement_en": "The document number, date and requirements must be checked against lex.uz.",
      "verified_on": None},
 ]
 
@@ -401,23 +433,33 @@ ACTS = [
 POSTS = [
     {"slug": "energoaudit-kimga-majburiy", "published_on": dt.date(2026, 6, 18), "act": "ЗРУ-940", "is_published": True,
      "title_uz": "Energoaudit kimga majburiy", "title_ru": "Кому обязателен энергоаудит",
+     "title_en": "Who is required to carry out an energy audit",
      "excerpt_uz": "ЗРУ-940 nimani talab qiladi va davriy audit qanchalik tez-tez oʻtkaziladi.",
-     "excerpt_ru": "Что требует ЗРУ-940 и как часто проводится периодический аудит.",
+     "excerpt_ru": "Что требует Закон № ЗРУ-940 и как часто проводится периодический аудит.",
+     "excerpt_en": "What ZRU-940 requires and how often a periodic audit must be carried out.",
      "body_uz": ("Energoaudit majburiy va ixtiyoriy shaklda tashkil etiladi. Davriy energoaudit "
                  "majburiy tartibda besh yilda kamida bir marta oʻtkaziladi (ЗРУ-940).\n\n"
                  "Foydalaniladigan maydoni 200 m² dan katta bino va inshootlar uchun "
                  "energosamaradorlik toifasi belgilanadi.\n\n"
                  "Korxonangizga qaysi talab tegishli ekanini bilmasangiz — soʻrov qoldiring, tekshirib beramiz."),
-     "body_ru": ("Энергоаудит организуется в виде обязательного и добровольного. Периодический "
-                 "энергоаудит проводится в обязательном порядке не реже одного раза в пять лет (ЗРУ-940).\n\n"
+     "body_ru": ("Энергоаудит организуется в обязательной и добровольной форме. Периодический "
+                 "энергоаудит проводится в обязательном порядке не реже одного раза в пять лет "
+                 "(Закон № ЗРУ-940).\n\n"
                  "Для зданий и сооружений с используемой площадью более 200 м² определяется "
                  "категория энергоэффективности.\n\n"
-                 "Если не знаете, какое требование касается вашего предприятия, — оставьте заявку, проверим.")},
+                 "Если Вы не знаете, какое требование касается Вашего предприятия, оставьте заявку — мы проверим."),
+     "body_en": ("Energy audits are organised as mandatory or voluntary. A periodic energy audit is "
+                 "mandatory at least once every five years (ZRU-940).\n\n"
+                 "Buildings and structures with a usable area over 200 m² are assigned an energy "
+                 "efficiency category.\n\n"
+                 "If you are not sure which requirement applies to your enterprise, send a request and we will check.")},
     {"slug": "f2-dalolatnomasi-tekshirish", "published_on": dt.date(2026, 5, 30), "is_published": True,
      "title_uz": "Bajarilgan ishlar dalolatnomasini imzolashdan oldin nimani tekshirish kerak",
      "title_ru": "Что проверить перед подписанием акта выполненных работ",
+     "title_en": "What to check before signing a completion act",
      "excerpt_uz": "Eng koʻp uchraydigan nomuvofiqliklar va ularni qanday aniqlash mumkin.",
      "excerpt_ru": "Самые частые расхождения и как их выявить.",
+     "excerpt_en": "The most common discrepancies and how to detect them.",
      "body_uz": ("Bajarilgan ishlar dalolatnomasini imzolash — pul toʻlash bilan teng. "
                  "Imzodan keyin daʼvo qilish ancha qiyin.\n\n"
                  "Koʻp uchraydigan holatlar: hajm oshirib yozilishi, material almashtirilishi, "
@@ -427,15 +469,32 @@ POSTS = [
                  "предъявить претензию намного сложнее.\n\n"
                  "Частые случаи: завышенный объём, замена материала, неверно применённые "
                  "сметные нормы, одна работа в двух позициях.\n\n"
-                 "Часть из них выявляется без выезда — при анализе документов.")},
+                 "Часть из них выявляется без выезда — при анализе документов."),
+     "body_en": ("Signing a completion act is as good as paying. Once it is signed, raising a claim "
+                 "becomes much harder.\n\n"
+                 "Common cases: overstated volumes, substituted materials, misapplied estimate norms, "
+                 "the same work listed under two items.\n\n"
+                 "Some of these can be found without a site visit, during document review.")},
     {"slug": "energopasport-toifa-nima-beradi", "published_on": dt.date(2026, 4, 22), "act": "A–G toifalari", "is_published": False,
      "title_uz": "Binoning energosamaradorlik toifasi nima beradi",
+     "title_ru": "Что даёт категория энергоэффективности здания",
+     "title_en": "What a building's energy efficiency category gives",
      "excerpt_uz": "Toifa qanday hisoblanadi va uni qanday oshirish mumkin.",
-     "body_uz": "Toifalar shkalasi manba bilan tasdiqlangach yoziladi."},
+     "excerpt_ru": "Как рассчитывается категория и как её повысить.",
+     "excerpt_en": "How the category is calculated and how it can be improved.",
+     "body_uz": "Toifalar shkalasi manba bilan tasdiqlangach yoziladi.",
+     "body_ru": "Материал будет подготовлен после подтверждения шкалы категорий источником.",
+     "body_en": "This article will be written once the category scale is confirmed by a source."},
     {"slug": "nazorat-olchovi-kim-otkazadi", "published_on": dt.date(2026, 3, 12), "act": "Nazorat oʻlchovi tartibi", "is_published": False,
      "title_uz": "Nazorat oʻlchovini kim oʻtkaza oladi",
+     "title_ru": "Кто может проводить контрольный обмер",
+     "title_en": "Who may carry out control measurement",
      "excerpt_uz": "Byudjet obyektlarida oʻlchov oʻtkazish uchun qanday talablar bor.",
-     "body_uz": "Meʼyoriy hujjat lex.uz bilan tasdiqlangach yoziladi."},
+     "excerpt_ru": "Какие требования предъявляются к контрольному обмеру на бюджетных объектах.",
+     "excerpt_en": "What requirements apply to control measurement on budget-funded facilities.",
+     "body_uz": "Meʼyoriy hujjat lex.uz bilan tasdiqlangach yoziladi.",
+     "body_ru": "Материал будет подготовлен после сверки нормативного документа с lex.uz.",
+     "body_en": "This article will be written once the normative document is checked against lex.uz."},
 ]
 
 SITE = {
