@@ -162,3 +162,78 @@ def test_lead_json_message_has_no_unsourced_promise(client, monkeypatch):
     message = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567"},
                           HTTP_X_REQUESTED_WITH="XMLHttpRequest").json()["message"]
     assert message == "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi."
+
+
+def _upload(name, content=b"%PDF-1.4 test", content_type="application/pdf"):
+    from django.core.files.uploadedfile import SimpleUploadedFile
+
+    return SimpleUploadedFile(name, content, content_type=content_type)
+
+
+@pytest.mark.django_db
+def test_lead_rejects_disallowed_extension(client):
+    response = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567", "attachment": _upload("virus.exe")},
+                           HTTP_X_REQUESTED_WITH="XMLHttpRequest")
+    assert response.status_code == 400 and "attachment" in response.json()["errors"]
+    assert Lead.objects.count() == 0
+
+
+@pytest.mark.django_db
+def test_lead_rejects_oversized_attachment(client, settings):
+    settings.LEAD_MAX_UPLOAD_BYTES = 10
+    response = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567",
+                                             "attachment": _upload("smeta.pdf", b"x" * 11)},
+                           HTTP_X_REQUESTED_WITH="XMLHttpRequest")
+    assert response.status_code == 400 and "attachment" in response.json()["errors"]
+
+
+@pytest.mark.django_db
+def test_lead_accepts_small_pdf_under_leads(client, monkeypatch):
+    monkeypatch.setattr("core.views.notify_telegram", lambda lead: True)
+    response = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567", "attachment": _upload("smeta.pdf")},
+                           HTTP_X_REQUESTED_WITH="XMLHttpRequest")
+    assert response.status_code == 200
+    lead = Lead.objects.get()
+    assert lead.attachment.name.startswith("leads/") and lead.attachment.name.endswith(".pdf")
+    assert str(settings.MEDIA_ROOT) in lead.attachment.path
+
+
+@pytest.mark.django_db
+def test_lead_invalid_post_without_js_redirects_with_error(client):
+    response = client.post("/uz/api/lead/", {"name": "", "phone": "12"})
+    assert response.status_code == 302 and response["Location"].endswith("/uz/murojaat/?error=1")
+
+
+@pytest.mark.django_db
+def test_lead_rate_limit_without_js_redirects(client, monkeypatch):
+    monkeypatch.setattr("core.views.throttle.allow", lambda *args: False)
+    response = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567"})
+    assert response.status_code == 302 and response["Location"].endswith("/uz/murojaat/?error=limit")
+
+
+def _keys(client, **params):
+    data = client.get("/uz/api/compliance/", params).json()
+    return [r["key"] for r in data["requirements"]], data
+
+
+@pytest.mark.django_db
+def test_compliance_api_funding_and_dispute_branches(client):
+    keys, data = _keys(client, object_kind="construction", funding="credit")
+    assert keys == ["bank_measurement"] and data["requirements"][0]["severity"] == "likely"
+
+    keys, data = _keys(client, object_kind="construction", funding="own")
+    assert keys == ["voluntary_measurement"] and data["requirements"][0]["severity"] == "optional"
+
+    keys, data = _keys(client, object_kind="building", has_dispute="1")
+    assert keys == ["dispute_opinion"]
+    assert data["requirements"][0]["service_url"].endswith("/xizmatlar/olchov-auditi/nizo/")
+
+
+@pytest.mark.django_db
+def test_compliance_api_notes_when_nothing_applies(client):
+    keys, data = _keys(client, object_kind="building")
+    assert keys == [] and len(data["notes"]) == 1
+    assert "aniq majburiyat koʻrinmadi" in data["notes"][0]
+
+    keys, data = _keys(client, object_kind="industrial", annual_kwh="1000")
+    assert keys == [] and any("reestr mezonidan past" in note for note in data["notes"])

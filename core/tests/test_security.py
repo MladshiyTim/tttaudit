@@ -118,3 +118,19 @@ def test_hsts_defaults_are_conservative_and_env_driven():
     assert run({}) == ["3600", "False", "False"]
     assert run({"DJANGO_HSTS_SECONDS": "31536000", "DJANGO_HSTS_INCLUDE_SUBDOMAINS": "1",
                 "DJANGO_HSTS_PRELOAD": "1"}) == ["31536000", "True", "True"]
+
+
+@pytest.mark.parametrize("length", ["", "abc", None])
+def test_size_middleware_passes_missing_or_invalid_content_length(length):
+    from django.http import HttpResponse
+    from django.test import RequestFactory
+
+    from core.middleware import MaxBodySizeMiddleware
+
+    request = RequestFactory().post("/uz/api/lead/", data=b"", content_type="text/plain")
+    if length is None:
+        request.META.pop("CONTENT_LENGTH", None)
+    else:
+        request.META["CONTENT_LENGTH"] = length
+    response = MaxBodySizeMiddleware(lambda req: HttpResponse("ok"))(request)
+    assert response.status_code == 200

@@ -39,3 +39,13 @@ def test_import_is_idempotent_without_force():
     before = Project.objects.count()
     call_command("import_tttaudit")
     assert Project.objects.count() == before
+
+
+@pytest.mark.django_db
+def test_import_force_recreates_tables_with_same_counts():
+    models = (Branch, Client, Credential, Instrument, Project, Stat, TeamMember)
+    before = {model.__name__: model.objects.count() for model in models}
+    call_command("import_tttaudit", "--force")
+    assert {model.__name__: model.objects.count() for model in models} == before
+    scans = Credential.objects.exclude(scan="")
+    assert scans.exists() and all(c.scan.storage.exists(c.scan.name) for c in scans)
