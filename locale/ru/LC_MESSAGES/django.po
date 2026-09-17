@@ -195,7 +195,7 @@ msgid "Buyurtmachilar orasida"
 msgstr "Среди заказчиков"
 
 #: core/templates/core/_compliance.html
-msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
+msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi."
 msgstr "Объём работ, выполненных за счёт бюджетных средств, проходит контрольное измерение; стоимость услуги не превышает 0,3% от стоимости строительства."
 
 #: core/compliance.py

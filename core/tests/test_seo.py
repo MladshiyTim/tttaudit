@@ -52,3 +52,13 @@ def test_ru_interface_is_translated_not_uzbek(client):
 
     en_home = client.get("/en/").content.decode()
     assert "Send a request" in en_home
+
+
+@pytest.mark.django_db
+def test_percent_sign_survives_translation(client):
+    """`{% translate %}` ichidagi `%` Django tomonidan `%%` ga escape qilinadi —
+    tarjima qiluvchi buni to'g'ri hisoblamasa, satr hech qachon topilmaydi va
+    ru/en sahifada oʻzbekcha qolib ketadi."""
+    html = client.get("/ru/xizmatlar/energoaudit/").content.decode()
+    assert "Byudjet mablagʻi hisobiga" not in html
+    assert "0,3%" in html

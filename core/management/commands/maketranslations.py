@@ -57,8 +57,28 @@ def _join_py_literals(blob: str) -> str:
     return "".join(_unescape_literal(piece) for piece in STRING_LITERAL_RE.findall(blob))
 
 
+def _escape_percent(text: str) -> str:
+    """Django shablon tegi orqali tarjima qilinadigan matnda `%` belgisini `%%`
+    ga aylantiradi.
+
+    `{% translate %}` uchun `django.template.base.Variable.resolve()` xuddi
+    shu ishni bajaradi (`msgid = value.replace("%", "%%")`) — chunki
+    natijada `TranslateNode.render()` har doim `value.replace("%%", "%")`
+    ishlatadi. `{% blocktranslate %}` uchun ham xuddi shunday: Django o'zining
+    `BlockTranslateNode.render_token_list()` metodida matn qismini avval
+    escape qiladi, keyin `{{ var }}` larni `%(var)s` ga aylantiradi. Shu
+    sababli bu yerda ham xuddi shu tartib saqlanadi: avval `%` ni qochirish,
+    keyin o'zgaruvchilarni almashtirish.
+    """
+    return text.replace("%", "%%")
+
+
 def _blocktranslate_msgid(text: str) -> str:
-    """`{{ var }}` ni Django blocktranslate ishlatadigan `%(var)s` shakliga oʻtkazadi."""
+    """`{{ var }}` ni Django blocktranslate ishlatadigan `%(var)s` shakliga oʻtkazadi.
+
+    Chaqiruvchi avval `_escape_percent()` ni ishlatishi kerak (tartib muhim —
+    aks holda `%(var)s` ichidagi `%` ham ikkilanib, natija buzilardi).
+    """
     return BLOCK_VAR_PATTERN.sub(lambda m: f"%({m.group(1)})s", text)
 
 
@@ -90,9 +110,9 @@ def extract(base_dir: Path):
         if path.suffix == ".html":
             for pattern in TEMPLATE_PATTERNS:
                 for match in pattern.finditer(source):
-                    add(match.group(1), path)
+                    add(_escape_percent(match.group(1)), path)
             for match in BLOCK_PATTERN.finditer(source):
-                add(_blocktranslate_msgid(match.group(1)), path)
+                add(_blocktranslate_msgid(_escape_percent(match.group(1))), path)
         else:
             for match in PY_PATTERN.finditer(source):
                 add(_join_py_literals(match.group(1)), path)
@@ -190,6 +210,30 @@ class Command(BaseCommand):
 
         languages = [code for code, _ in settings.LANGUAGES if code != "uz"]
 
+        def _missing_report(current_store):
+            report = {lang: [] for lang in languages}
+            for msgid in sorted(found):
+                for lang in languages:
+                    if not current_store.get(msgid, {}).get(lang):
+                        report[lang].append(msgid)
+            return report
+
+        if options["report"]:
+            # Faqat o'qish: `translations.json` ga hech narsa yozilmaydi va
+            # .po/.mo fayllari kompilyatsiya qilinmaydi — shu sababli
+            # `--report` git holatini ifloslantirmaydi.
+            missing = _missing_report(store)
+            for lang in languages:
+                self.stdout.write(
+                    f"  {lang}: {len(found) - len(missing[lang])}/{len(found)} tarjima qilingan"
+                )
+            for lang in languages:
+                if missing[lang]:
+                    self.stdout.write(self.style.WARNING(f"\n{lang} uchun yetishmaydi:"))
+                    for msgid in missing[lang][:200]:
+                        self.stdout.write(f"  {msgid}")
+            return
+
         # Yangi satrlarni lug'atga bo'sh qiymat bilan qo'shamiz
         added = 0
         for msgid in found:
@@ -207,24 +251,12 @@ class Command(BaseCommand):
             encoding="utf-8",
         )
 
-        missing = {lang: [] for lang in languages}
-        for msgid in sorted(found):
-            for lang in languages:
-                if not store.get(msgid, {}).get(lang):
-                    missing[lang].append(msgid)
+        missing = _missing_report(store)
 
         for lang in languages:
             self.stdout.write(
                 f"  {lang}: {len(found) - len(missing[lang])}/{len(found)} tarjima qilingan"
             )
-
-        if options["report"]:
-            for lang in languages:
-                if missing[lang]:
-                    self.stdout.write(self.style.WARNING(f"\n{lang} uchun yetishmaydi:"))
-                    for msgid in missing[lang][:200]:
-                        self.stdout.write(f"  {msgid}")
-            return
 
         for lang in languages:
             catalog = {
