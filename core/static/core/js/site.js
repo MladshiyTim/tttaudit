@@ -43,7 +43,7 @@
         img.src = link.getAttribute("href");
         img.alt = link.getAttribute("data-alt") || "";
         box.showModal();
-      } else if (event.target === box) {
+      } else if (event.target === box || event.target.closest("[data-lightbox-close]")) {
         box.close();
       }
     });

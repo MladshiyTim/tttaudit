@@ -6,7 +6,7 @@ Django 5.2 SSR + React vidjetlari (Vite). Uch til: /uz/ /ru/ /en/.
 ## Lokal ishga tushirish
 
 ```bash
-python -m venv .venv && .venv/Scripts/activate
+python -m venv .venv && source .venv/Scripts/activate   # Git Bash (Windows)
 pip install -r requirements-dev.txt
 python manage.py migrate
 python manage.py seed_content        # tahririy kontent (yoʻnalish, xizmat, qonun, maqola)
@@ -23,6 +23,9 @@ Testlardan oldin har doim `cd frontend && npm run build` bajaring — testlardan
 ## Tuzilma
 - `core/models.py` — kontent modellari (`_uz/_ru/_en` maydonlar, `{{ obj|tr:"title" }}`).
 - `core/compliance.py`, `core/energy.py` — talab qoidalari va A–G chegaralari (server va React uchun yagona manba).
+  `energy.BANDS_VERIFIED = False` — A–G chegaralari oʻrinbosar, shuning uchun toifa API, talab tekshiruvi va sahifada
+  koʻrsatilmaydi (faqat solishtirma isteʼmol va energopasport talabi). Meʼyoriy hujjat tasdiqlangach `True`.
+- `core/media.py` — ommaviy media va murojaat fayllarini xodimga berish; `core/middleware.py` — soʻrov hajmi chegarasi.
 - `core/templates/core/` — sahifalar; `core/static/core/css/site.css` — dizayn tizimi.
 - `frontend/src/` — uchta React vidjet; `npm run build` → `frontend/dist/widgets/`.
 - `data/tttaudit/` — mijoz byulletenlaridan ajratilgan JSON va skanlar (38 mutaxassis — 24 energetika / 14 qurilish,
@@ -40,7 +43,17 @@ Oʻzbekcha interfeys matnini tahrirlagandan keyin shu buyruqni ishga tushirish v
 `.env.example` → muhit oʻzgaruvchilari. `Dockerfile` gunicorn + whitenoise. PostgreSQL `DATABASE_URL`.
 Murojaat chegarasi cache orqali: prodda `DatabaseCache` (`createcachetable` CMD da), lokal/testda `LocMemCache`.
 Telegram: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
-Mijoz admin panelda xizmat matnlarini tahrirlay boshlagach `seed_content` ni Dockerfile CMD dan olib tashlang.
+Konteyner root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `media/` volume'i unga yoziladigan boʻlishi kerak.
+
+### Boshlangʻich maʼlumot buyruqlari (CMD da har ishga tushishda)
+- `seed_content` (flagsiz) — bazada kamida bitta yoʻnalish boʻlsa **hech narsa qilmaydi**, shuning uchun admin
+  tahrirlarini oʻchirmaydi va CMD da qolishi xavfsiz. `seed_content --force` esa `SiteSettings` geroy/kompaniya
+  matnlarini, yoʻnalish, xizmat, qonun va maqolalarni (slug/raqam boʻyicha) fayldagi matn bilan **qayta yozadi** —
+  admin paneldagi shu maydonlardagi tahrirlar yoʻqoladi (admin qoʻshgan yangi yozuvlar qoladi).
+- `import_tttaudit` (flagsiz) — maʼlumoti bor jadvallarni (ofis, hujjat, asbob, raqam, mutaxassis, loyiha, mijoz)
+  oʻtkazib yuboradi, lekin `SiteSettings` rekvizit maydonlarini (nom, STIR, telefon, e-pochta, rahbar, manzil,
+  xodimlar soni) **har safar** `facts.json` dan yangilaydi. Rekvizitlarni admin panelda tahrirlash rejalashtirilsa,
+  CMD dan `import_tttaudit` ni olib tashlang. `--force` jadvallarni fayllari bilan birga qayta yaratadi.
 
 ### Prod: muhim
 - **`DJANGO_DEBUG=0` va haqiqiy `DJANGO_SECRET_KEY` majburiy.** `DEBUG=0` da maxfiy kalit berilmasa (yoki dev
@@ -58,16 +71,32 @@ Mijoz admin panelda xizmat matnlarini tahrirlay boshlagach `seed_content` ni Doc
 - **HSTS.** `DJANGO_HSTS_SECONDS` (standart `3600`), `DJANGO_HSTS_INCLUDE_SUBDOMAINS` va `DJANGO_HSTS_PRELOAD`
   (standart `0`). Domen (va subdomenlar) faqat HTTPS orqali ishlashi tasdiqlangandan keyingina `31536000` ga
   koʻtaring — HSTS brauzerlarda keshlanadi va orqaga qaytarish qiyin.
+- **Murojaat chegarasi va baza.** `DATABASE_URL` boʻlmasa (SQLite) cache `LocMemCache` — chegara hisoblagichi har
+  gunicorn worker'da alohida (amalda `LEAD_RATE_LIMIT × workers`). Prodda PostgreSQL (`DATABASE_URL`) ishlating:
+  shunda `DatabaseCache` umumiy.
 - **`TRUST_X_REAL_IP=1` ni faqat** `X-Real-IP` sarlavhasini **oʻzi qayta yozadigan** teskari proksi ortida
   yoqing (Railway, toʻgʻri sozlangan nginx). Aks holda barcha tashrif buyuruvchilar bitta chegara
   hisoblagichini (`LEAD_RATE_LIMIT`) baham koʻradi, yoki sarlavha soxtalashtirilib chegara chetlab oʻtiladi.
 - **`media/` uchun doimiy volume** biriktiring — kredential skanlari, xodim suratlari, murojaat qildirilgan
   fayllar shu yerda saqlanadi; konteyner qayta yaratilganda yoʻqolmasligi kerak.
-- **`seed_content` ni CMD dan olib tashlash** — mijoz admin panelda yoʻnalish/xizmat/qonun/maqola matnlarini
-  tahrirlay boshlagach, Dockerfile'dagi CMD'dan `python manage.py seed_content` qatorini olib tashlang.
+- **`seed_content --force` ni prodda ishga tushirmang** — mijoz admin panelda tahrirlagan matnlar qayta yoziladi
+  (yuqoridagi boʻlim).
 - Oʻzbekcha interfeys matnini oʻzgartirgandan keyin `python manage.py maketranslations` ishga tushiring va
   `frontend/src/i18n.js` ni qoʻlda sinxron tutib boring (vidjet matnlari tarjima faylidan avtomatik olinmaydi).
 - Testlardan oldin `cd frontend && npm run build` bajaring — bitta test yigʻilgan bundlni tekshiradi.
 
 ## Kontent qoidalari
 Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun faqat `verified_on` bilan chiqadi.
+
+## Mijoz tasdiqlashi kerak
+- Davlat energetika reestri chegaralari: 4 000 000 kVt·soat elektr / 375 000 m³ gaz (VM qarori № 690 asosida,
+  saytda koʻrsatiladi) — raqamlarni mijoz tasdiqlasin.
+- Nazorat oʻlchovi xizmat haqi chegarasi 0,3% — asos hujjat tasdiqlanmagan, saytdan olib tashlangan
+  (`compliance.MEASUREMENT_FEE_CAP` ishlatilmaydi).
+- A–G energosamaradorlik toifalari chegaralari — yashirin (`energy.BANDS_VERIFIED = False`).
+- Mijozlar roʻyxati (`clients.json`, eski moliyaviy audit saytidan) — «Buyurtmachilar orasida» boʻlimi olib tashlangan.
+- Loyiha nomlari ingliz tilida — hozir /en/ da oʻzbekcha chiqadi.
+- Mutaxassislar sertifikatlari ru/en tarjimasi — hozir oʻzbekcha.
+- Asosiy e-pochta manzili.
+- Ism transliteratsiyalari (`import_tttaudit.STAFF_LATIN_NAMES`: Zuhriddinov T. D., Ergashev Sh. R.).
+- Xodimlar soni: byulletendagi 50 / 24 / 16 va roʻyxatdagi 38 mutaxassis (takror birlashtirilgach) farqi.

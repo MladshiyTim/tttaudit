@@ -1170,6 +1170,10 @@ msgstr "Based on annual consumption, the facility exceeds the State Energy Regis
 msgid "Yopildi"
 msgstr "Closed"
 
+#: core/templates/core/base.html
+msgid "Yopish"
+msgstr "Close"
+
 #: core/templates/core/_lead.html
 #: core/templates/core/home.html
 #: core/templates/core/registry.html

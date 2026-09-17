@@ -87,7 +87,7 @@
   <div class="ftr__bot"><span>© {% now "Y" %} {{ site|tr:"org_name" }}</span><span>{% translate "Ekspert tashkiloti, 1997-yildan" %}</span></div>
 </div></footer>
 
-<dialog class="lb" id="lightbox" aria-label="{% translate "Hujjat skani" %}"><img src="" alt=""></dialog>
+<dialog class="lb" id="lightbox" aria-label="{% translate "Hujjat skani" %}"><button class="lb__close" type="button" data-lightbox-close aria-label="{% translate "Yopish" %}"><span aria-hidden="true">×</span></button><img src="" alt=""></dialog>
 <script src="{% static 'core/js/site.js' %}" defer></script>
 <script type="module" src="{% static 'widgets/widgets.js' %}"></script>
 </body>
