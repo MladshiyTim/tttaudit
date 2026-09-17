@@ -26,10 +26,27 @@
       </div>{% endfor %}
     </div>
   </div>
-  <figure class="hero__shot">
-    <img src="{% static 'core/img/office-hero.jpg' %}" srcset="{% static 'core/img/office-hero-800.jpg' %} 725w, {% static 'core/img/office-hero.jpg' %} 870w" sizes="(max-width: 900px) 100vw, 520px" width="870" height="960" loading="eager" fetchpriority="high" alt="{% translate "TTT Audit bosh ofisi binosi, Fargʻona" %}">
-    <figcaption><b>{% translate "Bosh ofis" %}</b> · {% translate "Fargʻona sh., Yangiobod koʻchasi, 5" %}</figcaption>
-  </figure>
+  {% translate "Energoaudit" as k_energy %}{% translate "Nazorat oʻlchovi" as k_measure %}
+  <div class="hero__shot slides" data-slides tabindex="0" aria-roledescription="carousel" aria-label="{% translate "Yoʻnalishlar suratlarda" %}">
+    {% translate "Tok qisqichli oʻlchagich bilan taqsimlash shkafi shinalarida oʻlchov" as alt %}{% translate "elektr isteʼmolini taqsimlash shkafida oʻlchash" as text %}
+    {% include "core/_slide.html" with name="energy-clamp-meter" first=True kicker=k_energy %}
+    {% translate "Qurilish maydonida GNSS qabul qilgichli reyka bilan oʻlchayotgan mutaxassis" as alt %}{% translate "qurilish maydonida koordinata va balandliklarni oʻlchash" as text %}
+    {% include "core/_slide.html" with name="site-gnss-survey" kicker=k_measure %}
+    {% translate "Izolyatsiyalangan isitish quvurlari va manometr" as alt %}{% translate "issiqlik quvurlari izolyatsiyasi va bosimini tekshirish" as text %}
+    {% include "core/_slide.html" with name="energy-heating-pipes" kicker=k_energy %}
+    {% translate "Nivelir orqali qarayotgan kaskali mutaxassis" as alt %}{% translate "nivelir bilan balandlik belgilarini tekshirish" as text %}
+    {% include "core/_slide.html" with name="site-levelling" kicker=k_measure %}
+    {% translate "Termometr va manometrlar oʻrnatilgan quvurlar tarmogʻi" as alt %}{% translate "issiqlik tarmogʻida harorat va bosim koʻrsatkichlarini qayd etish" as text %}
+    {% include "core/_slide.html" with name="energy-pipe-gauges" kicker=k_energy %}
+    {% translate "Qurilayotgan bino va minorali kran oldida shtativdagi geodezik asbob" as alt %}{% translate "bajarilgan hajmni obyektda oʻlchash" as text %}
+    {% include "core/_slide.html" with name="site-survey-tripod" kicker=k_measure %}
+    <div class="slides__nav" data-slides-nav hidden>
+      <span class="slides__count num"><span data-slides-index>01</span> / 06</span>
+      <button type="button" class="slides__btn" data-slides-prev aria-label="{% translate "Oldingi surat" %}"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <button type="button" class="slides__btn" data-slides-next aria-label="{% translate "Keyingi surat" %}"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    </div>
+    <p class="sr" data-slides-live aria-live="polite"></p>
+  </div>
 </div></section>
 
 <section class="facts" aria-label="{% translate "Asosiy faktlar" %}"><div class="wrap">
@@ -168,18 +185,20 @@
     <div><h2>{% translate "Bosh ofis, Fargʻona" %}</h2></div>
   </div>
   <div class="off">
-    <figure class="off__pic">
-      <img src="{% static 'core/img/office-entrance-800.jpg' %}" srcset="{% static 'core/img/office-entrance-800.jpg' %} 800w, {% static 'core/img/office-entrance.jpg' %} 1280w" sizes="(max-width: 900px) 100vw, 560px" width="800" height="600" loading="lazy" alt="{% translate "Bosh ofisga kirish, Fargʻona" %}">
-    </figure>
-    <div>
-      <dl class="addr">
-        <dt>{% translate "Manzil" %}</dt><dd>{{ site|tr:"address" }}</dd>
-        <dt>{% translate "Telefon" %}</dt><dd><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>{% if site.phone_second %}<br><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a>{% endif %}</dd>
-        <dt>{% translate "E-pochta" %}</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-        {% if site|tr:"director" %}<dt>{% translate "Rahbar" %}</dt><dd>{{ site|tr:"director" }}</dd>{% endif %}
-        <dt>{% translate "STIR" %}</dt><dd class="num">{{ site.tin }}</dd>
-      </dl>
-      <a class="btn" href="{% url 'core:contact' %}">{% translate "Xarita va murojaat" %}</a>
+    <dl class="addr">
+      <dt>{% translate "Manzil" %}</dt><dd>{{ site|tr:"address" }}</dd>
+      <dt>{% translate "Telefon" %}</dt><dd><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>{% if site.phone_second %}<br><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a>{% endif %}</dd>
+      <dt>{% translate "E-pochta" %}</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+      {% if site|tr:"director" %}<dt>{% translate "Rahbar" %}</dt><dd>{{ site|tr:"director" }}</dd>{% endif %}
+      <dt>{% translate "STIR" %}</dt><dd class="num">{{ site.tin }}</dd>
+    </dl>
+    <div class="off__panel">
+      <p class="off__k">{% translate "Xarita va murojaat" %}</p>
+      <p>{% translate "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz." %}</p>
+      <div class="off__cta">
+        <a class="btn" href="{% url 'core:contact' %}">{% translate "Aloqa sahifasi" %}</a>
+        <a class="btn btn--ghost" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+      </div>
     </div>
   </div>
 </div></section>

@@ -70,6 +70,10 @@ msgstr "Accreditation"
 msgid "Aloqa"
 msgstr "Contact"
 
+#: core/templates/core/home.html
+msgid "Aloqa sahifasi"
+msgstr "Contact page"
+
 #: core/templates/core/_docs.html
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
@@ -227,7 +231,6 @@ msgid "Bosh direktor"
 msgstr "General Director"
 
 #: core/templates/core/contact.html
-#: core/templates/core/home.html
 #: core/models.py
 msgid "Bosh ofis"
 msgstr "Head office"
@@ -235,10 +238,6 @@ msgstr "Head office"
 #: core/templates/core/home.html
 msgid "Bosh ofis, Fargʻona"
 msgstr "Head office, Fergana"
-
-#: core/templates/core/home.html
-msgid "Bosh ofisga kirish, Fargʻona"
-msgstr "Head office entrance, Fergana"
 
 #: core/templates/core/_crumbs.html
 msgid "Bosh sahifa"
@@ -425,10 +424,6 @@ msgid "Fargʻona"
 msgstr "Fergana"
 
 #: core/templates/core/home.html
-msgid "Fargʻona sh., Yangiobod koʻchasi, 5"
-msgstr "5 Yangiobod Street, Fergana"
-
-#: core/templates/core/home.html
 msgid "Farq"
 msgstr "Difference"
 
@@ -607,6 +602,10 @@ msgid "Izoh"
 msgstr "Comment"
 
 #: core/templates/core/home.html
+msgid "Izolyatsiyalangan isitish quvurlari va manometr"
+msgstr "Insulated heating pipes with a pressure gauge"
+
+#: core/templates/core/home.html
 msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat."
 msgstr "%(n)s staff in total: %(e)s in energy audit, %(c)s in technical supervision."
 
@@ -647,6 +646,10 @@ msgstr "Next"
 #: core/templates/core/registry.html
 msgid "Keyingi sahifa"
 msgstr "Next page"
+
+#: core/templates/core/home.html
+msgid "Keyingi surat"
+msgstr "Next photo"
 
 #: core/templates/core/legislation.html
 msgid "Kimga tegishli"
@@ -882,6 +885,10 @@ msgid "Natijada olasiz"
 msgstr "As a result, you will receive"
 
 #: core/templates/core/home.html
+msgid "Nazorat oʻlchovi"
+msgstr "Control measurement"
+
+#: core/templates/core/home.html
 msgid "Nazorat oʻlchovi dalolatnomasi"
 msgstr "Control measurement act"
 
@@ -896,6 +903,10 @@ msgstr "Does construction need to stop for control measurement?"
 #: core/templates/core/instruments.html
 msgid "Nazorat oʻlchovida ishlatiladigan asboblar: model, zavod raqami, oʻlchov chegarasi, qiyoslash guvohnomasi va amal qilish muddati."
 msgstr "Instruments used for control measurement: model, serial number, measuring range, verification certificate and validity period."
+
+#: core/templates/core/home.html
+msgid "Nivelir orqali qarayotgan kaskali mutaxassis"
+msgstr "Specialist in a hard hat looking through a level"
 
 #: core/compliance.py
 msgid "Nizo koʻrib chiqilgunga qadar"
@@ -955,6 +966,10 @@ msgstr "Previous"
 #: core/templates/core/registry.html
 msgid "Oldingi sahifa"
 msgstr "Previous page"
+
+#: core/templates/core/home.html
+msgid "Oldingi surat"
+msgstr "Previous photo"
 
 #: core/templates/core/base.html
 #: core/views.py
@@ -1059,6 +1074,14 @@ msgstr "You receive"
 #: core/models.py
 msgid "Qoʻshimcha telefon"
 msgstr "Secondary phone"
+
+#: core/templates/core/home.html
+msgid "Qurilayotgan bino va minorali kran oldida shtativdagi geodezik asbob"
+msgstr "Surveying instrument on a tripod in front of a building under construction and a tower crane"
+
+#: core/templates/core/home.html
+msgid "Qurilish maydonida GNSS qabul qilgichli reyka bilan oʻlchayotgan mutaxassis"
+msgstr "Specialist measuring with a GNSS receiver pole on a construction site"
 
 #: core/models.py
 msgid "Qurilish va suv xoʻjaligi"
@@ -1278,10 +1301,6 @@ msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi ma
 msgstr "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form."
 
 #: core/templates/core/home.html
-msgid "TTT Audit bosh ofisi binosi, Fargʻona"
-msgstr "TTT Audit head office building, Fergana"
-
-#: core/templates/core/home.html
 msgid "Tadbirlar rejasi"
 msgstr "Action plan"
 
@@ -1344,6 +1363,10 @@ msgstr "Phone"
 msgid "Telefon raqami toʻliq emas."
 msgstr "The phone number is incomplete."
 
+#: core/templates/core/home.html
+msgid "Termometr va manometrlar oʻrnatilgan quvurlar tarmogʻi"
+msgstr "Pipework fitted with thermometers and pressure gauges"
+
 #: core/templates/core/base.html
 msgid "Til"
 msgstr "Language"
@@ -1351,6 +1374,10 @@ msgstr "Language"
 #: core/templates/core/_energy.html
 msgid "Toifa"
 msgstr "Category"
+
+#: core/templates/core/home.html
+msgid "Tok qisqichli oʻlchagich bilan taqsimlash shkafi shinalarida oʻlchov"
+msgstr "Clamp meter measurement on the busbars of a distribution board"
 
 #: core/templates/core/registry.html
 msgid "Topildi: %(n)s ta"
@@ -1449,6 +1476,10 @@ msgstr "Map embed code"
 msgid "Xarita va murojaat"
 msgstr "Map and request"
 
+#: core/templates/core/home.html
+msgid "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz."
+msgstr "The map and the request form are on the contact page. Describe the site and your deadline, and we will tell you which requirement applies."
+
 #: core/models.py
 msgid "Xizmat"
 msgstr "Service"
@@ -1544,6 +1575,10 @@ msgstr "Practice area page"
 msgid "Yoʻnalishlar"
 msgstr "Practice areas"
 
+#: core/templates/core/home.html
+msgid "Yoʻnalishlar suratlarda"
+msgstr "Our fields of work in photos"
+
 #: core/views.py
 msgid "Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 boʻyicha sertifikatlangan."
 msgstr "No. Documents are used only within the scope of the contract; the information security system is certified to ISO 27001:2022."
@@ -1573,6 +1608,10 @@ msgstr "[{\"q\": {\"uz\": \"...\"}, \"a\": {\"uz\": \"...\"}}]"
 msgid "[{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}] koʻrinishida"
 msgstr "In the form [{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}]"
 
+#: core/templates/core/home.html
+msgid "bajarilgan hajmni obyektda oʻlchash"
+msgstr "measuring completed work volumes on site"
+
 #: core/templates/core/base.html
 msgid "bosh sahifa"
 msgstr "home page"
@@ -1580,6 +1619,18 @@ msgstr "home page"
 #: core/home.py
 msgid "dastlabki baho"
 msgstr "preliminary estimate"
+
+#: core/templates/core/home.html
+msgid "elektr isteʼmolini taqsimlash shkafida oʻlchash"
+msgstr "measuring power consumption at a distribution board"
+
+#: core/templates/core/home.html
+msgid "issiqlik quvurlari izolyatsiyasi va bosimini tekshirish"
+msgstr "checking insulation and pressure in heating pipework"
+
+#: core/templates/core/home.html
+msgid "issiqlik tarmogʻida harorat va bosim koʻrsatkichlarini qayd etish"
+msgstr "recording temperature and pressure readings in a heating network"
 
 #: core/home.py
 msgid "issiqlik yoʻqotishlari"
@@ -1609,6 +1660,10 @@ msgstr "no expiry date"
 msgid "namuna · hajm va narxlar shartli"
 msgstr "sample · volumes and prices are illustrative"
 
+#: core/templates/core/home.html
+msgid "nivelir bilan balandlik belgilarini tekshirish"
+msgstr "checking elevations with a level"
+
 #: core/home.py
 msgid "obyektda, tomonlar bilan"
 msgstr "on site, with the parties"
@@ -1620,6 +1675,10 @@ msgstr "without a site visit"
 #: core/home.py
 msgid "qurilish davomida"
 msgstr "during construction"
+
+#: core/templates/core/home.html
+msgid "qurilish maydonida koordinata va balandliklarni oʻlchash"
+msgstr "measuring coordinates and elevations on a construction site"
 
 #: core/home.py
 msgid "reestr subyektlari"

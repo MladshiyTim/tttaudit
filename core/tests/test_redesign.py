@@ -2,6 +2,7 @@
 import re
 
 import pytest
+from django.conf import settings
 from django.template import Context, Template
 from django.utils import translation
 
@@ -77,15 +78,70 @@ def test_hero_practice_tabs_work_without_js(client):
     assert "Energetik pasport" in hero and "Nazorat oʻlchovi dalolatnomasi" in hero
 
 
+def _slides(html):
+    start = html.index('data-slides ')
+    return html[start:html.index("data-slides-nav", start)]
+
+
 @pytest.mark.django_db
-def test_office_photos_have_dimensions_and_alt(client):
+def test_home_hero_is_slideshow_with_six_accessible_slides(client):
     html = client.get("/uz/").content.decode()
-    images = re.findall(r'<img [^>]*office-(?:hero|entrance)[^>]*>', html)
-    assert len(images) == 2
+    slides = _slides(html)
+    figures = re.findall(r'<figure class="slide slide--[a-z-]+( is-active)?" data-slide>', slides)
+    assert len(figures) == 6 and figures[0] == " is-active" and all(f == "" for f in figures[1:])
+    images = re.findall(r"<img [^>]*>", slides)
+    assert len(images) == 6
     for tag in images:
         assert re.search(r'width="\d+"', tag) and re.search(r'height="\d+"', tag), tag
         assert re.search(r'alt="[^"]{10,}"', tag), tag
-        assert "srcset=" in tag and "sizes=" in tag and "loading=" in tag
+        assert re.search(r'srcset="[^"]+-800\.jpg 640w, [^"]+-1600\.jpg 1280w"', tag), tag
+        assert "sizes=" in tag, tag
+    assert 'loading="eager" fetchpriority="high"' in images[0]
+    assert all('loading="lazy"' in tag and "fetchpriority" not in tag for tag in images[1:])
+    assert slides.count('class="slide__cap"') == 6
+    assert "<b>Energoaudit</b> <span>elektr isteʼmolini taqsimlash shkafida oʻlchash</span>" in slides
+    assert re.search(r'<div class="slides__nav" data-slides-nav hidden>', html)   # JS'siz boshqaruv yashirin
+    assert 'aria-label="Oldingi surat"' in html and 'aria-label="Keyingi surat"' in html
+    assert "<span data-slides-index>01</span> / 06" in html
+
+
+@pytest.mark.django_db
+def test_home_has_no_office_building_photos(client):
+    for lang in ("uz", "ru", "en"):
+        html = client.get(f"/{lang}/").content.decode()
+        assert "office-hero" not in html and "office-entrance" not in html
+        assert "off__pic" not in html
+
+
+@pytest.mark.django_db
+def test_slideshow_captions_are_translated(client):
+    ru = _slides(client.get("/ru/").content.decode())
+    assert "<b>Энергоаудит</b> <span>замер электропотребления в распределительном щите</span>" in ru
+    assert 'alt="Специалист в каске смотрит в нивелир"' in ru
+    en = _slides(client.get("/en/").content.decode())
+    assert "<b>Control measurement</b> <span>measuring completed work volumes on site</span>" in en
+    assert 'aria-label="Next photo"' in client.get("/en/").content.decode()
+
+
+def test_slide_sources_list_every_photo():
+    slides_dir = settings.BASE_DIR / "data" / "tttaudit" / "img" / "slides"
+    files = sorted(p.name for p in slides_dir.glob("*.jpg"))
+    assert len(files) == 6
+    rows = [line for line in (slides_dir / "SOURCES.md").read_text(encoding="utf-8").splitlines()
+            if line.startswith("| ") and line.endswith(" |") and ".jpg" in line]
+    listed = {}
+    for row in rows:
+        cells = [c.strip() for c in row.strip("|").split("|")]
+        listed[cells[0]] = cells
+    assert sorted(listed) == files
+    for name, (_, theme, author, url, licence, date) in listed.items():
+        assert theme and author, name
+        assert re.match(r"https://(unsplash\.com/photos/|www\.pexels\.com/photo/)", url), name
+        assert licence in ("Unsplash License", "Pexels License"), name
+        assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", date), name
+        static = settings.BASE_DIR / "core" / "static" / "core" / "img" / "slides"
+        stem = name.removesuffix(".jpg")
+        assert (static / f"{stem}-1600.jpg").exists() and (static / f"{stem}-800.jpg").exists(), name
 
 
 @pytest.mark.django_db

@@ -111,10 +111,25 @@ a.sh__aside{color:var(--indigo);font-size:15px}
 .hero h1 em{font-style:normal;color:var(--indigo)}
 .hero__lede{margin:0;font-size:18px;color:var(--ink2);max-width:56ch}
 .hero__cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero__shot{margin:0;position:relative;min-height:440px;background:var(--bg2);overflow:hidden}
-.hero__shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
-.hero__shot figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(21,23,28,.86);color:#C9CDDD;padding:12px 18px;font-size:13.5px;border-left:4px solid var(--yellow)}
-.hero__shot figcaption b{color:#fff;font-weight:600}
+.hero__shot{position:relative;align-self:start;margin:clamp(36px,5vw,64px) 0 clamp(32px,4vw,52px);aspect-ratio:4/5;background:var(--ink);overflow:hidden}
+
+/* ---- hero slayd-shou: JS'siz faqat birinchi slayd, boshqaruv yashirin ---- */
+.slides:focus-visible{outline:2px solid var(--indigo);outline-offset:3px}
+.slide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
+.slide.is-active{opacity:1;visibility:visible;transition:opacity .6s ease,visibility 0s}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide--energy-clamp-meter img{object-position:50% 72%}   /* 4:3 kesimda (mobil) asbob kadrda qoladi */
+.slide--site-gnss-survey img{object-position:50% 60%}
+.slide__cap{position:absolute;left:0;right:0;bottom:0;min-height:60px;margin:0;padding:11px 16px 12px;background:rgba(21,23,28,.9);border-left:4px solid var(--yellow);color:#C9CDDD;font:400 12.5px/1.45 var(--f-mono)}
+.slide__cap b{display:block;margin-bottom:2px;color:var(--yellow);font:600 11px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.09em}
+.slide__cap span{display:block;color:#E4E6EF}
+.slides.is-ready .slide__cap{padding-right:208px}
+.slides__nav{position:absolute;right:0;bottom:0;z-index:2;display:flex;align-items:stretch;height:60px;background:var(--ink)}
+.slides__nav[hidden]{display:none}
+.slides__count{display:block;line-height:60px;white-space:nowrap;padding:0 14px;color:#fff;font-size:12.5px;letter-spacing:.04em;border-left:1px solid rgba(255,255,255,.14)}
+.slides__btn{display:grid;place-items:center;width:52px;padding:0;border:0;border-left:1px solid rgba(255,255,255,.14);border-radius:0;background:transparent;color:#fff;cursor:pointer;transition:background-color .15s}
+.slides__btn:hover{background:var(--indigo)}
+.slides__btn:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px}
 
 .prac{border:1px solid var(--line);margin-top:6px;background:var(--bg)}
 .prac__tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line)}
@@ -307,9 +322,12 @@ a.pm:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
 .faq p{margin:0 0 18px;color:var(--ink2);max-width:70ch}
 
 /* ---- aloqa ---- */
-.off{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,56px);align-items:start}
-.off__pic{margin:0}
-.off__pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.off{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,56px);align-items:start}
+.off__panel{background:var(--bg);border-top:2px solid var(--ink);padding:22px 24px 26px}
+.off__k{margin:0 0 8px;font:700 24px/1.1 var(--f-cond)}
+.off__panel p:not(.off__k){margin:0 0 20px;color:var(--ink2);max-width:46ch}
+.off__cta{display:flex;flex-wrap:wrap;gap:10px}
+.off .addr{margin:0}
 .addr{margin:0 0 26px;display:grid;grid-template-columns:auto 1fr;gap:0 22px;font-size:15.5px;border-top:2px solid var(--ink)}
 .addr dt,.addr dd{padding:13px 0;border-bottom:1px solid var(--line)}
 .addr dt{color:var(--ink3);font-size:13.5px;padding-top:15px}
@@ -399,7 +417,7 @@ a.pm:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
 @media (max-width:900px){
   .hero__grid,.chk,.calc,.docs,.off,.nf,.split,.intro{grid-template-columns:1fr}
   .hero__main{padding-bottom:28px}
-  .hero__shot{margin-inline:calc(var(--gut) * -1);min-height:340px}
+  .hero__shot{margin:0 calc(var(--gut) * -1);aspect-ratio:16/10}
   .chk__form{border-right:0;border-bottom:1px solid var(--line)}
   .docs__list{border-right:0;border-bottom:1px solid var(--line)}
   .dirs{grid-template-columns:1fr}
@@ -434,6 +452,11 @@ a.pm:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
   .ubar .wrap{justify-content:flex-end}
   .logo__t span{display:none}
   .hero__lede{font-size:16.5px}
+  .hero__shot{aspect-ratio:4/3}
+  .slides.is-ready .slide__cap{padding-right:16px}
+  .slides__nav{top:0;bottom:auto;height:44px}
+  .slides__count{line-height:44px;padding:0 12px;border-left:0}
+  .slides__btn{width:44px}
   .prac__panel{grid-template-columns:1fr}
   .prac__tab{font-size:15px;padding:12px 10px}
   .fact{padding:18px 12px 18px 0}

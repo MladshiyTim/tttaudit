@@ -1,0 +1,4 @@
+{% load static %}<figure class="slide slide--{{ name }}{% if first %} is-active{% endif %}" data-slide>
+  <img src="{% static 'core/img/slides/'|add:name|add:'-800.jpg' %}" srcset="{% static 'core/img/slides/'|add:name|add:'-800.jpg' %} 640w, {% static 'core/img/slides/'|add:name|add:'-1600.jpg' %} 1280w" sizes="(max-width: 900px) 100vw, 480px" width="640" height="800" {% if first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %} alt="{{ alt }}">
+  <figcaption class="slide__cap"><b>{{ kicker }}</b> <span>{{ text }}</span></figcaption>
+</figure>

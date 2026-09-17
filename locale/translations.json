@@ -59,6 +59,10 @@
     "en": "Contact",
     "ru": "Контакты"
   },
+  "Aloqa sahifasi": {
+    "en": "Contact page",
+    "ru": "Страница контактов"
+  },
   "Aloqa va xarita": {
     "en": "Contact and map",
     "ru": "Контакты и карта"
@@ -270,10 +274,6 @@
   "Bosh ofis, Fargʻona": {
     "en": "Head office, Fergana",
     "ru": "Головной офис, Фергана"
-  },
-  "Bosh ofisga kirish, Fargʻona": {
-    "en": "Head office entrance, Fergana",
-    "ru": "Вход в головной офис, Фергана"
   },
   "Bosh sahifa": {
     "en": "Home",
@@ -715,6 +715,10 @@
     "en": "Comment",
     "ru": "Комментарий"
   },
+  "Izolyatsiyalangan isitish quvurlari va manometr": {
+    "en": "Insulated heating pipes with a pressure gauge",
+    "ru": "Изолированные трубы отопления с манометром"
+  },
   "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat.": {
     "en": "%(n)s staff in total: %(e)s in energy audit, %(c)s in technical supervision.",
     "ru": "Всего сотрудников: %(n)s; энергоаудит — %(e)s, технический надзор — %(c)s."
@@ -778,6 +782,10 @@
   "Keyingi sahifa": {
     "en": "Next page",
     "ru": "Следующая страница"
+  },
+  "Keyingi surat": {
+    "en": "Next photo",
+    "ru": "Следующее фото"
   },
   "Kimga kerak": {
     "en": "Who needs it",
@@ -1063,6 +1071,10 @@
     "en": "As a result, you will receive",
     "ru": "В результате Вы получите"
   },
+  "Nazorat oʻlchovi": {
+    "en": "Control measurement",
+    "ru": "Контрольный обмер"
+  },
   "Nazorat oʻlchovi dalolatnomasi": {
     "en": "Control measurement act",
     "ru": "Акт контрольного обмера"
@@ -1078,6 +1090,10 @@
   "Nazorat oʻlchovida ishlatiladigan asboblar: model, zavod raqami, oʻlchov chegarasi, qiyoslash guvohnomasi va amal qilish muddati.": {
     "en": "Instruments used for control measurement: model, serial number, measuring range, verification certificate and validity period.",
     "ru": "Приборы для контрольного обмера: модель, заводской номер, диапазон измерений, свидетельство о поверке и срок действия."
+  },
+  "Nivelir orqali qarayotgan kaskali mutaxassis": {
+    "en": "Specialist in a hard hat looking through a level",
+    "ru": "Специалист в каске смотрит в нивелир"
   },
   "Nizo koʻrib chiqilgunga qadar": {
     "en": "Until the dispute is resolved",
@@ -1158,6 +1174,10 @@
   "Oldingi sahifa": {
     "en": "Previous page",
     "ru": "Предыдущая страница"
+  },
+  "Oldingi surat": {
+    "en": "Previous photo",
+    "ru": "Предыдущее фото"
   },
   "Oq qogʻoz, toʻq navy, serif — rasmiy hujjat vazni": {
     "en": "White paper, deep navy, serif — the weight of an official document",
@@ -1290,6 +1310,14 @@
   "Qoʻshimcha telefon": {
     "en": "Secondary phone",
     "ru": "Дополнительный телефон"
+  },
+  "Qurilayotgan bino va minorali kran oldida shtativdagi geodezik asbob": {
+    "en": "Surveying instrument on a tripod in front of a building under construction and a tower crane",
+    "ru": "Геодезический прибор на штативе перед строящимся зданием и башенным краном"
+  },
+  "Qurilish maydonida GNSS qabul qilgichli reyka bilan oʻlchayotgan mutaxassis": {
+    "en": "Specialist measuring with a GNSS receiver pole on a construction site",
+    "ru": "Специалист с GNSS-приёмником на вешке на строительной площадке"
   },
   "Qurilish nazorat oʻlchovi va majburiy energoaudit boʻyicha amaldagi meʼyoriy hujjatlar: raqami, muddati, kimga tegishli.": {
     "en": "Current regulations on control measurement and mandatory energy audits: number, deadline, who is affected.",
@@ -1563,10 +1591,6 @@
     "en": "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form.",
     "ru": "Контакты TTT Audit: адреса головного офиса в Фергане и офиса в Ташкенте, телефоны, эл. почта и форма обращения."
   },
-  "TTT Audit bosh ofisi binosi, Fargʻona": {
-    "en": "TTT Audit head office building, Fergana",
-    "ru": "Здание головного офиса TTT Audit, Фергана"
-  },
   "Tadbirlar rejasi": {
     "en": "Action plan",
     "ru": "План мероприятий"
@@ -1639,6 +1663,10 @@
     "en": "Thermal",
     "ru": "Термальный"
   },
+  "Termometr va manometrlar oʻrnatilgan quvurlar tarmogʻi": {
+    "en": "Pipework fitted with thermometers and pressure gauges",
+    "ru": "Сеть трубопроводов с термометрами и манометрами"
+  },
   "Texnik baza": {
     "en": "Technical base",
     "ru": "Техническая база"
@@ -1650,6 +1678,10 @@
   "Toifa": {
     "en": "Category",
     "ru": "Категория"
+  },
+  "Tok qisqichli oʻlchagich bilan taqsimlash shkafi shinalarida oʻlchov": {
+    "en": "Clamp meter measurement on the busbars of a distribution board",
+    "ru": "Замер токоизмерительными клещами на шинах распределительного щита"
   },
   "Topildi: %(n)s ta": {
     "en": "Found: %(n)s",
@@ -1775,6 +1807,10 @@
     "en": "Map and request",
     "ru": "Карта и обращение"
   },
+  "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz.": {
+    "en": "The map and the request form are on the contact page. Describe the site and your deadline, and we will tell you which requirement applies.",
+    "ru": "Расположение на карте и форма обращения — на странице контактов. Опишите объект и сроки — подскажем, какое требование к нему относится."
+  },
   "Xizmat": {
     "en": "Service",
     "ru": "Услуга"
@@ -1867,6 +1903,10 @@
     "en": "Practice areas",
     "ru": "Направления"
   },
+  "Yoʻnalishlar suratlarda": {
+    "en": "Our fields of work in photos",
+    "ru": "Направления работы в фотографиях"
+  },
   "Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 boʻyicha sertifikatlangan.": {
     "en": "No. Documents are used only within the scope of the contract; the information security system is certified to ISO 27001:2022.",
     "ru": "Нет. Документы используются только в рамках договора; система информационной безопасности сертифицирована по ISO 27001:2022."
@@ -1907,6 +1947,10 @@
     "en": "valid",
     "ru": "действует"
   },
+  "bajarilgan hajmni obyektda oʻlchash": {
+    "en": "measuring completed work volumes on site",
+    "ru": "измерение выполненных объёмов на объекте"
+  },
   "berilgan": {
     "en": "issued",
     "ru": "выдано"
@@ -1919,9 +1963,21 @@
     "en": "preliminary estimate",
     "ru": "предварительная оценка"
   },
+  "elektr isteʼmolini taqsimlash shkafida oʻlchash": {
+    "en": "measuring power consumption at a distribution board",
+    "ru": "замер электропотребления в распределительном щите"
+  },
   "energoaudit va nazorat oʻlchovi talablari": {
     "en": "energy audit and control measurement requirements",
     "ru": "требования по энергоаудиту и контрольному обмеру"
+  },
+  "issiqlik quvurlari izolyatsiyasi va bosimini tekshirish": {
+    "en": "checking insulation and pressure in heating pipework",
+    "ru": "проверка изоляции и давления в трубопроводах отопления"
+  },
+  "issiqlik tarmogʻida harorat va bosim koʻrsatkichlarini qayd etish": {
+    "en": "recording temperature and pressure readings in a heating network",
+    "ru": "фиксация температуры и давления в тепловой сети"
   },
   "issiqlik yoʻqotishlari": {
     "en": "heat losses",
@@ -1955,6 +2011,10 @@
     "en": "sample · volumes and prices are illustrative",
     "ru": "образец · объёмы и цены условные"
   },
+  "nivelir bilan balandlik belgilarini tekshirish": {
+    "en": "checking elevations with a level",
+    "ru": "проверка высотных отметок нивелиром"
+  },
   "obyektda, tomonlar bilan": {
     "en": "on site, with the parties",
     "ru": "на объекте, со сторонами"
@@ -1970,6 +2030,10 @@
   "qurilish davomida": {
     "en": "during construction",
     "ru": "в ходе строительства"
+  },
+  "qurilish maydonida koordinata va balandliklarni oʻlchash": {
+    "en": "measuring coordinates and elevations on a construction site",
+    "ru": "измерение координат и высотных отметок на строительной площадке"
   },
   "reestr subyektlari": {
     "en": "register entities",

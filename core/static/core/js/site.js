@@ -1,4 +1,4 @@
-/* Sayt JS: menyu, «Maxsus imkoniyatlar» rejimi, skan koʻrgich. Vidjetlar alohida (widgets.js). */
+/* Sayt JS: menyu, «Maxsus imkoniyatlar» rejimi, skan koʻrgich, hero slayd-shousi. Vidjetlar alohida (widgets.js). */
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -48,6 +48,58 @@
       }
     });
   }
+
+  // --- Hero slayd-shou: JS'siz faqat birinchi slayd. Avto-almashish 6 s, hover/fokusda pauza,
+  //     «kamroq harakat» rejimida avto-almashish yoʻq. aria-live faqat qoʻlda almashtirilganda.
+  var SLIDE_DELAY = 6000;
+  document.querySelectorAll("[data-slides]").forEach(function (box) {
+    var slides = Array.prototype.slice.call(box.querySelectorAll("[data-slide]"));
+    var nav = box.querySelector("[data-slides-nav]");
+    var counter = box.querySelector("[data-slides-index]");
+    var live = box.querySelector("[data-slides-live]");
+    if (slides.length < 2 || !nav || !counter) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var current = 0, timer = null, hovered = false, focused = false;
+
+    function show(index, announce) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, i) { slide.classList.toggle("is-active", i === current); });
+      counter.textContent = (current < 9 ? "0" : "") + (current + 1);
+      if (announce && live) {
+        var cap = slides[current].querySelector("figcaption");
+        var parts = cap ? Array.prototype.map.call(cap.children, function (el) { return el.textContent; }) : [];
+        live.textContent = counter.textContent + " / " + (slides.length < 10 ? "0" : "") + slides.length + ". " + parts.join(" · ");
+      }
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+      stop();
+      if (reduce.matches || hovered || focused) return;
+      timer = setInterval(function () { show(current + 1, false); }, SLIDE_DELAY);
+    }
+    function step(delta) { show(current + delta, true); }
+
+    nav.hidden = false;
+    box.classList.add("is-ready");
+    box.querySelector("[data-slides-prev]").addEventListener("click", function () { step(-1); });
+    box.querySelector("[data-slides-next]").addEventListener("click", function () { step(1); });
+    box.addEventListener("keydown", function (event) {
+      var delta = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+      if (!delta) return;
+      event.preventDefault();
+      step(delta);
+    });
+    box.addEventListener("mouseenter", function () { hovered = true; stop(); });
+    box.addEventListener("mouseleave", function () { hovered = false; start(); });
+    box.addEventListener("focusin", function () { focused = true; stop(); });
+    box.addEventListener("focusout", function (event) {
+      if (box.contains(event.relatedTarget)) return;
+      focused = false;
+      start();
+    });
+    if (reduce.addEventListener) reduce.addEventListener("change", start);
+    start();
+  });
 
   // --- Yoʻnalish tablari: JS'siz ikkala panel ketma-ket koʻrinadi
   document.querySelectorAll("[data-tabs]").forEach(function (box) {
