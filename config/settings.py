@@ -118,7 +118,12 @@ LEAD_RATE_WINDOW_SECONDS = 3600
 # Faqat sarlavhani qayta yozadigan teskari proksi ortida yoqiladi (Railway, nginx)
 TRUST_X_REAL_IP = os.environ.get("TRUST_X_REAL_IP", "0") == "1"
 
-CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
+# Murojaat chegarasi hisoblagichi ishchilar (gunicorn worker) oʻrtasida umumiy boʻlishi uchun
+# prodda (DATABASE_URL bor) DatabaseCache, lokal/testda LocMemCache.
+if os.environ.get("DATABASE_URL"):
+    CACHES = {"default": {"BACKEND": "django.core.cache.backends.db.DatabaseCache", "LOCATION": "cache_table"}}
+else:
+    CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 
 # Soʻrov formasi fayl chegarasi (25 MB)
 LEAD_MAX_UPLOAD_BYTES = 25 * 1024 * 1024
