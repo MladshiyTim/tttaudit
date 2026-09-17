@@ -1,0 +1,1723 @@
+{
+ "source": "projects.json matni (ish nomi va buyurtmachi) boʻyicha aniqlangan; mijoz tasdiqlashi kerak",
+ "region_keys": [
+  "fargona",
+  "toshkent",
+  "namangan",
+  "andijon",
+  "sirdaryo",
+  "jizzax",
+  "samarqand",
+  "qashqadaryo",
+  "surxondaryo",
+  "qoraqalpogiston",
+  "navoiy",
+  "xorazm",
+  "buxoro",
+  "toshkent_shahri"
+ ],
+ "projects": [
+  {
+   "order": 1,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Qarshi",
+     "city_ru": "Карши",
+     "lat": 38.8602,
+     "lon": 65.788,
+     "evidence": "Каршинский государственный технический университет"
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "confidence": "medium",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "здания головного офиса банка"
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qoraqalpogiston",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Республики Каракалпакстан"
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "Ташкентском государственном юридическом университете"
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Кашкадарьинской"
+    },
+    {
+     "region": "surxondaryo",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Сурхандарьинской областей"
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Fargʻona tuman yoʻllardan foydalanish"
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "andijon",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Булакбашинском районе"
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 9,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Muborak",
+     "city_ru": "Мубарек",
+     "lat": 39.2667,
+     "lon": 65.1667,
+     "evidence": "Мубарекского НГДУ"
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "buxoro",
+     "city_uz": "Gazli",
+     "city_ru": "Газли",
+     "lat": 40.1333,
+     "lon": 63.45,
+     "evidence": "Газлийского НГДУ"
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "andijon",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Андижанской"
+    },
+    {
+     "region": "samarqand",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Самаркандской областях"
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 13,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 14,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 15,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 16,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 17,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 18,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 19,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 20,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 21,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "samarqand",
+     "city_uz": "Samarqand",
+     "city_ru": "Самарканд",
+     "lat": 39.6536,
+     "lon": 66.9592,
+     "evidence": "Управление магистральных газопроводов Самарканда"
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 23,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "buxoro",
+     "city_uz": "Kogon",
+     "city_ru": "Каган",
+     "lat": 39.7217,
+     "lon": 64.55,
+     "evidence": "Управление магистральных газопроводов Когон"
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 25,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 26,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 27,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "navoiy",
+     "city_uz": "Navoiy",
+     "city_ru": "Навои",
+     "lat": 40.1038,
+     "lon": 65.3725,
+     "evidence": "Навоийский филиал"
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "samarqand",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Самаркандского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "andijon",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Андижанского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Ферганского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "namangan",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Наманганского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "buxoro",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Бухарского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Кашкадарьинского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 34,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "navoiy",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Навоинского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 35,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "xorazm",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Хорезмского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 36,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Жиззахского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 37,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "sirdaryo",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Сырдарьинского областного управления"
+    }
+   ]
+  },
+  {
+   "order": 38,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 39,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "navoiy",
+     "city_uz": "Qiziltepa",
+     "city_ru": "Кизилтепа",
+     "lat": 40.1333,
+     "lon": 65.0833,
+     "evidence": "QIZILTEPA TUMAN"
+    }
+   ]
+  },
+  {
+   "order": 40,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Gʻuzor",
+     "city_ru": "Гузар",
+     "lat": 38.6167,
+     "lon": 66.25,
+     "evidence": "Гузарском районе"
+    }
+   ]
+  },
+  {
+   "order": 41,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": "Jizzax",
+     "city_ru": "Джизак",
+     "lat": 40.1154,
+     "lon": 67.8419,
+     "evidence": "насосной станции “Джиззах-2”"
+    }
+   ]
+  },
+  {
+   "order": 42,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 43,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "xorazm",
+     "city_uz": "Urganch",
+     "city_ru": "Ургенч",
+     "lat": 41.5501,
+     "lon": 60.6328,
+     "evidence": "Ургенчского УМГ"
+    }
+   ]
+  },
+  {
+   "order": 44,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Dehqonobod",
+     "city_ru": "Дехканабад",
+     "lat": 38.3596,
+     "lon": 66.2998,
+     "evidence": "DEHQONOBOD KALIY ZAVODI"
+    }
+   ]
+  },
+  {
+   "order": 45,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Chirchiq",
+     "city_ru": "Чирчик",
+     "lat": 41.0167,
+     "lon": 69.5808,
+     "evidence": "CHIRCHIQ DAVLAT PEDAGOGIKA UNIVERSITETI"
+    }
+   ]
+  },
+  {
+   "order": 46,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 47,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 48,
+   "confidence": "medium",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "OXYGEN TASHKENT"
+    }
+   ]
+  },
+  {
+   "order": 49,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Farg’ona xalqaro aeroporti"
+    }
+   ]
+  },
+  {
+   "order": 50,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Shahrisabz",
+     "city_ru": "Шахрисабз",
+     "lat": 39.0581,
+     "lon": 66.8353,
+     "evidence": "Шахрисабзского района Кашкадарьинской области"
+    }
+   ]
+  },
+  {
+   "order": 51,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 52,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "СЭЗ “Джизак”"
+    }
+   ]
+  },
+  {
+   "order": 53,
+   "confidence": "medium",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "головного здания АКБ “Туронбанк”"
+    }
+   ]
+  },
+  {
+   "order": 54,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "surxondaryo",
+     "city_uz": "Sariosiyo",
+     "city_ru": "Сариасия",
+     "lat": 38.4342,
+     "lon": 67.1119,
+     "evidence": "аэродроме Сариосиё"
+    }
+   ]
+  },
+  {
+   "order": 55,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "surxondaryo",
+     "city_uz": "Sariosiyo",
+     "city_ru": "Сариасия",
+     "lat": 38.4342,
+     "lon": 67.1119,
+     "evidence": "аэродрома Сариосиё"
+    }
+   ]
+  },
+  {
+   "order": 56,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Shahrisabz",
+     "city_ru": "Шахрисабз",
+     "lat": 39.0581,
+     "lon": 66.8353,
+     "evidence": "аэродрома Шахрисабз"
+    }
+   ]
+  },
+  {
+   "order": 57,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 58,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Qibray",
+     "city_ru": "Кибрай",
+     "lat": 41.4667,
+     "lon": 69.4167,
+     "evidence": "Кибрайском районе Ташкентской области"
+    }
+   ]
+  },
+  {
+   "order": 59,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Qibray",
+     "city_ru": "Кибрай",
+     "lat": 41.4667,
+     "lon": 69.4167,
+     "evidence": "Кибрайского района Ташкентской области"
+    }
+   ]
+  },
+  {
+   "order": 60,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Chimyon",
+     "city_ru": "Чимион",
+     "lat": 41.63,
+     "lon": 70.06,
+     "evidence": "Salom Chimyon"
+    }
+   ]
+  },
+  {
+   "order": 61,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "в г. Ташкенте"
+    }
+   ]
+  },
+  {
+   "order": 62,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "xorazm",
+     "city_uz": "Shovot",
+     "city_ru": "Шават",
+     "lat": 41.6067,
+     "lon": 60.3181,
+     "evidence": "SHOVOT TEXTILE PROJECT INVEST"
+    }
+   ]
+  },
+  {
+   "order": 63,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 64,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "xorazm",
+     "city_uz": "Shovot",
+     "city_ru": "Шават",
+     "lat": 41.6067,
+     "lon": 60.3181,
+     "evidence": "SHOVOT LOGISTIC SERVIS"
+    }
+   ]
+  },
+  {
+   "order": 65,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "г. Ташкент, Яккасарайский район"
+    }
+   ]
+  },
+  {
+   "order": 66,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Chorvoq",
+     "city_ru": "Чарвак",
+     "lat": 41.6167,
+     "lon": 69.9333,
+     "evidence": "CHORVOQ RESORT COMPLEX"
+    }
+   ]
+  },
+  {
+   "order": 67,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "xorazm",
+     "city_uz": "Xiva",
+     "city_ru": "Хива",
+     "lat": 41.3783,
+     "lon": 60.3639,
+     "evidence": "Хива шахридаги"
+    }
+   ]
+  },
+  {
+   "order": 68,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 69,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "UNG BO’STONLIQ"
+    }
+   ]
+  },
+  {
+   "order": 70,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 71,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 72,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent_shahri",
+     "city_uz": "Toshkent",
+     "city_ru": "Ташкент",
+     "lat": 41.3114,
+     "lon": 69.2398,
+     "evidence": "города Ташкента Бектемирском районе"
+    }
+   ]
+  },
+  {
+   "order": 73,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 74,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 75,
+   "confidence": "high",
+   "abroad": true,
+   "locations": []
+  },
+  {
+   "order": 76,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Parkent",
+     "city_ru": "Паркент",
+     "lat": 41.2914,
+     "lon": 69.7025,
+     "evidence": "Parkent tuman yo’llaridan foydalanish"
+    }
+   ]
+  },
+  {
+   "order": 77,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 78,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "buxoro",
+     "city_uz": "Buxoro",
+     "city_ru": "Бухара",
+     "lat": 39.7671,
+     "lon": 64.4211,
+     "evidence": "Бухарский Государственный Университет"
+    }
+   ]
+  },
+  {
+   "order": 79,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 80,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 81,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "sirdaryo",
+     "city_uz": "Yangiyer",
+     "city_ru": "Янгиер",
+     "lat": 40.3364,
+     "lon": 68.8161,
+     "evidence": "Янгиерский филиал"
+    }
+   ]
+  },
+  {
+   "order": 82,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 83,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Burchmulla",
+     "city_ru": "Бурчмулла",
+     "lat": 41.6392,
+     "lon": 70.0325,
+     "evidence": "Burchmullo O’rmon Xo’jalik Korxonasi"
+    }
+   ]
+  },
+  {
+   "order": 84,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Muborak",
+     "city_ru": "Мубарек",
+     "lat": 39.2667,
+     "lon": 65.1667,
+     "evidence": "Мубарекского НГДУ"
+    }
+   ]
+  },
+  {
+   "order": 85,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "qashqadaryo",
+     "city_uz": "Shoʻrtan",
+     "city_ru": "Шуртан",
+     "lat": 38.4667,
+     "lon": 65.9333,
+     "evidence": "Шуртанского НГДУ"
+    }
+   ]
+  },
+  {
+   "order": 86,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Angren",
+     "city_ru": "Ангрен",
+     "lat": 41.0167,
+     "lon": 70.1444,
+     "evidence": "ANGREN EIZ"
+    }
+   ]
+  },
+  {
+   "order": 87,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "navoiy",
+     "city_uz": "Navoiy",
+     "city_ru": "Навои",
+     "lat": 40.1038,
+     "lon": 65.3725,
+     "evidence": "NAVOIYAZOT"
+    }
+   ]
+  },
+  {
+   "order": 88,
+   "confidence": "high",
+   "abroad": true,
+   "locations": []
+  },
+  {
+   "order": 89,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 90,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "andijon",
+     "city_uz": "Andijon",
+     "city_ru": "Андижан",
+     "lat": 40.7824,
+     "lon": 72.3429,
+     "evidence": "Андижанского государственного института иностранных языков"
+    }
+   ]
+  },
+  {
+   "order": 91,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 92,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 93,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "toshkent",
+     "city_uz": "Yangiyoʻl",
+     "city_ru": "Янгиюль",
+     "lat": 40.8828,
+     "lon": 69.045,
+     "evidence": "Янгиюль"
+    }
+   ]
+  },
+  {
+   "order": 94,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 95,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 96,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 97,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 98,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 99,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Quvasoy",
+     "city_ru": "Кувасай",
+     "lat": 40.2922,
+     "lon": 71.972,
+     "evidence": "Қувасой Насли Парранда"
+    }
+   ]
+  },
+  {
+   "order": 100,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Дангара туман"
+    }
+   ]
+  },
+  {
+   "order": 101,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Yozyovon",
+     "city_ru": "Язъяван",
+     "lat": 40.6999,
+     "lon": 71.7401,
+     "evidence": "Язявон автомобиль мактаби"
+    }
+   ]
+  },
+  {
+   "order": 102,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 103,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 104,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 105,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргона ёг-мой"
+    }
+   ]
+  },
+  {
+   "order": 106,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргона вилоят педогог кадрларни кайта тайёрлаш ва малака ошириш институти"
+    }
+   ]
+  },
+  {
+   "order": 107,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 108,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 109,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "FARG`ONA YO`L QURILISH UFK"
+    }
+   ]
+  },
+  {
+   "order": 110,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 111,
+   "confidence": "medium",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "FERPI MECH-TECHNO"
+    }
+   ]
+  },
+  {
+   "order": 112,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Beshariq",
+     "city_ru": "Бешарык",
+     "lat": 40.3667,
+     "lon": 70.3833,
+     "evidence": "Бешариқ паҳта тозалаш заводи"
+    }
+   ]
+  },
+  {
+   "order": 113,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Toshloq",
+     "city_ru": "Ташлак",
+     "lat": 40.3667,
+     "lon": 71.1167,
+     "evidence": "Тошлок пахта тозалаш заводи"
+    }
+   ]
+  },
+  {
+   "order": 114,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Узбекистон тумани"
+    }
+   ]
+  },
+  {
+   "order": 115,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Beshariq",
+     "city_ru": "Бешарык",
+     "lat": 40.3667,
+     "lon": 70.3833,
+     "evidence": "Фаргона вилояти Бешарик туман"
+    }
+   ]
+  },
+  {
+   "order": 116,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "FARG`ONA YO`L QURILISH UFK"
+    }
+   ]
+  },
+  {
+   "order": 117,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 118,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 119,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": "Zomin",
+     "city_ru": "Заамин",
+     "lat": 39.955,
+     "lon": 68.4014,
+     "evidence": "Жиззах вил. Зомин Фарм Эркин Худудий Зонаси"
+    }
+   ]
+  },
+  {
+   "order": 120,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "FARG`ONA YO`L QURILISH UFK"
+    }
+   ]
+  },
+  {
+   "order": 121,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "FERGANA MOTORS"
+    }
+   ]
+  },
+  {
+   "order": 122,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргонадон махсулотлари"
+    }
+   ]
+  },
+  {
+   "order": 123,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Bogʻdod",
+     "city_ru": "Багдад",
+     "lat": 40.4333,
+     "lon": 71.1667,
+     "evidence": "Багдод ПТЗ"
+    }
+   ]
+  },
+  {
+   "order": 124,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 125,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргонадон махсулотлари"
+    }
+   ]
+  },
+  {
+   "order": 126,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Жиззах вил. №37 МТМ"
+    }
+   ]
+  },
+  {
+   "order": 127,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Жиззах вил. №2 МТМ"
+    }
+   ]
+  },
+  {
+   "order": 128,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "jizzax",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Жиззах вил. Зарбдор тум"
+    }
+   ]
+  },
+  {
+   "order": 129,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргона Капитал Строй Сервис"
+    }
+   ]
+  },
+  {
+   "order": 130,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 131,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргона Нефть-Кимё монтаж"
+    }
+   ]
+  },
+  {
+   "order": 132,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 133,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 134,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 135,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргона Кимё Заводи"
+    }
+   ]
+  },
+  {
+   "order": 136,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "surxondaryo",
+     "city_uz": "Termiz",
+     "city_ru": "Термез",
+     "lat": 37.2243,
+     "lon": 67.2769,
+     "evidence": "Термиз-Шайхун Кластер"
+    }
+   ]
+  },
+  {
+   "order": 137,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "namangan",
+     "city_uz": "Namangan",
+     "city_ru": "Наманган",
+     "lat": 40.9979,
+     "lon": 71.6714,
+     "evidence": "Наманган Дори-Дармон"
+    }
+   ]
+  },
+  {
+   "order": 138,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 139,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 140,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Фаргонадон махсулотлари"
+    }
+   ]
+  },
+  {
+   "order": 141,
+   "confidence": "none",
+   "abroad": false,
+   "locations": []
+  },
+  {
+   "order": 142,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": "Fargʻona",
+     "city_ru": "Фергана",
+     "lat": 40.389,
+     "lon": 71.7831,
+     "evidence": "Ферганский политехнический институт"
+    }
+   ]
+  },
+  {
+   "order": 143,
+   "confidence": "high",
+   "abroad": false,
+   "locations": [
+    {
+     "region": "fargona",
+     "city_uz": null,
+     "city_ru": null,
+     "lat": null,
+     "lon": null,
+     "evidence": "Коштепинского района"
+    }
+   ]
+  }
+ ]
+}

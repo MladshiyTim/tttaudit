@@ -10,10 +10,11 @@ Manba fayllar:
     staff.json     39 qator (byulleten; takror birlashtirilgach 38 mutaxassis), suratlar img/staff/
     staff_certificates.json  46 shaxsiy sertifikat skani (img/staff_certs/), xodimga name_ru boʻyicha
     projects.json  143 loyiha (byulleten), buyurtmachi nomi bilan
+    project_locations.json  loyiha joylari (ish nomi/buyurtmachi matnidan), `order` boʻyicha
     clients.json   eski saytdagi mijozlar roʻyxati (soha bilan)
 
 Egalik qilinadigan jadvallar: Branch, Credential, Instrument, Stat, TeamMember (direktor ham),
-StaffCertificate, Project, Client. --force ularni fayllari bilan qayta yaratadi — admin paneldagi
+StaffCertificate, Project, ProjectLocation, Client. --force ularni fayllari bilan qayta yaratadi — admin paneldagi
 tahrirlar yoʻqoladi. SiteSettings rekvizitlari: flagsiz faqat boʻsh (yoki model standart qiymatidagi)
 maydonlar toʻldiriladi, --force hammasini fayldagi qiymatga qaytaradi (matnlar seed_content'da).
 """
@@ -30,9 +31,10 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
 from core.models import (
-    Branch, Client, Credential, Direction, Instrument, Project, SiteSettings, StaffCertificate, Stat,
-    TeamMember,
+    Branch, Client, Credential, Direction, Instrument, Project, ProjectLocation, SiteSettings, StaffCertificate,
+    Stat, TeamMember,
 )
+from core.geo.regions import REGIONS
 
 DATA_DIR = Path(settings.BASE_DIR) / "data" / "tttaudit"
 DEPT_TO_DIRECTION = {"energy": "energoaudit", "construction": "olchov-auditi"}
@@ -101,6 +103,14 @@ DIRECTOR = {
          "ru": "ООО «TTTaudit» — генеральный директор",
          "en": "TTTaudit LLC — General Director"},
     ],
+}
+
+# Shahar nomining inglizcha shakli; roʻyxatda boʻlmasa oʻzbekchasi ishlatiladi
+CITY_EN = {
+    "Fargʻona": "Fergana", "Toshkent": "Tashkent", "Buxoro": "Bukhara", "Samarqand": "Samarkand",
+    "Xiva": "Khiva", "Qarshi": "Karshi", "Termiz": "Termez", "Jizzax": "Jizzakh", "Andijon": "Andijan",
+    "Urganch": "Urgench", "Navoiy": "Navoi", "Guliston": "Gulistan", "Qoʻqon": "Kokand",
+    "Margʻilon": "Margilan",
 }
 
 # Reyestr hujjati: facts.json dagi `number` aslida reyting — raqam VM qarori, reyting doirasiga qoʻshiladi
@@ -196,6 +206,7 @@ class Command(BaseCommand):
         staff = load_json("staff.json")
         staff_certificates = load_json("staff_certificates.json")
         projects = load_json("projects.json")
+        locations = load_json("project_locations.json")
         clients = load_json("clients.json")
         force = options["force"]
 
@@ -212,6 +223,7 @@ class Command(BaseCommand):
             self._table(Stat, force, lambda: self._stats(facts["stats"]))
             self._people(staff["staff"], staff_certificates["certificates"], force)
             self._table(Project, force, lambda: self._projects(projects["projects"], directions))
+            self._table(ProjectLocation, force, lambda: self._locations(locations["projects"]))
             self._table(Client, force, lambda: self._clients(clients))
 
         # Konsol xabari ASCII: Windows konsoli oʻ/gʻ ni chiqara olmaydi
@@ -219,7 +231,8 @@ class Command(BaseCommand):
             f"Yuklandi: {Branch.objects.count()} ofis / {Credential.objects.count()} hujjat / "
             f"{Instrument.objects.count()} asbob / {Stat.objects.count()} raqam / "
             f"{TeamMember.objects.count()} xodim / {StaffCertificate.objects.count()} sertifikat / "
-            f"{Project.objects.count()} loyiha / {Client.objects.count()} mijoz"
+            f"{Project.objects.count()} loyiha / {ProjectLocation.objects.count()} joy / "
+            f"{Client.objects.count()} mijoz"
         ))
 
     def _table(self, model, force: bool, fill) -> None:
@@ -419,6 +432,42 @@ class Command(BaseCommand):
                 title_uz=p["title_uz"][:200], title_ru=p["title_ru"][:200], title_en="",
             ))
         Project.objects.bulk_create(rows)
+
+    def _locations(self, entries: list[dict]) -> None:
+        """Loyiha joylari `order` boʻyicha. `high` ochiq, `medium` yashirin, `none` saqlanmaydi.
+
+        Xorijdagi ishlar (`abroad`) loyihada belgilanadi — reestrda koʻrinadi, xaritaga chiqmaydi.
+        """
+        projects = {p.order: p for p in Project.objects.all()}
+        rows, abroad = [], []
+        unknown_region = unknown_project = 0
+        for entry in entries:
+            project = projects.get(entry["order"])
+            if project is None:
+                unknown_project += 1
+                continue
+            if entry.get("abroad"):
+                abroad.append(project.pk)
+            confidence = entry.get("confidence")
+            if confidence not in (ProjectLocation.CONFIDENCE_HIGH, ProjectLocation.CONFIDENCE_MEDIUM):
+                continue
+            for loc in entry.get("locations") or []:
+                if loc.get("region") not in REGIONS:
+                    unknown_region += 1
+                    continue
+                city_uz = loc.get("city_uz") or ""
+                rows.append(ProjectLocation(
+                    project=project, region=loc["region"], city_uz=city_uz, city_ru=loc.get("city_ru") or "",
+                    city_en=CITY_EN.get(city_uz, city_uz), lat=loc.get("lat"), lon=loc.get("lon"),
+                    confidence=confidence, evidence=loc.get("evidence") or "",
+                    is_public=confidence == ProjectLocation.CONFIDENCE_HIGH,
+                ))
+        ProjectLocation.objects.bulk_create(rows)
+        Project.objects.update(abroad=False)
+        Project.objects.filter(pk__in=abroad).update(abroad=True)
+        # Konsol xabari ASCII
+        if unknown_region or unknown_project:
+            self.stdout.write(f"Joylar: nomalum hudud {unknown_region}, nomalum loyiha {unknown_project} - otkazib yuborildi")
 
     def _clients(self, data: dict) -> None:
         valid = {key for key, _ in Client.SECTOR_CHOICES}

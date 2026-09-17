@@ -30,6 +30,10 @@ msgstr "Energy audit specialists: %(n)s"
 msgid "%(n)s nafar texnik nazorat xodimi"
 msgstr "Technical supervision staff: %(n)s"
 
+#: core/templates/core/_uzmap.html
+msgid "%(n)s ta loyiha"
+msgstr "%(n)s projects"
+
 #: core/templates/core/home.html
 msgid "%(n)s ta loyiha, %(a)s–%(b)s"
 msgstr "%(n)s projects, %(a)s–%(b)s"
@@ -86,6 +90,10 @@ msgid "Amal qilish muddati"
 msgstr "Valid until"
 
 #: core/models.py
+msgid "Aniq"
+msgstr "Explicit"
+
+#: core/models.py
 msgid "Aniqlangan farq"
 msgstr "Discrepancy found"
 
@@ -117,6 +125,10 @@ msgstr "Originals are kept at the head office in Fergana. Click a scan to enlarg
 msgid "Asos"
 msgstr "Basis"
 
+#: core/models.py
+msgid "Asos (matndan)"
+msgstr "Evidence (from the text)"
+
 #: core/templates/core/home.html
 msgid "Asosiy faktlar"
 msgstr "Key facts"
@@ -134,8 +146,8 @@ msgid "Axborot byulleteni"
 msgstr "Information bulletin"
 
 #: core/templates/core/home.html
-msgid "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar."
-msgstr "From the information bulletin: %(e)s energy audits and %(c)s control measurements. Latest work below."
+msgid "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi."
+msgstr "From the information bulletin: %(e)s energy audits and %(c)s control measurements."
 
 #: core/models.py
 msgid "Aʼzolik"
@@ -173,6 +185,14 @@ msgstr "All services"
 #: core/views.py
 msgid "Barchasi"
 msgstr "All"
+
+#: core/templates/core/_uzmap.html
+msgid "Belgi yoki hududni bosing — shu yerdagi loyihalar roʻyxati chiqadi."
+msgstr "Click a marker or a region to list the projects there."
+
+#: core/templates/core/_uzmap.html
+msgid "Belgi — ish nomi yoki buyurtmachisida joy koʻrsatilgan loyihalar. Qolganlari reestrda."
+msgstr "Markers show projects whose title or client names the place. The rest are in the registry."
 
 #: core/models.py
 msgid "Belgining ostida mayda harflarda beriladi."
@@ -235,6 +255,10 @@ msgstr "General Director"
 msgid "Bosh ofis"
 msgstr "Head office"
 
+#: core/templates/core/_office_map.html
+msgid "Bosh ofis xaritada"
+msgstr "Head office on the map"
+
 #: core/templates/core/home.html
 msgid "Bosh ofis, Fargʻona"
 msgstr "Head office, Fergana"
@@ -291,7 +315,6 @@ msgid "Butun jamoa"
 msgstr "Whole team"
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 #: core/models.py
 msgid "Buyurtmachi"
@@ -460,6 +483,10 @@ msgstr "Before commissioning or based on audit results"
 msgid "Foydali maydon chegaradan katta — binoga energosamaradorlik toifasi belgilanadi va energopasport rasmiylashtiriladi."
 msgstr "The usable area exceeds the threshold — the building is assigned an energy-efficiency category and an energy passport is issued."
 
+#: core/templates/core/_uzmap.html
+msgid "Geografiya"
+msgstr "Geography"
+
 #: core/models.py
 msgid "Geroy kadri"
 msgstr "Hero image"
@@ -471,6 +498,10 @@ msgstr "Below the hero"
 #: core/home.py
 msgid "Gidroizolyatsiya, tom"
 msgstr "Waterproofing, roof"
+
+#: core/templates/core/_office_map.html
+msgid "Google Xarita"
+msgstr "Google Maps"
 
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
@@ -514,6 +545,12 @@ msgstr "Calculation: difference × unit price. A real report also checks estimat
 msgid "Hozircha yangiliklar yoʻq."
 msgstr "No news yet."
 
+#: core/templates/core/_uzmap.html
+#: core/templates/core/registry.html
+#: core/models.py
+msgid "Hudud"
+msgstr "Region"
+
 #: core/templates/core/legislation.html
 #: core/models.py
 msgid "Hujjat"
@@ -552,7 +589,6 @@ msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilga
 msgstr "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document."
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 msgid "Ish"
 msgstr "Work"
@@ -570,6 +606,10 @@ msgstr "Work procedure"
 #: core/views.py
 msgid "Ishlab chiqarishni toʻxtatmasdan energoaudit qilsa boʻladimi?"
 msgstr "Can an energy audit be done without stopping production?"
+
+#: core/models.py
+msgid "Ishonch"
+msgstr "Confidence"
 
 #: core/templates/core/_lead.html
 #: core/models.py
@@ -626,6 +666,10 @@ msgstr "Projects in the registry: %(total)s. Source: the organisation's 2026 inf
 msgid "Jamoa"
 msgstr "Team"
 
+#: core/templates/core/_uzmap.html
+msgid "Joyi koʻrsatilmagan"
+msgstr "Place not stated"
+
 #: core/templates/core/request.html
 #: core/views.py
 msgid "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling."
@@ -634,10 +678,6 @@ msgstr "Too many requests. Try again later or call us."
 #: core/templates/core/requisites.html
 msgid "Kasbiy javobgarlik — 10 mlrd soʻm, «Imkon-sugʻurta» AJ"
 msgstr "Professional liability — 10 billion soums, Imkon-sugʻurta JSC"
-
-#: core/templates/core/contact.html
-msgid "Kattaroq xarita"
-msgstr "Larger map"
 
 #: core/templates/core/team_member.html
 msgid "Keyingi"
@@ -658,6 +698,10 @@ msgstr "Who it applies to"
 #: core/compliance.py
 msgid "Kiritilgan maʼlumot boʻyicha aniq majburiyat koʻrinmadi. Obyekt tafsilotlarini yuboring — muhandis rasmiy javob beradi."
 msgstr "No clear obligation was identified from the entered data. Send details about the facility — an engineer will provide an official answer."
+
+#: core/templates/core/_uzmap.html
+msgid "Koʻp loyiha boʻlgan hududlar"
+msgstr "Regions with the most projects"
 
 #: core/templates/core/home.html
 msgid "Koʻp soʻraladigan savollar"
@@ -712,6 +756,10 @@ msgstr "In Latin script — for the uz and en pages"
 msgid "Loyiha"
 msgstr "Project"
 
+#: core/models.py
+msgid "Loyiha joyi"
+msgstr "Project location"
+
 #: core/templates/core/home.html
 msgid "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz."
 msgstr "Design and estimate documents, certificates of acceptance, or consumption data — we will send the list in advance."
@@ -722,6 +770,10 @@ msgstr "Design and estimate documents, certificates of acceptance, or consumptio
 #: core/models.py
 msgid "Loyihalar"
 msgstr "Projects"
+
+#: core/models.py
+msgid "Loyihalar joyi"
+msgstr "Project locations"
 
 #: core/compliance.py
 msgid "Majburiy davriy energoaudit"
@@ -755,6 +807,10 @@ msgstr "The address may have changed or been entered incorrectly."
 #: core/models.py
 msgid "Maqola"
 msgstr "Article"
+
+#: core/templates/core/_office_map.html
+msgid "Marshrut"
+msgstr "Route"
 
 #: core/models.py
 msgid "Masʼul"
@@ -950,6 +1006,7 @@ msgstr "On-site measurement"
 msgid "Obyektingizga qaysi talab tegishli"
 msgstr "Which requirement applies to your site"
 
+#: core/templates/core/_office_map.html
 #: core/templates/core/contact.html
 #: core/models.py
 msgid "Ofis"
@@ -995,6 +1052,10 @@ msgstr "Measurement and inspection are carried out with the parties present, usi
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
 msgstr "Member of the Uzbekistan Association of Consulting Engineers (UZACE)"
 
+#: core/templates/core/_uzmap.html
+msgid "Oʻzbekiston xaritasi: loyihalar boʻlgan hududlar va shaharlar"
+msgstr "Map of Uzbekistan: regions and cities where projects were carried out"
+
 #: core/home.py
 msgid "Plastik deraza bloklari"
 msgstr "PVC window units"
@@ -1010,6 +1071,10 @@ msgstr "Profile address: /jamoa/<slug>/ (from the Latin name)"
 #: core/templates/core/home.html
 msgid "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi."
 msgstr "The contractor submits the acceptance act, the client signs and pays. Later it turns out that volumes were overstated or materials substituted."
+
+#: core/templates/core/_uzmap.html
+msgid "Qayerlarda ishlaganmiz"
+msgstr "Where we have worked"
 
 #: core/views.py
 msgid "Qaysi binolarga energosamaradorlik toifasi belgilanadi?"
@@ -1149,9 +1214,14 @@ msgstr "Official name"
 msgid "Reestr"
 msgstr "Registry"
 
+#: core/templates/core/_uzmap.html
 #: core/templates/core/direction.html
 msgid "Reestrda koʻrish"
-msgstr "View in the registry"
+msgstr "View in registry"
+
+#: core/models.py
+msgid "Reestrda koʻrsatiladi, xaritada emas."
+msgstr "Shown in the registry, not on the map."
 
 #: core/models.py
 msgid "Rejali"
@@ -1234,6 +1304,11 @@ msgstr "Certificate number"
 #: core/templates/core/team_member.html
 msgid "Sertifikatlar"
 msgstr "Certificates"
+
+#: core/templates/core/_uzmap.html
+#: core/models.py
+msgid "Shahar"
+msgstr "City"
 
 #: core/models.py
 msgid "Shartnoma"
@@ -1320,6 +1395,10 @@ msgstr "Requirement check"
 msgid "Tanlang"
 msgstr "Select"
 
+#: core/templates/core/_uzmap.html
+msgid "Tanlovni bekor qilish"
+msgstr "Clear selection"
+
 #: core/templates/core/home.html
 msgid "Taqqoslash vedomosti"
 msgstr "Comparison sheet"
@@ -1346,6 +1425,10 @@ msgstr "Organisation (official name)"
 #: core/templates/core/company.html
 msgid "Tashkilot haqida"
 msgstr "About the organisation"
+
+#: core/models.py
+msgid "Taxminiy"
+msgstr "Probable"
 
 #: core/templates/core/legislation.html
 msgid "Tekshirilgan"
@@ -1464,10 +1547,6 @@ msgstr "Region"
 msgid "Xalqaro loyihalar va jamoat tashkilotlari"
 msgstr "International projects and public organisations"
 
-#: core/templates/core/contact.html
-msgid "Xarita"
-msgstr "Map"
-
 #: core/models.py
 msgid "Xarita iframe kodi"
 msgstr "Map embed code"
@@ -1475,6 +1554,14 @@ msgstr "Map embed code"
 #: core/templates/core/home.html
 msgid "Xarita va murojaat"
 msgstr "Map and request"
+
+#: core/models.py
+msgid "Xaritada koʻrsatish"
+msgstr "Show on the map"
+
+#: core/templates/core/_uzmap.html
+msgid "Xaritada loyiha"
+msgstr "Projects on the map"
 
 #: core/templates/core/home.html
 msgid "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz."
@@ -1501,6 +1588,10 @@ msgstr "Staff certificate"
 msgid "Xodim sertifikatlari"
 msgstr "Staff certificates"
 
+#: core/models.py
+msgid "Xorijda"
+msgstr "Abroad"
+
 #: core/templates/core/home.html
 msgid "Xulosa"
 msgstr "Opinion"
@@ -1512,6 +1603,10 @@ msgstr "For the opinion to have evidentiary force, the measurement is carried ou
 #: core/models.py
 msgid "Xulosa muddati, ish kuni"
 msgstr "Report turnaround, working days"
+
+#: core/templates/core/_office_map.html
+msgid "Yandex Xarita"
+msgstr "Yandex Maps"
 
 #: core/models.py
 msgid "Yangi"
@@ -1533,7 +1628,6 @@ msgid "Yangiliklar va tushuntirishlar"
 msgstr "News and explanations"
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 msgid "Yil"
 msgstr "Year"
@@ -1559,7 +1653,7 @@ msgid "Yopish"
 msgstr "Close"
 
 #: core/templates/core/_lead.html
-#: core/templates/core/home.html
+#: core/templates/core/_uzmap.html
 #: core/templates/core/registry.html
 #: core/models.py
 msgid "Yoʻnalish"

@@ -1,0 +1,32 @@
+{% load i18n %}{# Loyihalar xaritasi. Kontekst: uzmap = maps.projects_map_context(...). JS'siz: hudud va belgi reestrga olib boradi. #}
+<div class="geo" id="xarita" data-uzmap data-live="{{ uzmap.live|yesno:'1,0' }}">
+  <div class="geo__map">
+    <svg class="geo__svg" viewBox="0 0 {{ uzmap.width }} {{ uzmap.height }}" role="group" aria-labelledby="uzmap-title">
+      <title id="uzmap-title">{% translate "Oʻzbekiston xaritasi: loyihalar boʻlgan hududlar va shaharlar" %}</title>
+      <g class="geo__edge" aria-hidden="true">{% for r in uzmap.regions %}<path d="{{ r.d }}"/>{% endfor %}</g>
+      <g class="geo__land">{% for r in uzmap.regions %}{% if r.total %}<a class="geo__rg{% if r.selected %} is-sel{% endif %}" href="{{ r.url }}#xarita" data-region="{{ r.key }}" data-level="{{ r.level }}" aria-label="{{ r.name }}: {{ r.count }}"{% if not r.count %} tabindex="-1"{% endif %}><path d="{{ r.d }}"/></a>{% else %}<path class="geo__rg" data-level="0" d="{{ r.d }}"/>{% endif %}{% endfor %}</g>
+      <g class="geo__marks">{% for m in uzmap.markers %}<a class="geo__mk{% if m.hidden %} is-off{% endif %}" href="{{ uzmap.data.registry }}?{{ uzmap.data.param }}={{ m.region }}#xarita" data-marker="{{ m.key }}" aria-label="{{ m.name }}: {{ m.count }}" transform="translate({{ m.x|stringformat:'.1f' }} {{ m.y|stringformat:'.1f' }})"><rect class="geo__hit" x="-8" y="-8" width="16" height="16"/><g class="geo__sym"><rect class="geo__dot" x="-4.6" y="-4.6" width="9.2" height="9.2" transform="rotate(45)"/><rect class="geo__in" x="-1.9" y="-1.9" width="3.8" height="3.8" transform="rotate(45)"/></g>{% if not m.label %}<text class="geo__n{% if m.count < 2 %} is-off{% endif %}" x="7.5" y="-4">{{ m.count }}</text>{% endif %}</a>{% endfor %}</g>
+      <g class="geo__labels" aria-hidden="true">{% for m in uzmap.markers %}{% if m.label %}<text class="geo__lab{% if not m.narrow %} geo__lab--wide{% endif %}{% if m.hidden %} is-off{% endif %}" data-label="{{ m.key }}" x="{{ m.lx|stringformat:'.1f' }}" y="{{ m.ly|stringformat:'.1f' }}" text-anchor="{{ m.anchor }}">{{ m.name }}<tspan class="geo__lc{% if m.count < 2 %} is-off{% endif %}" dx="5">{{ m.count }}</tspan></text>{% endif %}{% endfor %}</g>
+    </svg>
+    <div class="geo__tip" data-uzmap-tip hidden></div>
+  </div>
+  <div class="geo__side">
+    <p class="sh__k">{% translate "Geografiya" %}</p>
+    <h2 class="geo__h">{% translate "Qayerlarda ishlaganmiz" %}</h2>
+    <p class="geo__lead">{% translate "Belgi — ish nomi yoki buyurtmachisida joy koʻrsatilgan loyihalar. Qolganlari reestrda." %}</p>
+    <dl class="geo__stats">
+      <div><dt>{% translate "Xaritada loyiha" %}</dt><dd class="num" data-stat="projects">{{ uzmap.totals.projects }}</dd></div>
+      <div><dt>{% translate "Hudud" %}</dt><dd class="num" data-stat="regions">{{ uzmap.totals.regions }}</dd></div>
+      <div><dt>{% translate "Shahar" %}</dt><dd class="num" data-stat="cities">{{ uzmap.totals.cities }}</dd></div>
+    </dl>
+    <p class="geo__off">{% translate "Joyi koʻrsatilmagan" %}: <span class="num" data-stat="off">{{ uzmap.off_map }}</span></p>
+    <nav class="geo__tabs" aria-label="{% translate "Yoʻnalish" %}">{% for t in uzmap.tabs %}<a href="{{ t.url }}" data-dept="{{ t.key }}"{% if t.active %} aria-current="true"{% endif %}>{{ t.label }}</a>{% endfor %}</nav>
+    {% blocktranslate asvar count_tpl with n="__N__" %}{{ n }} ta loyiha{% endblocktranslate %}
+    <div class="geo__panel" data-uzmap-panel aria-live="polite" data-t-count="{{ count_tpl }}" data-t-view="{% translate "Reestrda koʻrish" %}" data-t-clear="{% translate "Tanlovni bekor qilish" %}">
+      <p class="geo__cap">{% translate "Koʻp loyiha boʻlgan hududlar" %}</p>
+      <ul class="geo__top">{% for r in uzmap.top_regions %}<li><a href="{{ r.url }}#xarita"><span>{{ r.name }}</span><b class="num">{{ r.count }}</b></a></li>{% endfor %}</ul>
+      <p class="geo__hint" hidden>{% translate "Belgi yoki hududni bosing — shu yerdagi loyihalar roʻyxati chiqadi." %}</p>
+    </div>
+  </div>
+  {{ uzmap.data|json_script:"uzmap-data" }}
+</div>

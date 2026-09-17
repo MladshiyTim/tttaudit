@@ -23,6 +23,10 @@
     "en": "Technical supervision staff: %(n)s",
     "ru": "Сотрудников технического надзора: %(n)s"
   },
+  "%(n)s ta loyiha": {
+    "en": "%(n)s projects",
+    "ru": "Проектов: %(n)s"
+  },
   "%(n)s ta loyiha, %(a)s–%(b)s": {
     "en": "%(n)s projects, %(a)s–%(b)s",
     "ru": "Проектов: %(n)s, %(a)s–%(b)s"
@@ -79,6 +83,10 @@
     "en": "Valid until",
     "ru": "Действителен до"
   },
+  "Aniq": {
+    "en": "Explicit",
+    "ru": "Точно"
+  },
   "Aniqlangan farq": {
     "en": "Discrepancy found",
     "ru": "Выявленное расхождение"
@@ -119,6 +127,10 @@
     "en": "Basis",
     "ru": "Основание"
   },
+  "Asos (matndan)": {
+    "en": "Evidence (from the text)",
+    "ru": "Основание (из текста)"
+  },
   "Asosiy faktlar": {
     "en": "Key facts",
     "ru": "Основные факты"
@@ -138,6 +150,10 @@
   "Axborot byulleteni": {
     "en": "Information bulletin",
     "ru": "Информационный бюллетень"
+  },
+  "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi.": {
+    "en": "From the information bulletin: %(e)s energy audits and %(c)s control measurements.",
+    "ru": "По информационному бюллетеню: энергоаудит — %(e)s, контрольный обмер — %(c)s."
   },
   "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar.": {
     "en": "From the information bulletin: %(e)s energy audits and %(c)s control measurements. Latest work below.",
@@ -190,6 +206,14 @@
   "Batafsil": {
     "en": "Details",
     "ru": "Подробнее"
+  },
+  "Belgi yoki hududni bosing — shu yerdagi loyihalar roʻyxati chiqadi.": {
+    "en": "Click a marker or a region to list the projects there.",
+    "ru": "Нажмите на метку или регион — появится список проектов."
+  },
+  "Belgi — ish nomi yoki buyurtmachisida joy koʻrsatilgan loyihalar. Qolganlari reestrda.": {
+    "en": "Markers show projects whose title or client names the place. The rest are in the registry.",
+    "ru": "Метки — проекты, в названии или заказчике которых указано место. Остальные — в реестре."
   },
   "Belgining ostida mayda harflarda beriladi.": {
     "en": "Shown in small type under the mark.",
@@ -270,6 +294,10 @@
   "Bosh ofis": {
     "en": "Head office",
     "ru": "Головной офис"
+  },
+  "Bosh ofis xaritada": {
+    "en": "Head office on the map",
+    "ru": "Головной офис на карте"
   },
   "Bosh ofis, Fargʻona": {
     "en": "Head office, Fergana",
@@ -539,6 +567,10 @@
     "en": "Footer menu",
     "ru": "Меню в подвале"
   },
+  "Geografiya": {
+    "en": "Geography",
+    "ru": "География"
+  },
   "Geroy kadri": {
     "en": "Hero image",
     "ru": "Главный кадр"
@@ -550,6 +582,10 @@
   "Gidroizolyatsiya, tom": {
     "en": "Waterproofing, roof",
     "ru": "Гидроизоляция, кровля"
+  },
+  "Google Xarita": {
+    "en": "Google Maps",
+    "ru": "Google Карты"
   },
   "Guvohnoma": {
     "en": "Certificate",
@@ -687,6 +723,10 @@
     "en": "Instruments used",
     "ru": "Используемые приборы"
   },
+  "Ishonch": {
+    "en": "Confidence",
+    "ru": "Достоверность"
+  },
   "Ism": {
     "en": "Name",
     "ru": "Имя"
@@ -742,6 +782,10 @@
   "Jamoa roʻyxati hali kiritilmagan.": {
     "en": "The team list has not been added yet.",
     "ru": "Список команды пока не заполнен."
+  },
+  "Joyi koʻrsatilmagan": {
+    "en": "Place not stated",
+    "ru": "Место не указано"
   },
   "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling.": {
     "en": "Too many requests. Try again later or call us.",
@@ -819,6 +863,10 @@
     "en": "Frequently asked questions",
     "ru": "Частые вопросы"
   },
+  "Koʻp loyiha boʻlgan hududlar": {
+    "en": "Regions with the most projects",
+    "ru": "Регионы с наибольшим числом проектов"
+  },
   "Koʻp soʻraladigan savollar": {
     "en": "Frequently asked questions",
     "ru": "Часто задаваемые вопросы"
@@ -883,6 +931,10 @@
     "en": "Project",
     "ru": "Проект"
   },
+  "Loyiha joyi": {
+    "en": "Project location",
+    "ru": "Место проекта"
+  },
   "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz.": {
     "en": "Design and estimate documents, certificates of acceptance, or consumption data — we will send the list in advance.",
     "ru": "Проектно-сметная документация, акты или данные о потреблении — список направим заранее."
@@ -890,6 +942,10 @@
   "Loyihalar": {
     "en": "Projects",
     "ru": "Проекты"
+  },
+  "Loyihalar joyi": {
+    "en": "Project locations",
+    "ru": "Места проектов"
   },
   "Majburiy davriy energoaudit": {
     "en": "Mandatory periodic energy audit",
@@ -930,6 +986,10 @@
   "Maqolalar hali chop etilmagan.": {
     "en": "No articles published yet.",
     "ru": "Статьи пока не опубликованы."
+  },
+  "Marshrut": {
+    "en": "Route",
+    "ru": "Маршрут"
   },
   "Masʼul": {
     "en": "Contact person",
@@ -1215,6 +1275,10 @@
     "en": "Member of the Uzbekistan Association of Consulting Engineers (UZACE)",
     "ru": "Член Ассоциации инженеров-консультантов Узбекистана (UZACE)"
   },
+  "Oʻzbekiston xaritasi: loyihalar boʻlgan hududlar va shaharlar": {
+    "en": "Map of Uzbekistan: regions and cities where projects were carried out",
+    "ru": "Карта Узбекистана: регионы и города, где выполнялись проекты"
+  },
   "Plastik deraza bloklari": {
     "en": "PVC window units",
     "ru": "Пластиковые оконные блоки"
@@ -1242,6 +1306,10 @@
   "Qamrovi": {
     "en": "Scope",
     "ru": "Область действия"
+  },
+  "Qayerlarda ishlaganmiz": {
+    "en": "Where we have worked",
+    "ru": "Где мы работали"
   },
   "Qaysi binolarga energosamaradorlik toifasi belgilanadi?": {
     "en": "Which buildings are assigned an energy-efficiency category?",
@@ -1384,8 +1452,12 @@
     "ru": "Реестр"
   },
   "Reestrda koʻrish": {
-    "en": "View in the registry",
+    "en": "View in registry",
     "ru": "Смотреть в реестре"
+  },
+  "Reestrda koʻrsatiladi, xaritada emas.": {
+    "en": "Shown in the registry, not on the map.",
+    "ru": "Показывается в реестре, но не на карте."
   },
   "Rejali": {
     "en": "Planned",
@@ -1474,6 +1546,10 @@
   "Sertifikatlar": {
     "en": "Certificates",
     "ru": "Сертификаты"
+  },
+  "Shahar": {
+    "en": "City",
+    "ru": "Город"
   },
   "Shartnoma": {
     "en": "Contract",
@@ -1619,6 +1695,10 @@
     "en": "Select",
     "ru": "Выберите"
   },
+  "Tanlovni bekor qilish": {
+    "en": "Clear selection",
+    "ru": "Сбросить выбор"
+  },
   "Taqqoslash vedomosti": {
     "en": "Comparison sheet",
     "ru": "Сравнительная ведомость"
@@ -1638,6 +1718,10 @@
   "Tashkilot haqida": {
     "en": "About the organisation",
     "ru": "Об организации"
+  },
+  "Taxminiy": {
+    "en": "Probable",
+    "ru": "Предположительно"
   },
   "Tegishli hujjat": {
     "en": "Related act",
@@ -1807,6 +1891,14 @@
     "en": "Map and request",
     "ru": "Карта и обращение"
   },
+  "Xaritada koʻrsatish": {
+    "en": "Show on the map",
+    "ru": "Показывать на карте"
+  },
+  "Xaritada loyiha": {
+    "en": "Projects on the map",
+    "ru": "Проектов на карте"
+  },
   "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz.": {
     "en": "The map and the request form are on the contact page. Describe the site and your deadline, and we will tell you which requirement applies.",
     "ru": "Расположение на карте и форма обращения — на странице контактов. Опишите объект и сроки — подскажем, какое требование к нему относится."
@@ -1831,6 +1923,10 @@
     "en": "Staff certificates",
     "ru": "Сертификаты сотрудников"
   },
+  "Xorijda": {
+    "en": "Abroad",
+    "ru": "За рубежом"
+  },
   "Xulosa": {
     "en": "Opinion",
     "ru": "Заключение"
@@ -1846,6 +1942,10 @@
   "Xulosamizning huquqiy kuchi shu hujjatlarga tayanadi. Raqamlarni tekshirishingiz mumkin.": {
     "en": "The legal weight of our opinion rests on these documents. The numbers can be verified.",
     "ru": "Юридическая сила нашего заключения опирается на эти документы. Номера можно проверить."
+  },
+  "Yandex Xarita": {
+    "en": "Yandex Maps",
+    "ru": "Яндекс Карты"
   },
   "Yangi": {
     "en": "New",

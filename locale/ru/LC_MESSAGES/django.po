@@ -30,6 +30,10 @@ msgstr "Специалистов по энергоаудиту: %(n)s"
 msgid "%(n)s nafar texnik nazorat xodimi"
 msgstr "Сотрудников технического надзора: %(n)s"
 
+#: core/templates/core/_uzmap.html
+msgid "%(n)s ta loyiha"
+msgstr "Проектов: %(n)s"
+
 #: core/templates/core/home.html
 msgid "%(n)s ta loyiha, %(a)s–%(b)s"
 msgstr "Проектов: %(n)s, %(a)s–%(b)s"
@@ -86,6 +90,10 @@ msgid "Amal qilish muddati"
 msgstr "Действителен до"
 
 #: core/models.py
+msgid "Aniq"
+msgstr "Точно"
+
+#: core/models.py
 msgid "Aniqlangan farq"
 msgstr "Выявленное расхождение"
 
@@ -117,6 +125,10 @@ msgstr "Оригиналы хранятся в головном офисе в Ф
 msgid "Asos"
 msgstr "Основание"
 
+#: core/models.py
+msgid "Asos (matndan)"
+msgstr "Основание (из текста)"
+
 #: core/templates/core/home.html
 msgid "Asosiy faktlar"
 msgstr "Основные факты"
@@ -134,8 +146,8 @@ msgid "Axborot byulleteni"
 msgstr "Информационный бюллетень"
 
 #: core/templates/core/home.html
-msgid "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar."
-msgstr "По информационному бюллетеню: энергоаудит — %(e)s, контрольный обмер — %(c)s. Ниже — последние работы."
+msgid "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi."
+msgstr "По информационному бюллетеню: энергоаудит — %(e)s, контрольный обмер — %(c)s."
 
 #: core/models.py
 msgid "Aʼzolik"
@@ -173,6 +185,14 @@ msgstr "Все услуги"
 #: core/views.py
 msgid "Barchasi"
 msgstr "Все"
+
+#: core/templates/core/_uzmap.html
+msgid "Belgi yoki hududni bosing — shu yerdagi loyihalar roʻyxati chiqadi."
+msgstr "Нажмите на метку или регион — появится список проектов."
+
+#: core/templates/core/_uzmap.html
+msgid "Belgi — ish nomi yoki buyurtmachisida joy koʻrsatilgan loyihalar. Qolganlari reestrda."
+msgstr "Метки — проекты, в названии или заказчике которых указано место. Остальные — в реестре."
 
 #: core/models.py
 msgid "Belgining ostida mayda harflarda beriladi."
@@ -235,6 +255,10 @@ msgstr "Генеральный директор"
 msgid "Bosh ofis"
 msgstr "Головной офис"
 
+#: core/templates/core/_office_map.html
+msgid "Bosh ofis xaritada"
+msgstr "Головной офис на карте"
+
 #: core/templates/core/home.html
 msgid "Bosh ofis, Fargʻona"
 msgstr "Головной офис, Фергана"
@@ -291,7 +315,6 @@ msgid "Butun jamoa"
 msgstr "Вся команда"
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 #: core/models.py
 msgid "Buyurtmachi"
@@ -460,6 +483,10 @@ msgstr "До ввода в эксплуатацию или по результа
 msgid "Foydali maydon chegaradan katta — binoga energosamaradorlik toifasi belgilanadi va energopasport rasmiylashtiriladi."
 msgstr "Полезная площадь превышает порог — зданию присваивается категория энергоэффективности и оформляется энергопаспорт."
 
+#: core/templates/core/_uzmap.html
+msgid "Geografiya"
+msgstr "География"
+
 #: core/models.py
 msgid "Geroy kadri"
 msgstr "Главный кадр"
@@ -471,6 +498,10 @@ msgstr "Под главным блоком"
 #: core/home.py
 msgid "Gidroizolyatsiya, tom"
 msgstr "Гидроизоляция, кровля"
+
+#: core/templates/core/_office_map.html
+msgid "Google Xarita"
+msgstr "Google Карты"
 
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
@@ -514,6 +545,12 @@ msgstr "Расчёт: разница × цена единицы. В настоя
 msgid "Hozircha yangiliklar yoʻq."
 msgstr "Пока новостей нет."
 
+#: core/templates/core/_uzmap.html
+#: core/templates/core/registry.html
+#: core/models.py
+msgid "Hudud"
+msgstr "Регион"
+
 #: core/templates/core/legislation.html
 #: core/models.py
 msgid "Hujjat"
@@ -552,7 +589,6 @@ msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilga
 msgstr "Два направления: проверка энергопотребления и измерение объёма выполненных строительных работ. Оба — на основании полномочий, подтверждённых государственным документом."
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 msgid "Ish"
 msgstr "Работа"
@@ -570,6 +606,10 @@ msgstr "Порядок работы"
 #: core/views.py
 msgid "Ishlab chiqarishni toʻxtatmasdan energoaudit qilsa boʻladimi?"
 msgstr "Можно ли провести энергоаудит без остановки производства?"
+
+#: core/models.py
+msgid "Ishonch"
+msgstr "Достоверность"
 
 #: core/templates/core/_lead.html
 #: core/models.py
@@ -626,6 +666,10 @@ msgstr "Работ в реестре: %(total)s. Источник: информ�
 msgid "Jamoa"
 msgstr "Команда"
 
+#: core/templates/core/_uzmap.html
+msgid "Joyi koʻrsatilmagan"
+msgstr "Место не указано"
+
 #: core/templates/core/request.html
 #: core/views.py
 msgid "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling."
@@ -634,10 +678,6 @@ msgstr "Слишком много запросов. Повторите попы�
 #: core/templates/core/requisites.html
 msgid "Kasbiy javobgarlik — 10 mlrd soʻm, «Imkon-sugʻurta» AJ"
 msgstr "Профессиональная ответственность — 10 млрд сумов, АО «Imkon-sugʻurta»"
-
-#: core/templates/core/contact.html
-msgid "Kattaroq xarita"
-msgstr "Карта крупнее"
 
 #: core/templates/core/team_member.html
 msgid "Keyingi"
@@ -658,6 +698,10 @@ msgstr "Кого касается"
 #: core/compliance.py
 msgid "Kiritilgan maʼlumot boʻyicha aniq majburiyat koʻrinmadi. Obyekt tafsilotlarini yuboring — muhandis rasmiy javob beradi."
 msgstr "По введённым данным чёткое обязательство не выявлено. Отправьте подробности об объекте — инженер даст официальный ответ."
+
+#: core/templates/core/_uzmap.html
+msgid "Koʻp loyiha boʻlgan hududlar"
+msgstr "Регионы с наибольшим числом проектов"
 
 #: core/templates/core/home.html
 msgid "Koʻp soʻraladigan savollar"
@@ -712,6 +756,10 @@ msgstr "Латиницей — для страниц uz и en"
 msgid "Loyiha"
 msgstr "Проект"
 
+#: core/models.py
+msgid "Loyiha joyi"
+msgstr "Место проекта"
+
 #: core/templates/core/home.html
 msgid "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz."
 msgstr "Проектно-сметная документация, акты или данные о потреблении — список направим заранее."
@@ -722,6 +770,10 @@ msgstr "Проектно-сметная документация, акты ил�
 #: core/models.py
 msgid "Loyihalar"
 msgstr "Проекты"
+
+#: core/models.py
+msgid "Loyihalar joyi"
+msgstr "Места проектов"
 
 #: core/compliance.py
 msgid "Majburiy davriy energoaudit"
@@ -755,6 +807,10 @@ msgstr "Возможно, адрес изменился или введён не
 #: core/models.py
 msgid "Maqola"
 msgstr "Статья"
+
+#: core/templates/core/_office_map.html
+msgid "Marshrut"
+msgstr "Маршрут"
 
 #: core/models.py
 msgid "Masʼul"
@@ -950,6 +1006,7 @@ msgstr "Измерение на объекте"
 msgid "Obyektingizga qaysi talab tegishli"
 msgstr "Какое требование касается вашего объекта"
 
+#: core/templates/core/_office_map.html
 #: core/templates/core/contact.html
 #: core/models.py
 msgid "Ofis"
@@ -995,6 +1052,10 @@ msgstr "Измерение и осмотр — с участием сторон,
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
 msgstr "Член Ассоциации инженеров-консультантов Узбекистана (UZACE)"
 
+#: core/templates/core/_uzmap.html
+msgid "Oʻzbekiston xaritasi: loyihalar boʻlgan hududlar va shaharlar"
+msgstr "Карта Узбекистана: регионы и города, где выполнялись проекты"
+
 #: core/home.py
 msgid "Plastik deraza bloklari"
 msgstr "Пластиковые оконные блоки"
@@ -1010,6 +1071,10 @@ msgstr "Адрес профиля: /jamoa/<slug>/ (из латинского и�
 #: core/templates/core/home.html
 msgid "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi."
 msgstr "Подрядчик сдаёт акт выполненных работ, заказчик подписывает и оплачивает. Потом выясняется, что объёмы завышены или материал заменён."
+
+#: core/templates/core/_uzmap.html
+msgid "Qayerlarda ishlaganmiz"
+msgstr "Где мы работали"
 
 #: core/views.py
 msgid "Qaysi binolarga energosamaradorlik toifasi belgilanadi?"
@@ -1149,9 +1214,14 @@ msgstr "Официальное название"
 msgid "Reestr"
 msgstr "Реестр"
 
+#: core/templates/core/_uzmap.html
 #: core/templates/core/direction.html
 msgid "Reestrda koʻrish"
 msgstr "Смотреть в реестре"
+
+#: core/models.py
+msgid "Reestrda koʻrsatiladi, xaritada emas."
+msgstr "Показывается в реестре, но не на карте."
 
 #: core/models.py
 msgid "Rejali"
@@ -1234,6 +1304,11 @@ msgstr "Номер сертификата"
 #: core/templates/core/team_member.html
 msgid "Sertifikatlar"
 msgstr "Сертификаты"
+
+#: core/templates/core/_uzmap.html
+#: core/models.py
+msgid "Shahar"
+msgstr "Город"
 
 #: core/models.py
 msgid "Shartnoma"
@@ -1320,6 +1395,10 @@ msgstr "Проверка требований"
 msgid "Tanlang"
 msgstr "Выберите"
 
+#: core/templates/core/_uzmap.html
+msgid "Tanlovni bekor qilish"
+msgstr "Сбросить выбор"
+
 #: core/templates/core/home.html
 msgid "Taqqoslash vedomosti"
 msgstr "Сравнительная ведомость"
@@ -1346,6 +1425,10 @@ msgstr "Организация (официальное название)"
 #: core/templates/core/company.html
 msgid "Tashkilot haqida"
 msgstr "Об организации"
+
+#: core/models.py
+msgid "Taxminiy"
+msgstr "Предположительно"
 
 #: core/templates/core/legislation.html
 msgid "Tekshirilgan"
@@ -1464,10 +1547,6 @@ msgstr "Область"
 msgid "Xalqaro loyihalar va jamoat tashkilotlari"
 msgstr "Международные проекты и общественные организации"
 
-#: core/templates/core/contact.html
-msgid "Xarita"
-msgstr "Карта"
-
 #: core/models.py
 msgid "Xarita iframe kodi"
 msgstr "Код карты (iframe)"
@@ -1475,6 +1554,14 @@ msgstr "Код карты (iframe)"
 #: core/templates/core/home.html
 msgid "Xarita va murojaat"
 msgstr "Карта и обращение"
+
+#: core/models.py
+msgid "Xaritada koʻrsatish"
+msgstr "Показывать на карте"
+
+#: core/templates/core/_uzmap.html
+msgid "Xaritada loyiha"
+msgstr "Проектов на карте"
 
 #: core/templates/core/home.html
 msgid "Xaritadagi joylashuv va murojaat shakli aloqa sahifasida. Obyekt va muddatni yozing — qaysi talab tegishli ekanini aytamiz."
@@ -1501,6 +1588,10 @@ msgstr "Сертификат сотрудника"
 msgid "Xodim sertifikatlari"
 msgstr "Сертификаты сотрудников"
 
+#: core/models.py
+msgid "Xorijda"
+msgstr "За рубежом"
+
 #: core/templates/core/home.html
 msgid "Xulosa"
 msgstr "Заключение"
@@ -1512,6 +1603,10 @@ msgstr "Чтобы заключение имело силу доказатель
 #: core/models.py
 msgid "Xulosa muddati, ish kuni"
 msgstr "Срок заключения, раб. дней"
+
+#: core/templates/core/_office_map.html
+msgid "Yandex Xarita"
+msgstr "Яндекс Карты"
 
 #: core/models.py
 msgid "Yangi"
@@ -1533,7 +1628,6 @@ msgid "Yangiliklar va tushuntirishlar"
 msgstr "Новости и разъяснения"
 
 #: core/templates/core/direction.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 msgid "Yil"
 msgstr "Год"
@@ -1559,7 +1653,7 @@ msgid "Yopish"
 msgstr "Закрыть"
 
 #: core/templates/core/_lead.html
-#: core/templates/core/home.html
+#: core/templates/core/_uzmap.html
 #: core/templates/core/registry.html
 #: core/models.py
 msgid "Yoʻnalish"

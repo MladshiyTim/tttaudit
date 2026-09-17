@@ -96,6 +96,9 @@ Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun f
   (`compliance.MEASUREMENT_FEE_CAP` ishlatilmaydi).
 - A–G energosamaradorlik toifalari chegaralari — yashirin (`energy.BANDS_VERIFIED = False`).
 - Mijozlar roʻyxati (`clients.json`, eski moliyaviy audit saytidan) — «Buyurtmachilar orasida» boʻlimi olib tashlangan.
+- Loyihalar joylashuvi (`data/tttaudit/project_locations.json`) ish nomi va buyurtmachi matnidan aniqlangan. Joyi
+  matnda aniq (`high`) boʻlganlari xaritada; taxminiylari (`medium`, masalan nomida shahar boʻlgan kompaniya) yashirin —
+  mijoz tasdiqlasa admin panelda «Loyihalar joyi» → `is_public`. Xorijdagi 2 ish faqat reestrda.
 - Loyiha nomlari ingliz tilida — hozir /en/ da oʻzbekcha chiqadi.
 - Mutaxassislar sertifikatlari ru/en tarjimasi — hozir oʻzbekcha.
 - Asosiy e-pochta manzili.

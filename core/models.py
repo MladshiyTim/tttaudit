@@ -13,6 +13,8 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext_lazy as _
 
+from .geo.regions import REGION_CHOICES
+
 
 class TranslatableMixin:
     """`tr("field")` -> field_<til> yoki UZ fallback."""
@@ -326,6 +328,7 @@ class Project(TranslatableMixin, models.Model):
     energy_category = models.CharField(_("Energiya toifasi"), max_length=2, blank=True)
 
     hero_image = models.ImageField(upload_to="projects/", blank=True, null=True)
+    abroad = models.BooleanField(_("Xorijda"), default=False, help_text=_("Reestrda koʻrsatiladi, xaritada emas."))
 
     class Meta:
         ordering = ["-year", "order", "pk"]
@@ -334,6 +337,36 @@ class Project(TranslatableMixin, models.Model):
 
     def __str__(self):
         return self.title_uz
+
+
+class ProjectLocation(TranslatableMixin, models.Model):
+    """Loyiha joyi: ish nomi yoki buyurtmachisida koʻrsatilgan hudud (va shahar, boʻlsa).
+
+    `high` — joy matnda aniq yozilgan, xaritada darhol chiqadi; `medium` — taxmin, admin tasdiqlaguncha
+    (`is_public`) yashirin. Koordinatasiz joy faqat hudud boʻyoqida hisoblanadi, belgi qoʻyilmaydi.
+    """
+    CONFIDENCE_HIGH = "high"
+    CONFIDENCE_MEDIUM = "medium"
+    CONFIDENCE_CHOICES = [(CONFIDENCE_HIGH, _("Aniq")), (CONFIDENCE_MEDIUM, _("Taxminiy"))]
+
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="locations")
+    region = models.CharField(_("Hudud"), max_length=20, choices=REGION_CHOICES)
+    city_uz = models.CharField(_("Shahar"), max_length=80, blank=True)
+    city_ru = models.CharField(max_length=80, blank=True)
+    city_en = models.CharField(max_length=80, blank=True)
+    lat = models.FloatField(null=True, blank=True)
+    lon = models.FloatField(null=True, blank=True)
+    confidence = models.CharField(_("Ishonch"), max_length=8, choices=CONFIDENCE_CHOICES, default=CONFIDENCE_HIGH)
+    evidence = models.TextField(_("Asos (matndan)"), blank=True)
+    is_public = models.BooleanField(_("Xaritada koʻrsatish"), default=True)
+
+    class Meta:
+        ordering = ["project__order", "pk"]
+        verbose_name = _("Loyiha joyi")
+        verbose_name_plural = _("Loyihalar joyi")
+
+    def __str__(self):
+        return f"{self.project_id}: {self.region} {self.city_uz}".strip()
 
 
 # ----------------------------------------------------------------- asboblar

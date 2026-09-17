@@ -119,13 +119,10 @@
 <section class="sec" id="loyihalar"><div class="wrap">
   <div class="sh">
     <p class="sh__k">{% translate "Loyihalar" %}</p>
-    <div><h2>{% blocktranslate with n=facts.projects a=facts.year_first b=facts.year_last %}{{ n }} ta loyiha, {{ a }}–{{ b }}{% endblocktranslate %}</h2><p>{% blocktranslate with e=facts.projects_energy c=facts.projects_construction %}Axborot byulletenidagi roʻyxat: {{ e }} ta energoaudit va {{ c }} ta nazorat oʻlchovi. Quyida oxirgi ishlar.{% endblocktranslate %}</p></div>
+    <div><h2>{% blocktranslate with n=facts.projects a=facts.year_first b=facts.year_last %}{{ n }} ta loyiha, {{ a }}–{{ b }}{% endblocktranslate %}</h2><p>{% blocktranslate with e=facts.projects_energy c=facts.projects_construction %}Axborot byulletenidagi roʻyxat: {{ e }} ta energoaudit va {{ c }} ta nazorat oʻlchovi.{% endblocktranslate %}</p></div>
     <a class="more sh__aside" href="{% url 'core:registry' %}">{% translate "Toʻliq reestr" %} →</a>
   </div>
-  <div class="tbl-wrap"><table class="tbl tbl--stack">
-    <thead><tr><th>{% translate "Ish" %}</th><th>{% translate "Buyurtmachi" %}</th><th>{% translate "Yoʻnalish" %}</th><th class="r">{% translate "Yil" %}</th></tr></thead>
-    <tbody>{% for p in projects %}<tr><td>{{ p|tr:"title" }}</td><td>{{ p.client }}</td><td class="tbl__dir">{{ p.direction|tr:"title" }}</td><td class="num r">{{ p.year }}</td></tr>{% endfor %}</tbody>
-  </table></div>
+  {% include "core/_uzmap.html" %}
 </div></section>
 
 <section class="sec sec--tint" id="hujjatlar"><div class="wrap">

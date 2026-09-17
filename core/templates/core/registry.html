@@ -5,11 +5,14 @@
 <header class="phead"><p class="phead__k">{% translate "Loyihalar" %}</p><h1>{% translate "Bajarilgan ishlar reestri" %}</h1>
   <p>{% blocktranslate %}Jami {{ total }} ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek.{% endblocktranslate %}</p></header>
 
-<form class="filters" method="get" action="">
+<section class="block block--first">{% include "core/_uzmap.html" %}</section>
+
+<form class="filters" method="get" action="" id="jadval">
   <div><label for="f-d">{% translate "Yoʻnalish" %}</label><select class="select" id="f-d" name="d"><option value="">{% translate "Barchasi" %}</option>{% for d in directions %}<option value="{{ d.slug }}"{% if active.d == d.slug %} selected{% endif %}>{{ d|tr:"title" }}</option>{% endfor %}</select></div>
   <div><label for="f-y">{% translate "Yil" %}</label><select class="select" id="f-y" name="y"><option value="">{% translate "Barchasi" %}</option>{% for y in years %}<option value="{{ y }}"{% if active.y == y|stringformat:"s" %} selected{% endif %}>{{ y }}</option>{% endfor %}</select></div>
+  <div><label for="f-h">{% translate "Hudud" %}</label><select class="select" id="f-h" name="hudud"><option value="">{% translate "Barchasi" %}</option>{% for key, name in regions %}<option value="{{ key }}"{% if active.hudud == key %} selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
   <div class="filters__q"><label for="f-q">{% translate "Buyurtmachi yoki ish nomi" %}</label><input class="input" id="f-q" name="q" value="{{ active.q }}" placeholder="{% translate "masalan, AGROBANK" %}"></div>
-  <div class="filters__act"><button class="btn" type="submit">{% translate "Qidirish" %}</button>{% if active.d or active.y or active.q %}<a class="btn btn--ghost" href="{% url 'core:registry' %}">{% translate "Tozalash" %}</a>{% endif %}</div>
+  <div class="filters__act"><button class="btn" type="submit">{% translate "Qidirish" %}</button>{% if active.d or active.y or active.q or active.hudud %}<a class="btn btn--ghost" href="{% url 'core:registry' %}">{% translate "Tozalash" %}</a>{% endif %}</div>
 </form>
 <p class="found">{% blocktranslate with n=found %}Topildi: {{ n }} ta{% endblocktranslate %}</p>
 

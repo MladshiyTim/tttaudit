@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 from .models import (
     Branch, Client, Credential, Direction, Instrument, Lead, LegalAct, Post, Project,
-    Service, SiteSettings, StaffCertificate, Stat, TeamMember,
+    ProjectLocation, Service, SiteSettings, StaffCertificate, Stat, TeamMember,
 )
 
 
@@ -86,13 +86,31 @@ class BranchAdmin(admin.ModelAdmin):
     list_editable = ["order"]
 
 
+class ProjectLocationInline(admin.TabularInline):
+    model = ProjectLocation
+    extra = 0
+    fields = ["region", "city_uz", "city_ru", "city_en", "lat", "lon", "confidence", "is_public", "evidence"]
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ["title_uz", "client", "direction", "year", "order"]
-    list_filter = ["direction", "year"]
+    list_display = ["title_uz", "client", "direction", "year", "abroad", "order"]
+    list_filter = ["direction", "year", "abroad"]
     list_editable = ["order"]
     search_fields = ["title_uz", "title_ru", "client"]
     prepopulated_fields = {"slug": ["title_uz"]}
+    inlines = [ProjectLocationInline]
+
+
+@admin.register(ProjectLocation)
+class ProjectLocationAdmin(admin.ModelAdmin):
+    """Taxminiy (medium) joylar yashirin: mijoz tasdiqlasa `is_public` belgilanadi."""
+    list_display = ["project", "region", "city_uz", "confidence", "is_public", "evidence"]
+    list_filter = ["region", "confidence", "is_public"]
+    list_editable = ["is_public"]
+    list_select_related = ["project"]
+    search_fields = ["project__title_uz", "project__client", "city_uz", "evidence"]
+    autocomplete_fields = ["project"]
 
 
 @admin.register(Instrument)

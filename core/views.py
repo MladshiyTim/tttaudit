@@ -12,7 +12,7 @@ from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
-from . import compliance, energy, home as home_data, throttle
+from . import compliance, energy, home as home_data, maps, throttle
 from .forms import LeadForm
 from .models import (
     Branch,
@@ -103,7 +103,7 @@ def home(request):
         "facts": home_data.facts(site),
         "directions": Direction.objects.prefetch_related("services").all(),
         "credentials": Credential.objects.all(),
-        "projects": Project.objects.select_related("direction").exclude(year__isnull=True)[:8],
+        "uzmap": maps.projects_map_context(Project.objects.all(), dept=request.GET.get(maps.DEPT_PARAM)),
         "team_strip": home_data.team_strip(),
         "sheet": home_data.sheet(),
         "posts": Post.objects.filter(is_published=True)[:3],
@@ -268,12 +268,16 @@ def registry(request):
     year = request.GET.get("y", "")
     year = year if year.isdigit() else ""
     query = request.GET.get("q", "").strip()
+    region = request.GET.get(maps.REGION_PARAM, "")
+    region = region if region in maps.REGIONS else ""
     if direction_slug:
         queryset = queryset.filter(direction__slug=direction_slug)
     if year:
         queryset = queryset.filter(year=int(year))
     if query:
         queryset = queryset.filter(Q(title_uz__icontains=query) | Q(title_ru__icontains=query) | Q(client__icontains=query))
+    if region:
+        queryset = queryset.filter(locations__region=region, locations__is_public=True, abroad=False).distinct()
     paginator = Paginator(queryset, REGISTRY_PAGE_SIZE)
     page_obj = paginator.get_page(request.GET.get("page"))
     return page(
@@ -282,7 +286,9 @@ def registry(request):
         page_obj=page_obj, total=Project.objects.count(), found=paginator.count,
         directions=Direction.objects.all(),
         years=Project.objects.exclude(year__isnull=True).values_list("year", flat=True).distinct().order_by("-year"),
-        active={"d": direction_slug, "y": year, "q": query},
+        active={"d": direction_slug, "y": year, "q": query, "hudud": region},
+        regions=maps.region_options(),
+        uzmap=maps.registry_map_context(request, direction_slug, region),
         offset=page_obj.start_index() - 1,
     )
 
