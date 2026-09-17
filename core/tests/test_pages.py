@@ -52,6 +52,7 @@ def test_energy_direction_has_widgets_and_legal_basis(client):
 def test_construction_direction_lists_instruments(client):
     html = client.get("/uz/xizmatlar/olchov-auditi/").content.decode()
     assert "SNOWAY SW-M100" in html
+    assert "Elektron mikrometr" in html
     assert 'data-react="energy-estimator"' not in html
 
 

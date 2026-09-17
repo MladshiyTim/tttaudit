@@ -87,7 +87,7 @@ def services(request):
 
 
 def direction(request, direction_slug):
-    obj = get_object_or_404(Direction.objects.prefetch_related("services", "legal_acts"), slug=direction_slug)
+    obj = get_object_or_404(Direction.objects.prefetch_related("services"), slug=direction_slug)
     is_energy = obj.accent == Direction.ACCENT_AMBER
     context = {
         "direction": obj,
@@ -95,7 +95,7 @@ def direction(request, direction_slug):
         "services": obj.services.all(),
         "legal_acts": obj.legal_acts.filter(verified_on__isnull=False),
         "projects": obj.projects.exclude(year__isnull=True)[:6],
-        "instruments": Instrument.objects.all() if not is_energy else [],
+        "instruments": obj.instruments.all() if not is_energy else Instrument.objects.none(),
         "project_total": obj.projects.count(),
     }
     if is_energy:
