@@ -1,0 +1,3 @@
+{% extends "core/base.html" %}{% load i18n %}
+{% block title %}{% translate "Sahifa topilmadi" %} — TTT Audit{% endblock %}
+{% block main %}<div class="wrap"><div class="phead"><h1>{% translate "Sahifa topilmadi" %}</h1><p>{% translate "Manzil oʻzgargan yoki notoʻgʻri terilgan boʻlishi mumkin." %}</p></div><p><a class="btn" href="{% url 'core:home' %}">{% translate "Bosh sahifaga" %}</a></p></div>{% endblock %}

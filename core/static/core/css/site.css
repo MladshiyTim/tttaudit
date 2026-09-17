@@ -1,0 +1,205 @@
+/* TTT Audit — dizayn tizimi. Davlat portali uslubi: och kulrang fon, oq kartalar,
+   toʻq koʻk brend, sariq faqat belgi sifatida. Soyasiz, serifsiz. */
+:root{
+  --bg:#F3F4F7; --card:#FFFFFF; --ink:#16213E; --ink-2:#3C465E; --muted:#6B7280;
+  --line:#D9DEE7; --line-2:#E8EBF1;
+  --brand:#27306E; --brand-700:#1E2556; --brand-50:#EEF0F8; --brand-100:#DDE1F2;
+  --link:#1F3F9E;
+  --accent:#FFC424; --accent-100:#FFF4D1; --accent-ink:#6B4E00;
+  --ok:#1E7F4F; --ok-50:#E7F5EC; --warn:#B45309; --warn-50:#FFF3E0; --danger:#B42318; --danger-50:#FDECEA;
+  --radius:8px; --wrap:1200px; --gut:clamp(16px,4vw,32px);
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.55 var(--font);color:var(--ink);background:var(--bg)}
+html[data-a11y="on"] body{font-size:19px;filter:grayscale(1)}
+html[data-a11y="on"] a{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+h1,h2,h3,h4{font-weight:600;line-height:1.25;margin:0 0 .5em}
+p{margin:0 0 1em}
+.muted{color:var(--muted)}
+.nums{font-variant-numeric:tabular-nums}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;border:2px solid var(--brand);z-index:100}
+.skip:focus{left:8px}
+
+/* ---- yuqori xizmat paneli ---- */
+.ubar{background:var(--brand-700);color:#fff;font-size:13px}
+.ubar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:36px;gap:16px}
+.ubar a{color:#fff;text-decoration:none}
+.ubar a:hover{text-decoration:underline}
+.ubar__l,.ubar__r{display:flex;gap:18px;align-items:center}
+.lang{display:flex;gap:2px}
+.lang a{padding:2px 8px;border-radius:4px;text-transform:uppercase;font-weight:600;letter-spacing:.04em}
+.lang a[aria-current]{background:#fff;color:var(--brand-700)}
+.a11y-btn{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:4px;padding:3px 10px;font:inherit;font-size:13px;cursor:pointer}
+.a11y-btn[aria-pressed="true"]{background:#fff;color:var(--brand-700)}
+
+/* ---- sarlavha ---- */
+.hdr{background:#fff;border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:50}
+.hdr .wrap{display:flex;align-items:center;gap:28px;min-height:72px;position:relative}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo img{height:44px;width:44px}
+.logo__t{display:flex;flex-direction:column;line-height:1.1}
+.logo__t b{font-size:18px;letter-spacing:.08em}
+.logo__t span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+.nav{margin-left:auto;display:flex;gap:2px}
+.nav a{padding:10px 12px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px;border-radius:6px}
+.nav a:hover{background:var(--brand-50)}
+.nav a[aria-current]{color:var(--brand);box-shadow:inset 0 -3px 0 var(--accent);border-radius:6px 6px 0 0}
+.nav-toggle{display:none}
+
+/* ---- tugmalar ---- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:6px;border:1px solid var(--brand);background:var(--brand);color:#fff;font:600 15px/1.2 var(--font);text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--brand-700);border-color:var(--brand-700)}
+.btn--ghost{background:#fff;color:var(--brand)}
+.btn--ghost:hover{background:var(--brand-50);color:var(--brand)}
+.btn--sm{padding:7px 12px;font-size:14px}
+.btn[disabled]{opacity:.55;cursor:default}
+
+/* ---- breadcrumbs va sahifa boshi ---- */
+.crumbs{font-size:13px;color:var(--muted);padding:14px 0 0}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.crumbs li+li::before{content:"/";margin-right:6px;color:#B7BECB}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--link)}
+.phead{padding:10px 0 24px}
+.phead h1{font-size:clamp(26px,3.2vw,34px);letter-spacing:-.01em;margin:0 0 8px}
+.phead p{margin:0;color:var(--ink-2);max-width:760px;font-size:17px}
+.phead__meta{margin-top:10px;font-size:13px;color:var(--muted)}
+
+/* ---- boʻlim va kartalar ---- */
+.sec{padding:28px 0}
+.sec--white{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec__head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.sec__head h2{font-size:22px;margin:0}
+.sec__head a{font-size:14px;font-weight:600;text-decoration:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.grid{display:grid;gap:16px}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+.split{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+
+/* ---- xizmat toifasi kartasi (my.gov.uz uslubi) ---- */
+.cat{position:relative;padding:22px 22px 18px}
+.cat h3{margin:0 64px 10px 0;font-size:19px}
+.cat h3 a{text-decoration:none;color:var(--ink)}
+.cat ul{list-style:none;padding:0;margin:0 0 12px}
+.cat li{padding:7px 0;border-top:1px solid var(--line-2)}
+.cat li:first-child{border-top:0}
+.cat li a{text-decoration:none;font-weight:500}
+.cat li a:hover{text-decoration:underline}
+.cat__all{font-size:14px;font-weight:600;text-decoration:none}
+.cat__ico{position:absolute;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:var(--brand-50);color:var(--brand);display:grid;place-items:center}
+.cat__ico svg{width:22px;height:22px}
+
+/* ---- raqamlar ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:18px 20px}
+.stat b{display:block;font-size:30px;line-height:1;color:var(--brand);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;font-size:14px;color:var(--ink-2)}
+
+/* ---- jadval (reestr) ---- */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.table{width:100%;border-collapse:collapse;font-size:14.5px}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.table tr:last-child td{border-bottom:0}
+.table th{background:var(--brand-50);color:var(--brand-700);font-weight:600;font-size:13px;letter-spacing:.02em;white-space:nowrap}
+.table td.num{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.table td.nowrap{white-space:nowrap}
+
+/* ---- nishon, ogohlantirish ---- */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;background:var(--brand-50);color:var(--brand-700);white-space:nowrap}
+.badge--ok{background:var(--ok-50);color:var(--ok)}
+.badge--warn{background:var(--warn-50);color:var(--warn)}
+.badge--accent{background:var(--accent-100);color:var(--accent-ink)}
+.notice{border-left:4px solid var(--accent);background:var(--accent-100);padding:12px 16px;border-radius:0 6px 6px 0;font-size:15px}
+.notice--info{border-color:var(--brand);background:var(--brand-50)}
+.notice--ok{border-color:var(--ok);background:var(--ok-50)}
+.notice--danger{border-color:var(--danger);background:var(--danger-50)}
+.notice p:last-child{margin:0}
+
+/* ---- hujjat kartasi ---- */
+.doc{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px}
+.doc__scan{aspect-ratio:3/4;border:1px solid var(--line);background:#fff;overflow:hidden;border-radius:4px;display:block}
+.doc__scan img{width:100%;height:100%;object-fit:cover;object-position:top}
+.doc__k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.doc__n{font-weight:600;margin:2px 0}
+.doc__s{font-size:14px;color:var(--ink-2)}
+.doc__d{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* ---- qadamlar, savollar ---- */
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.steps li{counter-increment:s;padding:18px;font-size:14.5px;color:var(--ink-2)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.06em;margin-bottom:8px}
+.steps b{display:block;margin-bottom:4px;color:var(--ink)}
+.faq details{border:1px solid var(--line);border-radius:6px;background:#fff;margin-bottom:8px}
+.faq summary{padding:14px 16px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0;padding:0 16px 14px;color:var(--ink-2)}
+
+/* ---- forma elementlari, filtr, sahifalash ---- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-bottom:14px}
+.filters > div{min-width:160px}
+.filters label{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.input,.select,.textarea{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:#fff;color:var(--ink)}
+.input:focus,.select:focus,.textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.textarea{min-height:120px;resize:vertical}
+.pager{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-size:14px}
+.pager a,.pager span{padding:6px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;text-decoration:none;color:var(--ink)}
+.pager [aria-current]{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* ---- mutaxassis ---- */
+.person{display:flex;gap:14px;padding:14px}
+.person img,.person__ph{width:72px;height:90px;flex:none;object-fit:cover;border-radius:4px;border:1px solid var(--line);background:var(--brand-50)}
+.person b{display:block}
+.person span{display:block;font-size:14px;color:var(--ink-2)}
+.person small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+
+/* ---- yangilik, matn ---- */
+.news{padding:16px 18px;margin-bottom:10px}
+.news time{font-size:12.5px;color:var(--muted)}
+.news h3{font-size:16px;margin:4px 0 6px}
+.news h3 a{text-decoration:none;color:var(--ink)}
+.news p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.prose{max-width:760px;font-size:16.5px}
+.prose p{margin:0 0 1em}
+
+/* ---- futer ---- */
+.ftr{background:var(--brand-700);color:#C9CEE6;margin-top:48px;font-size:14px}
+.ftr a{color:#fff;text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.ftr__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px;padding:36px 0}
+.ftr__logo{height:56px;width:auto;margin-bottom:12px}
+.ftr h4{color:#fff;margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.ftr ul{list-style:none;margin:0;padding:0}
+.ftr li{margin:6px 0}
+.ftr__bot{border-top:1px solid rgba(255,255,255,.15);padding:14px 0;display:flex;justify-content:space-between;gap:16px;font-size:13px;flex-wrap:wrap}
+
+/* ---- skan koʻrgich ---- */
+.lb{position:fixed;inset:0;background:rgba(10,14,30,.82);display:none;place-items:center;z-index:200;padding:24px;border:0;max-width:none;max-height:none;width:100%;height:100%}
+.lb[open]{display:grid}
+.lb img{max-height:90vh;max-width:min(900px,95vw);background:#fff}
+
+/* ---- moslashuvchan ---- */
+@media (max-width:960px){
+  .grid--3,.grid--4,.stats,.steps{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .ftr__grid{grid-template-columns:1fr 1fr}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;padding:8px var(--gut) 16px;border-bottom:1px solid var(--line)}
+  .nav.is-open{display:flex}
+  .nav-toggle{display:inline-flex;margin-left:auto}
+  .hdr .btn--req{display:none}
+}
+@media (max-width:600px){
+  .grid--2,.grid--3,.grid--4,.stats,.steps{grid-template-columns:1fr}
+  .ubar__l{display:none}
+  .ftr__grid{grid-template-columns:1fr}
+  .doc{grid-template-columns:72px 1fr}
+  .sec__head{flex-direction:column;align-items:start}
+}

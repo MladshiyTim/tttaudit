@@ -1,0 +1,94 @@
+{% load i18n static sitetags %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" data-a11y="off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% get_available_languages as langs %}
+<title>{% block title %}{{ site|tr:"seo_title" }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site|tr:"hero_text"|truncatechars:160 }}{% endblock %}">
+<link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
+{% for code, name in langs %}<link rel="alternate" hreflang="{{ code }}" href="{% alt_url request code %}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{% alt_url request 'uz' %}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TTT Audit">
+<meta property="og:title" content="{% block og_title %}{{ site|tr:"seo_title" }}{% endblock %}">
+<meta property="og:description" content="{{ site|tr:"hero_text"|truncatechars:200 }}">
+<meta property="og:url" content="{{ SITE_URL }}{{ request.path }}">
+<meta property="og:image" content="{{ SITE_URL }}{% static 'core/img/og-image.png' %}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'core/css/site.css' %}">
+<link rel="stylesheet" href="{% static 'widgets/style.css' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/img/favicon-32.png' %}">
+<link rel="apple-touch-icon" href="{% static 'core/img/apple-touch-icon.png' %}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"TTT Audit","legalName":"{{ site|tr:"org_name"|escapejs }}","url":"{{ SITE_URL }}/","logo":"{{ SITE_URL }}{% static 'core/img/logo-full.png' %}","telephone":["{{ site.phone|escapejs }}"{% if site.phone_second %},"{{ site.phone_second|escapejs }}"{% endif %}],"email":"{{ site.email|escapejs }}","taxID":"{{ site.tin|escapejs }}","foundingDate":"{{ site.founded_year }}","address":{"@type":"PostalAddress","streetAddress":"{{ site|tr:"address"|escapejs }}","addressLocality":"Fargʻona","addressCountry":"UZ"}{% if site.map_lat %},"geo":{"@type":"GeoCoordinates","latitude":{{ site.map_lat|stringformat:".5f" }},"longitude":{{ site.map_lng|stringformat:".5f" }}}{% endif %},"areaServed":{"@type":"Country","name":"Uzbekistan"},"knowsLanguage":["uz","ru","en"]}</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">{% translate "Asosiy mazmunga oʻtish" %}</a>
+
+<div class="ubar"><div class="wrap">
+  <div class="ubar__l">
+    <a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    {% if site|tr:"work_hours" %}<span>{{ site|tr:"work_hours" }}</span>{% endif %}
+  </div>
+  <div class="ubar__r">
+    <button class="a11y-btn" type="button" data-a11y-toggle aria-pressed="false">{% translate "Maxsus imkoniyatlar" %}</button>
+    <nav class="lang" aria-label="{% translate "Til" %}">{% for code, name in langs %}<a href="{% alt_url request code %}" hreflang="{{ code }}" lang="{{ code }}"{% if code == LANGUAGE_CODE %} aria-current="true"{% endif %}>{{ code }}</a>{% endfor %}</nav>
+  </div>
+</div></div>
+
+<header class="hdr"><div class="wrap">
+  <a class="logo" href="{% url 'core:home' %}" aria-label="TTT Audit, {% translate "bosh sahifa" %}">
+    <img src="{% static 'core/img/logo-mark.png' %}" alt="" width="44" height="44">
+    <span class="logo__t"><b>TTT AUDIT</b><span>{{ site|tr:"brand_descriptor" }}</span></span>
+  </a>
+  <button class="btn btn--ghost btn--sm nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">{% translate "Menyu" %}</button>
+  <nav class="nav" id="nav" aria-label="{% translate "Asosiy menyu" %}">
+    <a href="{% url 'core:services' %}"{% if nav == "services" %} aria-current="page"{% endif %}>{% translate "Xizmatlar" %}</a>
+    <a href="{% url 'core:registry' %}"{% if nav == "registry" %} aria-current="page"{% endif %}>{% translate "Reestr" %}</a>
+    <a href="{% url 'core:credentials' %}"{% if nav == "credentials" %} aria-current="page"{% endif %}>{% translate "Hujjatlar" %}</a>
+    <a href="{% url 'core:legislation' %}"{% if nav == "legislation" %} aria-current="page"{% endif %}>{% translate "Qonunchilik" %}</a>
+    <a href="{% url 'core:company' %}"{% if nav == "company" %} aria-current="page"{% endif %}>{% translate "Tashkilot" %}</a>
+    <a href="{% url 'core:news' %}"{% if nav == "news" %} aria-current="page"{% endif %}>{% translate "Yangiliklar" %}</a>
+    <a href="{% url 'core:contact' %}"{% if nav == "contact" %} aria-current="page"{% endif %}>{% translate "Aloqa" %}</a>
+  </nav>
+  <a class="btn btn--sm btn--req" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+</div></header>
+
+{% include "core/_crumbs.html" %}
+<main id="main">{% block main %}{% endblock %}</main>
+
+<footer class="ftr"><div class="wrap">
+  <div class="ftr__grid">
+    <div>
+      <img class="ftr__logo" src="{% static 'core/img/logo-full-white.png' %}" alt="TTT Audit">
+      <p>{{ site|tr:"org_name" }}<br>{{ site|tr:"address" }}</p>
+      <p>{% translate "STIR" %} {{ site.tin }}</p>
+    </div>
+    <div><h4>{% translate "Xizmatlar" %}</h4><ul>{% for d in nav_directions %}<li><a href="{{ d.get_absolute_url }}">{{ d|tr:"title" }}</a></li>{% endfor %}<li><a href="{% url 'core:registry' %}">{% translate "Bajarilgan ishlar reestri" %}</a></li></ul></div>
+    <div><h4>{% translate "Tashkilot" %}</h4><ul>
+      <li><a href="{% url 'core:company' %}">{% translate "Tashkilot haqida" %}</a></li>
+      <li><a href="{% url 'core:team' %}">{% translate "Rahbariyat va mutaxassislar" %}</a></li>
+      <li><a href="{% url 'core:credentials' %}">{% translate "Litsenziya va sertifikatlar" %}</a></li>
+      <li><a href="{% url 'core:instruments' %}">{% translate "Oʻlchov asboblari" %}</a></li>
+      <li><a href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %}</a></li>
+      <li><a href="{% url 'core:requisites' %}">{% translate "Rekvizitlar" %}</a></li>
+    </ul></div>
+    <div><h4>{% translate "Aloqa" %}</h4><ul>
+      <li><a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></li>
+      {% if site.phone_second %}<li><a href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a></li>{% endif %}
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      <li><a href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a></li>
+    </ul></div>
+  </div>
+  <div class="ftr__bot"><span>© {% now "Y" %} {{ site|tr:"org_name" }}</span><span>{% translate "Ekspert tashkiloti, 1997-yildan" %}</span></div>
+</div></footer>
+
+<dialog class="lb" id="lightbox" aria-label="{% translate "Hujjat skani" %}"><img src="" alt=""></dialog>
+<script src="{% static 'core/js/site.js' %}" defer></script>
+<script type="module" src="{% static 'widgets/widgets.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{% load i18n %}{% if crumbs %}<nav class="crumbs wrap" aria-label="{% translate "Siz bu yerdasiz" %}"><ol>
+  <li><a href="{% url 'core:home' %}">{% translate "Bosh sahifa" %}</a></li>
+  {% for title, url in crumbs %}<li>{% if url %}<a href="{{ url }}">{{ title }}</a>{% else %}<span aria-current="page">{{ title }}</span>{% endif %}</li>{% endfor %}
+</ol></nav>{% endif %}
