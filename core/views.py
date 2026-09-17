@@ -2,6 +2,8 @@
 import json
 
 from django.conf import settings
+from django.core.paginator import Paginator
+from django.db.models import F, Q
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -117,4 +119,31 @@ def service(request, direction_slug, slug):
         service=obj, direction=obj.direction,
         siblings=obj.direction.services.exclude(pk=obj.pk),
         legal_acts=obj.direction.legal_acts.filter(verified_on__isnull=False),
+    )
+
+
+REGISTRY_PAGE_SIZE = 25
+
+
+def registry(request):
+    queryset = Project.objects.select_related("direction").order_by(F("year").desc(nulls_last=True), "order", "pk")
+    direction_slug = request.GET.get("d", "")
+    year = request.GET.get("y", "")
+    query = request.GET.get("q", "").strip()
+    if direction_slug:
+        queryset = queryset.filter(direction__slug=direction_slug)
+    if year.isdigit():
+        queryset = queryset.filter(year=int(year))
+    if query:
+        queryset = queryset.filter(Q(title_uz__icontains=query) | Q(title_ru__icontains=query) | Q(client__icontains=query))
+    paginator = Paginator(queryset, REGISTRY_PAGE_SIZE)
+    page_obj = paginator.get_page(request.GET.get("page"))
+    return page(
+        request, "core/registry.html", nav="registry",
+        crumbs=[(_("Bajarilgan ishlar reestri"), None)],
+        page_obj=page_obj, total=Project.objects.count(), found=paginator.count,
+        directions=Direction.objects.all(),
+        years=Project.objects.exclude(year__isnull=True).values_list("year", flat=True).distinct().order_by("-year"),
+        active={"d": direction_slug, "y": year, "q": query},
+        offset=page_obj.start_index() - 1,
     )

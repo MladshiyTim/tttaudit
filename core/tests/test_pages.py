@@ -62,3 +62,22 @@ def test_service_page_and_404(client):
     assert response.status_code == 200
     assert "Nazorat oʻlchovi".encode() in response.content
     assert client.get("/uz/xizmatlar/olchov-auditi/yoq-xizmat/").status_code == 404
+
+
+@pytest.mark.django_db
+def test_registry_paginates_and_filters(client):
+    html = client.get("/uz/reestr/").content.decode()
+    assert "143" in html                                   # jami soni sarlavhada
+    assert html.count("<tr>") == 26                         # 1 sarlavha + 25 qator
+    assert 'aria-current="page"' in html                    # sahifalash
+
+    energy = client.get("/uz/reestr/?d=energoaudit").content.decode()
+    assert "48" in energy and "Energosamaradorlik" in energy
+
+    year = client.get("/uz/reestr/?y=2023").content.decode()
+    assert "20 ta" in year
+
+    search = client.get("/uz/reestr/?q=AGROBANK").content.decode()
+    assert "AGROBANK" in search and "1 ta" in search
+
+    assert client.get("/uz/reestr/?page=999").status_code == 200   # oxirgi sahifaga tushadi
