@@ -30,7 +30,7 @@ def allow(key: str, limit: int, window: int) -> bool:
     cache_key = f"throttle:{key}"
     now = time.time()
     stored = cache.get(cache_key)
-    if stored is None or now >= stored[1]:
+    if not (isinstance(stored, tuple) and len(stored) == 2) or now >= stored[1]:
         count, expires_at = 0, now + window
     else:
         count, expires_at = stored

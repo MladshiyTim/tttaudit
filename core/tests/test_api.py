@@ -2,6 +2,7 @@ import time
 
 import pytest
 from django.conf import settings
+from django.core.cache import cache
 from django.core.management import call_command
 from django.test import RequestFactory, override_settings
 
@@ -13,6 +14,14 @@ def test_throttle_allows_up_to_limit_then_blocks():
     assert all(throttle.allow("t:1", limit=3, window=60) for _ in range(3))
     assert throttle.allow("t:1", limit=3, window=60) is False
     assert throttle.allow("t:2", limit=3, window=60) is True
+
+
+def test_throttle_recovers_from_legacy_non_tuple_cache_value():
+    """Eski formatdagi (yalang'och int) qiymat TypeError bilan yiqilmasin — yangi oyna sifatida olinsin."""
+    cache.set("throttle:legacy:1", 3, timeout=3600)
+    assert throttle.allow("legacy:1", limit=5, window=3600) is True
+    stored = cache.get("throttle:legacy:1")
+    assert isinstance(stored, tuple) and len(stored) == 2
 
 
 @pytest.mark.django_db
