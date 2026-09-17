@@ -133,11 +133,6 @@ def parse_date(value: str | None) -> dt.date | None:
     return dt.date.fromisoformat(value) if value else None
 
 
-def strip_label(value: str) -> str:
-    """"Toshkent filiali: ..." kabi oldindagi yorliqni olib tashlaydi (birinchi ": " gacha)."""
-    return value.split(": ", 1)[1] if ": " in value else value
-
-
 def normalize_name(value: str) -> str:
     return " ".join((value or "").split()).upper()
 
@@ -287,9 +282,10 @@ class Command(BaseCommand):
         }
         for lang in ("uz", "ru", "en"):
             values[f"address_{lang}"] = company[f"address_{lang}"]
-            values[f"office_tashkent_{lang}"] = strip_label(
-                company.get(f"office_tashkent_{lang}") or company["office_tashkent_uz"])
         site = SiteSettings.load()
+        # Filiallar saytda koʻrsatilmaydi (Timur, 2026-09-17) — eski qiymat qolmasin
+        for lang in ("uz", "ru", "en"):
+            setattr(site, f"office_tashkent_{lang}", "")
         for name, value in values.items():
             if force or self._is_unset(site, name):
                 setattr(site, name, value)
@@ -312,12 +308,7 @@ class Command(BaseCommand):
                    address_uz=company["address_uz"], address_ru=company["address_ru"],
                    address_en=company["address_en"], head=company["director"],
                    phone=company["phone"], is_head_office=True, order=0),
-            Branch(city_uz="Toshkent", city_ru="Ташкент", city_en="Tashkent",
-                   address_uz=strip_label(company["office_tashkent_uz"]),
-                   address_ru=strip_label(company["office_tashkent_ru"]),
-                   address_en=strip_label(company.get("office_tashkent_en") or company["office_tashkent_uz"]),
-                   head="", phone=company["phone_second"], is_head_office=False, order=1),
-        ])
+        ])  # Faqat bosh ofis: filiallar saytda yoʻq (Timur, 2026-09-17)
 
     def _credentials(self, credentials: list[dict]) -> None:
         valid = {key for key, _ in Credential.KIND_CHOICES}

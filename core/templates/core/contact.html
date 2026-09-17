@@ -1,11 +1,8 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{% translate "Aloqa" %} — TTT Audit{% endblock %}
-{% block description %}{% translate "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi." %}{% endblock %}
+{% block description %}{% translate "TTT Audit bilan bogʻlanish: Fargʻonadagi ofis manzili xaritada, telefonlar, e-pochta va murojaat formasi." %}{% endblock %}
 {% block main %}<div class="wrap page">
 <header class="phead"><p class="phead__k">{% translate "Tashkilot" %}</p><h1>{% translate "Aloqa" %}</h1></header>
-<div class="branches">
-{% for b in branches %}<section class="branch"><span class="branch__k{% if b.is_head_office %} branch__k--head{% endif %}">{% if b.is_head_office %}{% translate "Bosh ofis" %}{% else %}{% translate "Ofis" %}{% endif %}</span><h2>{{ b|tr:"city" }}</h2><p>{{ b|tr:"address" }}</p>{% if b.phone %}<p><a href="tel:{{ b.phone|cut:' ' }}">{{ b.phone }}</a></p>{% endif %}{% if b.head %}<p class="muted">{{ b.head }}</p>{% endif %}</section>{% endfor %}
-</div>
 {% office_map site as om %}{% if om %}<section class="block">{% include "core/_office_map.html" %}</section>{% endif %}
 <section class="block"><div class="sh sh--sm"><p class="sh__k">{% translate "Murojaat" %}</p><div><h2>{% translate "Murojaat yuborish" %}</h2></div></div><div class="panel panel--form">{% include "core/_lead.html" %}</div></section>
 </div>{% endblock %}

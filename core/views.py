@@ -15,7 +15,6 @@ from django.views.decorators.http import require_POST
 from . import compliance, energy, home as home_data, maps, throttle
 from .forms import LeadForm
 from .models import (
-    Branch,
     Credential,
     Direction,
     Instrument,
@@ -298,9 +297,7 @@ def _wants_json(request) -> bool:
 
 
 def contact(request):
-    context = {"branches": Branch.objects.all()}
-    context.update(form_context())
-    return page(request, "core/contact.html", nav="contact", crumbs=[(_("Aloqa"), None)], **context)
+    return page(request, "core/contact.html", nav="contact", crumbs=[(_("Aloqa"), None)], **form_context())
 
 
 def request_page(request):

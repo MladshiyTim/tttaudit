@@ -34,7 +34,9 @@ def test_import_loads_client_facts():
     assert site.tin == "202216926"
     assert site.director_uz.startswith("Botirov")
     assert site.seo_title_uz == "Energoaudit va qurilishda nazorat oʻlchovi — TTT Audit, Fargʻona"
-    assert Branch.objects.count() == 2
+    assert Branch.objects.count() == 1                           # faqat bosh ofis
+    assert Branch.objects.get().is_head_office
+    assert site.office_tashkent_uz == ""
     assert Credential.objects.count() == 8
     assert Credential.objects.filter(kind="insurance").exists()
     assert Instrument.objects.count() == 5
@@ -42,7 +44,6 @@ def test_import_loads_client_facts():
     assert TeamMember.objects.count() == 39                      # direktor + 38 mutaxassis
     assert TeamMember.objects.filter(dept="energy").count() == 24
     assert TeamMember.objects.exclude(photo="").count() >= 30
-    assert "filial" not in Branch.objects.get(is_head_office=False).address_uz.lower()
     assert Project.objects.count() == 143
     assert Project.objects.filter(direction__slug="olchov-auditi").count() == 95
     assert Client.objects.count() > 0

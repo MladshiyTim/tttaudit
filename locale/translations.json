@@ -1663,9 +1663,9 @@
     "en": "Insurance",
     "ru": "Страхование"
   },
-  "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi.": {
-    "en": "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form.",
-    "ru": "Контакты TTT Audit: адреса головного офиса в Фергане и офиса в Ташкенте, телефоны, эл. почта и форма обращения."
+  "TTT Audit bilan bogʻlanish: Fargʻonadagi ofis manzili xaritada, telefonlar, e-pochta va murojaat formasi.": {
+    "en": "Contact TTT Audit: the Fergana office address on the map, phone numbers, e-mail and the request form.",
+    "ru": "Контакты TTT Audit: адрес офиса в Фергане на карте, телефоны, электронная почта и форма обращения."
   },
   "Tadbirlar rejasi": {
     "en": "Action plan",

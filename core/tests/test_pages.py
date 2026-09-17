@@ -194,8 +194,8 @@ def test_requisites_page(client):
 @pytest.mark.django_db
 def test_contact_and_request_pages(client):
     contact = client.get("/uz/aloqa/").content.decode()
-    assert "Toshkent" in contact and "Yangiobod" in contact and 'data-react="lead-form"' in contact
-    assert "Avisozlar" in contact
+    assert "Yangiobod" in contact and 'data-react="lead-form"' in contact
+    assert "Avisozlar" not in contact and "filial" not in contact.lower()   # filiallar saytda yoʻq
     request_page = client.get("/uz/murojaat/").content.decode()
     assert 'name="csrfmiddlewaretoken"' in request_page and 'enctype="multipart/form-data"' in request_page
     sent = client.get("/uz/murojaat/?sent=1").content.decode()

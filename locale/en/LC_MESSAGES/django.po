@@ -250,7 +250,6 @@ msgstr "Contacted"
 msgid "Bosh direktor"
 msgstr "General Director"
 
-#: core/templates/core/contact.html
 #: core/models.py
 msgid "Bosh ofis"
 msgstr "Head office"
@@ -1007,7 +1006,6 @@ msgid "Obyektingizga qaysi talab tegishli"
 msgstr "Which requirement applies to your site"
 
 #: core/templates/core/_office_map.html
-#: core/templates/core/contact.html
 #: core/models.py
 msgid "Ofis"
 msgstr "Office"
@@ -1372,8 +1370,8 @@ msgid "Sugʻurta"
 msgstr "Insurance"
 
 #: core/templates/core/contact.html
-msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi."
-msgstr "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form."
+msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi ofis manzili xaritada, telefonlar, e-pochta va murojaat formasi."
+msgstr "Contact TTT Audit: the Fergana office address on the map, phone numbers, e-mail and the request form."
 
 #: core/templates/core/home.html
 msgid "Tadbirlar rejasi"

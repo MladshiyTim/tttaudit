@@ -334,13 +334,6 @@ a.pm:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
 .addr dd{margin:0}
 .addr a{color:var(--ink);text-decoration:none}
 .addr a:hover{color:var(--indigo)}
-.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
-.branch{border-top:2px solid var(--ink);padding:16px 0 20px}
-.branch__k{font:500 11.5px/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)}
-.branch__k--head{display:inline-block;background:var(--yellow);color:var(--ink);padding:4px 6px}
-.branch h2{margin:10px 0 8px;font:700 30px/1.05 var(--f-cond)}
-.branch p{margin:0 0 6px;color:var(--ink2)}
-.branch a{color:var(--ink);text-decoration:none;font-family:var(--f-mono)}
 .map{border:1px solid var(--line);background:var(--bg2)}
 .map iframe{display:block;border:0}
 
@@ -433,7 +426,7 @@ a.pm:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
   .sh{grid-template-columns:1fr}
   .sh__aside{justify-self:start;text-align:left;margin-top:14px}
   .dview__meta{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .branches,.duo{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   body{font-size:15.5px}

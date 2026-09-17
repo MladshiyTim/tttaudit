@@ -24,7 +24,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
             "work_hours_uz", "work_hours_ru", "work_hours_en",
             "bank_details_uz", "bank_details_ru", "bank_details_en", "map_embed",
             "director_uz", "director_ru", "director_en",
-            "office_tashkent_uz", "office_tashkent_ru", "office_tashkent_en",
             "map_lat", "map_lng", "experience_years", "staff_total", "staff_energy", "staff_supervision",
         ]}),
         ("Geroy bloki", {"fields": [
