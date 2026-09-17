@@ -69,15 +69,20 @@ def test_registry_paginates_and_filters(client):
     html = client.get("/uz/reestr/").content.decode()
     assert "143" in html                                   # jami soni sarlavhada
     assert html.count("<tr>") == 26                         # 1 sarlavha + 25 qator
-    assert 'aria-current="page"' in html                    # sahifalash
+    assert 'class="pager"' in html                          # sahifalash bloki
+    assert '<span aria-current="page">1</span>' in html     # joriy sahifa pagerda
+    assert "?page=2" in html                                 # keyingi sahifaga havola
 
     energy = client.get("/uz/reestr/?d=energoaudit").content.decode()
-    assert "48" in energy and "Energosamaradorlik" in energy
+    assert "Topildi: 48 ta" in energy
+    assert '<span class="badge">Qurilishda nazorat oʻlchovi</span>' not in energy
 
     year = client.get("/uz/reestr/?y=2023").content.decode()
-    assert "20 ta" in year
+    assert "Topildi: 20 ta" in year
 
     search = client.get("/uz/reestr/?q=AGROBANK").content.decode()
-    assert "AGROBANK" in search and "1 ta" in search
+    assert "AGROBANK" in search and "Topildi: 1 ta" in search
 
     assert client.get("/uz/reestr/?page=999").status_code == 200   # oxirgi sahifaga tushadi
+
+    assert "Tozalash" not in client.get("/uz/reestr/?y=abc").content.decode()

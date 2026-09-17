@@ -129,10 +129,11 @@ def registry(request):
     queryset = Project.objects.select_related("direction").order_by(F("year").desc(nulls_last=True), "order", "pk")
     direction_slug = request.GET.get("d", "")
     year = request.GET.get("y", "")
+    year = year if year.isdigit() else ""
     query = request.GET.get("q", "").strip()
     if direction_slug:
         queryset = queryset.filter(direction__slug=direction_slug)
-    if year.isdigit():
+    if year:
         queryset = queryset.filter(year=int(year))
     if query:
         queryset = queryset.filter(Q(title_uz__icontains=query) | Q(title_ru__icontains=query) | Q(client__icontains=query))
