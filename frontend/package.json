@@ -1,0 +1,10 @@
+{
+  "name": "tttaudit-widgets",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Django SSR sahifasiga oʻrnatiladigan React vidjetlari",
+  "scripts": { "dev": "vite build --watch", "build": "vite build" },
+  "dependencies": { "react": "^19.2.0", "react-dom": "^19.2.0" },
+  "devDependencies": { "@vitejs/plugin-react": "^5.1.0", "vite": "^7.2.0" }
+}
