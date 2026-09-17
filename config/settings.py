@@ -115,6 +115,9 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 LEAD_RATE_LIMIT = 5
 LEAD_RATE_WINDOW_SECONDS = 3600
 
+# Faqat sarlavhani qayta yozadigan teskari proksi ortida yoqiladi (Railway, nginx)
+TRUST_X_REAL_IP = os.environ.get("TRUST_X_REAL_IP", "0") == "1"
+
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 
 # Soʻrov formasi fayl chegarasi (25 MB)

@@ -9,7 +9,8 @@ log = logging.getLogger(__name__)
 
 
 def notify_telegram(lead) -> bool:
-    token, chat = settings.TELEGRAM_BOT_TOKEN, settings.TELEGRAM_CHAT_ID
+    token = (settings.TELEGRAM_BOT_TOKEN or "").strip()
+    chat = (settings.TELEGRAM_CHAT_ID or "").strip()
     if not token or not chat:
         return False
     lines = [
@@ -32,5 +33,5 @@ def notify_telegram(lead) -> bool:
         urllib.request.urlopen(request, timeout=8).read()
         return True
     except Exception as error:  # noqa: BLE001 — tarmoq xatosi turli sinflarda keladi
-        log.warning("Telegram: yuborilmadi — %s", error)
+        log.warning("Telegram: yuborilmadi — %s", type(error).__name__)
         return False
