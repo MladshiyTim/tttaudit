@@ -86,3 +86,19 @@ def test_registry_paginates_and_filters(client):
     assert client.get("/uz/reestr/?page=999").status_code == 200   # oxirgi sahifaga tushadi
 
     assert "Tozalash" not in client.get("/uz/reestr/?y=abc").content.decode()
+
+
+@pytest.mark.django_db
+def test_credentials_page_shows_all_eight_documents_with_scans(client):
+    html = client.get("/uz/hujjatlar/").content.decode()
+    assert html.count('class="card doc"') == 8
+    assert "data-lightbox" in html
+    assert "№ 518159" in html and "ISO 9001:2015" in html and "Imkon" in html
+    assert "АФ № 00773" not in html                       # Moliya vazirligi litsenziyasi — yoʻq
+
+
+@pytest.mark.django_db
+def test_instruments_page_table(client):
+    html = client.get("/uz/tashkilot/asboblar/").content.decode()
+    assert html.count("<tr>") == 6                          # sarlavha + 5 asbob
+    assert "Milliy Metrologiya" in html

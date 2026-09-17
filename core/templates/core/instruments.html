@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{% translate "Oʻlchov asboblari va qiyoslash" %} — TTT Audit{% endblock %}
+{% block main %}<div class="wrap">
+<div class="phead"><h1>{% translate "Oʻlchov asboblari va qiyoslash" %}</h1><p>{% translate "Qiyoslanmagan asbob bilan olingan oʻlchov hisobotga kiritilmaydi. Qiyoslash guvohnomalari «Oʻzbekiston Milliy Metrologiya Instituti» davlat muassasasi tomonidan berilgan." %}</p></div>
+<div class="table-wrap"><table class="table">
+  <thead><tr><th>№</th><th>{% translate "Asbob" %}</th><th>{% translate "Zavod raqami" %}</th><th>{% translate "Oʻlchov chegarasi" %}</th><th>{% translate "Guvohnoma" %}</th><th>{% translate "Qiyoslangan" %}</th><th>{% translate "Amal qiladi" %}</th></tr></thead>
+  <tbody>{% for i in instruments %}<tr><td class="num">{{ forloop.counter }}</td><td>{{ i|tr:"name" }}</td><td class="nowrap">{{ i.serial|default:"—" }}</td><td>{{ i|tr:"range" }}</td><td class="nowrap">{{ i.certificate_no }}</td><td class="num">{{ i.verified_on|date:"d.m.Y" }}</td><td class="num">{{ i.valid_until|date:"d.m.Y" }}</td></tr>{% endfor %}</tbody>
+</table></div>
+</div>{% endblock %}

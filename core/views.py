@@ -122,6 +122,22 @@ def service(request, direction_slug, slug):
     )
 
 
+def credentials(request):
+    return page(
+        request, "core/credentials.html", nav="credentials",
+        crumbs=[(_("Hujjatlar"), None)],
+        credentials=Credential.objects.all(),
+    )
+
+
+def instruments(request):
+    return page(
+        request, "core/instruments.html", nav="company",
+        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Oʻlchov asboblari"), None)],
+        instruments=Instrument.objects.all(),
+    )
+
+
 REGISTRY_PAGE_SIZE = 25
 
 
