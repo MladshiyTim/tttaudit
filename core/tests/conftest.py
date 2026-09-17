@@ -1,6 +1,15 @@
+from pathlib import Path
+
 import pytest
+from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+
+
+@pytest.fixture(scope="session", autouse=True)
+def static_root_dir():
+    """WhiteNoise STATIC_ROOT yoʻq deb ogohlantirmasin — papka git-ignored."""
+    Path(settings.STATIC_ROOT).mkdir(parents=True, exist_ok=True)
 
 
 @pytest.fixture(scope="session")

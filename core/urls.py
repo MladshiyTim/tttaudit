@@ -20,4 +20,5 @@ urlpatterns = [
     path("tashkilot/rekvizitlar/", views.home, name="requisites"),
     path("aloqa/", views.home, name="contact"),
     path("murojaat/", views.home, name="request"),
+    path("api/compliance/", views.home, name="compliance_check"),
 ]

@@ -186,6 +186,23 @@ p{margin:0 0 1em}
 .lb[open]{display:grid}
 .lb img{max-height:90vh;max-width:min(900px,95vw);background:#fff}
 
+/* ---- bosh sahifa ---- */
+.hero{background:#fff;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-top:40px;padding-bottom:40px;align-items:center}
+.hero__k{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--brand);font-weight:600}
+.hero h1{font-size:clamp(28px,3.6vw,40px);line-height:1.15;margin:10px 0 14px;letter-spacing:-.01em}
+.hero p{font-size:17px;color:var(--ink-2);margin:0 0 22px;max-width:620px}
+.hero__cta{display:flex;gap:10px;flex-wrap:wrap}
+.hero__side{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:18px}
+.hero__side h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px}
+.hero__side ul{list-style:none;margin:0 0 10px;padding:0}
+.hero__side li{padding:9px 0;border-top:1px solid var(--line)}
+.hero__side li:first-child{border-top:0;padding-top:0}
+.hero__side b{font-size:14px;display:block}
+.hero__side span{font-size:13px;color:var(--muted);display:block}
+.contact-strip{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:20px;align-items:center}
+.contact-strip b{display:block;font-size:15px}
+
 /* ---- moslashuvchan ---- */
 @media (max-width:960px){
   .grid--3,.grid--4,.stats,.steps{grid-template-columns:repeat(2,1fr)}
@@ -195,6 +212,8 @@ p{margin:0 0 1em}
   .nav.is-open{display:flex}
   .nav-toggle{display:inline-flex;margin-left:auto}
   .hdr .btn--req{display:none}
+  .hero .wrap{grid-template-columns:1fr}
+  .contact-strip{grid-template-columns:1fr 1fr}
 }
 @media (max-width:600px){
   .grid--2,.grid--3,.grid--4,.stats,.steps{grid-template-columns:1fr}
@@ -202,4 +221,5 @@ p{margin:0 0 1em}
   .ftr__grid{grid-template-columns:1fr}
   .doc{grid-template-columns:72px 1fr}
   .sec__head{flex-direction:column;align-items:start}
+  .contact-strip{grid-template-columns:1fr}
 }

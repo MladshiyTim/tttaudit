@@ -3,9 +3,10 @@ import json
 
 from django.conf import settings
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy as _
 
 from . import compliance, energy
-from .models import Direction
+from .models import Credential, Direction, Post, Project, Stat
 
 
 def page(request, template, nav="", crumbs=(), **context):
@@ -45,5 +46,32 @@ def energy_context():
     }
 
 
+HOME_FAQ = [
+    (_("Energoaudit kimga majburiy?"),
+     _("ЗРУ-940 ga koʻra davriy energoaudit majburiy tartibda besh yilda kamida bir marta oʻtkaziladi. "
+       "Davlat energetika reestriga kiritilgan korxonalar va davlat ishtirokidagi tashkilotlar uchun "
+       "audit majburiy; boshqalar uchun ixtiyoriy.")),
+    (_("Qaysi binolarga energosamaradorlik toifasi belgilanadi?"),
+     _("Foydalaniladigan maydoni 200 m² dan katta bino va inshootlarga. Energopasport yangi, mavjud, "
+       "rekonstruksiya va modernizatsiya qilinayotgan obyektlar uchun rasmiylashtiriladi.")),
+    (_("Nazorat oʻlchovi uchun qurilishni toʻxtatish kerakmi?"),
+     _("Yoʻq. Oʻlchov ish jarayoniga xalaqit bermaydi; yashirin ishlar yopilishidan oldin qayd etiladi.")),
+    (_("Ishlab chiqarishni toʻxtatmasdan energoaudit qilsa boʻladimi?"),
+     _("Ha — aksincha, oʻlchovlar real ish rejimida olinishi kerak.")),
+    (_("Hujjatlarimiz uchinchi shaxsga beriladimi?"),
+     _("Yoʻq. Hujjatlar faqat shartnoma doirasida ishlatiladi; axborot xavfsizligi tizimi ISO 27001:2022 "
+       "boʻyicha sertifikatlangan.")),
+]
+
+
 def home(request):
-    return page(request, "core/base.html")
+    context = {
+        "directions": Direction.objects.prefetch_related("services").all(),
+        "stats": Stat.objects.all(),
+        "hero_credentials": Credential.objects.filter(show_in_hero=True),
+        "projects": Project.objects.select_related("direction").exclude(year__isnull=True)[:8],
+        "posts": Post.objects.filter(is_published=True)[:3],
+        "faq": [{"q": q, "a": a} for q, a in HOME_FAQ],
+    }
+    context.update(compliance_context())
+    return page(request, "core/home.html", **context)

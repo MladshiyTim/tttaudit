@@ -1,0 +1,10 @@
+{% load i18n %}<div data-react="compliance-check" data-endpoint="{% url 'core:compliance_check' %}" data-request-url="{% url 'core:request' %}">
+  <p>{% translate "Uch savolga javob bering — obyektingizga qaysi talab tegishli ekanini, muddatini va qonuniy asosini koʻrasiz." %}</p>
+  <ul>
+    <li>{% blocktranslate with kwh=compliance.registry_kwh gas=compliance.registry_gas %}Yillik isteʼmol {{ kwh }} kVt·soat elektr yoki {{ gas }} m³ gazdan oshsa — Davlat energetika reestri subyekti, davriy energoaudit majburiy.{% endblocktranslate %}</li>
+    <li>{% blocktranslate with years=compliance.periodic_years %}Davriy energoaudit — {{ years }} yilda kamida bir marta (ЗРУ-940).{% endblocktranslate %}</li>
+    <li>{% blocktranslate with area=compliance.passport_area %}Foydalaniladigan maydoni {{ area }} m² dan katta binoga energosamaradorlik toifasi va energopasport belgilanadi.{% endblocktranslate %}</li>
+    <li>{% translate "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3% dan oshmaydi." %}</li>
+  </ul>
+  <a class="btn btn--ghost btn--sm" href="{% url 'core:request' %}">{% translate "Muhandisdan soʻrash" %}</a>
+</div>
