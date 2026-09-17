@@ -1,10 +1,24 @@
+import json
+from pathlib import Path
+
 import pytest
+from django.conf import settings
 from django.core.management import call_command
+from django.test import override_settings
 
 from core.models import (
     Branch, Client, Credential, Direction, Instrument, Project, Service,
-    SiteSettings, Stat, TeamMember,
+    SiteSettings, StaffCertificate, Stat, TeamMember,
 )
+
+DATA = Path(settings.BASE_DIR) / "data" / "tttaudit"
+
+
+@pytest.fixture
+def own_media(tmp_path):
+    """--force eski fayllarni oʻchiradi: sessiya media papkasiga tegmasligi uchun alohida MEDIA_ROOT."""
+    with override_settings(MEDIA_ROOT=str(tmp_path)):
+        yield tmp_path
 
 
 @pytest.mark.django_db
@@ -25,7 +39,7 @@ def test_import_loads_client_facts():
     assert Credential.objects.filter(kind="insurance").exists()
     assert Instrument.objects.count() == 5
     assert Stat.objects.count() == 4
-    assert TeamMember.objects.count() == 38
+    assert TeamMember.objects.count() == 39                      # direktor + 38 mutaxassis
     assert TeamMember.objects.filter(dept="energy").count() == 24
     assert TeamMember.objects.exclude(photo="").count() >= 30
     assert "filial" not in Branch.objects.get(is_head_office=False).address_uz.lower()
@@ -42,10 +56,67 @@ def test_import_is_idempotent_without_force():
 
 
 @pytest.mark.django_db
-def test_import_force_recreates_tables_with_same_counts():
-    models = (Branch, Client, Credential, Instrument, Project, Stat, TeamMember)
+def test_import_force_recreates_tables_with_same_counts(own_media):
+    models = (Branch, Client, Credential, Instrument, Project, Stat, TeamMember, StaffCertificate)
     before = {model.__name__: model.objects.count() for model in models}
     call_command("import_tttaudit", "--force")
     assert {model.__name__: model.objects.count() for model in models} == before
     scans = Credential.objects.exclude(scan="")
     assert scans.exists() and all(c.scan.storage.exists(c.scan.name) for c in scans)
+
+
+@pytest.mark.django_db
+def test_director_is_first_member_with_photo_and_engineering_history():
+    director = TeamMember.objects.first()
+    assert director.full_name == "Botirov Mahammad Hoshimovich" and director.full_name_ru == "Ботиров Махаммад Хошимович"
+    assert director.dept == TeamMember.DEPT_MANAGEMENT and director.is_leadership and director.order == 0
+    assert (director.role_uz, director.role_ru, director.role_en) == ("Bosh direktor", "Генеральный директор", "General Director")
+    assert director.photo and director.photo.name.startswith("team/kZeWGs8BiqT2DLVxMvDS")
+    assert [row["years"] for row in director.education] == ["2004", "1993", "1985"]
+    assert len(director.experience) == 4
+    history = json.dumps(director.education + director.experience, ensure_ascii=False).lower().replace("tttaudit", "")
+    assert "audit" not in history and "аудит" not in history
+    assert director.slug == "botirov-mahammad-hoshimovich"
+
+
+@pytest.mark.django_db
+def test_certificates_attached_to_members():
+    entries = json.loads((DATA / "staff_certificates.json").read_text(encoding="utf-8"))["certificates"]
+    assert StaffCertificate.objects.count() == len(entries) == 46          # skipped == 0
+    assert all(c.scan for c in StaffCertificate.objects.all())
+    xudayberdiev = TeamMember.objects.get(full_name="Xudayberdiev Otabek Talipovich")
+    assert xudayberdiev.certificates.count() == 6                           # ikki qator — bitta xodim
+    assert list(xudayberdiev.certificates.values_list("order", flat=True)) == [0, 1, 2, 3, 4, 5]
+
+
+@pytest.mark.django_db
+def test_import_reports_attached_and_skipped_certificates(own_media, capsys):
+    call_command("import_tttaudit", "--force")
+    assert "Sertifikatlar: 46 biriktirildi, 0 otkazib yuborildi" in capsys.readouterr().out
+
+
+@pytest.mark.django_db
+def test_garbled_name_is_fixed_and_keeps_certificate():
+    member = TeamMember.objects.get(full_name_ru="ТУХЛИБАЕВ УЛУҒБЕК СОЙИБОВИЧ")
+    assert member.full_name == "Tuxlibayev Ulugʻbek Soyibovich" and member.slug == "tuxlibayev-ulugbek-soyibovich"
+    assert member.certificates.count() == 1
+    assert not TeamMember.objects.filter(full_name__contains="Ulu Oʻgʻligʻbek").exists()
+
+
+@pytest.mark.django_db
+def test_member_slugs_are_unique_and_ascii():
+    slugs = list(TeamMember.objects.values_list("slug", flat=True))
+    assert len(slugs) == len(set(slugs)) == 39
+    assert all(slug.isascii() and slug == slug.lower() for slug in slugs)
+
+
+@pytest.mark.django_db
+def test_repeated_force_keeps_media_file_count_stable(own_media):
+    call_command("import_tttaudit", "--force")
+    first = sorted(p.relative_to(own_media) for p in own_media.rglob("*") if p.is_file())
+    call_command("import_tttaudit", "--force")
+    second = sorted(p.relative_to(own_media) for p in own_media.rglob("*") if p.is_file())
+    team = [p for p in second if p.parts[0] == "team"]
+    assert len(team) == TeamMember.objects.exclude(photo="").count() + 46 == 39 + 46
+    assert first == second                                                   # nomlar ham oʻzgarmaydi
+    assert len([p for p in team if p.parts[1] == "certificates"]) == 46

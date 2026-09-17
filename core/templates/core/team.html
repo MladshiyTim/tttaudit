@@ -1,22 +1,17 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
-{% block title %}{% translate "Rahbariyat va mutaxassislar" %} — TTT Audit{% endblock %}
+{% block title %}{% translate "Jamoa" %} — TTT Audit{% endblock %}
 {% block description %}{% blocktranslate with n=total %}{{ n }} mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan.{% endblocktranslate %}{% endblock %}
 {% block main %}<div class="wrap page">
-<header class="phead"><p class="phead__k">{% translate "Jamoa" %}</p><h1>{% translate "Rahbariyat va mutaxassislar" %}</h1><p>{% blocktranslate with n=site.staff_total e=site.staff_energy c=site.staff_supervision %}Jami {{ n }} xodim: {{ e }} energoaudit, {{ c }} texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar.{% endblocktranslate %}</p><p class="phead__meta">{% blocktranslate with total=total %}Roʻyxatda: {{ total }}{% endblocktranslate %}</p></header>
+<header class="phead"><p class="phead__k">{% translate "Tashkilot" %}</p><h1>{% translate "Jamoa" %}</h1><p>{% blocktranslate with n=site.staff_total e=site.staff_energy c=site.staff_supervision %}Jami {{ n }} xodim: {{ e }} energoaudit, {{ c }} texnik nazorat. Quyida axborot byulletenida keltirilgan rahbariyat va mutaxassislar.{% endblocktranslate %}</p></header>
 
-<section class="tgroup tgroup--first">
-  <div class="tgroup__h"><h2>{% translate "Rahbariyat" %}</h2></div>
-  <div class="team team--lg">
-    {% include "core/_director.html" %}
-    {% for m in leadership %}{% include "core/_person.html" %}{% endfor %}
-  </div>
+<section class="tsec" id="rahbariyat" aria-labelledby="h-rahbariyat">
+  <div class="sh sh--sm"><p class="sh__k">{% translate "Boshqaruv" %}</p><div><h2 id="h-rahbariyat">{% translate "Rahbariyat" %}</h2></div></div>
+  <div class="team team--lead">{% for m in leadership %}{% include "core/_person.html" %}{% endfor %}</div>
 </section>
 
-<section class="tgroup">
-  <div class="tgroup__h"><h2>{% translate "Mutaxassislar" %}</h2></div>
-  <h3 class="tsub">{% translate "Energoaudit" %} <span class="tag">{{ energy|length }}</span></h3>
-  <div class="team team--lg">{% for m in energy %}{% include "core/_person.html" %}{% endfor %}</div>
-  <h3 class="tsub">{% translate "Qurilishda nazorat oʻlchovi" %} <span class="tag">{{ construction|length }}</span></h3>
-  <div class="team team--lg">{% for m in construction %}{% include "core/_person.html" %}{% endfor %}</div>
+<section class="tsec" id="mutaxassislar" aria-labelledby="h-mutaxassislar">
+  <div class="sh sh--sm"><p class="sh__k">{% translate "Axborot byulleteni" %}</p><div><h2 id="h-mutaxassislar">{% translate "Mutaxassislar" %}</h2></div></div>
+  <nav class="dtabs" aria-label="{% translate "Boʻlim" %}">{% for t in tabs %}<a href="{{ t.url }}"{% if t.active %} aria-current="page"{% endif %}>{{ t.label }} <span class="num">({{ t.count }})</span></a>{% endfor %}</nav>
+  <div class="team team--lg">{% for m in specialists %}{% include "core/_person.html" %}{% endfor %}</div>
 </section>
 </div>{% endblock %}

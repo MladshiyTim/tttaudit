@@ -12,6 +12,8 @@ def test_sitemap_lists_pages_in_three_languages(client):
     assert "/uz/xizmatlar/energoaudit/" in xml and "/ru/xizmatlar/energoaudit/" in xml and "/en/reestr/" in xml
     assert 'hreflang="ru"' in xml
     assert "/uz/yangiliklar/energoaudit-kimga-majburiy/" in xml
+    for lang in ("uz", "ru", "en"):
+        assert f"/{lang}/jamoa/botirov-mahammad-hoshimovich/</loc>" in xml
 
 
 @pytest.mark.django_db
@@ -25,7 +27,7 @@ def test_robots_txt(client):
 @pytest.mark.django_db
 def test_every_page_has_title_canonical_and_hreflang(client):
     for path in ("/uz/", "/uz/xizmatlar/", "/uz/reestr/", "/uz/hujjatlar/", "/uz/qonunchilik/",
-                 "/uz/tashkilot/", "/uz/tashkilot/mutaxassislar/", "/uz/aloqa/", "/uz/murojaat/"):
+                 "/uz/tashkilot/", "/uz/jamoa/", "/uz/jamoa/botirov-mahammad-hoshimovich/", "/uz/aloqa/", "/uz/murojaat/"):
         html = client.get(path).content.decode()
         assert re.search(r"<title>[^<]{10,}</title>", html), path
         assert f'rel="canonical" href="https://tttaudit.uz{path}"' in html, path

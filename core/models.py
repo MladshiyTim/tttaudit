@@ -6,8 +6,11 @@ Shablonda: {{ obj|tr:"title" }}
 
 Segment modeli yoʻq — «kimga kerak» boʻlimi saytda yoʻq.
 """
+import re
+
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 from django.utils.translation import get_language, gettext_lazy as _
 
 
@@ -371,10 +374,18 @@ class TeamMember(TranslatableMixin, models.Model):
         _("Ism familiya (kirill)"), max_length=120, blank=True,
         help_text=_("Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi."),
     )
+    slug = models.SlugField(
+        max_length=140, unique=True, help_text=_("Profil manzili: /jamoa/<slug>/ (lotin ismidan)"),
+    )
     email = models.EmailField(blank=True)
+    DEPT_MANAGEMENT = "management"
     DEPT_ENERGY = "energy"
     DEPT_CONSTRUCTION = "construction"
-    DEPT_CHOICES = [(DEPT_ENERGY, _("Energoaudit")), (DEPT_CONSTRUCTION, _("Qurilishda nazorat oʻlchovi"))]
+    DEPT_CHOICES = [
+        (DEPT_MANAGEMENT, _("Rahbariyat")),
+        (DEPT_ENERGY, _("Energoaudit")),
+        (DEPT_CONSTRUCTION, _("Qurilishda nazorat oʻlchovi")),
+    ]
     dept = models.CharField(_("Boʻlim"), max_length=16, choices=DEPT_CHOICES, default=DEPT_ENERGY)
     is_leadership = models.BooleanField(_("Rahbariyat"), default=False)
     cv = models.JSONField(
@@ -391,6 +402,14 @@ class TeamMember(TranslatableMixin, models.Model):
     certificates_uz = models.TextField(blank=True, help_text=_("Har qatorda bitta"))
     certificates_ru = models.TextField(blank=True)
     certificates_en = models.TextField(blank=True)
+    education = models.JSONField(
+        _("Maʼlumoti"), default=list, blank=True,
+        help_text='[{"years": "2004", "uz": "...", "ru": "...", "en": "..."}]',
+    )
+    experience = models.JSONField(
+        _("Ish tajribasi"), default=list, blank=True,
+        help_text='[{"years": "1979–1989", "uz": "...", "ru": "...", "en": "..."}]',
+    )
     photo = models.ImageField(upload_to="team/", blank=True, null=True)
     order = models.PositiveSmallIntegerField(default=0)
 
@@ -402,13 +421,48 @@ class TeamMember(TranslatableMixin, models.Model):
     def __str__(self):
         return self.full_name
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = unique_member_slug(self.full_name, exclude_pk=self.pk)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("core:team_member", args=[self.slug])
+
+    @property
+    def photo_has_band(self) -> bool:
+        """Byulleten suratlari pastida rangli chiziq bor — kartada kesiladi. Direktor surati boshqa manbadan."""
+        return self.dept != self.DEPT_MANAGEMENT
+
+    def timeline(self, field: str) -> list[dict]:
+        """`education` / `experience`: [{"years": ..., "text": ...}] joriy tilda (UZ ga qaytadi)."""
+        lang = current_lang()
+        rows = []
+        for item in getattr(self, field, None) or []:
+            if not isinstance(item, dict):
+                continue
+            years = item.get("years") or ""
+            if isinstance(years, dict):
+                years = years.get(lang) or years.get("uz") or ""
+            text = item.get(lang) or item.get("uz") or ""
+            if text:
+                rows.append({"years": years, "text": text})
+        return rows
+
+    def education_rows(self):
+        return self.timeline("education")
+
+    def experience_rows(self):
+        return self.timeline("experience")
+
     def certificate_lines(self):
         return [line.strip() for line in self.tr("certificates").splitlines() if line.strip()]
 
     def display_name(self) -> str:
         lang = (get_language() or "uz").split("-")[0]
         if lang == "ru" and self.full_name_ru:
-            return self.full_name_ru
+            # Byulletendagi kirill ismlar KATTA harfda — sahifada «Султонов Рўзиматжон» koʻrinishida
+            return self.full_name_ru.title() if self.full_name_ru.isupper() else self.full_name_ru
         return self.full_name
 
     def cv_sections(self) -> list:
@@ -416,6 +470,50 @@ class TeamMember(TranslatableMixin, models.Model):
         lang = (get_language() or "uz").split("-")[0]
         data = self.cv or {}
         return data.get(lang) or data.get("ru") or []
+
+
+def current_lang() -> str:
+    lang = (get_language() or "uz").split("-")[0]
+    return lang if lang in {"uz", "ru", "en"} else "uz"
+
+
+def member_slug(name: str) -> str:
+    """«Joʻraev Jasur Alisher Oʻgʻli» -> "joraev-jasur-alisher-ogli" (ʻ ʼ ' olib tashlanadi)."""
+    return slugify(re.sub(r"[ʻʼ'‘’`]", "", name or "")) or "xodim"
+
+
+def unique_member_slug(name: str, exclude_pk=None) -> str:
+    base = member_slug(name)[:130]
+    slug, n = base, 2
+    while TeamMember.objects.filter(slug=slug).exclude(pk=exclude_pk).exists():
+        slug, n = f"{base}-{n}", n + 1
+    return slug
+
+
+class StaffCertificate(TranslatableMixin, models.Model):
+    """Xodimning shaxsiy sertifikati (byulletendagi skan)."""
+
+    member = models.ForeignKey(
+        TeamMember, on_delete=models.CASCADE, related_name="certificates", verbose_name=_("Mutaxassis"),
+    )
+    scan = models.ImageField(_("Skan"), upload_to="team/certificates/", blank=True, null=True)
+    title = models.CharField(_("Nomi"), max_length=255)
+    issuer = models.CharField(_("Bergan tashkilot"), max_length=255, blank=True)
+    number = models.CharField(_("Raqam"), max_length=80, blank=True)
+    issued_on = models.DateField(_("Berilgan sana"), null=True, blank=True)
+    valid_until = models.DateField(_("Amal qilish muddati"), null=True, blank=True)
+    scope_uz = models.TextField(blank=True)
+    scope_ru = models.TextField(blank=True)
+    scope_en = models.TextField(blank=True)
+    order = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ["member", "order", "pk"]
+        verbose_name = _("Xodim sertifikati")
+        verbose_name_plural = _("Xodim sertifikatlari")
+
+    def __str__(self):
+        return f"{self.member} — {self.title}"
 
 
 # ----------------------------------------------------------------- hujjatlar

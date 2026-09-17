@@ -27,6 +27,10 @@
     "en": "%(n)s projects, %(a)s–%(b)s",
     "ru": "Проектов: %(n)s, %(a)s–%(b)s"
   },
+  "%(n)s ta sertifikat": {
+    "en": "Certificates: %(n)s",
+    "ru": "Сертификатов: %(n)s"
+  },
   "%(n)s yillik tajriba": {
     "en": "%(n)s years of experience",
     "ru": "опыт, лет: %(n)s"
@@ -64,8 +68,12 @@
     "ru": "Срок действия"
   },
   "Amal qiladi": {
-    "en": "Valid",
-    "ru": "Действует"
+    "en": "Valid until",
+    "ru": "Действителен до"
+  },
+  "Amal qilish muddati": {
+    "en": "Valid until",
+    "ru": "Действителен до"
   },
   "Aniqlangan farq": {
     "en": "Discrepancy found",
@@ -122,6 +130,10 @@
   "Auditor kimlarga kerak: buyurtmachi, pudratchi, bank, sanoat korxonasi, byudjet tashkiloti.": {
     "en": "Who needs an auditor: clients, contractors, banks, industrial enterprises, public bodies.",
     "ru": "Кому нужен аудитор: заказчик, подрядчик, банк, промышленное предприятие, бюджетная организация."
+  },
+  "Axborot byulleteni": {
+    "en": "Information bulletin",
+    "ru": "Информационный бюллетень"
   },
   "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar.": {
     "en": "From the information bulletin: %(e)s energy audits and %(c)s control measurements. Latest work below.",
@@ -182,6 +194,18 @@
   "Bergan organ": {
     "en": "Issuing authority",
     "ru": "Выдавший орган"
+  },
+  "Bergan tashkilot": {
+    "en": "Issuing body",
+    "ru": "Выдавшая организация"
+  },
+  "Berilgan": {
+    "en": "Issued",
+    "ru": "Выдан"
+  },
+  "Berilgan sana": {
+    "en": "Issue date",
+    "ru": "Дата выдачи"
   },
   "Beruvchi": {
     "en": "Issued by",
@@ -274,6 +298,10 @@
   "Boshqa maqolalar": {
     "en": "Other articles",
     "ru": "Другие статьи"
+  },
+  "Boshqaruv": {
+    "en": "Governance",
+    "ru": "Управление"
   },
   "Boʻlim": {
     "en": "Department",
@@ -635,6 +663,10 @@
     "en": "How the work goes",
     "ru": "Как проходит работа"
   },
+  "Ish tajribasi": {
+    "en": "Work experience",
+    "ru": "Опыт работы"
+  },
   "Ish tartibi": {
     "en": "Work procedure",
     "ru": "Порядок работы"
@@ -687,6 +719,10 @@
     "en": "%(n)s staff in total: %(e)s in energy audit, %(c)s in technical supervision.",
     "ru": "Всего сотрудников: %(n)s; энергоаудит — %(e)s, технический надзор — %(c)s."
   },
+  "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida axborot byulletenida keltirilgan rahbariyat va mutaxassislar.": {
+    "en": "%(n)s employees in total: %(e)s in energy audit, %(c)s in technical supervision. Below are the management and specialists listed in the information bulletin.",
+    "ru": "Всего %(n)s сотрудников: %(e)s в энергоаудите, %(c)s в техническом надзоре. Ниже — руководство и специалисты из информационного бюллетеня."
+  },
   "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar.": {
     "en": "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(c)s). Below are the specialists listed in the bulletin.",
     "ru": "Всего сотрудников: %(n)s (энергоаудит — %(e)s, технический надзор — %(c)s). Ниже — специалисты, указанные в бюллетене."
@@ -735,6 +771,10 @@
     "en": "What happens next",
     "ru": "Что будет дальше"
   },
+  "Keyingi": {
+    "en": "Next",
+    "ru": "Следующий"
+  },
   "Keyingi sahifa": {
     "en": "Next page",
     "ru": "Следующая страница"
@@ -782,6 +822,10 @@
   "Kuchga kirdi": {
     "en": "In force since",
     "ru": "Вступил в силу"
+  },
+  "Lavozim": {
+    "en": "Position",
+    "ru": "Должность"
   },
   "Litsenziya": {
     "en": "Licence",
@@ -847,6 +891,14 @@
     "en": "Not mandatory, but confirming the volume before signing Form F-2 is the most economical form of control.",
     "ru": "Не обязательно, но подтверждение объёма перед подписанием акта ф-2 — самый экономный вид контроля."
   },
+  "Malaka": {
+    "en": "Qualification",
+    "ru": "Квалификация"
+  },
+  "Malakasi": {
+    "en": "Qualification",
+    "ru": "Квалификация"
+  },
   "Manba: lex.uz": {
     "en": "Source: lex.uz",
     "ru": "Источник: lex.uz"
@@ -886,6 +938,10 @@
   "Maydon, m2": {
     "en": "Area, m²",
     "ru": "Площадь, м²"
+  },
+  "Maʼlumoti": {
+    "en": "Education",
+    "ru": "Образование"
   },
   "Maʼlumoti va malakasi": {
     "en": "Education and qualifications",
@@ -1035,6 +1091,10 @@
     "en": "Independent expert opinion in a dispute",
     "ru": "Независимое экспертное заключение при споре"
   },
+  "Nomi": {
+    "en": "Title",
+    "ru": "Название"
+  },
   "Notoʻgʻri qiymat": {
     "en": "Invalid value",
     "ru": "Неверное значение"
@@ -1091,6 +1151,10 @@
     "en": "Offices",
     "ru": "Офисы"
   },
+  "Oldingi": {
+    "en": "Previous",
+    "ru": "Предыдущий"
+  },
   "Oldingi sahifa": {
     "en": "Previous page",
     "ru": "Предыдущая страница"
@@ -1142,6 +1206,10 @@
   "Pozitsiya": {
     "en": "Item",
     "ru": "Позиция"
+  },
+  "Profil manzili: /jamoa/<slug>/ (lotin ismidan)": {
+    "en": "Profile address: /jamoa/<slug>/ (from the Latin name)",
+    "ru": "Адрес профиля: /jamoa/<slug>/ (из латинского имени)"
   },
   "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi.": {
     "en": "The contractor submits the acceptance act, the client signs and pays. Later it turns out that volumes were overstated or materials substituted.",
@@ -1375,6 +1443,10 @@
     "en": "Certificate number",
     "ru": "Номер сертификата"
   },
+  "Sertifikatlar": {
+    "en": "Certificates",
+    "ru": "Сертификаты"
+  },
   "Shartnoma": {
     "en": "Contract",
     "ru": "Договор"
@@ -1434,6 +1506,10 @@
   "Sizga qaysi toifa tegishli?": {
     "en": "Which category applies to you?",
     "ru": "Какая категория у вас?"
+  },
+  "Skan": {
+    "en": "Scan",
+    "ru": "Скан"
   },
   "Skan bosh ofisda": {
     "en": "Scan available at the head office",
@@ -1710,6 +1786,14 @@
   "Xizmatlar katalogi": {
     "en": "Service catalogue",
     "ru": "Каталог услуг"
+  },
+  "Xodim sertifikati": {
+    "en": "Staff certificate",
+    "ru": "Сертификат сотрудника"
+  },
+  "Xodim sertifikatlari": {
+    "en": "Staff certificates",
+    "ru": "Сертификаты сотрудников"
   },
   "Xulosa": {
     "en": "Opinion",

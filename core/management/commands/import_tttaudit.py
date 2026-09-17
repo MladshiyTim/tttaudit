@@ -8,12 +8,13 @@ Oldin `seed_content` ishga tushirilgan boʻlishi shart (yoʻnalishlar kerak).
 Manba fayllar:
     facts.json     kompaniya rekvizitlari, hujjatlar (skan bilan), asboblar, raqamlar
     staff.json     39 qator (byulleten; takror birlashtirilgach 38 mutaxassis), suratlar img/staff/
+    staff_certificates.json  46 shaxsiy sertifikat skani (img/staff_certs/), xodimga name_ru boʻyicha
     projects.json  143 loyiha (byulleten), buyurtmachi nomi bilan
     clients.json   eski saytdagi mijozlar roʻyxati (soha bilan)
 
-Egalik qilinadigan jadvallar: Branch, Credential, Instrument, Stat, TeamMember,
-Project, Client. --force ularni qayta yaratadi — admin paneldagi tahrirlar yoʻqoladi.
-SiteSettings da faqat rekvizit maydonlari yangilanadi (matnlar seed_content'da).
+Egalik qilinadigan jadvallar: Branch, Credential, Instrument, Stat, TeamMember (direktor ham),
+StaffCertificate, Project, Client. --force ularni fayllari bilan qayta yaratadi — admin paneldagi
+tahrirlar yoʻqoladi. SiteSettings da faqat rekvizit maydonlari yangilanadi (matnlar seed_content'da).
 """
 from __future__ import annotations
 
@@ -28,7 +29,8 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
 from core.models import (
-    Branch, Client, Credential, Direction, Instrument, Project, SiteSettings, Stat, TeamMember,
+    Branch, Client, Credential, Direction, Instrument, Project, SiteSettings, StaffCertificate, Stat,
+    TeamMember,
 )
 
 DATA_DIR = Path(settings.BASE_DIR) / "data" / "tttaudit"
@@ -51,6 +53,53 @@ RANGE_PATTERN = re.compile(r"^(?:(?P<upto>.+?) gacha|(?P<span>[^,]+?)), xatolik 
 STAFF_LATIN_NAMES = {
     "ЗУҲРИДДИНОВ ТЕМУРЖОН ДОНИЁРЖОН ЎҒЛИ": "Zuhriddinov Temurjon Doniyorjon oʻgʻli",
     "ЭРГАШЕВ ШАВКАТ РАШИТОВИЧ": "Ergashev Shavkat Rashitovich",
+}
+
+# staff.json dagi buzilgan ismlar (fayl oʻzgartirilmaydi): asl name_ru -> (toʻgʻri ru, toʻgʻri lotin).
+# Sertifikatlar asl name_ru boʻyicha moslashtiriladi.
+STAFF_NAME_FIXES = {
+    "ТУХЛИБАЕВ УЛУ ЎҒЛИҒБЕК СОЙИБОВИЧ": ("ТУХЛИБАЕВ УЛУҒБЕК СОЙИБОВИЧ", "Tuxlibayev Ulugʻbek Soyibovich"),
+}
+
+# Direktor staff.json da yoʻq. Tarjimai hol faqat muhandislik tarixi: eski saytdagi moliyaviy audit,
+# auditorlar palatasi, oʻquv markazi va imtihon komissiyasi qatorlari chiqarilmagan — mijoz tasdiqlashi kerak.
+DIRECTOR = {
+    "full_name": "Botirov Mahammad Hoshimovich",
+    "full_name_ru": "Ботиров Махаммад Хошимович",
+    "role": ("Bosh direktor", "Генеральный директор", "General Director"),
+    "photo": "img/team/kZeWGs8BiqT2DLVxMvDS.jpg",
+    "education": [
+        {"years": "2004",
+         "uz": "Fargʻona politexnika instituti, iqtisodchi (imtiyozli diplom)",
+         "ru": "Ферганский политехнический институт, экономист (диплом с отличием)",
+         "en": "Fergana Polytechnic Institute, economist (diploma with honours)"},
+        {"years": "1993",
+         "uz": "Toshkent toʻqimachilik va yengil sanoat instituti, muhandis",
+         "ru": "Ташкентский институт текстильной и лёгкой промышленности, инженер",
+         "en": "Tashkent Institute of Textile and Light Industry, engineer"},
+        {"years": "1985",
+         "uz": "Fargʻona yengil sanoat texnikumi, texnolog (imtiyozli diplom)",
+         "ru": "Ферганский техникум лёгкой промышленности, технолог (диплом с отличием)",
+         "en": "Fergana College of Light Industry, technologist (diploma with honours)"},
+    ],
+    "experience": [
+        {"years": "1979–1989",
+         "uz": "Fargʻona toʻqimachilik kombinati — smena ustasi, sex boshligʻi",
+         "ru": "Ферганский текстильный комбинат — сменный мастер, начальник цеха",
+         "en": "Fergana Textile Mill — shift foreman, head of workshop"},
+        {"years": "1989–1992",
+         "uz": "Fargʻona toʻqimachilik kombinati — ishlab chiqarish direktori",
+         "ru": "Ферганский текстильный комбинат — директор производства",
+         "en": "Fergana Textile Mill — production director"},
+        {"years": "1993–1995",
+         "uz": "«Barkamol» AJ — bosh muhandis",
+         "ru": "АО «Баркамол» — главный инженер",
+         "en": "Barkamol JSC — chief engineer"},
+        {"years": {"uz": "1997 — hozirgacha", "ru": "1997 — н. в.", "en": "1997 — present"},
+         "uz": "«TTTaudit» MChJ — bosh direktor",
+         "ru": "ООО «TTTaudit» — генеральный директор",
+         "en": "TTTaudit LLC — General Director"},
+    ],
 }
 
 # Reyestr hujjati: facts.json dagi `number` aslida reyting — raqam VM qarori, reyting doirasiga qoʻshiladi
@@ -110,14 +159,29 @@ def _ru_units(text: str) -> str:
 
 
 def attach(field, rel_path: str | None) -> None:
-    """data/tttaudit/<rel_path> faylini ImageField/FileField ga nusxalaydi."""
+    """data/tttaudit/<rel_path> faylini ImageField/FileField ga nusxalaydi.
+
+    Maydonda avvalgi fayl boʻlsa, u oldin oʻchiriladi — media/ da yetim nusxa qolmaydi.
+    """
     if not rel_path:
         return
     source = DATA_DIR / rel_path
     if not source.exists():
         raise CommandError(f"Fayl topilmadi: {source}")
+    if field.name:
+        field.delete(save=False)
     with source.open("rb") as handle:
         field.save(source.name, File(handle), save=False)
+
+
+def delete_files(model) -> None:
+    """Jadvaldagi barcha yozuvlarning FileField/ImageField fayllarini diskdan oʻchiradi."""
+    names = [f.name for f in model._meta.fields if f.get_internal_type() in ("FileField", "ImageField")]
+    for obj in model.objects.all():
+        for name in names:
+            field = getattr(obj, name)
+            if field.name:
+                field.delete(save=False)
 
 
 class Command(BaseCommand):
@@ -129,6 +193,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         facts = load_json("facts.json")
         staff = load_json("staff.json")
+        staff_certificates = load_json("staff_certificates.json")
         projects = load_json("projects.json")
         clients = load_json("clients.json")
         force = options["force"]
@@ -144,7 +209,7 @@ class Command(BaseCommand):
             self._table(Credential, force, lambda: self._credentials(facts["credentials"]))
             self._table(Instrument, force, lambda: self._instruments(facts["instruments"], directions))
             self._table(Stat, force, lambda: self._stats(facts["stats"]))
-            self._table(TeamMember, force, lambda: self._team(staff["staff"]))
+            self._people(staff["staff"], staff_certificates["certificates"], force)
             self._table(Project, force, lambda: self._projects(projects["projects"], directions))
             self._table(Client, force, lambda: self._clients(clients))
 
@@ -152,20 +217,37 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(
             f"Yuklandi: {Branch.objects.count()} ofis / {Credential.objects.count()} hujjat / "
             f"{Instrument.objects.count()} asbob / {Stat.objects.count()} raqam / "
-            f"{TeamMember.objects.count()} mutaxassis / {Project.objects.count()} loyiha / "
-            f"{Client.objects.count()} mijoz"
+            f"{TeamMember.objects.count()} xodim / {StaffCertificate.objects.count()} sertifikat / "
+            f"{Project.objects.count()} loyiha / {Client.objects.count()} mijoz"
         ))
 
     def _table(self, model, force: bool, fill) -> None:
         if model.objects.exists() and not force:
             self.stdout.write(f"{model.__name__}: malumot bor - otkazib yuborildi (--force).")
             return
-        for obj in model.objects.all():
-            for field in obj._meta.fields:
-                if field.get_internal_type() in ("FileField", "ImageField"):
-                    getattr(obj, field.name).delete(save=False)
+        delete_files(model)
         model.objects.all().delete()
         fill()
+
+    def _people(self, staff: list[dict], certificates: list[dict], force: bool) -> None:
+        """TeamMember va StaffCertificate birga: xodimlar qayta yaratilsa, sertifikatlar ham (fayllari bilan)."""
+        rebuild_team = force or not TeamMember.objects.exists()
+        if rebuild_team:
+            self._clear(StaffCertificate)
+            self._clear(TeamMember)
+            self._director()
+            self._team(staff)
+        else:
+            self.stdout.write("TeamMember: malumot bor - otkazib yuborildi (--force).")
+        if StaffCertificate.objects.exists():
+            self.stdout.write("StaffCertificate: malumot bor - otkazib yuborildi (--force).")
+            return
+        self._certificates(staff, certificates)
+
+    @staticmethod
+    def _clear(model) -> None:
+        delete_files(model)
+        model.objects.all().delete()
 
     def _site(self, company: dict) -> None:
         site = SiteSettings.load()
@@ -249,18 +331,31 @@ class Command(BaseCommand):
             for order, s in enumerate(stats)
         ])
 
+    def _director(self) -> None:
+        role_uz, role_ru, role_en = DIRECTOR["role"]
+        obj = TeamMember(
+            full_name=DIRECTOR["full_name"], full_name_ru=DIRECTOR["full_name_ru"],
+            role_uz=role_uz, role_ru=role_ru, role_en=role_en,
+            dept=TeamMember.DEPT_MANAGEMENT, is_leadership=True, order=0,
+            education=DIRECTOR["education"], experience=DIRECTOR["experience"],
+        )
+        attach(obj.photo, DIRECTOR["photo"])
+        obj.save()
+
     def _team(self, staff: list[dict]) -> None:
         seen_names: set[str] = set()
         skipped = 0
-        for order, row in enumerate(staff):
+        for order, row in enumerate(staff, start=1):   # 0 — direktor
             key = normalize_name(row.get("name_ru"))
             if key and key in seen_names:
                 skipped += 1
                 continue
             seen_names.add(key)
             role_ru = (row.get("role_ru") or "").lower()
+            name_ru, name_latin = STAFF_NAME_FIXES.get(key, (row["name_ru"], ""))
             obj = TeamMember(
-                full_name=row["name_uz"] or STAFF_LATIN_NAMES.get(key) or row["name_ru"], full_name_ru=row["name_ru"],
+                full_name=name_latin or row["name_uz"] or STAFF_LATIN_NAMES.get(key) or row["name_ru"],
+                full_name_ru=name_ru,
                 role_uz=row["role_uz"], role_ru=row["role_ru"], role_en=row["role_en"],
                 certificates_uz=row.get("cert_uz", ""), dept=row["dept"],
                 is_leadership=any(word in role_ru for word in LEADERSHIP_WORDS), order=order,
@@ -271,6 +366,33 @@ class Command(BaseCommand):
         if skipped:
             # Konsol xabari ASCII: Windows konsoli kirill harflarini chiqara olmaydi
             self.stdout.write(f"Takror xodim otkazib yuborildi: {skipped}")
+
+    def _certificates(self, staff: list[dict], certificates: list[dict]) -> None:
+        """Sertifikat skanlari: xodimga asl (tuzatilmagan) name_ru boʻyicha, barcha ishonch darajalari."""
+        members = {normalize_name(m.full_name_ru): m for m in TeamMember.objects.all()}
+        for original, (fixed_ru, _latin) in STAFF_NAME_FIXES.items():
+            if normalize_name(fixed_ru) in members:
+                members[original] = members[normalize_name(fixed_ru)]
+        orders: dict[int, int] = {}
+        attached = skipped = 0
+        for entry in certificates:
+            member = members.get(normalize_name(entry.get("staff_name_ru")))
+            if member is None:
+                skipped += 1
+                continue
+            orders[member.pk] = orders.get(member.pk, -1) + 1
+            obj = StaffCertificate(
+                member=member, title=entry["title"][:255], issuer=(entry.get("issuer") or "")[:255],
+                number=(entry.get("number") or "")[:80], issued_on=parse_date(entry.get("issued_on")),
+                valid_until=parse_date(entry.get("valid_until")), order=orders[member.pk],
+                scope_uz=entry.get("scope_uz") or "", scope_ru=entry.get("scope_ru") or "",
+                scope_en=entry.get("scope_en") or "",
+            )
+            attach(obj.scan, entry.get("file"))
+            obj.save()
+            attached += 1
+        # Konsol xabari ASCII
+        self.stdout.write(f"Sertifikatlar: {attached} biriktirildi, {skipped} otkazib yuborildi")
 
     def _projects(self, projects: list[dict], directions: dict) -> None:
         rows = []

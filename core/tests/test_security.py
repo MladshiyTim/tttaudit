@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
 from django.test import override_settings
 
-from core.models import Credential, Lead
+from core.models import Credential, Lead, StaffCertificate
 
 
 @pytest.fixture
@@ -134,3 +134,11 @@ def test_size_middleware_passes_missing_or_invalid_content_length(length):
         request.META["CONTENT_LENGTH"] = length
     response = MaxBodySizeMiddleware(lambda req: HttpResponse("ok"))(request)
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+@override_settings(DEBUG=False)
+def test_staff_certificate_scan_is_served_in_production(client):
+    certificate = StaffCertificate.objects.exclude(scan="").first()
+    assert certificate.scan.url.startswith("/media/team/certificates/")
+    assert client.get(certificate.scan.url).status_code == 200

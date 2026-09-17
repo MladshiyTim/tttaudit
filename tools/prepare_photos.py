@@ -6,7 +6,6 @@ Manba: data/tttaudit/img/ (mijozning oʻz suratlari, 1280×960).
 - office-hero*.jpg — bino. Oʻng tomondagi eski koʻrsatkich-lavha (eski faoliyat
   matni bilan) kesib tashlanadi: faqat bino va kirish qismi qoladi.
 - office-entrance*.jpg — fasad va kirish eshigi.
-- director.jpg — rahbar portreti (133×200, kattalashtirilmaydi).
 Kattalashtirish yoʻq: manba 1280 px, shuning uchun eng katta variant ham manbadan oshmaydi.
 """
 from pathlib import Path
@@ -19,7 +18,6 @@ OUT = ROOT / "core" / "static" / "core" / "img"
 
 HERO_SRC = SRC / "gallery" / "4jSxK8EMpzid5DFjQSlW.jpg"
 ENTRANCE_SRC = SRC / "gallery" / "OJeLGrChLNa1ciqXzPmU.jpg"
-DIRECTOR_SRC = SRC / "team" / "kZeWGs8BiqT2DLVxMvDS.jpg"
 
 HERO_CROP_RIGHT = 0.68   # lavha x≈0.70 dan boshlanadi — undan oldin kesiladi
 QUALITY = 80
@@ -42,10 +40,6 @@ def main() -> None:
 
     entrance = ImageOps.exif_transpose(Image.open(ENTRANCE_SRC)).convert("RGB")
     save_variants(entrance, "office-entrance")
-
-    director = Image.open(DIRECTOR_SRC).convert("RGB")
-    director.save(OUT / "director.jpg", "JPEG", quality=90, optimize=True)
-    print(f"core/static/core/img/director.jpg: {director.size[0]}x{director.size[1]}")
 
 
 if __name__ == "__main__":

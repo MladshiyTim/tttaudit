@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 from .models import (
     Branch, Client, Credential, Direction, Instrument, Lead, LegalAct, Post, Project,
-    Service, SiteSettings, Stat, TeamMember,
+    Service, SiteSettings, StaffCertificate, Stat, TeamMember,
 )
 
 
@@ -102,11 +102,29 @@ class InstrumentAdmin(admin.ModelAdmin):
     list_editable = ["order"]
 
 
+class StaffCertificateInline(admin.StackedInline):
+    model = StaffCertificate
+    extra = 0
+    fields = [("title", "order"), ("issuer", "number"), ("issued_on", "valid_until"), "scan",
+              "scope_uz", "scope_ru", "scope_en"]
+
+
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ["full_name", "role_uz", "dept", "is_leadership", "order"]
     list_filter = ["dept", "is_leadership"]
     list_editable = ["is_leadership", "order"]
+    search_fields = ["full_name", "full_name_ru"]
+    prepopulated_fields = {"slug": ["full_name"]}
+    inlines = [StaffCertificateInline]
+
+
+@admin.register(StaffCertificate)
+class StaffCertificateAdmin(admin.ModelAdmin):
+    list_display = ["title", "member", "issuer", "number", "issued_on", "valid_until"]
+    list_filter = ["member__dept", "issuer", "valid_until"]
+    search_fields = ["title", "number", "issuer", "member__full_name", "member__full_name_ru"]
+    autocomplete_fields = ["member"]
 
 
 @admin.register(Credential)

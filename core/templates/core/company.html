@@ -7,8 +7,7 @@
 <div class="split block">
   <div class="prose">{{ site|tr:"about"|linebreaks }}</div>
   <aside class="aside">
-    <div class="aside__box"><h2>{% translate "Rahbar" %}</h2><ul><li><b>{{ site|tr:"director" }}</b><br><span class="muted">{% translate "Bosh direktor" %}</span></li>
-      {% for m in leadership %}<li><b>{{ m.display_name }}</b><br><span class="muted">{{ m|tr:"role" }}</span></li>{% endfor %}</ul>
+    <div class="aside__box"><h2>{% translate "Rahbar" %}</h2><ul>{% for m in leadership %}<li><a href="{{ m.get_absolute_url }}"><b>{{ m.display_name }}</b></a><br><span class="muted">{{ m|tr:"role" }}</span></li>{% empty %}{% if site|tr:"director" %}<li><b>{{ site|tr:"director" }}</b><br><span class="muted">{% translate "Bosh direktor" %}</span></li>{% endif %}{% endfor %}</ul>
       <p class="aside__more"><a class="more" href="{% url 'core:team' %}">{% translate "Jamoa" %} →</a></p></div>
     <div class="basis"><h2>{% translate "Hamkorlik" %}</h2><ul>
       <li>{% translate "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi" %}</li>

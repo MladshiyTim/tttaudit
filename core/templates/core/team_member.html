@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{{ member.display_name }} — {% translate "Jamoa" %} — TTT Audit{% endblock %}
+{% block og_title %}{{ member.display_name }} — TTT Audit{% endblock %}
+{% block description %}{{ member|tr:"role" }} · {{ member.get_dept_display }} — TTT Audit{% endblock %}
+{% block main %}<div class="wrap page">
+<article class="prof">
+  <div class="prof__pic{% if member.photo_has_band %} prof__pic--band{% endif %}{% if member.photo and member.photo.width < 300 %} prof__pic--small{% endif %}">{% if member.photo %}<img src="{{ member.photo.url }}" alt="{{ member.display_name }}" width="{{ member.photo.width }}" height="{{ member.photo.height }}">{% endif %}</div>
+  <div class="prof__body">
+    <p class="phead__k">{{ member.get_dept_display }}</p>
+    <h1 class="prof__name">{{ member.display_name }}</h1>
+    <p class="prof__role">{{ member|tr:"role" }}</p>
+    <dl class="prof__dl">
+      <dt>{% translate "Boʻlim" %}</dt><dd>{{ member.get_dept_display }}</dd>
+      <dt>{% translate "Lavozim" %}</dt><dd>{{ member|tr:"role" }}</dd>
+      {% if member.certificate_lines %}<dt>{% translate "Malakasi" %}</dt><dd>{{ member.certificate_lines|join:"; " }}</dd>{% endif %}
+      {% if certificates %}<dt>{% translate "Sertifikatlar" %}</dt><dd><a href="#sertifikatlar" class="num">{{ certificates|length }}</a></dd>{% endif %}
+    </dl>
+    {% with rows=member.education_rows %}{% if rows %}<section class="prof__sec"><h2 class="prof__h">{% translate "Maʼlumoti" %}</h2>
+      <ol class="tline">{% for r in rows %}<li><span class="num">{{ r.years }}</span><span>{{ r.text }}</span></li>{% endfor %}</ol></section>{% endif %}{% endwith %}
+    {% with rows=member.experience_rows %}{% if rows %}<section class="prof__sec"><h2 class="prof__h">{% translate "Ish tajribasi" %}</h2>
+      <ol class="tline">{% for r in rows %}<li><span class="num">{{ r.years }}</span><span>{{ r.text }}</span></li>{% endfor %}</ol></section>{% endif %}{% endwith %}
+  </div>
+</article>
+
+{% if certificates %}<section class="block" id="sertifikatlar">
+  <div class="sh sh--sm"><p class="sh__k">{% translate "Malaka" %}</p><div><h2>{% translate "Sertifikatlar" %}</h2></div></div>
+  <div class="certs">{% for c in certificates %}<article class="cert">
+    {% if c.scan %}<a class="cert__img" href="{{ c.scan.url }}" data-lightbox data-alt="{{ c.title }}"><img src="{{ c.scan.url }}" alt="{{ c.title }}" loading="lazy"></a>{% endif %}
+    <h3 class="cert__t">{{ c.title }}</h3>
+    {% if c.issuer %}<p class="cert__iss">{{ c.issuer }}</p>{% endif %}
+    <p class="cert__meta">{% if c.number %}<span>{% if "№" not in c.number %}№ {% endif %}{{ c.number }}</span>{% endif %}{% if c.issued_on %}<span>{% translate "Berilgan" %}: {{ c.issued_on|date:"d.m.Y" }}</span>{% endif %}{% if c.valid_until %}<span>{% translate "Amal qiladi" %}: {{ c.valid_until|date:"d.m.Y" }}</span>{% endif %}</p>
+    {% if c|tr:"scope" %}<p class="cert__scope">{{ c|tr:"scope" }}</p>{% endif %}
+  </article>{% endfor %}</div>
+</section>{% endif %}
+
+<nav class="pnav" aria-label="{% translate "Jamoa" %}">
+  <a class="pnav__all" href="{% url 'core:team' %}">← {% translate "Butun jamoa" %}</a>
+  {% if previous %}<a class="pnav__prev" href="{{ previous.get_absolute_url }}" rel="prev"><small>{% translate "Oldingi" %}</small><span>← {{ previous.display_name }}</span></a>{% else %}<span></span>{% endif %}
+  {% if next %}<a class="pnav__next" href="{{ next.get_absolute_url }}" rel="next"><small>{% translate "Keyingi" %}</small><span>{{ next.display_name }} →</span></a>{% endif %}
+</nav>
+</div>{% endblock %}

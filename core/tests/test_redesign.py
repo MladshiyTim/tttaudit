@@ -36,7 +36,7 @@ def test_nav_has_team_right_after_organisation(client, lang):
 @pytest.mark.django_db
 def test_team_link_points_to_team_page_and_footer_says_jamoa(client):
     html = client.get("/uz/").content.decode()
-    assert '<a href="/uz/tashkilot/mutaxassislar/">Jamoa</a>' in html
+    assert '<a href="/uz/jamoa/">Jamoa</a>' in html
     assert "Rahbariyat va mutaxassislar</a>" not in html          # futerda ham «Jamoa»
     assert html.count('class="nav-toggle"') == 1
 
@@ -99,8 +99,12 @@ def test_home_document_viewer_previews_first_and_links_to_credentials(client):
 @pytest.mark.django_db
 def test_home_team_strip_starts_with_director(client):
     team = _section(client.get("/uz/").content.decode(), '<section class="sec" id="jamoa"')
-    people = re.findall(r'data-person="([^"]+)"', team)
-    assert people[0] == "director" and len(people) == home.TEAM_STRIP_SIZE + 1
+    people = re.findall(r'<a class="pm" href="([^"]+)" data-person="([^"]+)"', team)
+    assert people[0] == ("/uz/jamoa/botirov-mahammad-hoshimovich/", "botirov-mahammad-hoshimovich")
+    assert len(people) == home.TEAM_STRIP_SIZE + 1
+    assert all(href == f"/uz/jamoa/{slug}/" for href, slug in people)
+    assert "core/img/director.jpg" not in team and "/media/team/kZeWGs8BiqT2DLVxMvDS" in team
+    assert 'href="/uz/jamoa/">Butun jamoa →</a>' in team
     assert "Jami 50 xodim: 24 energoaudit, 16 texnik nazorat." in team
 
 

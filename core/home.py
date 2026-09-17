@@ -91,7 +91,8 @@ def facts(site: SiteSettings) -> dict:
 
 
 def team_strip():
-    return TeamMember.objects.all()[:TEAM_STRIP_SIZE]
+    """Direktor (bazada birinchi) va yana TEAM_STRIP_SIZE kishi."""
+    return TeamMember.objects.all()[:TEAM_STRIP_SIZE + 1]
 
 
 # Xizmat qatoridagi qisqa mono belgi (xizmatda `duration` toʻldirilmagan boʻlsa)

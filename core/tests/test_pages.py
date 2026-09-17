@@ -1,4 +1,9 @@
+import re
+
 import pytest
+from django.utils.html import escape
+
+from core.models import TeamMember
 
 
 @pytest.mark.django_db
@@ -165,14 +170,13 @@ def test_company_page(client):
 
 @pytest.mark.django_db
 def test_team_page_groups_by_department(client):
-    html = client.get("/uz/tashkilot/mutaxassislar/").content.decode()
-    assert "Rahbariyat va mutaxassislar" in html
-    assert html.count('class="pm"') == 39               # 38 mutaxassis (takror birlashtirilgan) + direktor kartasi
-    assert "Jami 50 xodim" in html and "Roʻyxatda: 38" in html
-    assert "Listed: 38" in client.get("/en/tashkilot/mutaxassislar/").content.decode()
+    html = client.get("/uz/jamoa/").content.decode()
+    assert "<h1>Jamoa</h1>" in html and "Rahbariyat</h2>" in html and "Mutaxassislar</h2>" in html
+    assert html.count('class="pm"') == 39               # direktor + 38 mutaxassis (takror birlashtirilgan)
+    assert "Jami 50 xodim: 24 energoaudit, 16 texnik nazorat." in html
     assert "Energoaudit" in html and "Qurilishda nazorat oʻlchovi" in html
     assert 'aria-current="page">Jamoa</a>' in html     # menyuda «Jamoa» faol
-    assert 'data-person="director"' in html and "core/img/director.jpg" in html
+    assert "core/img/director.jpg" not in html and 'data-person="director"' not in html
     # "== 1" emas: fotosurati bor har bir xodim nomi img alt'da HAM <b> ichida
     # takrorlanadi (bitta karta ichida 2 marta) — shu sababli karta sonini
     # <b> yorlig'i orqali sanaymiz: bitta kishi = bitta karta = bitta <b>.
@@ -197,3 +201,84 @@ def test_contact_and_request_pages(client):
     sent = client.get("/uz/murojaat/?sent=1").content.decode()
     assert "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." in sent
     assert "ish kuni" not in sent and "bepul" not in sent
+
+
+def _cards(html, marker):
+    start = html.index(marker)
+    section = html[start:html.index("</section>", start)]
+    return re.findall(r'<a class="pm" href="/uz/jamoa/([^/]+)/"', section)
+
+
+@pytest.mark.django_db
+def test_team_leadership_starts_with_director_and_links_profiles(client):
+    html = client.get("/uz/jamoa/").content.decode()
+    leaders = _cards(html, 'id="rahbariyat"')
+    assert leaders[0] == "botirov-mahammad-hoshimovich"
+    assert len(leaders) == TeamMember.objects.filter(is_leadership=True).count() == 3
+    assert "6 ta sertifikat" in html                                   # Xudayberdiev kartasi
+    assert "Сертификатов: 6" in client.get("/ru/jamoa/").content.decode()
+
+
+@pytest.mark.django_db
+def test_team_specialist_tabs_filter_without_js(client):
+    all_cards = _cards(client.get("/uz/jamoa/").content.decode(), 'id="mutaxassislar"')
+    assert len(all_cards) == TeamMember.objects.filter(is_leadership=False).count() == 36
+    html = client.get("/uz/jamoa/?bolim=construction").content.decode()
+    cards = _cards(html, 'id="mutaxassislar"')
+    expected = TeamMember.objects.filter(is_leadership=False, dept="construction")
+    assert cards == list(expected.values_list("slug", flat=True)) and 0 < len(cards) < len(all_cards)
+    assert re.search(r'href="\?bolim=construction#mutaxassislar" aria-current="page">Qurilishda nazorat oʻlchovi', html)
+    assert f'Barchasi <span class="num">({len(all_cards)})</span>' in html
+    assert _cards(client.get("/uz/jamoa/?bolim=nimadir").content.decode(), 'id="mutaxassislar"') == all_cards
+
+
+@pytest.mark.django_db
+def test_old_team_url_redirects_permanently_in_same_language(client):
+    for lang in ("uz", "ru"):
+        response = client.get(f"/{lang}/tashkilot/mutaxassislar/")
+        assert response.status_code == 301 and response["Location"] == f"/{lang}/jamoa/"
+
+
+@pytest.mark.django_db
+def test_profile_with_certificates_shows_titles_and_numbers(client):
+    member = TeamMember.objects.get(full_name="Xudayberdiev Otabek Talipovich")
+    html = client.get(f"/uz/jamoa/{member.slug}/").content.decode()
+    assert f"<title>{member.full_name} — Jamoa — TTT Audit</title>" in html
+    assert "Sertifikatlar</h2>" in html and html.count('<article class="cert">') == 6
+    for cert in member.certificates.all():
+        assert str(escape(cert.title)) in html and str(escape(cert.number)) in html
+    assert "data-lightbox" in html and "/media/team/certificates/" in html
+    assert 'aria-current="page">Jamoa</a>' in html
+    assert '<li><a href="/uz/jamoa/">Jamoa</a></li>' in html            # crumbs: Jamoa › ism
+
+
+@pytest.mark.django_db
+def test_profile_without_certificates_has_no_certificate_section(client):
+    member = TeamMember.objects.filter(certificates__isnull=True, is_leadership=False).first()
+    html = client.get(f"/uz/jamoa/{member.slug}/").content.decode()
+    assert "Sertifikatlar</h2>" not in html and '<article class="cert">' not in html
+    assert str(escape(member.full_name)) in html and "← Butun jamoa" in html
+
+
+@pytest.mark.django_db
+def test_director_profile_shows_education_and_experience(client):
+    html = client.get("/uz/jamoa/botirov-mahammad-hoshimovich/").content.decode()
+    assert "Maʼlumoti</h2>" in html and "Ish tajribasi</h2>" in html
+    assert '<span class="num">1979–1989</span>' in html and "«Barkamol» AJ — bosh muhandis" in html
+    assert 'alt="Botirov Mahammad Hoshimovich"' in html
+    assert 'rel="prev"' not in html and 'rel="next"' in html
+    assert "auditor" not in html.lower()
+
+
+@pytest.mark.django_db
+def test_profile_headings_translated(client):
+    ru = client.get("/ru/jamoa/botirov-mahammad-hoshimovich/").content.decode()
+    assert "Образование</h2>" in ru and "Опыт работы</h2>" in ru and "Ботиров Махаммад Хошимович" in ru
+    member = TeamMember.objects.filter(certificates__isnull=False).distinct().first()
+    en = client.get(f"/en/jamoa/{member.slug}/").content.decode()
+    assert "Certificates</h2>" in en and "Issued:" in en and "— Team — TTT Audit</title>" in en
+
+
+@pytest.mark.django_db
+def test_unknown_profile_slug_is_404(client):
+    assert client.get("/uz/jamoa/bunday-xodim-yoq/").status_code == 404

@@ -127,7 +127,6 @@
     <a class="more sh__aside" href="{% url 'core:team' %}">{% translate "Butun jamoa" %} →</a>
   </div>
   <div class="team team--strip">
-    {% include "core/_director.html" %}
     {% for m in team_strip %}{% include "core/_person.html" with compact=True %}{% endfor %}
   </div>
 </div></section>

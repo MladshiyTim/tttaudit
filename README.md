@@ -10,7 +10,7 @@ python -m venv .venv && source .venv/Scripts/activate   # Git Bash (Windows)
 pip install -r requirements-dev.txt
 python manage.py migrate
 python manage.py seed_content        # tahririy kontent (yoʻnalish, xizmat, qonun, maqola)
-python manage.py import_tttaudit     # mijoz faktlari: hujjatlar, 38 mutaxassis, 143 loyiha
+python manage.py import_tttaudit     # mijoz faktlari: hujjatlar, direktor + 38 mutaxassis, 46 sertifikat, 143 loyiha
 python manage.py createsuperuser
 cd frontend && npm install && npm run build && cd ..
 python manage.py runserver
@@ -50,10 +50,11 @@ Konteyner root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `media/` volume'
   tahrirlarini oʻchirmaydi va CMD da qolishi xavfsiz. `seed_content --force` esa `SiteSettings` geroy/kompaniya
   matnlarini, yoʻnalish, xizmat, qonun va maqolalarni (slug/raqam boʻyicha) fayldagi matn bilan **qayta yozadi** —
   admin paneldagi shu maydonlardagi tahrirlar yoʻqoladi (admin qoʻshgan yangi yozuvlar qoladi).
-- `import_tttaudit` (flagsiz) — maʼlumoti bor jadvallarni (ofis, hujjat, asbob, raqam, mutaxassis, loyiha, mijoz)
-  oʻtkazib yuboradi, lekin `SiteSettings` rekvizit maydonlarini (nom, STIR, telefon, e-pochta, rahbar, manzil,
-  xodimlar soni) **har safar** `facts.json` dan yangilaydi. Rekvizitlarni admin panelda tahrirlash rejalashtirilsa,
-  CMD dan `import_tttaudit` ni olib tashlang. `--force` jadvallarni fayllari bilan birga qayta yaratadi.
+- `import_tttaudit` (flagsiz) — maʼlumoti bor jadvallarni (ofis, hujjat, asbob, raqam, xodim, xodim sertifikati,
+  loyiha, mijoz) oʻtkazib yuboradi, lekin `SiteSettings` rekvizit maydonlarini (nom, STIR, telefon, e-pochta, rahbar,
+  manzil, xodimlar soni) **har safar** `facts.json` dan yangilaydi. Rekvizitlarni admin panelda tahrirlash
+  rejalashtirilsa, CMD dan `import_tttaudit` ni olib tashlang. `--force` jadvallarni fayllari bilan birga qayta
+  yaratadi (eski suratlar/skanlar oʻchiriladi, `media/team/` oʻsmaydi).
 
 ### Prod: muhim
 - **`DJANGO_DEBUG=0` va haqiqiy `DJANGO_SECRET_KEY` majburiy.** `DEBUG=0` da maxfiy kalit berilmasa (yoki dev
@@ -100,3 +101,8 @@ Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun f
 - Asosiy e-pochta manzili.
 - Ism transliteratsiyalari (`import_tttaudit.STAFF_LATIN_NAMES`: Zuhriddinov T. D., Ergashev Sh. R.).
 - Xodimlar soni: byulletendagi 50 / 24 / 16 va roʻyxatdagi 38 mutaxassis (takror birlashtirilgach) farqi.
+- Direktor tarjimai holi faqat muhandislik tarixiga qisqartirilgan (`import_tttaudit.DIRECTOR`: maʼlumoti va
+  1979–1995 ish joylari, 1997-yildan bosh direktor) — eski saytdagi moliyaviy audit qatorlari chiqarilmagan; tasdiqlasin.
+- Direktor surati (`img/team/kZeWGs8BiqT2DLVxMvDS.jpg`) 133×200 — sifatliroq portret kerak.
+- Xodim sertifikatlari skanlari (`staff_certificates.json`): 45 ta «high», 1 ta «medium» (Ergashboev — sertifikatda
+  «Inomjon»); ism tuzatishi `STAFF_NAME_FIXES` (Tuxlibayev Ulugʻbek Soyibovich).

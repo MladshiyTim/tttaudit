@@ -81,11 +81,11 @@ def test_registry_credential_number_and_ranking():
 @pytest.mark.django_db
 def test_staff_without_latin_name_get_transliteration(client):
     assert not TeamMember.objects.filter(full_name__regex=r"[А-Яа-яЁёЎўҚқҒғҲҳ]").exists()
-    en = client.get("/en/tashkilot/mutaxassislar/").content.decode()
+    en = client.get("/en/jamoa/").content.decode()
     assert "Ergashev Shavkat Rashitovich" in en and "Zuhriddinov Temurjon Doniyorjon oʻgʻli" in en
     assert "ЭРГАШЕВ" not in en
-    ru = client.get("/ru/tashkilot/mutaxassislar/").content.decode()
-    assert "ЭРГАШЕВ ШАВКАТ РАШИТОВИЧ" in ru
+    ru = client.get("/ru/jamoa/").content.decode()
+    assert "Эргашев Шавкат Рашитович" in ru and "ЭРГАШЕВ" not in ru      # KATTA harfli ism sahifada oddiy
 
 
 @pytest.mark.django_db

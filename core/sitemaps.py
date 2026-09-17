@@ -1,8 +1,8 @@
-"""Sitemap: statik sahifalar, yoʻnalishlar, xizmatlar, maqolalar — uch tilda alternates bilan."""
+"""Sitemap: statik sahifalar, yoʻnalishlar, xizmatlar, maqolalar, xodim profillari — uch tilda alternates bilan."""
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-from .models import Direction, Post, Service
+from .models import Direction, Post, Service, TeamMember
 
 
 class StaticSitemap(Sitemap):
@@ -54,4 +54,18 @@ class PostSitemap(Sitemap):
         return obj.published_on
 
 
-SITEMAPS = {"static": StaticSitemap, "directions": DirectionSitemap, "services": ServiceSitemap, "posts": PostSitemap}
+class TeamMemberSitemap(Sitemap):
+    i18n = True
+    alternates = True
+    x_default = True
+    changefreq = "monthly"
+    priority = 0.5
+
+    def items(self):
+        return TeamMember.objects.all()
+
+
+SITEMAPS = {
+    "static": StaticSitemap, "directions": DirectionSitemap, "services": ServiceSitemap, "posts": PostSitemap,
+    "team": TeamMemberSitemap,
+}

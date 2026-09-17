@@ -4,7 +4,7 @@ import math
 
 from django.conf import settings
 from django.core.paginator import Paginator
-from django.db.models import F, Q
+from django.db.models import Count, F, Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -183,15 +183,45 @@ def company(request):
     )
 
 
+TEAM_DEPT_PARAM = "bolim"
+TEAM_TABS = [("", _("Barchasi")), (TeamMember.DEPT_ENERGY, _("Energoaudit")),
+             (TeamMember.DEPT_CONSTRUCTION, _("Qurilishda nazorat oʻlchovi"))]
+
+
 def team(request):
-    members = TeamMember.objects.all()
+    """Rahbariyat (direktor birinchi) va mutaxassislar; `?bolim=energy|construction` JS'siz tab."""
+    members = TeamMember.objects.annotate(cert_count=Count("certificates"))
+    specialists = members.filter(is_leadership=False)
+    dept = request.GET.get(TEAM_DEPT_PARAM, "")
+    if dept not in {TeamMember.DEPT_ENERGY, TeamMember.DEPT_CONSTRUCTION}:
+        dept = ""
+    counts = {key: specialists.filter(dept=key).count() for key, _label in TEAM_TABS if key}
+    counts[""] = sum(counts.values())
+    tabs = [{"key": key, "label": label, "count": counts[key], "active": key == dept,
+             "url": (f"?{TEAM_DEPT_PARAM}={key}" if key else request.path) + "#mutaxassislar"}
+            for key, label in TEAM_TABS]
     return page(
         request, "core/team.html", nav="team",
-        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Jamoa"), None)],
+        crumbs=[(_("Jamoa"), None)],
         leadership=members.filter(is_leadership=True),
-        energy=members.filter(is_leadership=False, dept=TeamMember.DEPT_ENERGY),
-        construction=members.filter(is_leadership=False, dept=TeamMember.DEPT_CONSTRUCTION),
+        specialists=specialists.filter(dept=dept) if dept else specialists,
+        tabs=tabs,
         total=members.count(),
+    )
+
+
+def team_member(request, slug):
+    member = get_object_or_404(TeamMember, slug=slug)
+    # Oldingi/keyingi: jamoa sahifasidagi tartib (rahbariyat, keyin mutaxassislar — `order` boʻyicha)
+    siblings = list(TeamMember.objects.only("slug", "full_name", "full_name_ru"))
+    index = next(i for i, m in enumerate(siblings) if m.pk == member.pk)
+    return page(
+        request, "core/team_member.html", nav="team",
+        crumbs=[(_("Jamoa"), reverse("core:team")), (member.display_name(), None)],
+        member=member,
+        certificates=member.certificates.all(),
+        previous=siblings[index - 1] if index > 0 else None,
+        next=siblings[index + 1] if index + 1 < len(siblings) else None,
     )
 
 
