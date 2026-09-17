@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{% translate "Tashkilot haqida" %} — TTT Audit{% endblock %}
+{% block description %}{{ site|tr:"about"|truncatechars:160 }}{% endblock %}
+{% block main %}<div class="wrap">
+<div class="phead"><h1>{{ site|tr:"org_name" }}</h1><p>{{ site|tr:"hero_title" }}</p><div class="phead__meta">{% translate "Ekspert tashkiloti" %} · {% translate "Fargʻona" %} · {{ site.founded_year }}</div></div>
+<div class="stats">{% for s in stats %}<div class="card stat"><b>{{ s.value }}</b><span>{{ s|tr:"label" }}</span></div>{% endfor %}</div>
+<section class="sec"><div class="split">
+  <div class="card prose">{{ site|tr:"about"|linebreaks }}</div>
+  <div>
+    <div class="card"><h3>{% translate "Rahbar" %}</h3><p><b>{{ site|tr:"director" }}</b><br><span class="muted">{% translate "Bosh direktor" %}</span></p>
+      {% for m in leadership %}<p><b>{{ m.display_name }}</b><br><span class="muted">{{ m|tr:"role" }}</span></p>{% endfor %}
+      <a href="{% url 'core:team' %}">{% translate "Rahbariyat va mutaxassislar" %} →</a></div>
+    <div class="card"><h3>{% translate "Hamkorlik" %}</h3><ul>
+      <li>{% translate "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi" %}</li>
+      <li>{% translate "Qurilish va uy-joy kommunal xoʻjaligi vazirligi bilan hamkorlik" %}</li>
+      <li>{% translate "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik" %}</li>
+    </ul></div>
+  </div>
+</div></section>
+<section class="sec"><div class="sec__head"><h2>{% translate "Vakolat va sifat hujjatlari" %}</h2><a href="{% url 'core:credentials' %}">{% translate "Skanlar bilan" %} →</a></div>
+<div class="grid grid--4">{% for c in credentials %}<div class="card"><div class="doc__k">{{ c.get_kind_display }}</div><div class="doc__n">{{ c.number }}</div><div class="doc__s">{{ c|tr:"scope" }}</div></div>{% endfor %}</div></section>
+{% if clients %}<section class="sec"><div class="sec__head"><h2>{% translate "Buyurtmachilar orasida" %}</h2><a href="{% url 'core:registry' %}">{% translate "Reestr" %} →</a></div><div class="grid grid--3">{% for c in clients %}<div class="card">{{ c|tr:"name" }}</div>{% endfor %}</div></section>{% endif %}
+</div>{% endblock %}

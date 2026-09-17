@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{% translate "Rahbariyat va mutaxassislar" %} — TTT Audit{% endblock %}
+{% block description %}{% blocktranslate with n=total %}{{ n }} mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan.{% endblocktranslate %}{% endblock %}
+{% block main %}<div class="wrap">
+<div class="phead"><h1>{% translate "Rahbariyat va mutaxassislar" %}</h1><p>{% blocktranslate with n=site.staff_total e=site.staff_energy c=site.staff_supervision %}Jami {{ n }} xodim: {{ e }} energoaudit, {{ c }} texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar.{% endblocktranslate %}</p></div>
+<section class="sec"><div class="sec__head"><h2>{% translate "Rahbariyat" %}</h2></div><div class="grid grid--3">
+  <div class="card person"><span class="person__ph"></span><div><b>{{ site|tr:"director" }}</b><span>{% translate "Bosh direktor" %}</span></div></div>
+  {% for m in leadership %}{% include "core/_person.html" %}{% endfor %}
+</div></section>
+<section class="sec"><div class="sec__head"><h2>{% translate "Energoaudit" %}</h2></div><div class="grid grid--3">{% for m in energy %}{% include "core/_person.html" %}{% endfor %}</div></section>
+<section class="sec"><div class="sec__head"><h2>{% translate "Qurilishda nazorat oʻlchovi" %}</h2></div><div class="grid grid--3">{% for m in construction %}{% include "core/_person.html" %}{% endfor %}</div></section>
+</div>{% endblock %}

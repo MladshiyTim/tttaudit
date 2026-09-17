@@ -9,7 +9,19 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from . import compliance, energy
-from .models import Credential, Direction, Instrument, LegalAct, Post, Project, Service, Stat
+from .models import (
+    Branch,
+    Client,
+    Credential,
+    Direction,
+    Instrument,
+    LegalAct,
+    Post,
+    Project,
+    Service,
+    Stat,
+    TeamMember,
+)
 
 
 def page(request, template, nav="", crumbs=(), **context):
@@ -135,6 +147,37 @@ def instruments(request):
         request, "core/instruments.html", nav="company",
         crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Oʻlchov asboblari"), None)],
         instruments=Instrument.objects.all(),
+    )
+
+
+def company(request):
+    return page(
+        request, "core/company.html", nav="company",
+        crumbs=[(_("Tashkilot"), None)],
+        credentials=Credential.objects.all(),
+        stats=Stat.objects.all(),
+        leadership=TeamMember.objects.filter(is_leadership=True)[:4],
+        clients=Client.objects.filter(featured=True)[:12],
+    )
+
+
+def team(request):
+    members = TeamMember.objects.all()
+    return page(
+        request, "core/team.html", nav="company",
+        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Rahbariyat va mutaxassislar"), None)],
+        leadership=members.filter(is_leadership=True),
+        energy=members.filter(is_leadership=False, dept=TeamMember.DEPT_ENERGY),
+        construction=members.filter(is_leadership=False, dept=TeamMember.DEPT_CONSTRUCTION),
+        total=members.count(),
+    )
+
+
+def requisites(request):
+    return page(
+        request, "core/requisites.html", nav="company",
+        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Rekvizitlar"), None)],
+        branches=Branch.objects.all(),
     )
 
 

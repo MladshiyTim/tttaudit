@@ -118,3 +118,26 @@ def test_news_list_and_detail(client):
     detail = client.get("/uz/yangiliklar/energoaudit-kimga-majburiy/")
     assert detail.status_code == 200
     assert client.get("/uz/yangiliklar/yoq-maqola/").status_code == 404
+
+
+@pytest.mark.django_db
+def test_company_page(client):
+    html = client.get("/uz/tashkilot/").content.decode()
+    assert "1997" in html and "UZACE" in html and "ISO 27001" in html
+    assert "Botirov" in html
+    assert "filial" not in html.lower()
+
+
+@pytest.mark.django_db
+def test_team_page_groups_by_department(client):
+    html = client.get("/uz/tashkilot/mutaxassislar/").content.decode()
+    assert "Rahbariyat va mutaxassislar" in html
+    assert html.count('class="card person"') == 40      # 39 mutaxassis + direktor kartasi
+    assert "Energoaudit" in html and "Qurilishda nazorat oʻlchovi" in html
+    assert "Jamoa" not in html
+
+
+@pytest.mark.django_db
+def test_requisites_page(client):
+    html = client.get("/uz/tashkilot/rekvizitlar/").content.decode()
+    assert "202216926" in html and "«TTTaudit» MChJ" in html

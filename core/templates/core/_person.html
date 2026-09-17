@@ -1,0 +1,1 @@
+{% load sitetags %}<div class="card person">{% if m.photo %}<img src="{{ m.photo.url }}" alt="{{ m.display_name }}" loading="lazy" width="72" height="90">{% else %}<span class="person__ph"></span>{% endif %}<div><b>{{ m.display_name }}</b><span>{{ m|tr:"role" }}</span>{% if m.certificate_lines %}<small>{{ m.certificate_lines|join:"; " }}</small>{% endif %}</div></div>
