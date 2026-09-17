@@ -1,0 +1,16 @@
+{% load i18n sitetags %}<div data-react="lead-form" data-endpoint="{% url 'core:lead_create' %}" data-directions="{{ form_directions_json }}" data-max-mb="{{ max_upload_mb }}">
+<form class="form" method="post" action="{% url 'core:lead_create' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="grid grid--2">
+    <div class="field"><label class="field__label" for="l-direction">{% translate "Yoʻnalish" %}</label><select class="select" id="l-direction" name="direction"><option value="">{% translate "Tanlang" %}</option>{% for d in form_directions %}<option value="{{ d.pk }}">{{ d|tr:"title" }}</option>{% endfor %}</select></div>
+    <div class="field"><label class="field__label" for="l-object">{% translate "Obyekt turi" %}</label><input class="input" id="l-object" name="object_type" placeholder="{% translate "masalan, maʼmuriy bino, 4 qavat" %}"></div>
+    <div class="field"><label class="field__label" for="l-name">{% translate "Ism" %} <span class="field__req">*</span></label><input class="input" id="l-name" name="name" required></div>
+    <div class="field"><label class="field__label" for="l-phone">{% translate "Telefon" %} <span class="field__req">*</span></label><input class="input" id="l-phone" name="phone" type="tel" required placeholder="+998"></div>
+    <div class="field"><label class="field__label" for="l-email">{% translate "E-pochta" %}</label><input class="input" id="l-email" name="email" type="email"></div>
+    <div class="field"><label class="field__label" for="l-region">{% translate "Viloyat" %}</label><input class="input" id="l-region" name="region"></div>
+    <div class="field form__full"><label class="field__label" for="l-note">{% translate "Izoh" %}</label><textarea class="textarea" id="l-note" name="note"></textarea></div>
+    <div class="field form__full"><label class="field__label" for="l-file">{% translate "Fayl" %} <small class="muted">({% blocktranslate with mb=max_upload_mb %}{{ mb }} MB gacha: PDF, Excel, Word, DWG, ZIP, rasm{% endblocktranslate %})</small></label><input class="input" id="l-file" name="attachment" type="file"></div>
+  </div>
+  <div class="form__foot"><button class="btn" type="submit">{% translate "Yuborish" %}</button><span class="form__privacy">{% translate "Maʼlumotlar faqat murojaatni koʻrib chiqish uchun ishlatiladi." %}</span></div>
+</form>
+</div>

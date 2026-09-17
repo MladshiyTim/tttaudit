@@ -18,8 +18,9 @@ urlpatterns = [
     path("tashkilot/mutaxassislar/", views.team, name="team"),
     path("tashkilot/asboblar/", views.instruments, name="instruments"),
     path("tashkilot/rekvizitlar/", views.requisites, name="requisites"),
-    path("aloqa/", views.home, name="contact"),
-    path("murojaat/", views.home, name="request"),
-    path("api/compliance/", views.home, name="compliance_check"),
-    path("api/energy-estimate/", views.home, name="energy_estimate"),
+    path("aloqa/", views.contact, name="contact"),
+    path("murojaat/", views.request_page, name="request"),
+    path("api/lead/", views.lead_create, name="lead_create"),
+    path("api/compliance/", views.compliance_check, name="compliance_check"),
+    path("api/energy-estimate/", views.energy_estimate, name="energy_estimate"),
 ]

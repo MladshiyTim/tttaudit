@@ -77,6 +77,7 @@ p{margin:0 0 1em}
 .sec__head h2{font-size:22px;margin:0}
 .sec__head a{font-size:14px;font-weight:600;text-decoration:none}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.map-card{padding:0;overflow:hidden}
 .grid{display:grid;gap:16px}
 .grid--2{grid-template-columns:repeat(2,1fr)}
 .grid--3{grid-template-columns:repeat(3,1fr)}

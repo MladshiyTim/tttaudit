@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}{% load i18n sitetags %}
+{% block title %}{% translate "Aloqa" %} — TTT Audit{% endblock %}
+{% block main %}<div class="wrap">
+<div class="phead"><h1>{% translate "Aloqa" %}</h1></div>
+<div class="grid grid--2">
+{% for b in branches %}<div class="card"><div class="doc__k">{% if b.is_head_office %}{% translate "Bosh ofis" %}{% else %}{% translate "Ofis" %}{% endif %}</div><h3>{{ b|tr:"city" }}</h3><p>{{ b|tr:"address" }}</p>{% if b.phone %}<p><a href="tel:{{ b.phone|cut:' ' }}">{{ b.phone }}</a></p>{% endif %}{% if b.head %}<p class="muted">{{ b.head }}</p>{% endif %}</div>{% endfor %}
+</div>
+{% if map_bbox %}<section class="sec"><div class="card map-card"><iframe title="{% translate "Xarita" %}" width="100%" height="360" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox={{ map_bbox|urlencode }}&amp;layer=mapnik&amp;marker={{ site.map_lat }}%2C{{ site.map_lng }}"></iframe></div><p class="muted"><a href="https://www.openstreetmap.org/?mlat={{ site.map_lat }}&amp;mlon={{ site.map_lng }}#map=17/{{ site.map_lat }}/{{ site.map_lng }}" rel="noopener" target="_blank">{% translate "Kattaroq xarita" %}</a></p></section>{% endif %}
+<section class="sec"><div class="sec__head"><h2>{% translate "Murojaat yuborish" %}</h2></div><div class="card">{% include "core/_lead.html" %}</div></section>
+</div>{% endblock %}

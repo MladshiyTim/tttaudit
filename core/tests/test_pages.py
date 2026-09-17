@@ -147,3 +147,11 @@ def test_requisites_page(client):
     assert "202216926" in html and "«TTTaudit» MChJ" in html
     assert "filial" not in html.lower()
     assert "Avisozlar" in html
+
+
+@pytest.mark.django_db
+def test_contact_and_request_pages(client):
+    contact = client.get("/uz/aloqa/").content.decode()
+    assert "Toshkent" in contact and "Yangiobod" in contact and 'data-react="lead-form"' in contact
+    request_page = client.get("/uz/murojaat/").content.decode()
+    assert 'name="csrfmiddlewaretoken"' in request_page and 'enctype="multipart/form-data"' in request_page
