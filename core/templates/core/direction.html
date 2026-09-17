@@ -1,35 +1,45 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{{ direction|tr:"title" }} — TTT Audit{% endblock %}
 {% block description %}{{ direction|tr:"summary" }}{% endblock %}
-{% block main %}<div class="wrap">
-<div class="phead"><h1>{{ direction|tr:"title" }}</h1><p>{{ direction|tr:"summary" }}</p>
-  <div class="phead__meta">{% if is_energy %}{% translate "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)" %} · {% blocktranslate with n=site.staff_energy %}{{ n }} nafar energoaudit mutaxassisi{% endblocktranslate %}{% else %}{% translate "Vakolat: Qurilish vazirligi litsenziyasi № 518159" %} · {% blocktranslate with n=site.staff_supervision %}{{ n }} nafar texnik nazorat xodimi{% endblocktranslate %}{% endif %}</div></div>
+{% block main %}<div class="wrap page">
+<header class="phead"><p class="phead__k">{% translate "Xizmatlar" %}</p><h1>{{ direction|tr:"title" }}</h1><p>{{ direction|tr:"summary" }}</p></header>
 
-<div class="grid grid--2">
-{% for s in services %}<article class="card"><h3><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></h3><p class="muted">{{ s|tr:"summary" }}</p>{% if s|tr:"duration" %}<span class="badge">{{ s|tr:"duration" }}</span>{% endif %}</article>{% endfor %}
+<div class="intro">
+  <div>
+    {% if direction|tr:"problem_title" %}<div class="prose"><h2 class="h3">{{ direction|tr:"problem_title" }}</h2>{{ direction|tr:"problem_body"|linebreaks }}</div>{% endif %}
+    <h2 class="h3 intro__h">{% translate "Xizmatlar" %}</h2>
+    <ul class="svc">{% for s in services %}<li><a href="{{ s.get_absolute_url }}"><span class="svc__t">{{ s|tr:"title" }}<small>{{ s|tr:"summary" }}</small></span><span>{{ s|svc_tag }}</span></a></li>{% endfor %}</ul>
+  </div>
+  <aside class="basis">
+    <h2>{% translate "Asos" %}</h2>
+    <p>{% if is_energy %}{% translate "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)" %} · {% blocktranslate with n=site.staff_energy %}{{ n }} nafar energoaudit mutaxassisi{% endblocktranslate %}{% else %}{% translate "Vakolat: Qurilish vazirligi litsenziyasi № 518159" %} · {% blocktranslate with n=site.staff_supervision %}{{ n }} nafar texnik nazorat xodimi{% endblocktranslate %}{% endif %}</p>
+    {% if legal_acts %}<ul>{% for a in legal_acts %}<li><b>{{ a.number }}</b>{{ a|tr:"title" }}{% if a.lex_url %} · <a href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</li>{% endfor %}</ul>{% endif %}
+    {% if direction|tr:"legal_note" %}<p class="basis__note">{{ direction|tr:"legal_note" }}</p>{% endif %}
+  </aside>
+</div>
 </div>
 
-{% if direction|tr:"problem_title" %}<section class="sec"><div class="split">
-  <div class="card prose"><h2>{{ direction|tr:"problem_title" }}</h2>{{ direction|tr:"problem_body"|linebreaks }}</div>
-  <div>
-    {% if legal_acts %}<div class="card"><h3>{% translate "Meʼyoriy asos" %}</h3><ul>{% for a in legal_acts %}<li><b>{{ a.number }}</b> — {{ a|tr:"title" }}{% if a.lex_url %} <a href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
-    {% if direction|tr:"legal_note" %}<div class="notice notice--info"><p>{{ direction|tr:"legal_note" }}</p></div>{% endif %}
-  </div>
-</div></section>{% endif %}
-
 {% if is_energy %}
-<section class="sec" id="talab"><div class="sec__head"><h2>{% translate "Obyektingizga qaysi talab tegishli?" %}</h2></div><div class="split"><div class="card">{% include "core/_compliance.html" %}</div><div class="card">{% include "core/_energy.html" %}</div></div></section>
+<section class="sec sec--tint" id="talab"><div class="wrap">
+  <div class="sh"><p class="sh__k">{% translate "Talab tekshiruvi" %}</p><div><h2>{% translate "Obyektingizga qaysi talab tegishli" %}</h2><p>{% translate "Uch savolga javob bering. Natija faqat qonunda aniq yozilgan talablarga tayanadi." %}</p></div><p class="sh__aside">{% translate "Manba: lex.uz" %}</p></div>
+  <div class="duo"><div class="panel">{% include "core/_compliance.html" %}</div><div class="panel">{% include "core/_energy.html" %}</div></div>
+</div></section>
 {% else %}
-<section class="sec"><div class="sec__head"><h2>{% translate "Oʻlchov asboblari va qiyoslash" %}</h2><a href="{% url 'core:instruments' %}">{% translate "Toʻliq roʻyxat" %} →</a></div>
-<div class="table-wrap"><table class="table"><thead><tr><th>{% translate "Asbob" %}</th><th>{% translate "Oʻlchov chegarasi" %}</th><th>{% translate "Guvohnoma" %}</th><th>{% translate "Amal qiladi" %}</th></tr></thead>
-<tbody>{% for i in instruments %}<tr><td>{{ i|tr:"name" }}</td><td>{{ i|tr:"range" }}</td><td class="nowrap">{{ i.certificate_no }}</td><td class="num">{{ i.valid_until|date:"d.m.Y" }}</td></tr>{% endfor %}</tbody></table></div></section>
+<section class="sec sec--tint"><div class="wrap">
+  <div class="sh"><p class="sh__k">{% translate "Asboblar" %}</p><div><h2>{% translate "Oʻlchov asboblari va qiyoslash" %}</h2></div><a class="more sh__aside" href="{% url 'core:instruments' %}">{% translate "Toʻliq roʻyxat" %} →</a></div>
+  <div class="tbl-wrap"><table class="tbl"><thead><tr><th>{% translate "Asbob" %}</th><th>{% translate "Oʻlchov chegarasi" %}</th><th>{% translate "Guvohnoma" %}</th><th class="r">{% translate "Amal qiladi" %}</th></tr></thead>
+  <tbody>{% for i in instruments %}<tr><td>{{ i|tr:"name" }}</td><td>{{ i|tr:"range" }}</td><td class="num">{{ i.certificate_no }}</td><td class="num r">{{ i.valid_until|date:"d.m.Y" }}</td></tr>{% endfor %}</tbody></table></div>
+</div></section>
 {% endif %}
 
-{% if direction.deliverables %}<section class="sec"><div class="sec__head"><h2>{% translate "Natijada olasiz" %}</h2></div><div class="grid grid--3">{% for item in direction|tr_list:"deliverables" %}<div class="card">{% include "core/_icon.html" with name="check" %} {{ item }}</div>{% endfor %}</div></section>{% endif %}
+<section class="sec"><div class="wrap">
+  {% if direction.deliverables %}<div class="sh"><p class="sh__k">{% translate "Natija" %}</p><div><h2>{% translate "Natijada olasiz" %}</h2></div></div>
+  <ol class="steps steps--out">{% for item in direction|tr_list:"deliverables" %}<li class="step"><p>{{ item }}</p></li>{% endfor %}</ol>{% endif %}
 
-<section class="sec"><div class="sec__head"><h2>{% translate "Bajarilgan ishlar" %} — {{ project_total }}</h2><a href="{% url 'core:registry' %}?d={{ direction.slug }}">{% translate "Reestrda koʻrish" %} →</a></div>
-<div class="table-wrap"><table class="table"><thead><tr><th>№</th><th>{% translate "Ish" %}</th><th>{% translate "Buyurtmachi" %}</th><th>{% translate "Yil" %}</th></tr></thead>
-<tbody>{% for p in projects %}<tr><td class="num">{{ forloop.counter }}</td><td>{{ p|tr:"title" }}</td><td>{{ p.client }}</td><td class="num">{{ p.year }}</td></tr>{% endfor %}</tbody></table></div></section>
+  <div class="sh sh--next"><p class="sh__k">{% translate "Loyihalar" %}</p><div><h2>{% translate "Bajarilgan ishlar" %} — {{ project_total }}</h2></div><a class="more sh__aside" href="{% url 'core:registry' %}?d={{ direction.slug }}">{% translate "Reestrda koʻrish" %} →</a></div>
+  <div class="tbl-wrap"><table class="tbl tbl--stack"><thead><tr><th>{% translate "Ish" %}</th><th>{% translate "Buyurtmachi" %}</th><th class="r">{% translate "Yil" %}</th></tr></thead>
+  <tbody>{% for p in projects %}<tr><td>{{ p|tr:"title" }}</td><td>{{ p.client }}</td><td class="num r">{{ p.year|default:"—" }}</td></tr>{% endfor %}</tbody></table></div>
 
-<section class="sec"><div class="notice"><p>{% translate "Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaydi." %} <a href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %} →</a></p></div></section>
-</div>{% endblock %}
+  <div class="cta cta--gap"><p>{% translate "Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaydi." %}</p><a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a></div>
+</div></section>
+{% endblock %}

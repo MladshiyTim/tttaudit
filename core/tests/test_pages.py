@@ -2,12 +2,14 @@ import pytest
 
 
 @pytest.mark.django_db
-def test_home_renders_gov_style_sections(client):
+def test_home_renders_v3_sections(client):
     response = client.get("/uz/")
     assert response.status_code == 200
     html = response.content.decode()
-    assert "Energoaudit va qurilishda nazorat oʻlchovi" in html      # hero H1
-    assert "Vakolat hujjatlari" in html                               # litsenziya bloki
+    assert "Energoaudit va <em>qurilishda nazorat oʻlchovi</em>" in html   # hero H1, ikkinchi qismi indigo
+    assert 'class="facts"' in html                                    # faktlar tasmasi
+    assert "Taqqoslash vedomosti" in html and "67 285 000" in html  # vedomost namunasi
+    assert html.count('data-doc-panel') == 8                          # hujjat koʻrgich
     assert 'data-react="compliance-check"' in html                    # talab tekshiruvchi
     assert "Bajarilgan ishlar reestri" in html
     assert "Koʻp soʻraladigan savollar" in html
@@ -35,7 +37,7 @@ def test_services_hub_lists_both_directions(client):
     html = client.get("/uz/xizmatlar/").content.decode()
     assert "Energosamaradorlik auditi" in html
     assert "Qurilishda nazorat oʻlchovi" in html
-    assert html.count('class="card cat"') == 2
+    assert html.count('data-direction="') == 2
 
 
 @pytest.mark.django_db
@@ -105,7 +107,8 @@ def test_registry_paginates_and_filters(client):
 
     energy = client.get("/uz/reestr/?d=energoaudit").content.decode()
     assert "Topildi: 48 ta" in energy
-    assert '<span class="badge">Qurilishda nazorat oʻlchovi</span>' not in energy
+    assert '<td class="tbl__dir">Qurilishda nazorat oʻlchovi</td>' not in energy
+    assert '<td class="tbl__dir">Energosamaradorlik auditi</td>' in energy
 
     year = client.get("/uz/reestr/?y=2023").content.decode()
     assert "Topildi: 20 ta" in year
@@ -121,7 +124,8 @@ def test_registry_paginates_and_filters(client):
 @pytest.mark.django_db
 def test_credentials_page_shows_all_eight_documents_with_scans(client):
     html = client.get("/uz/hujjatlar/").content.decode()
-    assert html.count('class="card doc"') == 8
+    assert html.count('class="dview"') == 8
+    assert " hidden>" not in html                           # JS'siz sahifada hamma hujjat koʻrinadi
     assert "data-lightbox" in html
     assert "№ 518159" in html and "ISO 9001:2015" in html and "Imkon" in html
     assert "АФ № 00773" not in html                       # Moliya vazirligi litsenziyasi — yoʻq
@@ -163,11 +167,12 @@ def test_company_page(client):
 def test_team_page_groups_by_department(client):
     html = client.get("/uz/tashkilot/mutaxassislar/").content.decode()
     assert "Rahbariyat va mutaxassislar" in html
-    assert html.count('class="card person"') == 39      # 38 mutaxassis (takror birlashtirilgan) + direktor kartasi
+    assert html.count('class="pm"') == 39               # 38 mutaxassis (takror birlashtirilgan) + direktor kartasi
     assert "Jami 50 xodim" in html and "Roʻyxatda: 38" in html
     assert "Listed: 38" in client.get("/en/tashkilot/mutaxassislar/").content.decode()
     assert "Energoaudit" in html and "Qurilishda nazorat oʻlchovi" in html
-    assert "Jamoa" not in html
+    assert 'aria-current="page">Jamoa</a>' in html     # menyuda «Jamoa» faol
+    assert 'data-person="director"' in html and "core/img/director.jpg" in html
     # "== 1" emas: fotosurati bor har bir xodim nomi img alt'da HAM <b> ichida
     # takrorlanadi (bitta karta ichida 2 marta) — shu sababli karta sonini
     # <b> yorlig'i orqali sanaymiz: bitta kishi = bitta karta = bitta <b>.

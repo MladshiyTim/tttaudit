@@ -1,81 +1,187 @@
 {% extends "core/base.html" %}{% load i18n static sitetags %}
 {% block main %}
-<section class="hero"><div class="wrap">
-  <div>
-    <div class="hero__k">{{ site|tr:"hero_kicker" }}</div>
-    <h1>{{ site|tr:"hero_title" }}</h1>
-    <p>{{ site|tr:"hero_text" }}</p>
+<section class="hero"><div class="wrap hero__grid">
+  <div class="hero__main">
+    <p class="hero__k">{{ site|tr:"hero_kicker" }}</p>
+    <h1>{{ title_main }}{% if title_accent %} <em>{{ title_accent }}</em>{% endif %}</h1>
+    <p class="hero__lede">{{ site|tr:"hero_text" }}</p>
     <div class="hero__cta">
       <a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
       <a class="btn btn--ghost" href="#talab">{% translate "Qaysi talab tegishli?" %}</a>
     </div>
+    {% translate "ЗРУ-940" as zru %}
+    <div class="prac" data-tabs>
+      <div class="prac__tabs" data-tablist aria-label="{% translate "Yoʻnalishlar" %}">
+        {% for d in directions %}<a class="prac__tab" href="#prac-{{ d.slug }}" id="prac-{{ d.slug }}-tab" data-tab="prac-{{ d.slug }}"{% if forloop.first %} aria-selected="true"{% endif %}>{% if d.accent == "amber" %}{% translate "Energoaudit" %}{% else %}{% translate "Qurilishda nazorat oʻlchovi" %}{% endif %}</a>{% endfor %}
+      </div>
+      {% for d in directions %}<div class="prac__panel" id="prac-{{ d.slug }}" data-panel>
+        {% if d.accent == "amber" %}
+        <div><h3>{% translate "Asos" %}</h3><p>{% blocktranslate %}{{ zru }} va VM qarori № 690; Energosamaradorlik milliy agentligi reestri, VM qarori № 673{% endblocktranslate %}</p></div>
+        <div><h3>{% translate "Qoʻlingizda" %}</h3><ul><li>{% translate "Energetik pasport" %}</li><li>{% translate "Energiya balansi" %}</li><li>{% translate "Tadbirlar rejasi" %}</li></ul></div>
+        {% else %}
+        <div><h3>{% translate "Asos" %}</h3><p>{% translate "Qurilish va uy-joy kommunal xoʻjaligi vazirligi litsenziyasi № 518159" %}</p></div>
+        <div><h3>{% translate "Qoʻlingizda" %}</h3><ul><li>{% translate "Nazorat oʻlchovi dalolatnomasi" %}</li><li>{% translate "Taqqoslash vedomosti" %}</li><li>{% translate "Ekspert xulosasi" %}</li></ul></div>
+        {% endif %}
+        <a class="prac__go" href="{{ d.get_absolute_url }}">{% translate "Yoʻnalish sahifasi" %} →</a>
+      </div>{% endfor %}
+    </div>
   </div>
-  <aside class="hero__side">
-    <h2>{% translate "Vakolat hujjatlari" %}</h2>
-    <ul>{% for c in hero_credentials %}<li><div><b>{{ c.get_kind_display }} {{ c.number }}</b><span>{{ c|tr:"issuer" }}{% if c.valid_until %} · {% translate "amal qiladi" %} {{ c.valid_until|date:"d.m.Y" }}{% elif c.kind == "license" %} · {% translate "muddatsiz" %}{% endif %}</span></div></li>{% endfor %}</ul>
-    <a class="cat__all" href="{% url 'core:credentials' %}">{% translate "Barcha hujjatlar" %} →</a>
-  </aside>
+  <figure class="hero__shot">
+    <img src="{% static 'core/img/office-hero.jpg' %}" srcset="{% static 'core/img/office-hero-800.jpg' %} 725w, {% static 'core/img/office-hero.jpg' %} 870w" sizes="(max-width: 900px) 100vw, 520px" width="870" height="960" loading="eager" fetchpriority="high" alt="{% translate "TTT Audit bosh ofisi binosi, Fargʻona" %}">
+    <figcaption><b>{% translate "Bosh ofis" %}</b> · {% translate "Fargʻona sh., Yangiobod koʻchasi, 5" %}</figcaption>
+  </figure>
 </div></section>
 
-<section class="sec"><div class="wrap">
-  <div class="sec__head"><h2>{% translate "Xizmatlar" %}</h2><a href="{% url 'core:services' %}">{% translate "Barchasi" %} →</a></div>
-  <div class="grid grid--2">
+<section class="facts" aria-label="{% translate "Asosiy faktlar" %}"><div class="wrap">
+  <div class="fact"><b class="num">{{ facts.founded }}</b><span>{% translate "yildan ekspert tashkiloti" %}</span><small>{% blocktranslate with n=facts.experience %}{{ n }} yillik tajriba{% endblocktranslate %}</small></div>
+  <div class="fact"><b class="num">{{ facts.staff_total }}</b><span>{% translate "xodim" %}</span><small>{% blocktranslate with e=facts.staff_energy c=facts.staff_supervision %}{{ e }} energoaudit · {{ c }} texnik nazorat{% endblocktranslate %}</small></div>
+  <div class="fact"><b class="num">{{ facts.projects }}</b><span>{% translate "loyiha" %}</span><small>{{ facts.year_first }}–{{ facts.year_last }}</small></div>
+  <div class="fact"><b class="num">{% blocktranslate with n=facts.insurance_bn %}{{ n }} mlrd{% endblocktranslate %}</b><span>{% translate "soʻm kasbiy javobgarlik sugʻurtasi" %}</span><small>{% translate "«Imkon-sugʻurta» AJ" %}</small></div>
+</div></section>
+
+<section class="sec" id="xizmatlar"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Xizmatlar" %}</p>
+    <div><h2>{% translate "Ikki yoʻnalish" %}</h2><p>{% translate "Energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida." %}</p></div>
+    <a class="more sh__aside" href="{% url 'core:services' %}">{% translate "Barcha xizmatlar" %} →</a>
+  </div>
+  <div class="dirs">
   {% for d in directions %}
-    <article class="card cat">
-      <span class="cat__ico">{% if d.accent == "amber" %}{% include "core/_icon.html" with name="bolt" %}{% else %}{% include "core/_icon.html" with name="ruler" %}{% endif %}</span>
-      <h3><a href="{{ d.get_absolute_url }}">{{ d|tr:"title" }}</a></h3>
-      <ul>{% for s in d.services.all %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></li>{% endfor %}</ul>
-      <a class="cat__all" href="{{ d.get_absolute_url }}">{% translate "Barchasi" %} →</a>
+    <article class="dir">
+      <div class="dir__top"><h3><a href="{{ d.get_absolute_url }}">{{ d|tr:"title" }}</a></h3><span class="dir__law">{% if d.accent == "amber" %}{{ zru }}{% else %}№ 518159{% endif %}</span></div>
+      <p>{{ d|tr:"summary" }}</p>
+      <ul class="svc">{% for s in d.services.all %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}<span>{{ s|svc_tag }}</span></a></li>{% endfor %}</ul>
+      {% if d.deliverables %}<p class="dir__out"><b>{% translate "Natija" %}</b>{{ d|tr_list:"deliverables"|join:"; " }}</p>{% endif %}
     </article>
   {% endfor %}
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap"><div class="stats">
-  {% for s in stats %}<div class="card stat"><b>{{ s.value }}</b><span>{{ s|tr:"label" }}</span></div>{% endfor %}
-</div></div></section>
-
-<section class="sec sec--white" id="talab"><div class="wrap">
-  <div class="sec__head"><h2>{% translate "Obyektingizga qaysi talab tegishli?" %}</h2></div>
-  <div class="split">
-    <div class="card">{% include "core/_compliance.html" %}</div>
-    <div class="notice notice--info"><p><b>{% translate "Asos" %}:</b> {% translate "ЗРУ-940" %} «{% translate "Energiyani tejash, undan oqilona foydalanish va energiya samaradorligini oshirish toʻgʻrisida" %}», {% translate "VM qarori" %} № 690. {% translate "Natija yoʻnaltiruvchi hisob, rasmiy xulosa emas — aniq talab va muddat hujjatlaringiz asosida tasdiqlanadi." %}</p><p><a href="{% url 'core:legislation' %}">{% translate "Meʼyoriy hujjatlar" %} →</a></p></div>
+<section class="sec sec--tint" id="talab"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Energosamaradorlik auditi" %}</p>
+    <div><h2>{% translate "Obyektingizga qaysi talab tegishli" %}</h2><p>{% translate "Uch savolga javob bering. Natija faqat qonunda aniq yozilgan talablarga tayanadi." %}</p></div>
+    <p class="sh__aside">{% translate "Manba: lex.uz" %}</p>
+  </div>
+  <div class="chk">
+    <div class="chk__form">{% include "core/_compliance.html" %}</div>
+    <div class="chk__out">
+      <h3>{% translate "Qonuniy asos" %}</h3>
+      <p><b>{% translate "Asos" %}:</b> {{ zru }} «{% translate "Energiyani tejash, undan oqilona foydalanish va energiya samaradorligini oshirish toʻgʻrisida" %}», {% translate "VM qarori" %} № 690.</p>
+      <p class="chk__note">{% translate "Natija yoʻnaltiruvchi hisob, rasmiy xulosa emas — aniq talab va muddat hujjatlaringiz asosida tasdiqlanadi." %}</p>
+      <a class="more" href="{% url 'core:legislation' %}">{% translate "Meʼyoriy hujjatlar" %} →</a>
+    </div>
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
-  <div class="sec__head"><h2>{% translate "Bajarilgan ishlar reestri" %}</h2><a href="{% url 'core:registry' %}">{% translate "Toʻliq reestr" %} →</a></div>
-  <div class="table-wrap"><table class="table">
-    <thead><tr><th>№</th><th>{% translate "Ish" %}</th><th>{% translate "Buyurtmachi" %}</th><th>{% translate "Yoʻnalish" %}</th><th>{% translate "Yil" %}</th></tr></thead>
-    <tbody>{% for p in projects %}<tr><td class="num">{{ forloop.counter }}</td><td>{{ p|tr:"title" }}</td><td>{{ p.client }}</td><td><span class="badge">{{ p.direction|tr:"title" }}</span></td><td class="num">{{ p.year }}</td></tr>{% endfor %}</tbody>
+<section class="sec sec--ink" id="nazorat"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Qurilishda nazorat oʻlchovi" %}</p>
+    <div><h2>{% translate "Dalolatnomadagi raqam obyektda bormi" %}</h2></div>
+  </div>
+  <div class="calc">
+    <div class="calc__txt">
+      <p>{% translate "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi." %}</p>
+      <p>{% translate "Biz obyektda tomonlar ishtirokida oʻlchaymiz va har bir smeta pozitsiyasini uch ustunda solishtiramiz: hujjat boʻyicha, haqiqatda va farq." %}</p>
+      {% for d in directions %}{% if d.accent != "amber" %}<ul>{% for s in d.services.all %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a><span>{{ s|svc_tag }}</span></li>{% endfor %}</ul>{% endif %}{% endfor %}
+    </div>
+    <div class="sheet" data-sheet>
+      <div class="sheet__h"><b>{% translate "Taqqoslash vedomosti" %}</b><span>{% translate "namuna · hajm va narxlar shartli" %}</span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>{% translate "Pozitsiya" %}</th><th>{% translate "Birlik" %}</th><th>{% translate "Hujjat boʻyicha" %}</th><th>{% translate "Haqiqatda" %}</th><th>{% translate "Farq" %}</th><th>{% translate "Narx, soʻm" %}</th><th>{% translate "Farq, soʻm" %}</th></tr></thead>
+        <tbody class="num">{% for r in sheet.rows %}<tr data-row data-doc="{{ r.doc|stringformat:"s" }}" data-price="{{ r.price|stringformat:"s" }}"><td>{{ r.title }}</td><td>{{ r.unit }}</td><td>{{ r.doc|groupnum }}</td><td class="f" data-fact="{{ r.fact|stringformat:"s" }}" data-label="{% translate "Haqiqatda" %}: {{ r.title }}">{{ r.fact|groupnum }}</td><td class="d{% if r.diff < 0 %} neg{% endif %}" data-diff>{{ r.diff|groupnum:"sign" }}</td><td>{{ r.price|groupnum }}</td><td class="d{% if r.diff_sum < 0 %} neg{% endif %}" data-diff-sum>{{ r.diff_sum|groupnum:"sign" }}</td></tr>{% endfor %}</tbody>
+      </table></div>
+      <div class="sheet__sum">
+        <span>{% translate "Hujjatdan ortiq yozilgan summa" %}</span><b class="num"><span data-sheet-total>{{ sheet.total|groupnum }}</span> {% translate "soʻm" %}</b>
+        <small>{% translate "Hisob: farq × birlik narxi. Haqiqiy hisobotda smeta normalari va koeffitsiyentlar ham tekshiriladi." %}</small>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="loyihalar"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Loyihalar" %}</p>
+    <div><h2>{% blocktranslate with n=facts.projects a=facts.year_first b=facts.year_last %}{{ n }} ta loyiha, {{ a }}–{{ b }}{% endblocktranslate %}</h2><p>{% blocktranslate with e=facts.projects_energy c=facts.projects_construction %}Axborot byulletenidagi roʻyxat: {{ e }} ta energoaudit va {{ c }} ta nazorat oʻlchovi. Quyida oxirgi ishlar.{% endblocktranslate %}</p></div>
+    <a class="more sh__aside" href="{% url 'core:registry' %}">{% translate "Toʻliq reestr" %} →</a>
+  </div>
+  <div class="tbl-wrap"><table class="tbl tbl--stack">
+    <thead><tr><th>{% translate "Ish" %}</th><th>{% translate "Buyurtmachi" %}</th><th>{% translate "Yoʻnalish" %}</th><th class="r">{% translate "Yil" %}</th></tr></thead>
+    <tbody>{% for p in projects %}<tr><td>{{ p|tr:"title" }}</td><td>{{ p.client }}</td><td class="tbl__dir">{{ p.direction|tr:"title" }}</td><td class="num r">{{ p.year }}</td></tr>{% endfor %}</tbody>
   </table></div>
 </div></section>
 
-<section class="sec"><div class="wrap">
-  <div class="sec__head"><h2>{% translate "Ish tartibi" %}</h2></div>
+<section class="sec sec--tint" id="hujjatlar"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Vakolat" %}</p>
+    <div><h2>{% translate "Hujjatlar" %}</h2><p>{% translate "Asl nusxalar Fargʻonadagi bosh ofisda. Skanni kattalashtirish uchun ustiga bosing." %}</p></div>
+    <a class="more sh__aside" href="{% url 'core:credentials' %}">{% translate "Barcha hujjatlar" %} →</a>
+  </div>
+  {% include "core/_docs.html" with docs=credentials %}
+</div></section>
+
+<section class="sec" id="jamoa"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Jamoa" %}</p>
+    <div><h2>{% translate "Rahbariyat va mutaxassislar" %}</h2><p>{% blocktranslate with n=site.staff_total e=site.staff_energy c=site.staff_supervision %}Jami {{ n }} xodim: {{ e }} energoaudit, {{ c }} texnik nazorat.{% endblocktranslate %}</p></div>
+    <a class="more sh__aside" href="{% url 'core:team' %}">{% translate "Butun jamoa" %} →</a>
+  </div>
+  <div class="team team--strip">
+    {% include "core/_director.html" %}
+    {% for m in team_strip %}{% include "core/_person.html" with compact=True %}{% endfor %}
+  </div>
+</div></section>
+
+<section class="sec sec--tint"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Ish tartibi" %}</p>
+    <div><h2>{% translate "Murojaatdan xulosagacha" %}</h2></div>
+  </div>
   <ol class="steps">
-    <li class="card"><b>{% translate "Murojaat va suhbat" %}</b>{% translate "Obyekt, maqsad va muddatni aniqlaymiz, qaysi talab tegishli ekanini aytamiz." %}</li>
-    <li class="card"><b>{% translate "Hujjatlar" %}</b>{% translate "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz." %}</li>
-    <li class="card"><b>{% translate "Obyektda oʻlchov" %}</b>{% translate "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan." %}</li>
-    <li class="card"><b>{% translate "Xulosa" %}</b>{% translate "Dalolatnoma, energopasport yoki ekspert xulosasi — imzo va muhr bilan." %}</li>
+    <li class="step"><b>{% translate "Murojaat va suhbat" %}</b><p>{% translate "Obyekt, maqsad va muddatni aniqlaymiz, qaysi talab tegishli ekanini aytamiz." %}</p></li>
+    <li class="step"><b>{% translate "Hujjatlar" %}</b><p>{% translate "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz." %}</p></li>
+    <li class="step"><b>{% translate "Obyektda oʻlchov" %}</b><p>{% translate "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan." %}</p></li>
+    <li class="step"><b>{% translate "Xulosa" %}</b><p>{% translate "Dalolatnoma, energopasport yoki ekspert xulosasi — imzo va muhr bilan." %}</p></li>
   </ol>
 </div></section>
 
-<section class="sec"><div class="wrap"><div class="grid grid--2">
+<section class="sec"><div class="wrap nf">
   <div>
-    <div class="sec__head"><h2>{% translate "Yangiliklar va tushuntirishlar" %}</h2><a href="{% url 'core:news' %}">{% translate "Barchasi" %} →</a></div>
-    {% for p in posts %}<article class="card news"><time datetime="{{ p.published_on|date:'Y-m-d' }}">{{ p.published_on|date:"d.m.Y" }}</time><h3><a href="{{ p.get_absolute_url }}">{{ p|tr:"title" }}</a></h3><p>{{ p|tr:"excerpt" }}</p></article>{% empty %}<p class="muted">{% translate "Hozircha yangiliklar yoʻq." %}</p>{% endfor %}
+    <div class="sh sh--sm">
+      <p class="sh__k">{% translate "Yangiliklar" %}</p>
+      <div><h2>{% translate "Yangiliklar va tushuntirishlar" %}</h2></div>
+      <a class="more sh__aside" href="{% url 'core:news' %}">{% translate "Barchasi" %} →</a>
+    </div>
+    <div class="nlist">{% for p in posts %}<article class="nitem"><time class="num" datetime="{{ p.published_on|date:'Y-m-d' }}">{{ p.published_on|date:"d.m.Y" }}</time><h3><a href="{{ p.get_absolute_url }}">{{ p|tr:"title" }}</a></h3><p>{{ p|tr:"excerpt" }}</p></article>{% empty %}<p class="muted">{% translate "Hozircha yangiliklar yoʻq." %}</p>{% endfor %}</div>
   </div>
   <div>
-    <div class="sec__head"><h2>{% translate "Koʻp soʻraladigan savollar" %}</h2></div>
+    <div class="sh sh--sm">
+      <p class="sh__k">{% translate "Savollar" %}</p>
+      <div><h2>{% translate "Koʻp soʻraladigan savollar" %}</h2></div>
+    </div>
     <div class="faq">{% for f in faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
   </div>
-</div></div></section>
+</div></section>
 
-<section class="sec"><div class="wrap"><div class="card contact-strip">
-  <div><span class="doc__k">{% translate "Bosh ofis" %}</span><b>{{ site|tr:"address" }}</b></div>
-  <div><span class="doc__k">{% translate "Telefon" %}</span><b><a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></b></div>
-  <div><span class="doc__k">{% translate "E-pochta" %}</span><b><a href="mailto:{{ site.email }}">{{ site.email }}</a></b></div>
-  <a class="btn" href="{% url 'core:contact' %}">{% translate "Aloqa va xarita" %}</a>
-</div></div></section>
+<section class="sec sec--tint" id="aloqa"><div class="wrap">
+  <div class="sh">
+    <p class="sh__k">{% translate "Aloqa" %}</p>
+    <div><h2>{% translate "Bosh ofis, Fargʻona" %}</h2></div>
+  </div>
+  <div class="off">
+    <figure class="off__pic">
+      <img src="{% static 'core/img/office-entrance-800.jpg' %}" srcset="{% static 'core/img/office-entrance-800.jpg' %} 800w, {% static 'core/img/office-entrance.jpg' %} 1280w" sizes="(max-width: 900px) 100vw, 560px" width="800" height="600" loading="lazy" alt="{% translate "Bosh ofisga kirish, Fargʻona" %}">
+    </figure>
+    <div>
+      <dl class="addr">
+        <dt>{% translate "Manzil" %}</dt><dd>{{ site|tr:"address" }}</dd>
+        <dt>{% translate "Telefon" %}</dt><dd><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>{% if site.phone_second %}<br><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a>{% endif %}</dd>
+        <dt>{% translate "E-pochta" %}</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        {% if site|tr:"director" %}<dt>{% translate "Rahbar" %}</dt><dd>{{ site|tr:"director" }}</dd>{% endif %}
+        <dt>{% translate "STIR" %}</dt><dd class="num">{{ site.tin }}</dd>
+      </dl>
+      <a class="btn" href="{% url 'core:contact' %}">{% translate "Xarita va murojaat" %}</a>
+    </div>
+  </div>
+</div></section>
 {% endblock %}

@@ -17,7 +17,7 @@
 <meta property="og:image" content="{{ SITE_URL }}{% static 'core/img/og-image.png' %}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'core/css/site.css' %}">
 <link rel="stylesheet" href="{% static 'widgets/style.css' %}">
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/img/favicon-32.png' %}">
@@ -30,11 +30,12 @@
 
 <div class="ubar"><div class="wrap">
   <div class="ubar__l">
-    <a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>
+    <a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>
     <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     {% if site|tr:"work_hours" %}<span>{{ site|tr:"work_hours" }}</span>{% endif %}
   </div>
   <div class="ubar__r">
+    <a class="ubar__req" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
     <button class="a11y-btn" type="button" data-a11y-toggle aria-pressed="false">{% translate "Maxsus imkoniyatlar" %}</button>
     <nav class="lang" aria-label="{% translate "Til" %}">{% for code, name in langs %}<a href="{% alt_path request code %}" hreflang="{{ code }}" lang="{{ code }}"{% if code == LANGUAGE_CODE %} aria-current="true"{% endif %}>{{ code }}</a>{% endfor %}</nav>
   </div>
@@ -45,17 +46,19 @@
     <img src="{% static 'core/img/logo-mark.png' %}" alt="" width="44" height="44">
     <span class="logo__t"><b>TTT AUDIT</b><span>{{ site|tr:"brand_descriptor" }}</span></span>
   </a>
-  <button class="btn btn--ghost btn--sm nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">{% translate "Menyu" %}</button>
   <nav class="nav" id="nav" aria-label="{% translate "Asosiy menyu" %}">
     <a href="{% url 'core:services' %}"{% if nav == "services" %} aria-current="page"{% endif %}>{% translate "Xizmatlar" %}</a>
     <a href="{% url 'core:registry' %}"{% if nav == "registry" %} aria-current="page"{% endif %}>{% translate "Reestr" %}</a>
     <a href="{% url 'core:credentials' %}"{% if nav == "credentials" %} aria-current="page"{% endif %}>{% translate "Hujjatlar" %}</a>
     <a href="{% url 'core:legislation' %}"{% if nav == "legislation" %} aria-current="page"{% endif %}>{% translate "Qonunchilik" %}</a>
     <a href="{% url 'core:company' %}"{% if nav == "company" %} aria-current="page"{% endif %}>{% translate "Tashkilot" %}</a>
+    <a href="{% url 'core:team' %}"{% if nav == "team" %} aria-current="page"{% endif %}>{% translate "Jamoa" %}</a>
     <a href="{% url 'core:news' %}"{% if nav == "news" %} aria-current="page"{% endif %}>{% translate "Yangiliklar" %}</a>
     <a href="{% url 'core:contact' %}"{% if nav == "contact" %} aria-current="page"{% endif %}>{% translate "Aloqa" %}</a>
+    <a class="nav__req" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
   </nav>
-  <a class="btn btn--sm btn--req" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+  <a class="btn btn--req" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
+  <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">{% translate "Menyu" %}</button>
 </div></header>
 
 {% include "core/_crumbs.html" %}
@@ -64,22 +67,22 @@
 <footer class="ftr"><div class="wrap">
   <div class="ftr__grid">
     <div>
-      <img class="ftr__logo" src="{% static 'core/img/logo-full-white.png' %}" alt="TTT Audit">
+      <img class="ftr__logo" src="{% static 'core/img/logo-full-white.png' %}" alt="TTT Audit" width="72" height="72">
       <p>{{ site|tr:"org_name" }}<br>{{ site|tr:"address" }}</p>
-      <p>{% translate "STIR" %} {{ site.tin }}</p>
+      <p>{% translate "STIR" %} <span class="num">{{ site.tin }}</span></p>
     </div>
     <div><h4>{% translate "Xizmatlar" %}</h4><ul>{% for d in nav_directions %}<li><a href="{{ d.get_absolute_url }}">{{ d|tr:"title" }}</a></li>{% endfor %}<li><a href="{% url 'core:registry' %}">{% translate "Bajarilgan ishlar reestri" %}</a></li></ul></div>
     <div><h4>{% translate "Tashkilot" %}</h4><ul>
       <li><a href="{% url 'core:company' %}">{% translate "Tashkilot haqida" %}</a></li>
-      <li><a href="{% url 'core:team' %}">{% translate "Rahbariyat va mutaxassislar" %}</a></li>
+      <li><a href="{% url 'core:team' %}">{% translate "Jamoa" %}</a></li>
       <li><a href="{% url 'core:credentials' %}">{% translate "Litsenziya va sertifikatlar" %}</a></li>
       <li><a href="{% url 'core:instruments' %}">{% translate "Oʻlchov asboblari" %}</a></li>
       <li><a href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %}</a></li>
       <li><a href="{% url 'core:requisites' %}">{% translate "Rekvizitlar" %}</a></li>
     </ul></div>
     <div><h4>{% translate "Aloqa" %}</h4><ul>
-      <li><a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></li>
-      {% if site.phone_second %}<li><a href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a></li>{% endif %}
+      <li><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></li>
+      {% if site.phone_second %}<li><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a></li>{% endif %}
       <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
       <li><a href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a></li>
     </ul></div>

@@ -8,10 +8,11 @@ from django.db.models import F, Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
-from . import compliance, energy, throttle
+from . import compliance, energy, home as home_data, throttle
 from .forms import LeadForm
 from .models import (
     Branch,
@@ -85,12 +86,26 @@ HOME_FAQ = [
 ]
 
 
+def hero_title(site):
+    """Hero sarlavhasi va uning indigo qismi; urgʻu faqat sarlavha bilan bir tilda boʻlsa olinadi."""
+    lang = (translation.get_language() or "uz").split("-")[0]
+    own_title = getattr(site, f"hero_title_{lang}", "")
+    accent = getattr(site, f"hero_accent_{lang}", "") if own_title else site.hero_accent_uz
+    return home_data.split_title(site.tr("hero_title"), accent)
+
+
 def home(request):
+    site = SiteSettings.load()
+    title_main, title_accent = hero_title(site)
     context = {
+        "title_main": title_main,
+        "title_accent": title_accent,
+        "facts": home_data.facts(site),
         "directions": Direction.objects.prefetch_related("services").all(),
-        "stats": Stat.objects.all(),
-        "hero_credentials": Credential.objects.filter(show_in_hero=True),
+        "credentials": Credential.objects.all(),
         "projects": Project.objects.select_related("direction").exclude(year__isnull=True)[:8],
+        "team_strip": home_data.team_strip(),
+        "sheet": home_data.sheet(),
         "posts": Post.objects.filter(is_published=True)[:3],
         "faq": [{"q": q, "a": a} for q, a in HOME_FAQ],
     }
@@ -114,7 +129,8 @@ def direction(request, direction_slug):
         "is_energy": is_energy,
         "services": obj.services.all(),
         "legal_acts": obj.legal_acts.filter(verified_on__isnull=False),
-        "projects": obj.projects.exclude(year__isnull=True)[:6],
+        # Energoaudit ishlarining yili byulletenda yoʻq — ular ham chiqadi, yilsizlari oxirida
+        "projects": obj.projects.order_by(F("year").desc(nulls_last=True), "order", "pk")[:6],
         "instruments": obj.instruments.all() if not is_energy else Instrument.objects.none(),
         "project_total": obj.projects.count(),
     }
@@ -170,8 +186,8 @@ def company(request):
 def team(request):
     members = TeamMember.objects.all()
     return page(
-        request, "core/team.html", nav="company",
-        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Rahbariyat va mutaxassislar"), None)],
+        request, "core/team.html", nav="team",
+        crumbs=[(_("Tashkilot"), reverse("core:company")), (_("Jamoa"), None)],
         leadership=members.filter(is_leadership=True),
         energy=members.filter(is_leadership=False, dept=TeamMember.DEPT_ENERGY),
         construction=members.filter(is_leadership=False, dept=TeamMember.DEPT_CONSTRUCTION),

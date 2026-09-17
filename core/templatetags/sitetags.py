@@ -49,3 +49,36 @@ def qs_replace(context, **kwargs):
             query[key] = value
     encoded = query.urlencode()
     return f"?{encoded}" if encoded else "?"
+
+
+NBSP = " "
+
+
+@register.filter(name="groupnum")
+def group_number(value, signed=""):
+    """Jadval raqami: minglar boʻsh joy bilan, oʻnlik — joriy tilga mos («386,5» / "386.5").
+
+    {{ row.diff|groupnum:"sign" }} musbat qiymatga «+» qoʻshadi.
+    """
+    from django.utils.translation import get_language
+
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return value
+    decimal = "." if (get_language() or "uz").startswith("en") else ","
+    text = f"{abs(number):,.1f}" if number % 1 else f"{abs(number):,.0f}"
+    text = text.replace(",", NBSP).replace(".", decimal)
+    if number < 0:
+        return "−" + text
+    if signed and number > 0:
+        return "+" + text
+    return text
+
+
+@register.filter(name="svc_tag")
+def service_tag(service):
+    """Xizmat qatori oʻngidagi mono belgi: muddat, boʻlmasa qisqa tavsif."""
+    from core.home import SERVICE_TAGS
+
+    return service.tr("duration") or SERVICE_TAGS.get(service.slug, "")

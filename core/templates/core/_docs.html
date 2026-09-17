@@ -1,0 +1,15 @@
+{% load i18n sitetags %}<div class="docs" data-docs>
+  <ul class="docs__list">{% for c in docs %}<li><a class="dbtn" href="{% if not docs_page %}{% url 'core:credentials' %}{% endif %}#cred-{{ c.pk }}" data-doc-tab="cred-{{ c.pk }}"{% if forloop.first %} aria-current="true"{% endif %}><span>{{ c.get_kind_display }}</span><b>{{ c.number }}</b><i>{{ c|tr:"issuer" }}</i></a></li>{% endfor %}</ul>
+  <div class="docs__view">{% for c in docs %}
+    <article class="dview" id="cred-{{ c.pk }}" data-doc-panel{% if not docs_page and not forloop.first %} hidden{% endif %}>
+      <h3 class="dview__t">{{ c|tr:"scope"|default:c.number }}</h3>
+      <dl class="dview__meta">
+        <div><dt>{% translate "Raqam" %}</dt><dd class="num">{{ c.number }}</dd></div>
+        <div><dt>{% translate "Sana" %}</dt><dd class="num">{{ c.issued_on|date:"d.m.Y"|default:"—" }}</dd></div>
+        <div><dt>{% translate "Amal qiladi" %}</dt><dd class="num">{% if c.valid_until %}{{ c.valid_until|date:"d.m.Y" }}{% elif c.kind == "license" %}{% translate "muddatsiz" %}{% else %}—{% endif %}</dd></div>
+        <div><dt>{% translate "Beruvchi" %}</dt><dd>{{ c|tr:"issuer" }}</dd></div>
+      </dl>
+      {% if c.scan %}<a class="dview__img" href="{{ c.scan.url }}" data-lightbox data-alt="{{ c.get_kind_display }} {{ c.number }}"><img src="{{ c.scan.url }}" alt="{{ c.get_kind_display }} {{ c.number }}" loading="lazy"></a>{% else %}<div class="dview__img dview__img--none">{% translate "Skan bosh ofisda" %}</div>{% endif %}
+    </article>{% endfor %}
+  </div>
+</div>

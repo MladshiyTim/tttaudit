@@ -1,7 +1,15 @@
 {
+  "%(e)s energoaudit · %(c)s texnik nazorat": {
+    "en": "%(e)s energy audit · %(c)s technical supervision",
+    "ru": "энергоаудит — %(e)s · технадзор — %(c)s"
+  },
   "%(mb)s MB gacha: PDF, Excel, Word, DWG, ZIP, rasm": {
     "en": "Up to %(mb)s MB: PDF, Excel, Word, DWG, ZIP, image",
     "ru": "До %(mb)s МБ: PDF, Excel, Word, DWG, ZIP, изображение"
+  },
+  "%(n)s mlrd": {
+    "en": "%(n)s bn",
+    "ru": "%(n)s млрд"
   },
   "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan.": {
     "en": "Specialists: %(n)s — in energy audit and construction control measurement, with state-issued certificates.",
@@ -15,9 +23,25 @@
     "en": "Technical supervision staff: %(n)s",
     "ru": "Сотрудников технического надзора: %(n)s"
   },
+  "%(n)s ta loyiha, %(a)s–%(b)s": {
+    "en": "%(n)s projects, %(a)s–%(b)s",
+    "ru": "Проектов: %(n)s, %(a)s–%(b)s"
+  },
+  "%(n)s yillik tajriba": {
+    "en": "%(n)s years of experience",
+    "ru": "опыт, лет: %(n)s"
+  },
   "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil.": {
     "en": "Registry of energy audit and control measurement projects (total: %(total)s), 2019–2025: client, practice area, year.",
     "ru": "Реестр работ по энергоаудиту и контрольному обмеру (всего: %(total)s), 2019–2025: заказчик, направление, год."
+  },
+  "%(zru)s va VM qarori № 690; Energosamaradorlik milliy agentligi reestri, VM qarori № 673": {
+    "en": "%(zru)s and CM Resolution No. 690; register of the National Energy Efficiency Agency, CM Resolution No. 673",
+    "ru": "%(zru)s и Постановление КМ № 690; реестр Национального агентства по энергоэффективности, Постановление КМ № 673"
+  },
+  "200 m² dan katta bino": {
+    "en": "buildings over 200 m²",
+    "ru": "здания более 200 м²"
   },
   "Agrosanoat va oziq-ovqat": {
     "en": "Agro-industry and food",
@@ -51,6 +75,10 @@
     "en": "Anonymised: four-storey administrative building",
     "ru": "Анонимно: «4-этажное административное здание»"
   },
+  "Armatura A500C": {
+    "en": "Rebar A500C",
+    "ru": "Арматура A500C"
+  },
   "Asbob": {
     "en": "Instrument",
     "ru": "Прибор"
@@ -71,9 +99,17 @@
     "en": "Original text",
     "ru": "Оригинал"
   },
+  "Asl nusxalar Fargʻonadagi bosh ofisda. Skanni kattalashtirish uchun ustiga bosing.": {
+    "en": "Originals are kept at the head office in Fergana. Click a scan to enlarge it.",
+    "ru": "Оригиналы хранятся в головном офисе в Фергане. Нажмите на скан, чтобы увеличить."
+  },
   "Asos": {
     "en": "Basis",
     "ru": "Основание"
+  },
+  "Asosiy faktlar": {
+    "en": "Key facts",
+    "ru": "Основные факты"
   },
   "Asosiy mazmunga oʻtish": {
     "en": "Skip to main content",
@@ -86,6 +122,10 @@
   "Auditor kimlarga kerak: buyurtmachi, pudratchi, bank, sanoat korxonasi, byudjet tashkiloti.": {
     "en": "Who needs an auditor: clients, contractors, banks, industrial enterprises, public bodies.",
     "ru": "Кому нужен аудитор: заказчик, подрядчик, банк, промышленное предприятие, бюджетная организация."
+  },
+  "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar.": {
+    "en": "From the information bulletin: %(e)s energy audits and %(c)s control measurements. Latest work below.",
+    "ru": "По информационному бюллетеню: энергоаудит — %(e)s, контрольный обмер — %(c)s. Ниже — последние работы."
   },
   "Aʼzolik": {
     "en": "Membership",
@@ -123,6 +163,10 @@
     "en": "All specialists",
     "ru": "Все специалисты"
   },
+  "Barcha xizmatlar": {
+    "en": "All services",
+    "ru": "Все услуги"
+  },
   "Barchasi": {
     "en": "All",
     "ru": "Все"
@@ -138,6 +182,10 @@
   "Bergan organ": {
     "en": "Issuing authority",
     "ru": "Выдавший орган"
+  },
+  "Beruvchi": {
+    "en": "Issued by",
+    "ru": "Выдан"
   },
   "Besh yilda kamida bir marta": {
     "en": "At least once every five years",
@@ -163,9 +211,17 @@
     "en": "Only one figure is highlighted at a time — the hot-spot rule.",
     "ru": "Одновременно выделяется только одна цифра — правило горячей точки."
   },
+  "Birlik": {
+    "en": "Unit",
+    "ru": "Ед. изм."
+  },
   "Biz haqimizda": {
     "en": "About us",
     "ru": "О нас"
+  },
+  "Biz obyektda tomonlar ishtirokida oʻlchaymiz va har bir smeta pozitsiyasini uch ustunda solishtiramiz: hujjat boʻyicha, haqiqatda va farq.": {
+    "en": "We measure on site with the parties present and compare every estimate item in three columns: per documents, actual and difference.",
+    "ru": "Мы проводим обмер на объекте в присутствии сторон и сверяем каждую позицию сметы в трёх графах: по документам, фактически и разница."
   },
   "Blog": {
     "en": "Blog",
@@ -186,6 +242,14 @@
   "Bosh ofis": {
     "en": "Head office",
     "ru": "Головной офис"
+  },
+  "Bosh ofis, Fargʻona": {
+    "en": "Head office, Fergana",
+    "ru": "Головной офис, Фергана"
+  },
+  "Bosh ofisga kirish, Fargʻona": {
+    "en": "Head office entrance, Fergana",
+    "ru": "Вход в головной офис, Фергана"
   },
   "Bosh sahifa": {
     "en": "Home",
@@ -247,6 +311,10 @@
     "en": "No cases have been added for this practice area yet.",
     "ru": "По этому направлению кейсы пока не добавлены."
   },
+  "Butun jamoa": {
+    "en": "Whole team",
+    "ru": "Вся команда"
+  },
   "Buyurtmachi": {
     "en": "Client",
     "ru": "Заказчик"
@@ -274,6 +342,10 @@
   "Dalolatnoma, energopasport yoki ekspert xulosasi — imzo va muhr bilan.": {
     "en": "A certificate of acceptance, energy passport or expert opinion — signed and sealed.",
     "ru": "Акт, энергопаспорт или экспертное заключение — с подписью и печатью."
+  },
+  "Dalolatnomadagi raqam obyektda bormi": {
+    "en": "Is the figure in the acceptance act really on site",
+    "ru": "Есть ли на объекте то, что записано в акте"
   },
   "Dalolatnomani imzolashdan oldin": {
     "en": "Before signing the certificate of acceptance",
@@ -307,6 +379,14 @@
     "en": "Expert organisation, since 1997",
     "ru": "Экспертная организация, с 1997 года"
   },
+  "Ekspert xulosasi": {
+    "en": "Expert opinion",
+    "ru": "Экспертное заключение"
+  },
+  "Energetik pasport": {
+    "en": "Energy passport",
+    "ru": "Энергетический паспорт"
+  },
   "Energetika va neft-gaz": {
     "en": "Energy and oil & gas",
     "ru": "Энергетика и нефтегазовая отрасль"
@@ -314,6 +394,14 @@
   "Energetika va qurilish yoʻnalishiga yaqin, taniqli tashkilotlar.": {
     "en": "Well-known organisations close to the energy and construction sector.",
     "ru": "Известные организации, близкие к сфере энергетики и строительства."
+  },
+  "Energiya balansi": {
+    "en": "Energy balance",
+    "ru": "Энергобаланс"
+  },
+  "Energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida.": {
+    "en": "Checking energy consumption and measuring completed construction work. Both are carried out under authority confirmed by state documents.",
+    "ru": "Проверка энергопотребления и обмер выполненных объёмов в строительстве. Оба направления — на основании полномочий, подтверждённых государственными документами."
   },
   "Energiya toifasi": {
     "en": "Energy rating",
@@ -351,9 +439,17 @@
     "en": "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan.",
     "ru": "Энергоаудит, энергопаспорт здания, контрольный обмер в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
   },
+  "Energosamaradorlik auditi": {
+    "en": "Energy efficiency audit",
+    "ru": "Аудит энергоэффективности"
+  },
   "Energosamaradorlik toifasi energopasportda belgilanadi.": {
     "en": "The energy efficiency class is set in the energy passport.",
     "ru": "Класс энергоэффективности устанавливается в энергопаспорте."
+  },
+  "Faoliyat doirasi": {
+    "en": "Scope",
+    "ru": "Сфера деятельности"
   },
   "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda.": {
     "en": "Only documents checked against the current edition on lex.uz are shown. The verification date is in each row.",
@@ -363,9 +459,17 @@
     "en": "Fergana",
     "ru": "Фергана"
   },
+  "Fargʻona sh., Yangiobod koʻchasi, 5": {
+    "en": "5 Yangiobod Street, Fergana",
+    "ru": "г. Фергана, ул. Янгиобод, 5"
+  },
   "Farq": {
     "en": "Difference",
-    "ru": "Расхождение"
+    "ru": "Разница"
+  },
+  "Farq, soʻm": {
+    "en": "Difference, UZS",
+    "ru": "Разница, сум"
   },
   "Fayl": {
     "en": "File",
@@ -415,6 +519,10 @@
     "en": "Below the hero",
     "ru": "Под главным блоком"
   },
+  "Gidroizolyatsiya, tom": {
+    "en": "Waterproofing, roof",
+    "ru": "Гидроизоляция, кровля"
+  },
   "Guvohnoma": {
     "en": "Certificate",
     "ru": "Свидетельство"
@@ -430,6 +538,10 @@
   "Hamkorlik": {
     "en": "Cooperation",
     "ru": "Сотрудничество"
+  },
+  "Haqiqatda": {
+    "en": "Actual",
+    "ru": "Фактически"
   },
   "Har bir asbob metrologik tekshiruvdan oʻtgan. Tekshiruv sanasi va sertifikat raqami quyida — bu hisobotimizning dalil kuchini taʼminlaydi.": {
     "en": "Every instrument has passed metrological verification. The verification date and certificate number are listed below; this is what gives our report its evidential weight.",
@@ -455,6 +567,10 @@
     "en": "Before settlement",
     "ru": "До расчёта"
   },
+  "Hisob: farq × birlik narxi. Haqiqiy hisobotda smeta normalari va koeffitsiyentlar ham tekshiriladi.": {
+    "en": "Calculation: difference × unit price. A real report also checks estimate norms and coefficients.",
+    "ru": "Расчёт: разница × цена единицы. В настоящем отчёте также проверяются сметные нормы и коэффициенты."
+  },
   "Hozircha yangiliklar yoʻq.": {
     "en": "No news yet.",
     "ru": "Пока новостей нет."
@@ -467,9 +583,17 @@
     "en": "Document",
     "ru": "Документ"
   },
+  "Hujjat boʻyicha": {
+    "en": "Per documents",
+    "ru": "По документам"
+  },
   "Hujjat skani": {
     "en": "Document scan",
     "ru": "Скан документа"
+  },
+  "Hujjatdan ortiq yozilgan summa": {
+    "en": "Amount overstated in documents",
+    "ru": "Сумма, завышенная в документах"
   },
   "Hujjatlar": {
     "en": "Documents",
@@ -490,6 +614,10 @@
   "ISH KUNI": {
     "en": "WORKING DAYS",
     "ru": "РАБ. ДНЕЙ"
+  },
+  "Ikki yoʻnalish": {
+    "en": "Two practice areas",
+    "ru": "Два направления"
   },
   "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida.": {
     "en": "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document.",
@@ -555,6 +683,10 @@
     "en": "Comment",
     "ru": "Комментарий"
   },
+  "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat.": {
+    "en": "%(n)s staff in total: %(e)s in energy audit, %(c)s in technical supervision.",
+    "ru": "Всего сотрудников: %(n)s; энергоаудит — %(e)s, технический надзор — %(c)s."
+  },
   "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar.": {
     "en": "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(c)s). Below are the specialists listed in the bulletin.",
     "ru": "Всего сотрудников: %(n)s (энергоаудит — %(e)s, технический надзор — %(c)s). Ниже — специалисты, указанные в бюллетене."
@@ -602,6 +734,10 @@
   "Keyin nima boʻladi": {
     "en": "What happens next",
     "ru": "Что будет дальше"
+  },
+  "Keyingi sahifa": {
+    "en": "Next page",
+    "ru": "Следующая страница"
   },
   "Kimga kerak": {
     "en": "Who needs it",
@@ -711,6 +847,10 @@
     "en": "Not mandatory, but confirming the volume before signing Form F-2 is the most economical form of control.",
     "ru": "Не обязательно, но подтверждение объёма перед подписанием акта ф-2 — самый экономный вид контроля."
   },
+  "Manba: lex.uz": {
+    "en": "Source: lex.uz",
+    "ru": "Источник: lex.uz"
+  },
   "Manzil": {
     "en": "Address",
     "ru": "Адрес"
@@ -799,6 +939,10 @@
     "en": "Model",
     "ru": "Модель"
   },
+  "Monolit beton B25, poydevor": {
+    "en": "Cast-in-place concrete B25, foundation",
+    "ru": "Монолитный бетон B25, фундамент"
+  },
   "Muddat": {
     "en": "Timeline",
     "ru": "Срок"
@@ -831,6 +975,10 @@
     "en": "Send a request",
     "ru": "Отправить обращение"
   },
+  "Murojaatdan xulosagacha": {
+    "en": "From request to report",
+    "ru": "От обращения до заключения"
+  },
   "Mustaqil texnik audit va ekspertiza": {
     "en": "Independent technical audit and expert review",
     "ru": "Независимый технический аудит и экспертиза"
@@ -843,6 +991,10 @@
     "en": "Specialists",
     "ru": "Специалисты"
   },
+  "Narx, soʻm": {
+    "en": "Price, UZS",
+    "ru": "Цена, сум"
+  },
   "Natija": {
     "en": "Outcome",
     "ru": "Результат"
@@ -854,6 +1006,10 @@
   "Natijada olasiz": {
     "en": "As a result, you will receive",
     "ru": "В результате Вы получите"
+  },
+  "Nazorat oʻlchovi dalolatnomasi": {
+    "en": "Control measurement act",
+    "ru": "Акт контрольного обмера"
   },
   "Nazorat oʻlchovi tartibga solingan": {
     "en": "Control measurement is regulated",
@@ -915,6 +1071,10 @@
     "en": "A question about your object?",
     "ru": "Есть вопрос по вашему объекту?"
   },
+  "Obyektingizga qaysi talab tegishli": {
+    "en": "Which requirement applies to your site",
+    "ru": "Какое требование касается вашего объекта"
+  },
   "Obyektingizga qaysi talab tegishli?": {
     "en": "Which requirement applies to your facility?",
     "ru": "Какое требование применимо к Вашему объекту?"
@@ -930,6 +1090,10 @@
   "Ofislar": {
     "en": "Offices",
     "ru": "Офисы"
+  },
+  "Oldingi sahifa": {
+    "en": "Previous page",
+    "ru": "Предыдущая страница"
   },
   "Oq qogʻoz, toʻq navy, serif — rasmiy hujjat vazni": {
     "en": "White paper, deep navy, serif — the weight of an official document",
@@ -967,9 +1131,21 @@
     "en": "Member of the Uzbekistan Association of Consulting Engineers (UZACE)",
     "ru": "Член Ассоциации инженеров-консультантов Узбекистана (UZACE)"
   },
+  "Plastik deraza bloklari": {
+    "en": "PVC window units",
+    "ru": "Пластиковые оконные блоки"
+  },
   "Poligon": {
     "en": "Test range",
     "ru": "Полигон"
+  },
+  "Pozitsiya": {
+    "en": "Item",
+    "ru": "Позиция"
+  },
+  "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi.": {
+    "en": "The contractor submits the acceptance act, the client signs and pays. Later it turns out that volumes were overstated or materials substituted.",
+    "ru": "Подрядчик сдаёт акт выполненных работ, заказчик подписывает и оплачивает. Потом выясняется, что объёмы завышены или материал заменён."
   },
   "Qabul": {
     "en": "Adopted",
@@ -1039,6 +1215,10 @@
     "en": "Legal basis",
     "ru": "Правовое основание"
   },
+  "Qoʻlingizda": {
+    "en": "You receive",
+    "ru": "На руках"
+  },
   "Qoʻshimcha telefon": {
     "en": "Secondary phone",
     "ru": "Дополнительный телефон"
@@ -1054,6 +1234,10 @@
   "Qurilish va uy-joy kommunal xoʻjaligi vazirligi bilan hamkorlik": {
     "en": "Cooperation with the Ministry of Construction and Housing and Communal Services",
     "ru": "Сотрудничество с Министерством строительства и жилищно-коммунального хозяйства"
+  },
+  "Qurilish va uy-joy kommunal xoʻjaligi vazirligi litsenziyasi № 518159": {
+    "en": "Licence No. 518159 of the Ministry of Construction and Housing and Communal Services",
+    "ru": "Лицензия Министерства строительства и жилищно-коммунального хозяйства № 518159"
   },
   "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)": {
     "en": "Ministry of Construction licence No. 518159 (no expiry date)",
@@ -1139,6 +1323,10 @@
     "en": "Pages",
     "ru": "Страницы"
   },
+  "Sana": {
+    "en": "Date",
+    "ru": "Дата"
+  },
   "Sanoat": {
     "en": "Industry",
     "ru": "Промышленность"
@@ -1174,6 +1362,10 @@
   "Segmentlar": {
     "en": "Segments",
     "ru": "Сегменты"
+  },
+  "Sement-qum suvoq, ichki devorlar": {
+    "en": "Cement-sand plaster, interior walls",
+    "ru": "Цементно-песчаная штукатурка, внутренние стены"
   },
   "Sertifikat": {
     "en": "Certificate",
@@ -1243,6 +1435,10 @@
     "en": "Which category applies to you?",
     "ru": "Какая категория у вас?"
   },
+  "Skan bosh ofisda": {
+    "en": "Scan available at the head office",
+    "ru": "Скан — в головном офисе"
+  },
   "Skanlar bilan": {
     "en": "With scans",
     "ru": "Со сканами"
@@ -1291,6 +1487,14 @@
     "en": "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form.",
     "ru": "Контакты TTT Audit: адреса головного офиса в Фергане и офиса в Ташкенте, телефоны, эл. почта и форма обращения."
   },
+  "TTT Audit bosh ofisi binosi, Fargʻona": {
+    "en": "TTT Audit head office building, Fergana",
+    "ru": "Здание головного офиса TTT Audit, Фергана"
+  },
+  "Tadbirlar rejasi": {
+    "en": "Action plan",
+    "ru": "План мероприятий"
+  },
   "Tajriba": {
     "en": "Experience",
     "ru": "Опыт"
@@ -1307,9 +1511,17 @@
     "en": "We will check whether the requirement applies to you",
     "ru": "Проверим, касается ли требование вас"
   },
+  "Talab tekshiruvi": {
+    "en": "Requirement check",
+    "ru": "Проверка требований"
+  },
   "Tanlang": {
     "en": "Select",
     "ru": "Выберите"
+  },
+  "Taqqoslash vedomosti": {
+    "en": "Comparison sheet",
+    "ru": "Сравнительная ведомость"
   },
   "Tashkil topgan yil": {
     "en": "Founded",
@@ -1403,6 +1615,10 @@
     "en": "Completed projects: type, scale, discrepancy found and outcome.",
     "ru": "Завершённые объекты: тип, объём, выявленное расхождение и результат."
   },
+  "Turi": {
+    "en": "Type",
+    "ru": "Вид"
+  },
   "Tushuntirishlar": {
     "en": "Explainers",
     "ru": "Разъяснения"
@@ -1410,6 +1626,10 @@
   "Uch savolga javob bering — obyektingizga qaysi talab tegishli ekanini, muddatini va qonuniy asosini koʻrasiz.": {
     "en": "Answer three questions — find out which requirement applies to your facility, the deadline and the legal basis.",
     "ru": "Ответьте на три вопроса — узнаете, какое требование применимо к Вашему объекту, срок и правовое основание."
+  },
+  "Uch savolga javob bering. Natija faqat qonunda aniq yozilgan talablarga tayanadi.": {
+    "en": "Answer three questions. The result relies only on requirements set out explicitly in law.",
+    "ru": "Ответьте на три вопроса. Результат опирается только на требования, прямо установленные законом."
   },
   "Urgʻu bilan": {
     "en": "Highlighted",
@@ -1474,6 +1694,10 @@
   "Xarita iframe kodi": {
     "en": "Map embed code",
     "ru": "Код карты (iframe)"
+  },
+  "Xarita va murojaat": {
+    "en": "Map and request",
+    "ru": "Карта и обращение"
   },
   "Xizmat": {
     "en": "Service",
@@ -1607,9 +1831,17 @@
     "en": "home page",
     "ru": "главная страница"
   },
+  "dastlabki baho": {
+    "en": "preliminary estimate",
+    "ru": "предварительная оценка"
+  },
   "energoaudit va nazorat oʻlchovi talablari": {
     "en": "energy audit and control measurement requirements",
     "ru": "требования по энергоаудиту и контрольному обмеру"
+  },
+  "issiqlik yoʻqotishlari": {
+    "en": "heat losses",
+    "ru": "теплопотери"
   },
   "lex.uz bilan tekshirilgan sana": {
     "en": "date checked against lex.uz",
@@ -1618,6 +1850,10 @@
   "litsenziya va akkreditatsiya": {
     "en": "licence and accreditation",
     "ru": "лицензия и аккредитация"
+  },
+  "loyiha": {
+    "en": "projects",
+    "ru": "проекты"
   },
   "masalan, AGROBANK": {
     "en": "e.g. AGROBANK",
@@ -1631,13 +1867,57 @@
     "en": "no expiry date",
     "ru": "без срока действия"
   },
+  "namuna · hajm va narxlar shartli": {
+    "en": "sample · volumes and prices are illustrative",
+    "ru": "образец · объёмы и цены условные"
+  },
+  "obyektda, tomonlar bilan": {
+    "en": "on site, with the parties",
+    "ru": "на объекте, со сторонами"
+  },
+  "obyektga chiqmasdan": {
+    "en": "without a site visit",
+    "ru": "без выезда на объект"
+  },
   "qonunchilik oʻzgarishlari va amaliy tushuntirishlar": {
     "en": "legislative changes and practical explainers",
     "ru": "изменения законодательства и практические разъяснения"
   },
+  "qurilish davomida": {
+    "en": "during construction",
+    "ru": "в ходе строительства"
+  },
+  "reestr subyektlari": {
+    "en": "register entities",
+    "ru": "субъекты реестра"
+  },
   "skan": {
     "en": "scan",
     "ru": "скан"
+  },
+  "soʻm": {
+    "en": "UZS",
+    "ru": "сум"
+  },
+  "soʻm kasbiy javobgarlik sugʻurtasi": {
+    "en": "UZS professional liability insurance",
+    "ru": "сум — страхование профессиональной ответственности"
+  },
+  "t": {
+    "en": "t",
+    "ru": "т"
+  },
+  "uchinchi tomon sifatida": {
+    "en": "as a third party",
+    "ru": "как третья сторона"
+  },
+  "xodim": {
+    "en": "staff",
+    "ru": "сотрудники"
+  },
+  "yildan ekspert tashkiloti": {
+    "en": "year the expert organisation was founded",
+    "ru": "год основания экспертной организации"
   },
   "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}": {
     "en": "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}",
@@ -1654,6 +1934,10 @@
   "{{ years }} yil": {
     "en": "{{ years }} years",
     "ru": "{{ years }} лет"
+  },
+  "«Imkon-sugʻurta» AJ": {
+    "en": "Imkon-sug'urta JSC",
+    "ru": "АО «Imkon-sug'urta»"
   },
   "«TTTaudit» MChJ rekvizitlari: rasmiy nomi, STIR, rahbar, yuridik manzil, telefon, e-pochta, litsenziya va sugʻurta.": {
     "en": "TTTaudit LLC company details: legal name, TIN, director, registered address, phone, email, licence and insurance.",

@@ -1,18 +1,18 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{{ service|tr:"title" }} — {{ direction|tr:"title" }} — TTT Audit{% endblock %}
 {% block description %}{{ service|tr:"summary" }}{% endblock %}
-{% block main %}<div class="wrap">
-<div class="phead"><h1>{{ service|tr:"title" }}</h1><p>{{ service|tr:"summary" }}</p>{% if service|tr:"duration" %}<div class="phead__meta">{% translate "Muddat" %}: {{ service|tr:"duration" }}</div>{% endif %}</div>
+{% block main %}<div class="wrap page">
+<header class="phead"><p class="phead__k">{{ direction|tr:"title" }}</p><h1>{{ service|tr:"title" }}</h1><p>{{ service|tr:"summary" }}</p>{% if service|tr:"duration" %}<div class="phead__meta">{% translate "Muddat" %}: {{ service|tr:"duration" }}</div>{% endif %}</header>
 <div class="split">
   <div>
-    {% if service|tr:"body" %}<div class="card prose">{{ service|tr:"body"|linebreaks }}</div>{% endif %}
-    {% if service.process %}<section class="sec"><div class="sec__head"><h2>{% translate "Ish tartibi" %}</h2></div><ol class="steps steps--col">{% for step in service|tr_list:"process" %}<li class="card">{{ step }}</li>{% endfor %}</ol></section>{% endif %}
-    {% if service.faq %}<section class="sec"><div class="sec__head"><h2>{% translate "Savollar" %}</h2></div><div class="faq">{% for f in service.faq_pairs %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div></section>{% endif %}
+    {% if service|tr:"body" %}<div class="prose">{{ service|tr:"body"|linebreaks }}</div>{% endif %}
+    {% if service.process %}<section class="block"><h2 class="h3">{% translate "Ish tartibi" %}</h2><ol class="steps steps--col">{% for step in service|tr_list:"process" %}<li class="step"><p>{{ step }}</p></li>{% endfor %}</ol></section>{% endif %}
+    {% if service.faq %}<section class="block"><h2 class="h3">{% translate "Savollar" %}</h2><div class="faq">{% for f in service.faq_pairs %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div></section>{% endif %}
   </div>
-  <aside>
-    {% if service.deliverables %}<div class="card"><h3>{% translate "Natijada olasiz" %}</h3><ul>{% for item in service|tr_list:"deliverables" %}<li>{{ item }}</li>{% endfor %}</ul></div>{% endif %}
-    {% if legal_acts %}<div class="card"><h3>{% translate "Meʼyoriy asos" %}</h3><ul>{% for a in legal_acts %}<li><b>{{ a.number }}</b> — {{ a|tr:"title" }}</li>{% endfor %}</ul><a href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %} →</a></div>{% endif %}
-    <div class="card"><h3>{% translate "Shu yoʻnalishdagi boshqa xizmatlar" %}</h3><ul>{% for s in siblings %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></li>{% endfor %}</ul></div>
+  <aside class="aside">
+    {% if service.deliverables %}<div class="basis"><h2>{% translate "Natijada olasiz" %}</h2><ul>{% for item in service|tr_list:"deliverables" %}<li>{{ item }}</li>{% endfor %}</ul></div>{% endif %}
+    {% if legal_acts %}<div class="aside__box"><h2>{% translate "Meʼyoriy asos" %}</h2><ul>{% for a in legal_acts %}<li><span class="tag">{{ a.number }}</span><br>{{ a|tr:"title" }}</li>{% endfor %}</ul><p class="aside__more"><a class="more" href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %} →</a></p></div>{% endif %}
+    <div class="aside__box"><h2>{% translate "Shu yoʻnalishdagi boshqa xizmatlar" %}</h2><ul>{% for s in siblings %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></li>{% endfor %}</ul></div>
     <a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
   </aside>
 </div>

@@ -1,16 +1,17 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{% translate "Murojaat yuborish" %} — TTT Audit{% endblock %}
 {% block description %}{% translate "Energoaudit yoki qurilishda nazorat oʻlchovi uchun murojaat: obyekt haqida yozing va hujjatlarni biriktiring." %}{% endblock %}
-{% block main %}<div class="wrap">
-<div class="phead"><h1>{% translate "Murojaat yuborish" %}</h1><p>{% translate "Obyekt haqida qisqacha yozing yoki qoʻngʻiroq qiling. Qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaymiz." %}</p></div>
-{% if sent %}<div class="notice notice--ok"><p>{% translate "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." %}</p></div>
-{% elif error == "limit" %}<div class="notice notice--danger"><p>{% translate "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling." %}</p></div>
-{% elif error %}<div class="notice notice--danger"><p>{% translate "Forma toʻldirilmagan: ism va telefon majburiy." %}</p></div>{% endif %}
+{% block main %}<div class="wrap page">
+<header class="phead"><p class="phead__k">{% translate "Aloqa" %}</p><h1>{% translate "Murojaat yuborish" %}</h1><p>{% translate "Obyekt haqida qisqacha yozing yoki qoʻngʻiroq qiling. Qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaymiz." %}</p></header>
+{% if sent %}<div class="notice notice--ok block-gap"><p>{% translate "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." %}</p></div>
+{% elif error == "limit" %}<div class="notice notice--danger block-gap"><p>{% translate "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling." %}</p></div>
+{% elif error %}<div class="notice notice--danger block-gap"><p>{% translate "Forma toʻldirilmagan: ism va telefon majburiy." %}</p></div>{% endif %}
 <div class="split">
-  <div class="card">{% include "core/_lead.html" %}</div>
-  <aside>
-    <div class="card"><h3>{% translate "Telefon" %}</h3><p><a href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a>{% if site.phone_second %}<br><a href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a>{% endif %}</p><h3>{% translate "E-pochta" %}</h3><p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
-    <div class="card"><h3>{% translate "Vakolat" %}</h3><ul>{% for c in hero_credentials %}<li>{{ c.get_kind_display }} {{ c.number }}</li>{% endfor %}</ul></div>
+  <div class="panel panel--form">{% include "core/_lead.html" %}</div>
+  <aside class="aside">
+    <div class="aside__box"><h2>{% translate "Telefon" %}</h2><ul><li><a class="num" href="tel:{{ site.phone|cut:' ' }}">{{ site.phone }}</a></li>{% if site.phone_second %}<li><a class="num" href="tel:{{ site.phone_second|cut:' ' }}">{{ site.phone_second }}</a></li>{% endif %}</ul></div>
+    <div class="aside__box"><h2>{% translate "E-pochta" %}</h2><ul><li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li></ul></div>
+    <div class="basis"><h2>{% translate "Vakolat" %}</h2><ul>{% for c in hero_credentials %}<li><b>{{ c.number }}</b>{{ c.get_kind_display }}</li>{% endfor %}</ul></div>
   </aside>
 </div>
 </div>{% endblock %}

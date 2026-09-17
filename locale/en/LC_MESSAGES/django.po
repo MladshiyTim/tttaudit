@@ -6,9 +6,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 
+#: core/templates/core/home.html
+msgid "%(e)s energoaudit · %(c)s texnik nazorat"
+msgstr "%(e)s energy audit · %(c)s technical supervision"
+
 #: core/templates/core/_lead.html
 msgid "%(mb)s MB gacha: PDF, Excel, Word, DWG, ZIP, rasm"
 msgstr "Up to %(mb)s MB: PDF, Excel, Word, DWG, ZIP, image"
+
+#: core/templates/core/home.html
+msgid "%(n)s mlrd"
+msgstr "%(n)s bn"
 
 #: core/templates/core/team.html
 msgid "%(n)s mutaxassis: energoaudit va qurilishda nazorat oʻlchovi boʻyicha, davlat namunasidagi sertifikatlar bilan."
@@ -22,9 +30,25 @@ msgstr "Energy audit specialists: %(n)s"
 msgid "%(n)s nafar texnik nazorat xodimi"
 msgstr "Technical supervision staff: %(n)s"
 
+#: core/templates/core/home.html
+msgid "%(n)s ta loyiha, %(a)s–%(b)s"
+msgstr "%(n)s projects, %(a)s–%(b)s"
+
+#: core/templates/core/home.html
+msgid "%(n)s yillik tajriba"
+msgstr "%(n)s years of experience"
+
 #: core/templates/core/registry.html
 msgid "%(total)s ta energoaudit va nazorat oʻlchovi ishi, 2019–2025: buyurtmachi, yoʻnalish, yil."
 msgstr "Registry of energy audit and control measurement projects (total: %(total)s), 2019–2025: client, practice area, year."
+
+#: core/templates/core/home.html
+msgid "%(zru)s va VM qarori № 690; Energosamaradorlik milliy agentligi reestri, VM qarori № 673"
+msgstr "%(zru)s and CM Resolution No. 690; register of the National Energy Efficiency Agency, CM Resolution No. 673"
+
+#: core/home.py
+msgid "200 m² dan katta bino"
+msgstr "buildings over 200 m²"
 
 #: core/models.py
 msgid "Agrosanoat va oziq-ovqat"
@@ -36,14 +60,13 @@ msgstr "Accreditation"
 
 #: core/templates/core/base.html
 #: core/templates/core/contact.html
+#: core/templates/core/home.html
+#: core/templates/core/request.html
 #: core/views.py
 msgid "Aloqa"
 msgstr "Contact"
 
-#: core/templates/core/home.html
-msgid "Aloqa va xarita"
-msgstr "Contact and map"
-
+#: core/templates/core/_docs.html
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
 msgid "Amal qiladi"
@@ -57,19 +80,33 @@ msgstr "Discrepancy found"
 msgid "Anonim: «4 qavatli maʼmuriy bino»"
 msgstr "Anonymised: four-storey administrative building"
 
+#: core/home.py
+msgid "Armatura A500C"
+msgstr "Rebar A500C"
+
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
 #: core/models.py
 msgid "Asbob"
 msgstr "Instrument"
 
+#: core/templates/core/direction.html
 #: core/models.py
 msgid "Asboblar"
 msgstr "Instruments"
 
 #: core/templates/core/home.html
+msgid "Asl nusxalar Fargʻonadagi bosh ofisda. Skanni kattalashtirish uchun ustiga bosing."
+msgstr "Originals are kept at the head office in Fergana. Click a scan to enlarge it."
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
 msgid "Asos"
 msgstr "Basis"
+
+#: core/templates/core/home.html
+msgid "Asosiy faktlar"
+msgstr "Key facts"
 
 #: core/templates/core/base.html
 msgid "Asosiy mazmunga oʻtish"
@@ -78,6 +115,10 @@ msgstr "Skip to main content"
 #: core/templates/core/base.html
 msgid "Asosiy menyu"
 msgstr "Main menu"
+
+#: core/templates/core/home.html
+msgid "Axborot byulletenidagi roʻyxat: %(e)s ta energoaudit va %(c)s ta nazorat oʻlchovi. Quyida oxirgi ishlar."
+msgstr "From the information bulletin: %(e)s energy audits and %(c)s control measurements. Latest work below."
 
 #: core/models.py
 msgid "Aʼzolik"
@@ -88,7 +129,6 @@ msgid "Bajarilgan ishlar"
 msgstr "Completed work"
 
 #: core/templates/core/base.html
-#: core/templates/core/home.html
 #: core/templates/core/registry.html
 #: core/views.py
 msgid "Bajarilgan ishlar reestri"
@@ -107,6 +147,10 @@ msgid "Barcha hujjatlar"
 msgstr "All documents"
 
 #: core/templates/core/home.html
+msgid "Barcha xizmatlar"
+msgstr "All services"
+
+#: core/templates/core/home.html
 #: core/templates/core/legislation.html
 #: core/templates/core/registry.html
 msgid "Barchasi"
@@ -115,6 +159,10 @@ msgstr "All"
 #: core/models.py
 msgid "Belgining ostida mayda harflarda beriladi."
 msgstr "Shown in small type under the mark."
+
+#: core/templates/core/_docs.html
+msgid "Beruvchi"
+msgstr "Issued by"
 
 #: core/compliance.py
 msgid "Besh yilda kamida bir marta"
@@ -136,12 +184,20 @@ msgstr "Specific consumption and the energy passport requirement are calculated 
 msgid "Bir vaqtda faqat bitta raqam — issiq nuqta qoidasi."
 msgstr "Only one figure is highlighted at a time — the hot-spot rule."
 
+#: core/templates/core/home.html
+msgid "Birlik"
+msgstr "Unit"
+
+#: core/templates/core/home.html
+msgid "Biz obyektda tomonlar ishtirokida oʻlchaymiz va har bir smeta pozitsiyasini uch ustunda solishtiramiz: hujjat boʻyicha, haqiqatda va farq."
+msgstr "We measure on site with the parties present and compare every estimate item in three columns: per documents, actual and difference."
+
 #: core/models.py
 msgid "Bogʻlanildi"
 msgstr "Contacted"
 
+#: core/templates/core/_director.html
 #: core/templates/core/company.html
-#: core/templates/core/team.html
 msgid "Bosh direktor"
 msgstr "General Director"
 
@@ -150,6 +206,14 @@ msgstr "General Director"
 #: core/models.py
 msgid "Bosh ofis"
 msgstr "Head office"
+
+#: core/templates/core/home.html
+msgid "Bosh ofis, Fargʻona"
+msgstr "Head office, Fergana"
+
+#: core/templates/core/home.html
+msgid "Bosh ofisga kirish, Fargʻona"
+msgstr "Head office entrance, Fergana"
 
 #: core/templates/core/_crumbs.html
 msgid "Bosh sahifa"
@@ -191,6 +255,10 @@ msgstr "For the browser tab and search result. Differs from the hero text: keywo
 msgid "Bu fayl turi qabul qilinmaydi. Ruxsat etilgan: %(list)s"
 msgstr "This file type is not accepted. Allowed: %(list)s"
 
+#: core/templates/core/home.html
+msgid "Butun jamoa"
+msgstr "Whole team"
+
 #: core/templates/core/direction.html
 #: core/templates/core/home.html
 #: core/templates/core/registry.html
@@ -222,6 +290,10 @@ msgstr "The thresholds are indicative; the official category is set in the energ
 msgid "Dalolatnoma, energopasport yoki ekspert xulosasi — imzo va muhr bilan."
 msgstr "A certificate of acceptance, energy passport or expert opinion — signed and sealed."
 
+#: core/templates/core/home.html
+msgid "Dalolatnomadagi raqam obyektda bormi"
+msgstr "Is the figure in the acceptance act really on site"
+
 #: core/compliance.py
 msgid "Dalolatnomani imzolashdan oldin"
 msgstr "Before signing the certificate of acceptance"
@@ -246,6 +318,14 @@ msgstr "Expert organisation"
 msgid "Ekspert tashkiloti, 1997-yildan"
 msgstr "Expert organisation, since 1997"
 
+#: core/templates/core/home.html
+msgid "Ekspert xulosasi"
+msgstr "Expert opinion"
+
+#: core/templates/core/home.html
+msgid "Energetik pasport"
+msgstr "Energy passport"
+
 #: core/models.py
 msgid "Energetika va neft-gaz"
 msgstr "Energy and oil & gas"
@@ -253,6 +333,14 @@ msgstr "Energy and oil & gas"
 #: core/models.py
 msgid "Energetika va qurilish yoʻnalishiga yaqin, taniqli tashkilotlar."
 msgstr "Well-known organisations close to the energy and construction sector."
+
+#: core/templates/core/home.html
+msgid "Energiya balansi"
+msgstr "Energy balance"
+
+#: core/templates/core/home.html
+msgid "Energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida."
+msgstr "Checking energy consumption and measuring completed construction work. Both are carried out under authority confirmed by state documents."
 
 #: core/models.py
 msgid "Energiya toifasi"
@@ -262,6 +350,7 @@ msgstr "Energy rating"
 msgid "Energiyani tejash, undan oqilona foydalanish va energiya samaradorligini oshirish toʻgʻrisida"
 msgstr "On energy saving, rational use of energy and improving energy efficiency"
 
+#: core/templates/core/home.html
 #: core/templates/core/team.html
 #: core/models.py
 msgid "Energoaudit"
@@ -283,9 +372,17 @@ msgstr "Request an energy audit or construction control measurement: describe th
 msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
 msgstr "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan."
 
+#: core/templates/core/home.html
+msgid "Energosamaradorlik auditi"
+msgstr "Energy efficiency audit"
+
 #: core/templates/core/_energy.html
 msgid "Energosamaradorlik toifasi energopasportda belgilanadi."
 msgstr "The energy efficiency class is set in the energy passport."
+
+#: core/templates/core/company.html
+msgid "Faoliyat doirasi"
+msgstr "Scope"
 
 #: core/templates/core/legislation.html
 msgid "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda."
@@ -294,6 +391,18 @@ msgstr "Only documents checked against the current edition on lex.uz are shown. 
 #: core/templates/core/company.html
 msgid "Fargʻona"
 msgstr "Fergana"
+
+#: core/templates/core/home.html
+msgid "Fargʻona sh., Yangiobod koʻchasi, 5"
+msgstr "5 Yangiobod Street, Fergana"
+
+#: core/templates/core/home.html
+msgid "Farq"
+msgstr "Difference"
+
+#: core/templates/core/home.html
+msgid "Farq, soʻm"
+msgstr "Difference, UZS"
 
 #: core/templates/core/_lead.html
 #: core/models.py
@@ -332,6 +441,10 @@ msgstr "Hero image"
 msgid "Geroy ostida"
 msgstr "Below the hero"
 
+#: core/home.py
+msgid "Gidroizolyatsiya, tom"
+msgstr "Waterproofing, roof"
+
 #: core/templates/core/direction.html
 #: core/templates/core/instruments.html
 msgid "Guvohnoma"
@@ -344,6 +457,10 @@ msgstr "Yes — on the contrary, measurements must be taken under real operating
 #: core/templates/core/company.html
 msgid "Hamkorlik"
 msgstr "Cooperation"
+
+#: core/templates/core/home.html
+msgid "Haqiqatda"
+msgstr "Actual"
 
 #: core/compliance.py
 msgid "Har bir transhdan oldin"
@@ -362,6 +479,10 @@ msgid "Hisob-kitobdan oldin"
 msgstr "Before settlement"
 
 #: core/templates/core/home.html
+msgid "Hisob: farq × birlik narxi. Haqiqiy hisobotda smeta normalari va koeffitsiyentlar ham tekshiriladi."
+msgstr "Calculation: difference × unit price. A real report also checks estimate norms and coefficients."
+
+#: core/templates/core/home.html
 #: core/templates/core/news.html
 msgid "Hozircha yangiliklar yoʻq."
 msgstr "No news yet."
@@ -371,9 +492,17 @@ msgstr "No news yet."
 msgid "Hujjat"
 msgstr "Document"
 
+#: core/templates/core/home.html
+msgid "Hujjat boʻyicha"
+msgstr "Per documents"
+
 #: core/templates/core/base.html
 msgid "Hujjat skani"
 msgstr "Document scan"
+
+#: core/templates/core/home.html
+msgid "Hujjatdan ortiq yozilgan summa"
+msgstr "Amount overstated in documents"
 
 #: core/templates/core/base.html
 #: core/templates/core/credentials.html
@@ -385,6 +514,11 @@ msgstr "Documents"
 #: core/views.py
 msgid "Hujjatlarimiz uchinchi shaxsga beriladimi?"
 msgstr "Are our documents shared with third parties?"
+
+#: core/templates/core/home.html
+#: core/templates/core/services.html
+msgid "Ikki yoʻnalish"
+msgstr "Two practice areas"
 
 #: core/templates/core/services.html
 msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida."
@@ -435,6 +569,10 @@ msgstr "Voluntary control measurement"
 msgid "Izoh"
 msgstr "Comment"
 
+#: core/templates/core/home.html
+msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat."
+msgstr "%(n)s staff in total: %(e)s in energy audit, %(c)s in technical supervision."
+
 #: core/templates/core/team.html
 msgid "Jami %(n)s xodim: %(e)s energoaudit, %(c)s texnik nazorat. Quyida byulletenda keltirilgan mutaxassislar."
 msgstr "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(c)s). Below are the specialists listed in the bulletin."
@@ -442,6 +580,14 @@ msgstr "Total staff: %(n)s (energy audit — %(e)s, technical supervision — %(
 #: core/templates/core/registry.html
 msgid "Jami %(total)s ta ish. Manba: tashkilotning 2026-yilgi axborot byulletenlari; buyurtmachi nomlari byulletendagidek."
 msgstr "Projects in the registry: %(total)s. Source: the organisation's 2026 information bulletins; client names as listed in the bulletin."
+
+#: core/templates/core/base.html
+#: core/templates/core/company.html
+#: core/templates/core/home.html
+#: core/templates/core/team.html
+#: core/views.py
+msgid "Jamoa"
+msgstr "Team"
 
 #: core/templates/core/request.html
 #: core/views.py
@@ -455,6 +601,10 @@ msgstr "Professional liability — 10 billion soums, Imkon-sugʻurta JSC"
 #: core/templates/core/contact.html
 msgid "Kattaroq xarita"
 msgstr "Larger map"
+
+#: core/templates/core/registry.html
+msgid "Keyingi sahifa"
+msgstr "Next page"
 
 #: core/templates/core/legislation.html
 msgid "Kimga tegishli"
@@ -517,6 +667,9 @@ msgstr "Project"
 msgid "Loyiha-smeta, dalolatnomalar yoki isteʼmol maʼlumotlari — roʻyxatni oldindan beramiz."
 msgstr "Design and estimate documents, certificates of acceptance, or consumption data — we will send the list in advance."
 
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/registry.html
 #: core/models.py
 msgid "Loyihalar"
 msgstr "Projects"
@@ -528,6 +681,15 @@ msgstr "Mandatory periodic energy audit"
 #: core/compliance.py
 msgid "Majburiy emas, lekin f-2 dalolatnomasiga imzo qoʻyishdan oldin hajmni tasdiqlash — eng arzon nazorat."
 msgstr "Not mandatory, but confirming the volume before signing Form F-2 is the most economical form of control."
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+msgid "Manba: lex.uz"
+msgstr "Source: lex.uz"
+
+#: core/templates/core/home.html
+msgid "Manzil"
+msgstr "Address"
 
 #: core/templates/core/404.html
 msgid "Manzil oʻzgargan yoki notoʻgʻri terilgan boʻlishi mumkin."
@@ -565,7 +727,6 @@ msgstr "Menu"
 msgid "Metrologik tekshiruv"
 msgstr "Metrological verification"
 
-#: core/templates/core/direction.html
 #: core/templates/core/post.html
 #: core/templates/core/service.html
 msgid "Meʼyoriy asos"
@@ -592,6 +753,10 @@ msgstr "Clients"
 msgid "Model"
 msgstr "Model"
 
+#: core/home.py
+msgid "Monolit beton B25, poydevor"
+msgstr "Cast-in-place concrete B25, foundation"
+
 #: core/templates/core/legislation.html
 #: core/templates/core/service.html
 msgid "Muddat"
@@ -601,6 +766,7 @@ msgstr "Timeline"
 msgid "Muhandisdan soʻrash"
 msgstr "Ask an engineer"
 
+#: core/templates/core/contact.html
 #: core/views.py
 msgid "Murojaat"
 msgstr "Request"
@@ -625,9 +791,27 @@ msgstr "Request and consultation"
 msgid "Murojaat yuborish"
 msgstr "Send a request"
 
+#: core/templates/core/home.html
+msgid "Murojaatdan xulosagacha"
+msgstr "From request to report"
+
 #: core/models.py
 msgid "Mutaxassis"
 msgstr "Specialist"
+
+#: core/templates/core/team.html
+msgid "Mutaxassislar"
+msgstr "Specialists"
+
+#: core/templates/core/home.html
+msgid "Narx, soʻm"
+msgstr "Price, UZS"
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+#: core/templates/core/services.html
+msgid "Natija"
+msgstr "Outcome"
 
 #: core/templates/core/home.html
 msgid "Natija yoʻnaltiruvchi hisob, rasmiy xulosa emas — aniq talab va muddat hujjatlaringiz asosida tasdiqlanadi."
@@ -637,6 +821,10 @@ msgstr "The result is an indicative estimate, not an official opinion — the ex
 #: core/templates/core/service.html
 msgid "Natijada olasiz"
 msgstr "As a result, you will receive"
+
+#: core/templates/core/home.html
+msgid "Nazorat oʻlchovi dalolatnomasi"
+msgstr "Control measurement act"
 
 #: core/compliance.py
 msgid "Nazorat oʻlchovi tartibga solingan"
@@ -685,8 +873,8 @@ msgstr "On-site measurement"
 
 #: core/templates/core/direction.html
 #: core/templates/core/home.html
-msgid "Obyektingizga qaysi talab tegishli?"
-msgstr "Which requirement applies to your facility?"
+msgid "Obyektingizga qaysi talab tegishli"
+msgstr "Which requirement applies to your site"
 
 #: core/templates/core/contact.html
 #: core/models.py
@@ -696,6 +884,10 @@ msgstr "Office"
 #: core/models.py
 msgid "Ofislar"
 msgstr "Offices"
+
+#: core/templates/core/registry.html
+msgid "Oldingi sahifa"
+msgstr "Previous page"
 
 #: core/templates/core/base.html
 #: core/views.py
@@ -720,6 +912,18 @@ msgstr "Measurement and inspection are carried out with the parties present, usi
 #: core/templates/core/company.html
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
 msgstr "Member of the Uzbekistan Association of Consulting Engineers (UZACE)"
+
+#: core/home.py
+msgid "Plastik deraza bloklari"
+msgstr "PVC window units"
+
+#: core/templates/core/home.html
+msgid "Pozitsiya"
+msgstr "Item"
+
+#: core/templates/core/home.html
+msgid "Pudratchi bajarilgan ishlar dalolatnomasini topshiradi, buyurtmachi imzolaydi va toʻlaydi. Keyin hajm oshirib yozilgani yoki material almashtirilgani maʼlum boʻladi."
+msgstr "The contractor submits the acceptance act, the client signs and pays. Later it turns out that volumes were overstated or materials substituted."
 
 #: core/views.py
 msgid "Qaysi binolarga energosamaradorlik toifasi belgilanadi?"
@@ -758,6 +962,7 @@ msgid "Qiyoslash amal qiladi"
 msgstr "Verification valid"
 
 #: core/templates/core/base.html
+#: core/templates/core/legislation.html
 #: core/templates/core/service.html
 #: core/models.py
 #: core/views.py
@@ -772,6 +977,14 @@ msgstr "Legislation — energy audit and control measurement"
 msgid "Qonunga tayangan maqola manba tekshirilmaguncha oʻchiq turadi."
 msgstr "An article based on legislation stays hidden until the source is verified."
 
+#: core/templates/core/home.html
+msgid "Qonuniy asos"
+msgstr "Legal basis"
+
+#: core/templates/core/home.html
+msgid "Qoʻlingizda"
+msgstr "You receive"
+
 #: core/models.py
 msgid "Qoʻshimcha telefon"
 msgstr "Secondary phone"
@@ -784,6 +997,10 @@ msgstr "Construction and water management"
 msgid "Qurilish va uy-joy kommunal xoʻjaligi vazirligi bilan hamkorlik"
 msgstr "Cooperation with the Ministry of Construction and Housing and Communal Services"
 
+#: core/templates/core/home.html
+msgid "Qurilish va uy-joy kommunal xoʻjaligi vazirligi litsenziyasi № 518159"
+msgstr "Licence No. 518159 of the Ministry of Construction and Housing and Communal Services"
+
 #: core/templates/core/requisites.html
 msgid "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)"
 msgstr "Ministry of Construction licence No. 518159 (no expiry date)"
@@ -792,12 +1009,14 @@ msgstr "Ministry of Construction licence No. 518159 (no expiry date)"
 msgid "Qurilish vazirligi litsenziyasi № 518159, energoaudit reestri, UZACE aʼzoligi, ISO 9001/45001/27001, kasbiy javobgarlik sugʻurtasi — skanlar bilan."
 msgstr "Ministry of Construction licence No. 518159, energy audit registry, UZACE membership, ISO 9001/45001/27001, professional liability insurance — with scans."
 
+#: core/templates/core/home.html
 #: core/templates/core/team.html
 #: core/models.py
 msgid "Qurilishda nazorat oʻlchovi"
 msgstr "Construction control measurement"
 
 #: core/templates/core/company.html
+#: core/templates/core/home.html
 #: core/templates/core/requisites.html
 #: core/models.py
 msgid "Rahbar"
@@ -808,14 +1027,14 @@ msgstr "Head"
 msgid "Rahbariyat"
 msgstr "Management"
 
-#: core/templates/core/base.html
-#: core/templates/core/company.html
+#: core/templates/core/home.html
 #: core/templates/core/team.html
 #: core/models.py
-#: core/views.py
 msgid "Rahbariyat va mutaxassislar"
 msgstr "Management and specialists"
 
+#: core/templates/core/_docs.html
+#: core/templates/core/company.html
 #: core/models.py
 msgid "Raqam"
 msgstr "Number"
@@ -864,6 +1083,7 @@ msgid "Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi."
 msgstr "For the Russian page. If empty, Latin script is used."
 
 #: core/templates/core/base.html
+#: core/templates/core/home.html
 #: core/templates/core/requisites.html
 #: core/models.py
 msgid "STIR"
@@ -876,6 +1096,10 @@ msgstr "Page not found"
 #: core/templates/core/registry.html
 msgid "Sahifalar"
 msgstr "Pages"
+
+#: core/templates/core/_docs.html
+msgid "Sana"
+msgstr "Date"
 
 #: core/models.py
 msgid "Sanoat"
@@ -893,6 +1117,7 @@ msgstr "Accent line of the heading"
 msgid "Savdo, transport va xizmatlar"
 msgstr "Trade, transport and services"
 
+#: core/templates/core/home.html
 #: core/templates/core/service.html
 msgid "Savollar"
 msgstr "Questions"
@@ -904,6 +1129,10 @@ msgstr "Site settings"
 #: core/models.py
 msgid "Saytda"
 msgstr "On the site"
+
+#: core/home.py
+msgid "Sement-qum suvoq, ichki devorlar"
+msgstr "Cement-sand plaster, interior walls"
 
 #: core/models.py
 msgid "Sertifikat"
@@ -932,6 +1161,10 @@ msgstr "Other services in this practice area"
 #: core/templates/core/_crumbs.html
 msgid "Siz bu yerdasiz"
 msgstr "You are here"
+
+#: core/templates/core/_docs.html
+msgid "Skan bosh ofisda"
+msgstr "Scan available at the head office"
 
 #: core/templates/core/company.html
 msgid "Skanlar bilan"
@@ -970,6 +1203,14 @@ msgstr "Insurance"
 msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi bosh ofis va Toshkent ofisi manzili, telefonlar, e-pochta va murojaat formasi."
 msgstr "Contact TTT Audit: addresses of the head office in Fergana and the Tashkent office, phone numbers, email and request form."
 
+#: core/templates/core/home.html
+msgid "TTT Audit bosh ofisi binosi, Fargʻona"
+msgstr "TTT Audit head office building, Fergana"
+
+#: core/templates/core/home.html
+msgid "Tadbirlar rejasi"
+msgstr "Action plan"
+
 #: core/models.py
 msgid "Taklif yuborildi"
 msgstr "Quote sent"
@@ -978,15 +1219,27 @@ msgstr "Quote sent"
 msgid "Talab"
 msgstr "Requirement"
 
+#: core/templates/core/direction.html
+msgid "Talab tekshiruvi"
+msgstr "Requirement check"
+
 #: core/templates/core/_lead.html
 msgid "Tanlang"
 msgstr "Select"
+
+#: core/templates/core/home.html
+msgid "Taqqoslash vedomosti"
+msgstr "Comparison sheet"
 
 #: core/models.py
 msgid "Tashkil topgan yil"
 msgstr "Founded"
 
 #: core/templates/core/base.html
+#: core/templates/core/company.html
+#: core/templates/core/contact.html
+#: core/templates/core/instruments.html
+#: core/templates/core/requisites.html
 #: core/views.py
 msgid "Tashkilot"
 msgstr "Organisation"
@@ -1048,6 +1301,10 @@ msgstr "Full list"
 msgid "Transh oldidan hajm tekshiruvi"
 msgstr "Volume check before a tranche"
 
+#: core/templates/core/company.html
+msgid "Turi"
+msgstr "Type"
+
 #: core/templates/core/legislation.html
 msgid "Tushuntirishlar"
 msgstr "Explainers"
@@ -1055,6 +1312,11 @@ msgstr "Explainers"
 #: core/templates/core/_compliance.html
 msgid "Uch savolga javob bering — obyektingizga qaysi talab tegishli ekanini, muddatini va qonuniy asosini koʻrasiz."
 msgstr "Answer three questions — find out which requirement applies to your facility, the deadline and the legal basis."
+
+#: core/templates/core/direction.html
+#: core/templates/core/home.html
+msgid "Uch savolga javob bering. Natija faqat qonunda aniq yozilgan talablarga tayanadi."
+msgstr "Answer three questions. The result relies only on requirements set out explicitly in law."
 
 #: core/models.py
 msgid "Urgʻu bilan"
@@ -1064,13 +1326,12 @@ msgstr "Highlighted"
 msgid "VM qarori"
 msgstr "Cabinet of Ministers resolution"
 
+#: core/templates/core/company.html
+#: core/templates/core/credentials.html
+#: core/templates/core/home.html
 #: core/templates/core/request.html
 msgid "Vakolat"
 msgstr "Authority"
-
-#: core/templates/core/home.html
-msgid "Vakolat hujjatlari"
-msgstr "Authorisation documents"
 
 #: core/templates/core/company.html
 msgid "Vakolat va sifat hujjatlari"
@@ -1109,11 +1370,16 @@ msgstr "Map"
 msgid "Xarita iframe kodi"
 msgstr "Map embed code"
 
+#: core/templates/core/home.html
+msgid "Xarita va murojaat"
+msgstr "Map and request"
+
 #: core/models.py
 msgid "Xizmat"
 msgstr "Service"
 
 #: core/templates/core/base.html
+#: core/templates/core/direction.html
 #: core/templates/core/home.html
 #: core/templates/core/services.html
 #: core/models.py
@@ -1138,6 +1404,10 @@ msgid "Yangi"
 msgstr "New"
 
 #: core/templates/core/base.html
+#: core/templates/core/home.html
+#: core/templates/core/legislation.html
+#: core/templates/core/news.html
+#: core/templates/core/post.html
 #: core/models.py
 #: core/views.py
 msgid "Yangiliklar"
@@ -1181,10 +1451,12 @@ msgstr "Close"
 msgid "Yoʻnalish"
 msgstr "Practice area"
 
+#: core/templates/core/home.html
 #: core/templates/core/services.html
 msgid "Yoʻnalish sahifasi"
 msgstr "Practice area page"
 
+#: core/templates/core/home.html
 #: core/models.py
 msgid "Yoʻnalishlar"
 msgstr "Practice areas"
@@ -1218,22 +1490,25 @@ msgstr "[{\"q\": {\"uz\": \"...\"}, \"a\": {\"uz\": \"...\"}}]"
 msgid "[{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}] koʻrinishida"
 msgstr "In the form [{\"uz\": \"Qadam\", \"ru\": \"...\", \"en\": \"...\"}]"
 
-#: core/templates/core/credentials.html
-#: core/templates/core/home.html
-msgid "amal qiladi"
-msgstr "valid"
-
-#: core/templates/core/credentials.html
-msgid "berilgan"
-msgstr "issued"
-
 #: core/templates/core/base.html
 msgid "bosh sahifa"
 msgstr "home page"
 
+#: core/home.py
+msgid "dastlabki baho"
+msgstr "preliminary estimate"
+
+#: core/home.py
+msgid "issiqlik yoʻqotishlari"
+msgstr "heat losses"
+
 #: core/models.py
 msgid "lex.uz bilan tekshirilgan sana"
 msgstr "date checked against lex.uz"
+
+#: core/templates/core/home.html
+msgid "loyiha"
+msgstr "projects"
 
 #: core/templates/core/registry.html
 msgid "masalan, AGROBANK"
@@ -1243,24 +1518,72 @@ msgstr "e.g. AGROBANK"
 msgid "masalan, maʼmuriy bino, 4 qavat"
 msgstr "e.g. administrative building, 4 storeys"
 
-#: core/templates/core/credentials.html
-#: core/templates/core/home.html
+#: core/templates/core/_docs.html
 msgid "muddatsiz"
 msgstr "no expiry date"
+
+#: core/templates/core/home.html
+msgid "namuna · hajm va narxlar shartli"
+msgstr "sample · volumes and prices are illustrative"
+
+#: core/home.py
+msgid "obyektda, tomonlar bilan"
+msgstr "on site, with the parties"
+
+#: core/home.py
+msgid "obyektga chiqmasdan"
+msgstr "without a site visit"
+
+#: core/home.py
+msgid "qurilish davomida"
+msgstr "during construction"
+
+#: core/home.py
+msgid "reestr subyektlari"
+msgstr "register entities"
 
 #: core/templates/core/requisites.html
 msgid "skan"
 msgstr "scan"
 
+#: core/templates/core/home.html
+msgid "soʻm"
+msgstr "UZS"
+
+#: core/templates/core/home.html
+msgid "soʻm kasbiy javobgarlik sugʻurtasi"
+msgstr "UZS professional liability insurance"
+
+#: core/home.py
+msgid "t"
+msgstr "t"
+
+#: core/home.py
+msgid "uchinchi tomon sifatida"
+msgstr "as a third party"
+
+#: core/templates/core/home.html
+msgid "xodim"
+msgstr "staff"
+
+#: core/templates/core/home.html
+msgid "yildan ekspert tashkiloti"
+msgstr "year the expert organisation was founded"
+
 #: core/models.py
 msgid "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
 msgstr "{\"ru\": [{\"title\": \"Образование\", \"lines\": [\"...\"]}], \"uz\": [...], \"en\": [...]}"
+
+#: core/templates/core/home.html
+msgid "«Imkon-sugʻurta» AJ"
+msgstr "Imkon-sug'urta JSC"
 
 #: core/templates/core/requisites.html
 msgid "«TTTaudit» MChJ rekvizitlari: rasmiy nomi, STIR, rahbar, yuridik manzil, telefon, e-pochta, litsenziya va sugʻurta."
 msgstr "TTTaudit LLC company details: legal name, TIN, director, registered address, phone, email, licence and insurance."
 
 #: core/templates/core/home.html
+#: core/templates/core/services.html
 #: core/compliance.py
 msgid "ЗРУ-940"
 msgstr "ZRU-940"

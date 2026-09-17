@@ -1,14 +1,14 @@
 {% extends "core/base.html" %}{% load i18n sitetags %}
 {% block title %}{% translate "Rekvizitlar" %} — TTT Audit{% endblock %}
 {% block description %}{% translate "«TTTaudit» MChJ rekvizitlari: rasmiy nomi, STIR, rahbar, yuridik manzil, telefon, e-pochta, litsenziya va sugʻurta." %}{% endblock %}
-{% block main %}<div class="wrap">
-<div class="phead"><h1>{% translate "Rekvizitlar" %}</h1></div>
-<div class="table-wrap"><table class="table"><tbody>
+{% block main %}<div class="wrap page">
+<header class="phead"><p class="phead__k">{% translate "Tashkilot" %}</p><h1>{% translate "Rekvizitlar" %}</h1></header>
+<div class="tbl-wrap"><table class="tbl tbl--kv"><tbody>
   <tr><th>{% translate "Rasmiy nomi" %}</th><td>{{ site|tr:"org_name" }}</td></tr>
-  <tr><th>{% translate "STIR" %}</th><td class="nums">{{ site.tin }}</td></tr>
+  <tr><th>{% translate "STIR" %}</th><td class="num">{{ site.tin }}</td></tr>
   <tr><th>{% translate "Rahbar" %}</th><td>{{ site|tr:"director" }}</td></tr>
   <tr><th>{% translate "Yuridik manzil" %}</th><td>{{ site|tr:"address" }}</td></tr>
-  <tr><th>{% translate "Telefon" %}</th><td>{{ site.phone }}{% if site.phone_second %}, {{ site.phone_second }}{% endif %}</td></tr>
+  <tr><th>{% translate "Telefon" %}</th><td class="num">{{ site.phone }}{% if site.phone_second %}, {{ site.phone_second }}{% endif %}</td></tr>
   <tr><th>{% translate "E-pochta" %}</th><td><a href="mailto:{{ site.email }}">{{ site.email }}</a></td></tr>
   {% if site|tr:"bank_details" %}<tr><th>{% translate "Bank rekvizitlari" %}</th><td>{{ site|tr:"bank_details"|linebreaksbr }}</td></tr>{% endif %}
   <tr><th>{% translate "Litsenziya" %}</th><td>{% translate "Qurilish vazirligi litsenziyasi № 518159 (muddatsiz)" %} · <a href="{% url 'core:credentials' %}">{% translate "skan" %}</a></td></tr>
