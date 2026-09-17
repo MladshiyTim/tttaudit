@@ -438,12 +438,6 @@ POSTS = [
      "body_uz": "Meʼyoriy hujjat lex.uz bilan tasdiqlangach yoziladi."},
 ]
 
-SITE_COPY = {
-    "seo_title_uz": "Energoaudit, qurilishda nazorat oʻlchovi — Fargʻona, Oʻzbekiston",
-    "seo_title_ru": "Энергоаудит, контрольный обмер в строительстве — Фергана, Узбекистан",
-    "seo_title_en": "Energy audit, construction control measurement — Fergana, Uzbekistan",
-}
-
 SITE = {
     "hero_kicker_uz": "Ekspert tashkiloti · Fargʻona · 1997-yildan",
     "hero_kicker_ru": "Экспертная организация · Фергана · с 1997 года",
@@ -521,11 +515,6 @@ class Command(BaseCommand):
         services = self._services(directions)
         self._acts(directions)
         self._posts()
-
-        site = SiteSettings.load()
-        for field, value in SITE_COPY.items():
-            setattr(site, field, value)
-        site.save()
 
         self.stdout.write(self.style.SUCCESS(
             f"Kontent: {Direction.objects.count()} yonalish / {Service.objects.count()} xizmat / "

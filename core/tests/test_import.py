@@ -19,6 +19,7 @@ def test_import_loads_client_facts():
     site = SiteSettings.load()
     assert site.tin == "202216926"
     assert site.director_uz.startswith("Botirov")
+    assert site.seo_title_uz == "Energoaudit va qurilishda nazorat oʻlchovi — TTT Audit, Fargʻona"
     assert Branch.objects.count() == 2
     assert Credential.objects.count() == 8
     assert Credential.objects.filter(kind="insurance").exists()

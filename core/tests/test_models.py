@@ -16,10 +16,13 @@ def test_tr_falls_back_to_uz_when_translation_empty():
 
 
 @pytest.mark.django_db
-def test_site_settings_load_returns_singleton():
-    # seed_content/import_tttaudit already create the single row for the test session.
+def test_site_settings_load_creates_single_row():
+    # seed_content/import_tttaudit already create the singleton for the test session;
+    # delete it here (inside this test's transaction, so it doesn't leak to other
+    # tests) to exercise the "creates the row when the table is empty" branch.
+    SiteSettings.objects.all().delete()
+    assert SiteSettings.objects.count() == 0
     site = SiteSettings.load()
-    assert SiteSettings.objects.count() == 1
     assert site.org_name_uz == "«TTTaudit» MChJ"
     assert SiteSettings.load().pk == site.pk
 
