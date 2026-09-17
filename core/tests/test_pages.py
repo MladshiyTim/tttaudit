@@ -132,12 +132,18 @@ def test_company_page(client):
 def test_team_page_groups_by_department(client):
     html = client.get("/uz/tashkilot/mutaxassislar/").content.decode()
     assert "Rahbariyat va mutaxassislar" in html
-    assert html.count('class="card person"') == 40      # 39 mutaxassis + direktor kartasi
+    assert html.count('class="card person"') == 39      # 38 mutaxassis (takror birlashtirilgan) + direktor kartasi
     assert "Energoaudit" in html and "Qurilishda nazorat oʻlchovi" in html
     assert "Jamoa" not in html
+    # "== 1" emas: fotosurati bor har bir xodim nomi img alt'da HAM <b> ichida
+    # takrorlanadi (bitta karta ichida 2 marta) — shu sababli karta sonini
+    # <b> yorlig'i orqali sanaymiz: bitta kishi = bitta karta = bitta <b>.
+    assert html.count("<b>Xudayberdiev Otabek Talipovich</b>") == 1
 
 
 @pytest.mark.django_db
 def test_requisites_page(client):
     html = client.get("/uz/tashkilot/rekvizitlar/").content.decode()
     assert "202216926" in html and "«TTTaudit» MChJ" in html
+    assert "filial" not in html.lower()
+    assert "Avisozlar" in html

@@ -46,6 +46,11 @@ def parse_date(value: str | None) -> dt.date | None:
     return dt.date.fromisoformat(value) if value else None
 
 
+def strip_label(value: str) -> str:
+    """"Toshkent filiali: ..." kabi oldindagi yorliqni olib tashlaydi (birinchi ": " gacha)."""
+    return value.split(": ", 1)[1] if ": " in value else value
+
+
 def attach(field, rel_path: str | None) -> None:
     """data/tttaudit/<rel_path> faylini ImageField/FileField ga nusxalaydi."""
     if not rel_path:
@@ -127,7 +132,7 @@ class Command(BaseCommand):
         for lang in ("uz", "ru", "en"):
             setattr(site, f"address_{lang}", company[f"address_{lang}"])
             setattr(site, f"office_tashkent_{lang}",
-                    company.get(f"office_tashkent_{lang}") or company["office_tashkent_uz"])
+                    strip_label(company.get(f"office_tashkent_{lang}") or company["office_tashkent_uz"]))
         site.report_turnaround_days = None
         site.work_hours_uz = site.work_hours_ru = site.work_hours_en = ""
         site.save()
@@ -139,8 +144,9 @@ class Command(BaseCommand):
                    address_en=company["address_en"], head=company["director"],
                    phone=company["phone"], is_head_office=True, order=0),
             Branch(city_uz="Toshkent", city_ru="Ташкент", city_en="Tashkent",
-                   address_uz=company["office_tashkent_uz"], address_ru=company["office_tashkent_ru"],
-                   address_en=company.get("office_tashkent_en") or company["office_tashkent_uz"],
+                   address_uz=strip_label(company["office_tashkent_uz"]),
+                   address_ru=strip_label(company["office_tashkent_ru"]),
+                   address_en=strip_label(company.get("office_tashkent_en") or company["office_tashkent_uz"]),
                    head="", phone=company["phone_second"], is_head_office=False, order=1),
         ])
 
@@ -179,7 +185,14 @@ class Command(BaseCommand):
         ])
 
     def _team(self, staff: list[dict]) -> None:
+        seen_names: set[str] = set()
+        skipped = 0
         for order, row in enumerate(staff):
+            key = " ".join((row.get("name_ru") or "").split()).upper()
+            if key and key in seen_names:
+                skipped += 1
+                continue
+            seen_names.add(key)
             role_ru = (row.get("role_ru") or "").lower()
             obj = TeamMember(
                 full_name=row["name_uz"] or row["name_ru"], full_name_ru=row["name_ru"],
@@ -190,6 +203,9 @@ class Command(BaseCommand):
             if row.get("photo"):
                 attach(obj.photo, row["photo"])
             obj.save()
+        if skipped:
+            # Konsol xabari ASCII: Windows konsoli kirill harflarini chiqara olmaydi
+            self.stdout.write(f"Takror xodim otkazib yuborildi: {skipped}")
 
     def _projects(self, projects: list[dict], directions: dict) -> None:
         rows = []

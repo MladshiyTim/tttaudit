@@ -25,9 +25,10 @@ def test_import_loads_client_facts():
     assert Credential.objects.filter(kind="insurance").exists()
     assert Instrument.objects.count() == 5
     assert Stat.objects.count() == 4
-    assert TeamMember.objects.count() == 39
+    assert TeamMember.objects.count() == 38
     assert TeamMember.objects.filter(dept="energy").count() == 24
     assert TeamMember.objects.exclude(photo="").count() >= 30
+    assert "filial" not in Branch.objects.get(is_head_office=False).address_uz.lower()
     assert Project.objects.count() == 143
     assert Project.objects.filter(direction__slug="olchov-auditi").count() == 95
     assert Client.objects.count() > 0
