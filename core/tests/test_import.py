@@ -111,6 +111,27 @@ def test_member_slugs_are_unique_and_ascii():
 
 
 @pytest.mark.django_db
+def test_site_requisites_keep_admin_edits_without_force(own_media):
+    site = SiteSettings.load()
+    site.phone, site.staff_total = "+998 99 111 22 33", 51
+    site.save()
+    call_command("import_tttaudit")
+    site = SiteSettings.load()
+    assert (site.phone, site.staff_total) == ("+998 99 111 22 33", 51)
+    call_command("import_tttaudit", "--force")
+    site = SiteSettings.load()
+    assert site.phone != "+998 99 111 22 33" and site.staff_total == 50
+
+
+@pytest.mark.django_db
+def test_site_requisites_fill_placeholder_defaults_without_force():
+    SiteSettings.objects.all().delete()
+    call_command("import_tttaudit")
+    site = SiteSettings.load()
+    assert site.tin == "202216926" and site.email != "info@example.uz" and site.director_uz.startswith("Botirov")
+
+
+@pytest.mark.django_db
 def test_repeated_force_keeps_media_file_count_stable(own_media):
     call_command("import_tttaudit", "--force")
     first = sorted(p.relative_to(own_media) for p in own_media.rglob("*") if p.is_file())

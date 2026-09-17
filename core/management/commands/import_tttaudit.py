@@ -14,7 +14,8 @@ Manba fayllar:
 
 Egalik qilinadigan jadvallar: Branch, Credential, Instrument, Stat, TeamMember (direktor ham),
 StaffCertificate, Project, Client. --force ularni fayllari bilan qayta yaratadi — admin paneldagi
-tahrirlar yoʻqoladi. SiteSettings da faqat rekvizit maydonlari yangilanadi (matnlar seed_content'da).
+tahrirlar yoʻqoladi. SiteSettings rekvizitlari: flagsiz faqat boʻsh (yoki model standart qiymatidagi)
+maydonlar toʻldiriladi, --force hammasini fayldagi qiymatga qaytaradi (matnlar seed_content'da).
 """
 from __future__ import annotations
 
@@ -204,7 +205,7 @@ class Command(BaseCommand):
             raise CommandError(f"Yonalish topilmadi: {sorted(missing)}. Avval: python manage.py seed_content")
 
         with transaction.atomic():
-            self._site(facts["company"])
+            self._site(facts["company"], force)
             self._table(Branch, force, lambda: self._branches(facts["company"]))
             self._table(Credential, force, lambda: self._credentials(facts["credentials"]))
             self._table(Instrument, force, lambda: self._instruments(facts["instruments"], directions))
@@ -249,33 +250,48 @@ class Command(BaseCommand):
         delete_files(model)
         model.objects.all().delete()
 
-    def _site(self, company: dict) -> None:
-        site = SiteSettings.load()
-        site.brand_name = "TTT AUDIT"
-        site.org_name_uz = company["legal_name_uz"]
-        site.org_name_ru = company["legal_name_ru"]
-        site.org_name_en = company["legal_name_en"]
-        site.tin = company["tin"]
-        site.founded_year = company["founded_year"]
-        site.experience_years = company["experience_years"]
-        site.staff_total = company["staff_total"]
-        site.staff_energy = company["staff_energy"]
-        site.staff_supervision = company["staff_supervision"]
-        site.phone = company["phone"]
-        site.phone_second = company["phone_second"]
-        site.email = company["email"]
-        site.director_uz = company["director"]
-        site.director_ru = company["director_ru"]
-        site.director_en = company["director"]
-        site.map_lat = company["map_lat"]
-        site.map_lng = company["map_lng"]
+    def _site(self, company: dict, force: bool) -> None:
+        """Rekvizitlar. Flagsiz faqat boʻsh yoki model standartidagi maydon toʻldiriladi — admin tahriri qoladi."""
+        values = {
+            "brand_name": "TTT AUDIT",
+            "org_name_uz": company["legal_name_uz"],
+            "org_name_ru": company["legal_name_ru"],
+            "org_name_en": company["legal_name_en"],
+            "tin": company["tin"],
+            "founded_year": company["founded_year"],
+            "experience_years": company["experience_years"],
+            "staff_total": company["staff_total"],
+            "staff_energy": company["staff_energy"],
+            "staff_supervision": company["staff_supervision"],
+            "phone": company["phone"],
+            "phone_second": company["phone_second"],
+            "email": company["email"],
+            "director_uz": company["director"],
+            "director_ru": company["director_ru"],
+            "director_en": company["director"],
+            "map_lat": company["map_lat"],
+            "map_lng": company["map_lng"],
+        }
         for lang in ("uz", "ru", "en"):
-            setattr(site, f"address_{lang}", company[f"address_{lang}"])
-            setattr(site, f"office_tashkent_{lang}",
-                    strip_label(company.get(f"office_tashkent_{lang}") or company["office_tashkent_uz"]))
-        site.report_turnaround_days = None
-        site.work_hours_uz = site.work_hours_ru = site.work_hours_en = ""
+            values[f"address_{lang}"] = company[f"address_{lang}"]
+            values[f"office_tashkent_{lang}"] = strip_label(
+                company.get(f"office_tashkent_{lang}") or company["office_tashkent_uz"])
+        site = SiteSettings.load()
+        for name, value in values.items():
+            if force or self._is_unset(site, name):
+                setattr(site, name, value)
+        if force:
+            # Tasdiqlanmagan qiymatlar: faqat --force da tozalanadi (standarti allaqachon boʻsh)
+            site.report_turnaround_days = None
+            site.work_hours_uz = site.work_hours_ru = site.work_hours_en = ""
         site.save()
+
+    @staticmethod
+    def _is_unset(site: SiteSettings, name: str) -> bool:
+        """Maydon hali tahrirlanmagan: boʻsh yoki model standart qiymatida."""
+        current = getattr(site, name)
+        field = SiteSettings._meta.get_field(name)
+        return current in (None, "") or (field.has_default() and current == field.get_default())
 
     def _branches(self, company: dict) -> None:
         Branch.objects.bulk_create([

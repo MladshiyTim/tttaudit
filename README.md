@@ -51,10 +51,10 @@ Konteyner root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `media/` volume'
   matnlarini, yoʻnalish, xizmat, qonun va maqolalarni (slug/raqam boʻyicha) fayldagi matn bilan **qayta yozadi** —
   admin paneldagi shu maydonlardagi tahrirlar yoʻqoladi (admin qoʻshgan yangi yozuvlar qoladi).
 - `import_tttaudit` (flagsiz) — maʼlumoti bor jadvallarni (ofis, hujjat, asbob, raqam, xodim, xodim sertifikati,
-  loyiha, mijoz) oʻtkazib yuboradi, lekin `SiteSettings` rekvizit maydonlarini (nom, STIR, telefon, e-pochta, rahbar,
-  manzil, xodimlar soni) **har safar** `facts.json` dan yangilaydi. Rekvizitlarni admin panelda tahrirlash
-  rejalashtirilsa, CMD dan `import_tttaudit` ni olib tashlang. `--force` jadvallarni fayllari bilan birga qayta
-  yaratadi (eski suratlar/skanlar oʻchiriladi, `media/team/` oʻsmaydi).
+  loyiha, mijoz) oʻtkazib yuboradi. `SiteSettings` rekvizitlaridan (nom, STIR, telefon, e-pochta, rahbar, manzil,
+  xodimlar soni) faqat boʻsh yoki model standart qiymatida qolganlarini `facts.json` dan toʻldiradi — admin panelda
+  tahrirlangan rekvizit saqlanadi, shuning uchun CMD da qolishi xavfsiz. `--force` jadvallarni fayllari bilan birga
+  qayta yaratadi (eski suratlar/skanlar oʻchiriladi, `media/team/` oʻsmaydi) va rekvizitlarni fayldagi qiymatga qaytaradi.
 
 ### Prod: muhim
 - **`DJANGO_DEBUG=0` va haqiqiy `DJANGO_SECRET_KEY` majburiy.** `DEBUG=0` da maxfiy kalit berilmasa (yoki dev
