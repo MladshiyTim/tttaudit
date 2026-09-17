@@ -1,6 +1,8 @@
 {% load i18n %}<div data-react="energy-estimator" data-endpoint="{% url 'core:energy_estimate' %}" data-ladder="{{ energy_ladder_json }}" data-threshold="{{ passport_threshold }}">
-  <p>{% translate "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G)." %}</p>
+{% if energy_ladder %}  <p>{% translate "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G)." %}</p>
   <table class="table"><thead><tr><th>{% translate "Toifa" %}</th><th>{% translate "Solishtirma isteʼmol, kVt·soat/m²·yil" %}</th></tr></thead>
   <tbody>{% for b in energy_ladder %}<tr><td><span class="badge">{{ b.letter }}</span></td><td class="num">{{ b.label }}</td></tr>{% endfor %}</tbody></table>
   <p class="muted"><small>{% translate "Chegaralar yoʻnaltiruvchi; rasmiy toifa energopasportda belgilanadi." %}</small></p>
-</div>
+{% else %}  <p>{% translate "Bino maydoni va yillik elektr isteʼmoli boʻyicha solishtirma isteʼmol va energopasport talabi hisoblanadi." %}</p>
+  <p class="muted"><small>{% translate "Energosamaradorlik toifasi energopasportda belgilanadi." %}</small></p>
+{% endif %}</div>

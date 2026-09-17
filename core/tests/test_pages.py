@@ -49,6 +49,22 @@ def test_energy_direction_has_widgets_and_legal_basis(client):
 
 
 @pytest.mark.django_db
+def test_energy_direction_hides_unverified_bands_and_fee(client):
+    html = client.get("/uz/xizmatlar/energoaudit/").content.decode()
+    assert '<span class="badge">A</span>' not in html and '<span class="badge">G</span>' not in html
+    assert 'data-ladder="[]"' in html
+    assert "energopasport talabi hisoblanadi" in html
+    assert "0,3" not in html
+
+
+@pytest.mark.django_db
+def test_energy_direction_shows_bands_once_verified(client, monkeypatch):
+    monkeypatch.setattr("core.energy.BANDS_VERIFIED", True)
+    html = client.get("/uz/xizmatlar/energoaudit/").content.decode()
+    assert '<span class="badge">A</span>' in html and '<span class="badge">G</span>' in html
+
+
+@pytest.mark.django_db
 def test_construction_direction_lists_instruments(client):
     html = client.get("/uz/xizmatlar/olchov-auditi/").content.decode()
     assert "SNOWAY SW-M100" in html
@@ -126,6 +142,7 @@ def test_company_page(client):
     assert "1997" in html and "UZACE" in html and "ISO 27001" in html
     assert "Botirov" in html
     assert "filial" not in html.lower()
+    assert "Buyurtmachilar orasida" not in html          # eski saytdan — mijoz tasdiqlaguncha yoʻq
 
 
 @pytest.mark.django_db
@@ -155,3 +172,6 @@ def test_contact_and_request_pages(client):
     assert "Toshkent" in contact and "Yangiobod" in contact and 'data-react="lead-form"' in contact
     request_page = client.get("/uz/murojaat/").content.decode()
     assert 'name="csrfmiddlewaretoken"' in request_page and 'enctype="multipart/form-data"' in request_page
+    sent = client.get("/uz/murojaat/?sent=1").content.decode()
+    assert "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." in sent
+    assert "ish kuni" not in sent and "bepul" not in sent

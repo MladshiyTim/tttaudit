@@ -13,6 +13,11 @@ class Band(TypedDict):
     label: str
 
 
+# Quyidagi chegaralar oʻrinbosar. Faqat meʼyoriy hujjat (lex.uz) tekshirilib, mijoz
+# tasdiqlagandan keyingina True qilinadi. False boʻlsa toifa (A–G) API, talab tekshiruvi
+# va sahifada koʻrsatilmaydi — faqat solishtirma isteʼmol va energopasport talabi.
+BANDS_VERIFIED = False
+
 BANDS: List[Band] = [
     {"letter": "A", "upper": 40, "label": "< 40"},
     {"letter": "B", "upper": 65, "label": "40–65"},
@@ -23,7 +28,7 @@ BANDS: List[Band] = [
     {"letter": "G", "upper": None, "label": "> 240"},
 ]
 
-# Bino energopasporti majburiy bo'ladigan eng kichik foydali maydon, m2.
+# Bino energopasporti majburiy: foydali maydon shu qiymatdan KATTA boʻlsa (qatʼiy >), m2.
 PASSPORT_AREA_THRESHOLD_M2 = 200
 
 
@@ -42,6 +47,11 @@ def category_for(value: Optional[float]) -> Optional[str]:
         if band["upper"] is None or value < band["upper"]:
             return band["letter"]
     return "G"
+
+
+def passport_required(area_m2: float) -> bool:
+    """Qonun: «200 m² dan katta» — aynan 200 m² da talab yoʻq."""
+    return area_m2 > PASSPORT_AREA_THRESHOLD_M2
 
 
 def bar_widths() -> List[int]:

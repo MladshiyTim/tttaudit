@@ -222,13 +222,6 @@ export default function ComplianceCheck({ endpoint, requestUrl }) {
               </ol>
             )}
 
-            {result.estimated_fee && (
-              <p className="check__hint">
-                {t("cc.feeLabel")} <b>{result.estimated_fee} {t("cc.feeUnit")}</b>
-                {" "}{t("cc.feeNote")}
-              </p>
-            )}
-
             {result.notes.map((note, index) => (
               <p className="check__hint" key={index}>{note}</p>
             ))}

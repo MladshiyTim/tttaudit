@@ -16,11 +16,13 @@ from typing import List, Optional
 from django.utils.translation import gettext_lazy as _
 
 # --- chegaralar --------------------------------------------------------------
-PASSPORT_AREA_M2 = 200          # energopasport majburiy bo'ladigan foydali maydon
+PASSPORT_AREA_M2 = 200          # energopasport: foydali maydon shundan KATTA boʻlsa (qonun: «200 m² dan katta»)
 REGISTRY_KWH = 4_000_000        # davlat energetika reestri: yillik elektr
 REGISTRY_GAS_M3 = 375_000       # davlat energetika reestri: yillik tabiiy gaz
 PERIODIC_YEARS = 5              # davriy energoaudit oralig'i
-MEASUREMENT_FEE_CAP = 0.003     # nazorat o'lchovi xizmat haqi chegarasi (0,3%)
+# Nazorat oʻlchovi xizmat haqi chegarasi (0,3%) — asos hujjat («Nazorat oʻlchovi tartibi») tasdiqlanmagan.
+# Hozir ishlatilmaydi: mijoz va lex.uz tasdiqlagach qaytariladi.
+MEASUREMENT_FEE_CAP = 0.003
 
 OBJECT_KINDS = ["building", "industrial", "construction"]
 FUNDING_KINDS = ["budget", "credit", "own"]
@@ -56,6 +58,7 @@ class Result:
     notes: List[str] = field(default_factory=list)
     specific_kwh: Optional[float] = None
     energy_category: Optional[str] = None
+    # Xizmat haqi chegarasi tasdiqlanmagan (MEASUREMENT_FEE_CAP) — API da doim None
     estimated_fee: Optional[str] = None
 
     def as_dict(self):
@@ -110,10 +113,10 @@ def evaluate(object_kind="", area_m2=None, annual_kwh=None, annual_gas_m3=None,
             "tekshirish kerak."
         ))
 
-    if area is not None and area >= PASSPORT_AREA_M2:
+    if area is not None and area > PASSPORT_AREA_M2:
         result.requirements.append(Requirement(
             key="energy_passport",
-            title=_("Bino energopasporti va A–G toifasi"),
+            title=_("Bino energopasporti va energosamaradorlik toifasi"),
             basis="ЗРУ-940",
             deadline=_("Foydalanishga topshirishdan oldin yoki audit natijasida"),
             note=_(
@@ -127,12 +130,11 @@ def evaluate(object_kind="", area_m2=None, annual_kwh=None, annual_gas_m3=None,
         specific = energy.specific_consumption(kwh, area)
         if specific is not None:
             result.specific_kwh = round(specific, 1)
-            result.energy_category = energy.category_for(specific)
+            result.energy_category = energy.category_for(specific) if energy.BANDS_VERIFIED else None
 
     # ------------------------------------------------------ nazorat oʻlchovi
     if object_kind == "construction":
         if funding == "budget":
-            fee = f"{estimate * MEASUREMENT_FEE_CAP:,.0f}".replace(",", " ") if estimate else ""
             result.requirements.append(Requirement(
                 key="control_measurement",
                 title=_("Nazorat oʻlchovi tartibga solingan"),
@@ -141,12 +143,10 @@ def evaluate(object_kind="", area_m2=None, annual_kwh=None, annual_gas_m3=None,
                 note=_(
                     "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda "
                     "oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot "
-                    "oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
+                    "oʻtkazadi."
                 ),
                 service_slug="nazorat-olchovi", direction_slug="olchov-auditi",
             ))
-            if fee:
-                result.estimated_fee = fee
         elif funding == "credit":
             result.requirements.append(Requirement(
                 key="bank_measurement",

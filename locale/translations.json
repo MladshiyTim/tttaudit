@@ -139,17 +139,17 @@
     "en": "Concrete grey, deep green — energy efficiency led",
     "ru": "Бетонно-серый, тёмно-зелёный — акцент на энергоэффективность"
   },
-  "Bino energopasporti va A–G toifasi": {
-    "en": "Building energy passport and A–G category",
-    "ru": "Энергопаспорт здания и категория A–G"
+  "Bino energopasporti va energosamaradorlik toifasi": {
+    "en": "Building energy passport and energy efficiency category",
+    "ru": "Энергопаспорт здания и категория энергоэффективности"
   },
   "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G).": {
     "en": "Preliminary energy-efficiency category (A–G) based on building area and annual electricity consumption.",
     "ru": "Предварительная категория энергоэффективности (A–G) по площади здания и годовому потреблению электроэнергии."
   },
-  "Bir ish kuni ichida muhandis bogʻlanadi. Dastlabki baholash bepul.": {
-    "en": "An engineer will contact you within one working day. The pre-assessment is free.",
-    "ru": "В течение одного рабочего дня свяжется инженер. Предварительная оценка бесплатна."
+  "Bino maydoni va yillik elektr isteʼmoli boʻyicha solishtirma isteʼmol va energopasport talabi hisoblanadi.": {
+    "en": "Specific consumption and the energy passport requirement are calculated from the building area and annual electricity consumption.",
+    "ru": "По площади здания и годовому потреблению электроэнергии рассчитываются удельное потребление и требование энергопаспорта."
   },
   "Bir vaqtda faqat bitta raqam — issiq nuqta qoidasi.": {
     "en": "Only one figure is highlighted at a time — the hot-spot rule.",
@@ -247,17 +247,13 @@
     "en": "Client or project name",
     "ru": "Заказчик или название работы"
   },
-  "Buyurtmachilar orasida": {
-    "en": "Among our clients",
-    "ru": "Среди заказчиков"
+  "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi.": {
+    "en": "The volume of work performed in budget-funded construction is subject to control measurement.",
+    "ru": "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру."
   },
-  "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi.": {
-    "en": "The volume of work performed in budget-funded construction is subject to control measurement; the service fee does not exceed 0.3% of the construction cost.",
-    "ru": "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру; стоимость услуги не превышает 0,3% от стоимости строительства."
-  },
-  "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi.": {
-    "en": "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost.",
-    "ru": "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
+  "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi.": {
+    "en": "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation.",
+    "ru": "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию."
   },
   "Byudjet obyektlarida oʻlchov tartibi": {
     "en": "Control measurement procedure at budget-funded facilities",
@@ -338,6 +334,10 @@
   "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab.": {
     "en": "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan.",
     "ru": "Энергоаудит, энергопаспорт здания, контрольный обмер в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
+  },
+  "Energosamaradorlik toifasi energopasportda belgilanadi.": {
+    "en": "The energy efficiency class is set in the energy passport.",
+    "ru": "Класс энергоэффективности устанавливается в энергопаспорте."
   },
   "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda.": {
     "en": "Only documents checked against the current edition on lex.uz are shown. The verification date is in each row.",
@@ -466,10 +466,6 @@
   "Hujjatlarimiz uchinchi shaxsga beriladimi?": {
     "en": "Are our documents shared with third parties?",
     "ru": "Передаются ли наши документы третьим лицам?"
-  },
-  "Hujjatlarni yuboring — bir ish kuni ichida muhandis bogʻlanadi. Dastlabki baholash bepul.": {
-    "en": "Send your documents and an engineer will contact you within one working day. The pre-assessment is free.",
-    "ru": "Отправьте документы — в течение одного рабочего дня свяжется инженер. Предварительная оценка бесплатна."
   },
   "Hujjatlarning skan nusxasi shartnoma bilan birga taqdim etiladi. Tender uchun rasmiy nusxa kerak boʻlsa — soʻrov qoldiring.": {
     "en": "Scanned copies are provided with the contract. If you need an official copy for a tender, send a request.",
@@ -795,10 +791,6 @@
     "en": "Deadline:",
     "ru": "Срок:"
   },
-  "Muhandis soʻrovni koʻrib chiqadi va bir ish kuni ichida bogʻlanadi.": {
-    "en": "An engineer reviews the request and contacts you within one working day.",
-    "ru": "Инженер рассмотрит заявку и свяжется в течение одного рабочего дня."
-  },
   "Muhandisdan soʻrash": {
     "en": "Ask an engineer",
     "ru": "Спросить у инженера"
@@ -811,9 +803,9 @@
     "en": "Request",
     "ru": "Обращение"
   },
-  "Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi.": {
-    "en": "The request has been received. An engineer will contact you within one business day.",
-    "ru": "Обращение принято. В течение одного рабочего дня с Вами свяжется инженер."
+  "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi.": {
+    "en": "Your request has been received. An engineer will contact you.",
+    "ru": "Обращение принято. Инженер свяжется с Вами."
   },
   "Murojaat va suhbat": {
     "en": "Request and consultation",
@@ -882,14 +874,6 @@
   "Obyekt haqida qisqacha yozing — muhandis qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaydi.": {
     "en": "Briefly describe the facility — an engineer will determine which requirement applies and the scope of work during the first conversation.",
     "ru": "Кратко расскажите об объекте — инженер определит, какое требование применимо, и объём работ уже при первом разговоре."
-  },
-  "Obyekt maʼlumotlarini va hujjatlarni yuboring. Bir ish kuni ichida muhandis bogʻlanadi va taxminiy muddat bilan taklif beradi.": {
-    "en": "Send the object details and documents. An engineer will contact you within one working day with an indicative timeline.",
-    "ru": "Отправьте данные объекта и документы. В течение одного рабочего дня инженер свяжется и предложит примерные сроки."
-  },
-  "Obyekt maʼlumotlarini yuboring — bir ish kuni ichida muhandis bogʻlanadi. Dastlabki baholash bepul.": {
-    "en": "Send the object details and an engineer will contact you within one working day. The pre-assessment is free.",
-    "ru": "Отправьте данные объекта — в течение одного рабочего дня свяжется инженер. Предварительная оценка бесплатна."
   },
   "Obyekt turi": {
     "en": "Facility type",

@@ -19,5 +19,4 @@
 </div></section>
 <section class="sec"><div class="sec__head"><h2>{% translate "Vakolat va sifat hujjatlari" %}</h2><a href="{% url 'core:credentials' %}">{% translate "Skanlar bilan" %} →</a></div>
 <div class="grid grid--4">{% for c in credentials %}<div class="card"><div class="doc__k">{{ c.get_kind_display }}</div><div class="doc__n">{{ c.number }}</div><div class="doc__s">{{ c|tr:"scope" }}</div></div>{% endfor %}</div></section>
-{% if clients %}<section class="sec"><div class="sec__head"><h2>{% translate "Buyurtmachilar orasida" %}</h2><a href="{% url 'core:registry' %}">{% translate "Reestr" %} →</a></div><div class="grid grid--3">{% for c in clients %}<div class="card">{{ c|tr:"name" }}</div>{% endfor %}</div></section>{% endif %}
 </div>{% endblock %}

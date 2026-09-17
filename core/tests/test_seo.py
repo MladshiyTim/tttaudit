@@ -55,13 +55,24 @@ def test_ru_interface_is_translated_not_uzbek(client):
 
 
 @pytest.mark.django_db
-def test_percent_sign_survives_translation(client):
+def test_percent_sign_survives_translation(client, tmp_path):
     """`{% translate %}` ichidagi `%` Django tomonidan `%%` ga escape qilinadi —
     tarjima qiluvchi buni to'g'ri hisoblamasa, satr hech qachon topilmaydi va
-    ru/en sahifada oʻzbekcha qolib ketadi."""
+    ru/en sahifada oʻzbekcha qolib ketadi. (Saytdagi yagona `%` li satr — 0,3% —
+    olib tashlangan, shu sababli yigʻuvchi vaqtinchalik shablonda tekshiriladi.)"""
+    from core.management.commands.maketranslations import extract
+
+    templates = tmp_path / "core" / "templates"
+    templates.mkdir(parents=True)
+    (templates / "t.html").write_text(
+        '{% translate "Chegara 5% gacha" %}{% blocktranslate with n=x %}{{ n }}% ulush{% endblocktranslate %}',
+        encoding="utf-8",
+    )
+    found = extract(tmp_path)
+    assert "Chegara 5%% gacha" in found and "%(n)s%% ulush" in found
+
     html = client.get("/ru/xizmatlar/energoaudit/").content.decode()
     assert "Byudjet mablagʻi hisobiga" not in html
-    assert "0,3%" in html
 
 
 @pytest.mark.django_db

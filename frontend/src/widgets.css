@@ -68,7 +68,6 @@
 .ladder__l{font-weight:700;color:var(--brand)}
 .ladder__bar{height:10px;border-radius:3px;background:var(--brand-100)}
 .ladder__row[aria-current="true"] .ladder__bar,.ladder__row.is-on .ladder__bar{background:var(--accent)}
-.ladder__row.is-sample .ladder__bar{background:var(--brand-100)}
 .ladder__kwh{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
 .nums{font-variant-numeric:tabular-nums}
 

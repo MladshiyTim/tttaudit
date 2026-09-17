@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { t } from "./i18n.js";
 
 /**
- * Dastlabki baholash: maydon + yillik iste'mol -> A..G toifasi.
+ * Dastlabki baholash: maydon + yillik iste'mol -> solishtirma iste'mol,
+ * energopasport talabi va (chegaralar tasdiqlangan bo'lsa) A..G toifasi.
  *
  * Hisob serverda turadi (core/energy.py), chunki chegaralar me'yoriy
  * hujjatdan keladi va bitta manbada bo'lishi shart. Vidjet faqat
- * ko'rsatadi. JS o'chiq bo'lsa SSR dagi statik shkala joyida qoladi.
+ * ko'rsatadi. Shkala va toifa faqat API `category` qaytarganda chiziladi
+ * (`energy.BANDS_VERIFIED = False` bo'lsa u doim null).
  */
 export default function EnergyEstimator({ ladder, threshold, endpoint }) {
   const [area, setArea] = useState("");
@@ -48,28 +50,26 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
     };
   }, [areaNum, kwhNum, ready, endpoint]);
 
-  // Natija yo'q ekan — shkala o'lik kulrang blok bo'lib qolmasligi uchun
-  // o'rtacha toifa namuna sifatida yoritiladi.
-  const active = result && result.ok ? result.category : "D";
-  const isSample = !(result && result.ok);
+  // Toifa chegaralari tasdiqlanmagan bo'lsa server category=null qaytaradi —
+  // shunda shkala ham, harf ham chizilmaydi.
+  const category = result && result.ok ? result.category : null;
 
   return (
     <>
-      <div className="ladder">
-        {ladder.map((band) => (
-          <div
-            key={band.letter}
-            className={
-              `ladder__row${band.letter === active ? " is-on" : ""}` +
-              (isSample && band.letter === active ? " is-sample" : "")
-            }
-          >
-            <span className="ladder__l">{band.letter}</span>
-            <span className="ladder__bar" style={{ width: `${band.width}%` }} />
-            <span className="ladder__kwh">{band.label}</span>
-          </div>
-        ))}
-      </div>
+      {category && ladder.length > 0 ? (
+        <div className="ladder">
+          {ladder.map((band) => (
+            <div
+              key={band.letter}
+              className={`ladder__row${band.letter === category ? " is-on" : ""}`}
+            >
+              <span className="ladder__l">{band.letter}</span>
+              <span className="ladder__bar" style={{ width: `${band.width}%` }} />
+              <span className="ladder__kwh">{band.label}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
 
       <div className="est">
         <div className="est__head">{t("ee.head")}</div>
@@ -103,7 +103,7 @@ export default function EnergyEstimator({ ladder, threshold, endpoint }) {
 
           {ready && result && result.ok ? (
             <div className="est__out">
-              <span className="est__cat">{result.category}</span>
+              {category ? <span className="est__cat">{category}</span> : null}
               <span className="est__val nums">
                 {result.specific} {t("ee.unit")}
               </span>

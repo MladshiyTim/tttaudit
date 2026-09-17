@@ -114,11 +114,51 @@ def test_lead_rate_limit_ignores_spoofed_x_real_ip_by_default(client, monkeypatc
 def test_compliance_api_returns_requirements_with_service_links(client):
     response = client.get("/uz/api/compliance/", {"object_kind": "construction", "funding": "budget", "estimate_value": "5000000"})
     data = response.json()
-    assert data["ok"] and data["estimated_fee"] == "15 000"
+    assert data["ok"] and data["estimated_fee"] is None     # 0,3% chegarasi tasdiqlanmagan
+    assert all("0,3" not in item["note"] for item in data["requirements"])
     assert data["requirements"][0]["service_url"].endswith("/xizmatlar/olchov-auditi/nazorat-olchovi/")
 
 
 @pytest.mark.django_db
-def test_energy_api(client):
-    assert client.get("/uz/api/energy-estimate/", {"area": "1000", "kwh": "100000"}).json()["category"] == "D"
+def test_energy_api_hides_unverified_category(client):
+    data = client.get("/uz/api/energy-estimate/", {"area": "1000", "kwh": "100000"}).json()
+    assert data == {"ok": True, "specific": 100.0, "category": None, "passport_required": True, "threshold": 200}
     assert client.get("/uz/api/energy-estimate/", {"area": "x"}).status_code == 400
+
+
+@pytest.mark.django_db
+def test_energy_api_shows_category_once_bands_verified(client, monkeypatch):
+    monkeypatch.setattr("core.energy.BANDS_VERIFIED", True)
+    assert client.get("/uz/api/energy-estimate/", {"area": "1000", "kwh": "100000"}).json()["category"] == "D"
+
+
+@pytest.mark.django_db
+def test_energy_api_passport_threshold_is_strictly_greater(client):
+    at = client.get("/uz/api/energy-estimate/", {"area": "200", "kwh": "10000"}).json()
+    above = client.get("/uz/api/energy-estimate/", {"area": "201", "kwh": "10000"}).json()
+    assert at["passport_required"] is False and above["passport_required"] is True
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("params", [{"area": "1000", "kwh": "nan"}, {"area": "inf", "kwh": "1000"},
+                                    {"area": "-5", "kwh": "1000"}, {"area": "1000", "kwh": "-1"}])
+def test_energy_api_rejects_non_finite_or_negative(client, params):
+    assert client.get("/uz/api/energy-estimate/", params).status_code == 400
+
+
+def test_compliance_passport_threshold_and_hidden_category():
+    from core import compliance
+
+    at = compliance.evaluate(area_m2="200", annual_kwh="20000")
+    above = compliance.evaluate(area_m2="201", annual_kwh="20000")
+    assert "energy_passport" not in [r.key for r in at.requirements]
+    assert "energy_passport" in [r.key for r in above.requirements]
+    assert above.specific_kwh == 99.5 and above.energy_category is None
+
+
+@pytest.mark.django_db
+def test_lead_json_message_has_no_unsourced_promise(client, monkeypatch):
+    monkeypatch.setattr("core.views.notify_telegram", lambda lead: True)
+    message = client.post("/uz/api/lead/", {"name": "T", "phone": "+998901234567"},
+                          HTTP_X_REQUESTED_WITH="XMLHttpRequest").json()["message"]
+    assert message == "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi."

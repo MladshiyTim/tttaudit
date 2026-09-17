@@ -113,12 +113,16 @@ msgid "Besh yilda kamida bir marta"
 msgstr "At least once every five years"
 
 #: core/compliance.py
-msgid "Bino energopasporti va A–G toifasi"
-msgstr "Building energy passport and A–G category"
+msgid "Bino energopasporti va energosamaradorlik toifasi"
+msgstr "Building energy passport and energy efficiency category"
 
 #: core/templates/core/_energy.html
 msgid "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G)."
 msgstr "Preliminary energy-efficiency category (A–G) based on building area and annual electricity consumption."
+
+#: core/templates/core/_energy.html
+msgid "Bino maydoni va yillik elektr isteʼmoli boʻyicha solishtirma isteʼmol va energopasport talabi hisoblanadi."
+msgstr "Specific consumption and the energy passport requirement are calculated from the building area and annual electricity consumption."
 
 #: core/models.py
 msgid "Bir vaqtda faqat bitta raqam — issiq nuqta qoidasi."
@@ -190,17 +194,13 @@ msgstr "Client"
 msgid "Buyurtmachi yoki ish nomi"
 msgstr "Client or project name"
 
-#: core/templates/core/company.html
-msgid "Buyurtmachilar orasida"
-msgstr "Among our clients"
-
 #: core/templates/core/_compliance.html
-msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi."
-msgstr "The volume of work performed in budget-funded construction is subject to control measurement; the service fee does not exceed 0.3% of the construction cost."
+msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi."
+msgstr "The volume of work performed in budget-funded construction is subject to control measurement."
 
 #: core/compliance.py
-msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
-msgstr "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation. The service fee does not exceed 0.3% of the construction cost."
+msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi."
+msgstr "On a facility financed from the budget, control measurement is carried out by a licensed and accredited organisation."
 
 #: core/compliance.py
 msgid "Byudjet obyektlarida oʻlchov tartibi"
@@ -266,6 +266,10 @@ msgstr "Who is required to undergo an energy audit?"
 #: core/templates/core/services.html
 msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
 msgstr "Energy audit, building energy passport, construction control measurement, estimate review and technical supervision — across Uzbekistan."
+
+#: core/templates/core/_energy.html
+msgid "Energosamaradorlik toifasi energopasportda belgilanadi."
+msgstr "The energy efficiency class is set in the energy passport."
 
 #: core/templates/core/legislation.html
 msgid "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda."
@@ -587,8 +591,8 @@ msgstr "Request"
 
 #: core/templates/core/request.html
 #: core/views.py
-msgid "Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi."
-msgstr "The request has been received. An engineer will contact you within one business day."
+msgid "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi."
+msgstr "Your request has been received. An engineer will contact you."
 
 #: core/templates/core/home.html
 msgid "Murojaat va suhbat"
@@ -809,7 +813,6 @@ msgid "Rasmiy nomi"
 msgstr "Official name"
 
 #: core/templates/core/base.html
-#: core/templates/core/company.html
 #: core/models.py
 msgid "Reestr"
 msgstr "Registry"

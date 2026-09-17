@@ -39,6 +39,9 @@ def test_compliance_registry_threshold_triggers_mandatory_audit():
     assert "mandatory_energy_audit" in [r.key for r in result.requirements]
 
 
-def test_compliance_budget_construction_gives_fee_cap():
+def test_compliance_budget_construction_has_no_unverified_fee_cap():
     result = compliance.evaluate(object_kind="construction", funding="budget", estimate_value="1000000")
-    assert result.estimated_fee == "3 000"
+    assert result.estimated_fee is None
+    assert [r.key for r in result.requirements] == ["control_measurement"]
+    with translation.override("uz"):
+        assert "0,3" not in str(result.requirements[0].note)

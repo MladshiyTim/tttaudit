@@ -113,12 +113,16 @@ msgid "Besh yilda kamida bir marta"
 msgstr "Не реже одного раза в пять лет"
 
 #: core/compliance.py
-msgid "Bino energopasporti va A–G toifasi"
-msgstr "Энергопаспорт здания и категория A–G"
+msgid "Bino energopasporti va energosamaradorlik toifasi"
+msgstr "Энергопаспорт здания и категория энергоэффективности"
 
 #: core/templates/core/_energy.html
 msgid "Bino maydoni va yillik elektr isteʼmoli boʻyicha dastlabki energosamaradorlik toifasi (A–G)."
 msgstr "Предварительная категория энергоэффективности (A–G) по площади здания и годовому потреблению электроэнергии."
+
+#: core/templates/core/_energy.html
+msgid "Bino maydoni va yillik elektr isteʼmoli boʻyicha solishtirma isteʼmol va energopasport talabi hisoblanadi."
+msgstr "По площади здания и годовому потреблению электроэнергии рассчитываются удельное потребление и требование энергопаспорта."
 
 #: core/models.py
 msgid "Bir vaqtda faqat bitta raqam — issiq nuqta qoidasi."
@@ -190,17 +194,13 @@ msgstr "Заказчик"
 msgid "Buyurtmachi yoki ish nomi"
 msgstr "Заказчик или название работы"
 
-#: core/templates/core/company.html
-msgid "Buyurtmachilar orasida"
-msgstr "Среди заказчиков"
-
 #: core/templates/core/_compliance.html
-msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi; xizmat haqi qurilish qiymatining 0,3%% dan oshmaydi."
-msgstr "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру; стоимость услуги не превышает 0,3% от стоимости строительства."
+msgid "Byudjet mablagʻi hisobiga qurilishda bajarilgan hajm nazorat oʻlchovidan oʻtadi."
+msgstr "Объём работ, выполненных за счёт бюджетных средств, подлежит контрольному обмеру."
 
 #: core/compliance.py
-msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi. Xizmat haqi qurilish qiymatining 0,3% dan oshmaydi."
-msgstr "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию. Стоимость услуги не превышает 0,3% от стоимости строительства."
+msgid "Byudjet mablagʻlari hisobiga moliyalashtiriladigan obyektda oʻlchovni litsenziya va akkreditatsiyaga ega tashkilot oʻtkazadi."
+msgstr "На объекте, финансируемом за счёт бюджетных средств, контрольный обмер проводит организация, имеющая лицензию и аккредитацию."
 
 #: core/compliance.py
 msgid "Byudjet obyektlarida oʻlchov tartibi"
@@ -266,6 +266,10 @@ msgstr "Кому энергоаудит обязателен?"
 #: core/templates/core/services.html
 msgid "Energoaudit, bino energopasporti, qurilishda nazorat oʻlchovi, smeta ekspertizasi va texnik nazorat — Oʻzbekiston boʻylab."
 msgstr "Энергоаудит, энергопаспорт здания, контрольный обмер в строительстве, экспертиза смет и технический надзор — по всему Узбекистану."
+
+#: core/templates/core/_energy.html
+msgid "Energosamaradorlik toifasi energopasportda belgilanadi."
+msgstr "Класс энергоэффективности устанавливается в энергопаспорте."
 
 #: core/templates/core/legislation.html
 msgid "Faqat lex.uz dagi amaldagi tahrir bilan solishtirilgan hujjatlar koʻrsatiladi. Tekshiruv sanasi har qatorda."
@@ -587,8 +591,8 @@ msgstr "Обращение"
 
 #: core/templates/core/request.html
 #: core/views.py
-msgid "Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi."
-msgstr "Обращение принято. В течение одного рабочего дня с Вами свяжется инженер."
+msgid "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi."
+msgstr "Обращение принято. Инженер свяжется с Вами."
 
 #: core/templates/core/home.html
 msgid "Murojaat va suhbat"
@@ -809,7 +813,6 @@ msgid "Rasmiy nomi"
 msgstr "Официальное название"
 
 #: core/templates/core/base.html
-#: core/templates/core/company.html
 #: core/models.py
 msgid "Reestr"
 msgstr "Реестр"

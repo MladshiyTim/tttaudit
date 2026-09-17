@@ -20,3 +20,11 @@ def test_widget_bundle_has_ru_and_en_strings():
     assert "Отправить заявку" in js  # LeadForm/ComplianceCheck submit tugmasi — ru
     assert "Send a request" in js  # LeadForm/ComplianceCheck submit tugmasi — en
     assert "Soʻrov yuborish" in js  # xuddi shu tugma — uz (fallback / default til)
+
+
+def test_widget_bundle_has_no_unsourced_claims():
+    """Javob muddati, «bepul» va 0,3% chegarasi manbasiz — vidjetda ham boʻlmasligi kerak."""
+    js = (DIST / "widgets.js").read_text(encoding="utf-8")
+    for phrase in ("ish kuni", "bepul", "рабочего дня", "бесплатн", "business day", "free of charge", "0,3%", "0.3%"):
+        assert phrase not in js, phrase
+    assert "Maʼlumotlar faqat murojaatni koʻrib chiqish uchun ishlatiladi." in js   # SSR _lead.html bilan bir xil

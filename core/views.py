@@ -1,5 +1,6 @@
 """Barcha sahifalar serverda render qilinadi. React faqat [data-react] orollari uchun."""
 import json
+import math
 
 from django.conf import settings
 from django.core.paginator import Paginator
@@ -14,7 +15,6 @@ from . import compliance, energy, throttle
 from .forms import LeadForm
 from .models import (
     Branch,
-    Client,
     Credential,
     Direction,
     Instrument,
@@ -58,7 +58,8 @@ def compliance_context():
 
 
 def energy_context():
-    ladder = energy.ladder()
+    # Toifa chegaralari tasdiqlanmaguncha shkala sahifaga ham, vidjetga ham berilmaydi
+    ladder = energy.ladder() if energy.BANDS_VERIFIED else []
     return {
         "energy_ladder": ladder,
         "energy_ladder_json": json.dumps(ladder, ensure_ascii=False),
@@ -162,7 +163,7 @@ def company(request):
         credentials=Credential.objects.all(),
         stats=Stat.objects.all(),
         leadership=TeamMember.objects.filter(is_leadership=True)[:4],
-        clients=Client.objects.filter(featured=True)[:12],
+        # «Buyurtmachilar orasida» roʻyxati eski moliyaviy audit saytidan — mijoz tasdiqlaguncha chiqmaydi
     )
 
 
@@ -282,7 +283,7 @@ def lead_create(request):
     lead.save()
     notify_telegram(lead)
 
-    message = _("Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi.")
+    message = _("Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi.")
     if _wants_json(request):
         return JsonResponse({"ok": True, "message": message})
     return redirect(reverse("core:request") + "?sent=1")
@@ -313,10 +314,12 @@ def energy_estimate(request):
         kwh = float(request.GET.get("kwh") or 0)
     except (TypeError, ValueError):
         return JsonResponse({"ok": False, "error": _("Notoʻgʻri qiymat")}, status=400)
+    if not (math.isfinite(area) and math.isfinite(kwh)) or area < 0 or kwh < 0:
+        return JsonResponse({"ok": False, "error": _("Notoʻgʻri qiymat")}, status=400)
     value = energy.specific_consumption(kwh, area)
     return JsonResponse({
         "ok": True, "specific": round(value, 1) if value is not None else None,
-        "category": energy.category_for(value),
-        "passport_required": area >= energy.PASSPORT_AREA_THRESHOLD_M2,
+        "category": energy.category_for(value) if energy.BANDS_VERIFIED else None,
+        "passport_required": energy.passport_required(area),
         "threshold": energy.PASSPORT_AREA_THRESHOLD_M2,
     })

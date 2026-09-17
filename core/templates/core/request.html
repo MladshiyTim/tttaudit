@@ -2,7 +2,7 @@
 {% block title %}{% translate "Murojaat yuborish" %} — TTT Audit{% endblock %}
 {% block main %}<div class="wrap">
 <div class="phead"><h1>{% translate "Murojaat yuborish" %}</h1><p>{% translate "Obyekt haqida qisqacha yozing yoki qoʻngʻiroq qiling. Qaysi talab tegishli ekanini va ish hajmini birinchi suhbatda aniqlaymiz." %}</p></div>
-{% if sent %}<div class="notice notice--ok"><p>{% translate "Murojaat qabul qilindi. Bir ish kuni ichida muhandis bogʻlanadi." %}</p></div>
+{% if sent %}<div class="notice notice--ok"><p>{% translate "Murojaat qabul qilindi. Muhandis siz bilan bogʻlanadi." %}</p></div>
 {% elif error == "limit" %}<div class="notice notice--danger"><p>{% translate "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling." %}</p></div>
 {% elif error %}<div class="notice notice--danger"><p>{% translate "Forma toʻldirilmagan: ism va telefon majburiy." %}</p></div>{% endif %}
 <div class="split">
