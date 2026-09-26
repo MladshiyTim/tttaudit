@@ -1,6 +1,8 @@
 from pathlib import Path
 
-DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist" / "widgets"
+from django.conf import settings
+
+DIST = Path(settings.FRONTEND_DIR) / "dist" / "widgets"
 
 
 def test_widget_bundle_is_built():

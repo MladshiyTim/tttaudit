@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 LANGS = ("uz", "ru", "en")
 CACHE_KEY = "sitetext:version"
 CHECK_INTERVAL = 5  # soniya
-WIDGET_DICT_PATH = Path(settings.BASE_DIR) / "frontend" / "src" / "i18n.json"
+WIDGET_DICT_PATH = Path(settings.FRONTEND_DIR) / "src" / "i18n.json"
 UI_DICT_PATH = Path(settings.BASE_DIR) / "locale" / "translations.json"
 
 _state = {"version": None, "checked_at": 0.0, "ui": {}, "widget": {}}

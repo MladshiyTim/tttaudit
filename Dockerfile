@@ -13,9 +13,9 @@ ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
 # bilan qayta yozish mumkin, lekin buni hech qachon 1 ga qoʻymang (README: Prod: muhim).
 ENV DJANGO_DEBUG=0
 WORKDIR /app
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
+COPY backend/ .
 COPY --from=widgets /w/dist ./frontend/dist
 # Statika build bosqichida yigʻiladi; bazasiz ishlashi uchun oʻrinbosar maxfiy kalit.
 RUN DJANGO_SECRET_KEY=build-only python manage.py collectstatic --noinput

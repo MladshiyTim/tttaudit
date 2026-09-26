@@ -7,38 +7,39 @@ Django 5.2 SSR + React vidjetlari (Vite). Uch til: /uz/ /ru/ /en/.
 
 ```bash
 python -m venv .venv && source .venv/Scripts/activate   # Git Bash (Windows)
-pip install -r requirements-dev.txt
+pip install -r backend/requirements-dev.txt
+cd backend
 python manage.py migrate
 python manage.py seed_content        # tahririy kontent (yoʻnalish, xizmat, qonun, maqola)
 python manage.py import_tttaudit     # mijoz faktlari: hujjatlar, direktor + 38 mutaxassis, 46 sertifikat, 143 loyiha
 python manage.py sync_site_content   # admin uchun «Sayt matnlari» roʻyxati va standart slaydlar
 python manage.py createsuperuser
-cd frontend && npm install && npm run build && cd ..
+cd ../frontend && npm install && npm run build && cd ../backend
 python manage.py runserver
 ```
-Sayt: http://127.0.0.1:8000/uz/ · Admin: /admin/ · Testlar: `pytest -q --cov=core`
+Sayt: http://127.0.0.1:8000/uz/ · Admin: /admin/ · Testlar (`backend/` ichida): `pytest -q --cov=core`
 
-Testlardan oldin har doim `cd frontend && npm run build` bajaring — testlardan biri
-(`core/tests/test_widgets_build.py`) yigʻilgan `frontend/dist/widgets/widgets.js` faylini tekshiradi.
+Testlardan oldin har doim repo ildizida `cd frontend && npm run build` bajaring — testlardan biri
+(`backend/core/tests/test_widgets_build.py`) yigʻilgan `frontend/dist/widgets/widgets.js` faylini tekshiradi.
 
 ## Tuzilma
-- `core/models.py` — kontent modellari (`_uz/_ru/_en` maydonlar, `{{ obj|tr:"title" }}`).
-- `core/compliance.py`, `core/energy.py` — talab qoidalari va A–G chegaralari (server va React uchun yagona manba).
+- `backend/core/models.py` — kontent modellari (`_uz/_ru/_en` maydonlar, `{{ obj|tr:"title" }}`).
+- `backend/core/compliance.py`, `backend/core/energy.py` — talab qoidalari va A–G chegaralari (server va React uchun yagona manba).
   `energy.BANDS_VERIFIED = False` — A–G chegaralari oʻrinbosar, shuning uchun toifa API, talab tekshiruvi va sahifada
   koʻrsatilmaydi (faqat solishtirma isteʼmol va energopasport talabi). Meʼyoriy hujjat tasdiqlangach `True`.
-- `core/media.py` — ommaviy media va murojaat fayllarini xodimga berish; `core/middleware.py` — soʻrov hajmi chegarasi.
-- `core/templates/core/` — sahifalar; `core/static/core/css/site.css` — dizayn tizimi.
+- `backend/core/media.py` — ommaviy media va murojaat fayllarini xodimga berish; `backend/core/middleware.py` — soʻrov hajmi chegarasi.
+- `backend/core/templates/core/` — sahifalar; `backend/core/static/core/css/site.css` — dizayn tizimi.
 - `frontend/src/` — uchta React vidjet; `npm run build` → `frontend/dist/widgets/`.
-- `data/tttaudit/` — mijoz byulletenlaridan ajratilgan JSON va skanlar (38 mutaxassis — 24 energetika / 14 qurilish,
+- `backend/data/tttaudit/` — nashr uchun tayyorlangan JSON va ommaviy media (38 mutaxassis — 24 energetika / 14 qurilish,
   143 loyiha, 8 hujjat/sertifikat).
-- `tools/prepare_logo.py` — `logo/` dagi PNG'dan sayt logotiplari (natija allaqachon commit qilingan; bu skript
+- `backend/tools/prepare_logo.py` — `logo/` dagi PNG'dan sayt logotiplari (natija allaqachon commit qilingan; bu skript
   faqat logotip qayta yasalganda kerak, konteynerda ishlamaydi).
 
 ## Tarjima
-Interfeys satrlari: `python manage.py maketranslations --report` (faqat oʻqish, hech narsa yozmaydi) →
-`locale/translations.json` ni tahrirlash → `python manage.py maketranslations` (yozadi).
+Interfeys satrlari (`backend/` ichida): `python manage.py maketranslations --report` (faqat oʻqish, hech narsa yozmaydi) →
+`backend/locale/translations.json` ni tahrirlash → `python manage.py maketranslations` (yozadi).
 Oʻzbekcha interfeys matnini tahrirlagandan keyin shu buyruqni ishga tushirish va `frontend/src/i18n.js`
-(vidjet matnlari, qoʻlda `locale/translations.json` bilan sinxron tutiladi) ni ham yangilash shart.
+(vidjet matnlari, qoʻlda `backend/locale/translations.json` bilan sinxron tutiladi) ni ham yangilash shart.
 
 ## Admin panel: saytdagi hamma narsa
 - **Kontent** — yoʻnalish, xizmat, qonun, yangilik, loyiha (+ xaritadagi joy), jamoa (+ sertifikat skanlari),
@@ -50,9 +51,9 @@ Oʻzbekcha interfeys matnini tahrirlagandan keyin shu buyruqni ishga tushirish v
   yozuvlari). Boʻsh maydon — standart tarjima; toʻldirilgani darhol (≤5 soniyada, barcha worker'larda) chiqadi.
   `%(n)s` / `{n}` oʻrinbosarlari saqlanishi shart — forma tekshiradi. Roʻyxat `sync_site_content` bilan
   shablonlardan yangilanadi (yangi satr qoʻshilsa — qoʻshiladi, olib tashlangani — tahrirlanmagan boʻlsa oʻchadi).
-  Mexanizm: `core/sitetext.py` (`gettext` ustidan qayta yozuv, `SiteTextMiddleware`).
-- Kodda qoladi: sahifa tuzilmasi/dizayn, bosh sahifadagi vedomost *namunasidagi* raqamlar (`core/home.py`,
-  qator nomlari «Sayt matnlari» da tahrirlanadi), energiya chegaralari (`core/energy.py`).
+  Mexanizm: `backend/core/sitetext.py` (`gettext` ustidan qayta yozuv, `SiteTextMiddleware`).
+- Kodda qoladi: sahifa tuzilmasi/dizayn, bosh sahifadagi vedomost *namunasidagi* raqamlar (`backend/core/home.py`,
+  qator nomlari «Sayt matnlari» da tahrirlanadi), energiya chegaralari (`backend/core/energy.py`).
 
 ## Railway'ga deploy
 1. GitHub repo'dan yangi loyiha → servis Dockerfile orqali yigʻiladi (`railway.json`: healthcheck `/healthz`).
@@ -117,7 +118,7 @@ Ilova root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `docker-entrypoint.s
   (yuqoridagi boʻlim).
 - Oʻzbekcha interfeys matnini oʻzgartirgandan keyin `python manage.py maketranslations` ishga tushiring va
   `frontend/src/i18n.js` ni qoʻlda sinxron tutib boring (vidjet matnlari tarjima faylidan avtomatik olinmaydi).
-- Testlardan oldin `cd frontend && npm run build` bajaring — bitta test yigʻilgan bundlni tekshiradi.
+- Testlardan oldin repo ildizida `cd frontend && npm run build` bajaring — bitta test yigʻilgan bundlni tekshiradi.
 
 ## Kontent qoidalari
 Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun faqat `verified_on` bilan chiqadi.
@@ -129,7 +130,7 @@ Faqat energoaudit va qurilishda nazorat oʻlchovi. Manbasiz raqam yoʻq. Qonun f
   (`compliance.MEASUREMENT_FEE_CAP` ishlatilmaydi).
 - A–G energosamaradorlik toifalari chegaralari — yashirin (`energy.BANDS_VERIFIED = False`).
 - Mijozlar roʻyxati (`clients.json`, eski moliyaviy audit saytidan) — «Buyurtmachilar orasida» boʻlimi olib tashlangan.
-- Loyihalar joylashuvi (`data/tttaudit/project_locations.json`) ish nomi va buyurtmachi matnidan aniqlangan. Joyi
+- Loyihalar joylashuvi (`backend/data/tttaudit/project_locations.json`) ish nomi va buyurtmachi matnidan aniqlangan. Joyi
   matnda aniq (`high`) boʻlganlari xaritada; taxminiylari (`medium`, masalan nomida shahar boʻlgan kompaniya) yashirin —
   mijoz tasdiqlasa admin panelda «Loyihalar joyi» → `is_public`. Xorijdagi 2 ish faqat reestrda.
 - Ofis koordinatasi (Yandex: 40.406844, 71.782245) — prodda eski qiymat qolgan boʻlsa admin panelda yoki
