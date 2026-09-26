@@ -86,7 +86,7 @@ def collect_sources(base_dir: Path):
     """Tarjima qidiriladigan fayllar."""
     for path in sorted((base_dir / "core" / "templates").rglob("*.html")):
         yield path
-    for name in ("models.py", "views.py", "forms.py", "compliance.py", "home.py"):
+    for name in ("models.py", "site_models.py", "views.py", "forms.py", "compliance.py", "home.py"):
         path = base_dir / "core" / name
         if path.exists():
             yield path

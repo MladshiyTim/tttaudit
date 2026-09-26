@@ -19,11 +19,9 @@ COPY . .
 COPY --from=widgets /w/dist ./frontend/dist
 # Statika build bosqichida yigʻiladi; bazasiz ishlashi uchun oʻrinbosar maxfiy kalit.
 RUN DJANGO_SECRET_KEY=build-only python manage.py collectstatic --noinput
-# Root boʻlmagan foydalanuvchi; media/ (skanlar, suratlar, murojaat fayllari) unga yoziladigan boʻlsin
-RUN useradd --create-home app && mkdir -p /app/media && chown -R app /app
-USER app
-# `exec` — gunicorn shell oʻrniga PID 1 boʻladi va SIGTERM'ni toʻgʻridan-toʻgʻri oladi
-CMD sh -c "python manage.py migrate --noinput && \
-           python manage.py createcachetable && \
-           python manage.py seed_content && python manage.py import_tttaudit && \
-           exec gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 3 --timeout 120 --access-logfile -"
+# Ilova root boʻlmagan `app` foydalanuvchisi bilan ishlaydi. Konteyner root sifatida boshlanadi:
+# docker-entrypoint.sh faqat media volume egasini toʻgʻrilaydi va darhol `app` ga oʻtadi.
+# `sed` — Windows'da CRLF bilan checkout qilingan boʻlsa ham skript ishlasin.
+RUN useradd --create-home app && mkdir -p /app/media && chown -R app /app \
+    && sed -i 's/\r$//' /app/docker-entrypoint.sh && chmod +x /app/docker-entrypoint.sh
+CMD ["/app/docker-entrypoint.sh"]

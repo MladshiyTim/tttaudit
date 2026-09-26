@@ -11,6 +11,7 @@ pip install -r requirements-dev.txt
 python manage.py migrate
 python manage.py seed_content        # tahririy kontent (yoʻnalish, xizmat, qonun, maqola)
 python manage.py import_tttaudit     # mijoz faktlari: hujjatlar, direktor + 38 mutaxassis, 46 sertifikat, 143 loyiha
+python manage.py sync_site_content   # admin uchun «Sayt matnlari» roʻyxati va standart slaydlar
 python manage.py createsuperuser
 cd frontend && npm install && npm run build && cd ..
 python manage.py runserver
@@ -39,11 +40,43 @@ Interfeys satrlari: `python manage.py maketranslations --report` (faqat oʻqish,
 Oʻzbekcha interfeys matnini tahrirlagandan keyin shu buyruqni ishga tushirish va `frontend/src/i18n.js`
 (vidjet matnlari, qoʻlda `locale/translations.json` bilan sinxron tutiladi) ni ham yangilash shart.
 
+## Admin panel: saytdagi hamma narsa
+- **Kontent** — yoʻnalish, xizmat, qonun, yangilik, loyiha (+ xaritadagi joy), jamoa (+ sertifikat skanlari),
+  hujjat, asbob, mijoz, raqamlar, ofis, murojaatlar. Har bir matn maydoni uz/ru/en.
+- **Sayt sozlamalari** — rekvizitlar, geroy bloki, kompaniya sahifasi, **brend rasmlari** (logotip, oq logotip,
+  favicon, OG surat; boʻsh boʻlsa `static/core/img/` dagi standart fayl).
+- **Bosh sahifa slaydlari** — surat, yorliq, izoh, alt, kadr markazi, tartib, koʻrsatish/yashirish.
+- **Sayt matnlari** — shablon va vidjetlardagi *barcha* interfeys satrlari (sarlavhalar, tugmalar, forma
+  yozuvlari). Boʻsh maydon — standart tarjima; toʻldirilgani darhol (≤5 soniyada, barcha worker'larda) chiqadi.
+  `%(n)s` / `{n}` oʻrinbosarlari saqlanishi shart — forma tekshiradi. Roʻyxat `sync_site_content` bilan
+  shablonlardan yangilanadi (yangi satr qoʻshilsa — qoʻshiladi, olib tashlangani — tahrirlanmagan boʻlsa oʻchadi).
+  Mexanizm: `core/sitetext.py` (`gettext` ustidan qayta yozuv, `SiteTextMiddleware`).
+- Kodda qoladi: sahifa tuzilmasi/dizayn, bosh sahifadagi vedomost *namunasidagi* raqamlar (`core/home.py`,
+  qator nomlari «Sayt matnlari» da tahrirlanadi), energiya chegaralari (`core/energy.py`).
+
+## Railway'ga deploy
+1. GitHub repo'dan yangi loyiha → servis Dockerfile orqali yigʻiladi (`railway.json`: healthcheck `/healthz`).
+2. **PostgreSQL** qoʻshing; servis oʻzgaruvchisi `DATABASE_URL=${{Postgres.DATABASE_URL}}`.
+3. **Volume** qoʻshing, mount path: `/app/media` (yuklangan rasmlar, skanlar, murojaat fayllari; usiz har
+   deploy'da yoʻqoladi). Egasini `docker-entrypoint.sh` oʻzi toʻgʻrilaydi.
+4. Oʻzgaruvchilar (qolganlari `.env.example` da):
+   - `DJANGO_SECRET_KEY` — uzun tasodifiy qiymat (`python -c "import secrets;print(secrets.token_urlsafe(50))"`)
+   - `DJANGO_ALLOWED_HOSTS=tttaudit.uz,www.tttaudit.uz` va `DJANGO_CSRF_TRUSTED_ORIGINS=https://tttaudit.uz,https://www.tttaudit.uz`
+     (`*.up.railway.app` domeni avtomatik qoʻshiladi — `RAILWAY_PUBLIC_DOMAIN`)
+   - `SITE_URL=https://tttaudit.uz`, `TRUST_X_REAL_IP=1`, ixtiyoriy `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`,
+     `WEB_CONCURRENCY` (gunicorn worker soni, standart 3)
+5. Birinchi deploy'dan keyin admin: Railway servis → *Shell* (yoki `railway ssh`) →
+   `python manage.py createsuperuser`.
+6. Domen: Settings → Networking → Custom Domain → DNS'da CNAME. HTTPS ishlashi tasdiqlangach `DJANGO_HSTS_SECONDS`.
+
+Har ishga tushishda (`docker-entrypoint.sh`): `migrate` → `createcachetable` → `seed_content` →
+`import_tttaudit` → `sync_site_content` → gunicorn. Hammasi takroriy ishga tushishda admin tahrirlarini saqlaydi.
+
 ## Prod
 `.env.example` → muhit oʻzgaruvchilari. `Dockerfile` gunicorn + whitenoise. PostgreSQL `DATABASE_URL`.
 Murojaat chegarasi cache orqali: prodda `DatabaseCache` (`createcachetable` CMD da), lokal/testda `LocMemCache`.
 Telegram: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
-Konteyner root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `media/` volume'i unga yoziladigan boʻlishi kerak.
+Ilova root boʻlmagan `app` foydalanuvchisi bilan ishlaydi; `docker-entrypoint.sh` media volume egasini oʻzi toʻgʻrilaydi.
 
 ### Boshlangʻich maʼlumot buyruqlari (CMD da har ishga tushishda)
 - `seed_content` (flagsiz) — bazada kamida bitta yoʻnalish boʻlsa **hech narsa qilmaydi**, shuning uchun admin

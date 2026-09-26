@@ -6,7 +6,7 @@
 <div class="tbl-wrap"><table class="tbl tbl--acts">
   <thead><tr><th>{% translate "Hujjat" %}</th><th>{% translate "Kimga tegishli" %}</th><th>{% translate "Talab" %}</th><th>{% translate "Muddat" %}</th><th class="r">{% translate "Tekshirilgan" %}</th></tr></thead>
   <tbody>{% for a in acts %}<tr>
-    <td><b class="tbl__num">{{ a.number }}</b><small>{{ a|tr:"title" }}</small>{% if a.lex_url %}<a class="tbl__lex" href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</td>
+    <td><b class="tbl__num">{% translate a.number %}</b><small>{{ a|tr:"title" }}</small>{% if a.lex_url %}<a class="tbl__lex" href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</td>
     <td>{{ a|tr:"applies_to" }}</td><td>{{ a|tr:"requirement" }}</td><td>{{ a|tr:"deadline" }}</td>
     <td class="num r">{{ a.verified_on|date:"d.m.Y" }}</td>
   </tr>{% endfor %}</tbody>

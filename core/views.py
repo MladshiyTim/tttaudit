@@ -23,6 +23,7 @@ from .models import (
     Project,
     Service,
     SiteSettings,
+    Slide,
     Stat,
     TeamMember,
 )
@@ -105,6 +106,7 @@ def home(request):
         "uzmap": maps.projects_map_context(Project.objects.all(), dept=request.GET.get(maps.DEPT_PARAM)),
         "team_strip": home_data.team_strip(),
         "sheet": home_data.sheet(),
+        "slides": list(Slide.objects.filter(is_active=True)),
         "posts": Post.objects.filter(is_published=True)[:3],
         "faq": [{"q": q, "a": a} for q, a in HOME_FAQ],
     }

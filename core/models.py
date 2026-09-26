@@ -8,12 +8,22 @@ Segment modeli yoʻq — «kimga kerak» boʻlimi saytda yoʻq.
 """
 import re
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext_lazy as _
 
 from .geo.regions import REGION_CHOICES
+
+MAX_IMAGE_UPLOAD_BYTES = 5 * 1024 * 1024  # admin yuklaydigan brend/slayd rasmlari
+
+
+def validate_image_size(file) -> None:
+    """Ommaga xizmat qilinadigan admin rasmlari uchun hajm chegarasi."""
+    if file.size > MAX_IMAGE_UPLOAD_BYTES:
+        raise ValidationError(_("Rasm hajmi %(mb)d MB dan oshmasligi kerak."),
+                              params={"mb": MAX_IMAGE_UPLOAD_BYTES // (1024 * 1024)})
 
 
 class TranslatableMixin:
@@ -126,6 +136,23 @@ class SiteSettings(TranslatableMixin, models.Model):
     hero_image = models.ImageField(
         _("Geroy kadri"), upload_to="hero/", blank=True, null=True,
         help_text=_("Boʻsh boʻlsa blok suratsiz chiqadi. Stok foto ishlatilmaydi."),
+    )
+    # Brend rasmlari: boʻsh boʻlsa static/core/img/ dagi standart fayl ishlatiladi
+    logo_mark = models.ImageField(
+        _("Logotip (sarlavha)"), upload_to="branding/", blank=True, null=True, validators=[validate_image_size],
+        help_text=_("Kvadrat PNG, kamida 88×88 px. Boʻsh boʻlsa standart logotip."),
+    )
+    logo_footer = models.ImageField(
+        _("Logotip (pastki qism, oq)"), upload_to="branding/", blank=True, null=True, validators=[validate_image_size],
+        help_text=_("Toʻq fonda koʻrinadigan oq variant, kamida 144×144 px."),
+    )
+    favicon = models.ImageField(
+        _("Brauzer belgisi (favicon)"), upload_to="branding/", blank=True, null=True, validators=[validate_image_size],
+        help_text=_("Kvadrat PNG, 180×180 px."),
+    )
+    og_image = models.ImageField(
+        _("Ijtimoiy tarmoq surati (OG)"), upload_to="branding/", blank=True, null=True, validators=[validate_image_size],
+        help_text=_("Havola ulashilganda chiqadi, 1200×630 px."),
     )
     report_turnaround_days = models.PositiveIntegerField(
         _("Xulosa muddati, ish kuni"), null=True, blank=True,
@@ -530,8 +557,13 @@ class StaffCertificate(TranslatableMixin, models.Model):
         TeamMember, on_delete=models.CASCADE, related_name="certificates", verbose_name=_("Mutaxassis"),
     )
     scan = models.ImageField(_("Skan"), upload_to="team/certificates/", blank=True, null=True)
+    # `title`/`issuer` — hujjatdagi asl yozuv (UZ fallback); `_ru/_en` — tarjimasi
     title = models.CharField(_("Nomi"), max_length=255)
+    title_ru = models.CharField(max_length=255, blank=True)
+    title_en = models.CharField(max_length=255, blank=True)
     issuer = models.CharField(_("Bergan tashkilot"), max_length=255, blank=True)
+    issuer_ru = models.CharField(max_length=255, blank=True)
+    issuer_en = models.CharField(max_length=255, blank=True)
     number = models.CharField(_("Raqam"), max_length=80, blank=True)
     issued_on = models.DateField(_("Berilgan sana"), null=True, blank=True)
     valid_until = models.DateField(_("Amal qilish muddati"), null=True, blank=True)
@@ -547,6 +579,13 @@ class StaffCertificate(TranslatableMixin, models.Model):
 
     def __str__(self):
         return f"{self.member} — {self.title}"
+
+    def tr(self, field: str) -> str:
+        """`title`/`issuer` asosiy maydoni `_uz` qoʻshimchasiz — fallback shu maydonning oʻzi."""
+        if field in ("title", "issuer"):
+            lang = (get_language() or "uz").split("-")[0]
+            return getattr(self, f"{field}_{lang}", "") or getattr(self, field)
+        return super().tr(field)
 
 
 # ----------------------------------------------------------------- hujjatlar
@@ -742,3 +781,7 @@ class Lead(models.Model):
 
     def __str__(self):
         return f"{self.name} · {self.phone} · {self.created_at:%Y-%m-%d}"
+
+
+# Admin paneldan tahrirlanadigan sayt matnlari va slaydlar (alohida modul — fayl hajmi)
+from .site_models import SiteText, Slide  # noqa: E402,F401

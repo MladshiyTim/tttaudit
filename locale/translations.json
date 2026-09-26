@@ -307,6 +307,10 @@
     "en": "Home",
     "ru": "Главная"
   },
+  "Bosh sahifa slaydlari": {
+    "en": "Home page slides",
+    "ru": "Слайды главной страницы"
+  },
   "Bosh sahifada": {
     "en": "On the home page",
     "ru": "На главной странице"
@@ -350,6 +354,10 @@
   "Boʻsh boʻlsa saytda koʻrsatilmaydi. Faqat mijoz tasdiqlagan raqam.": {
     "en": "If empty, it is not shown on the site. Only a figure confirmed by the client.",
     "ru": "Если пусто, на сайте не отображается. Указывается только цифра, подтверждённая клиентом."
+  },
+  "Brauzer belgisi (favicon)": {
+    "en": "Browser icon (favicon)",
+    "ru": "Значок сайта (favicon)"
   },
   "Brauzer yorligʻi va qidiruv natijasi uchun. Geroy gapidan farq qiladi: bu yerda kalit soʻzlar boʻlishi kerak.": {
     "en": "For the browser tab and search result. Differs from the hero text: keywords should be used here.",
@@ -623,6 +631,10 @@
     "en": "One per line",
     "ru": "По одному в строке"
   },
+  "Havola ulashilganda chiqadi, 1200×630 px.": {
+    "en": "Shown when a link is shared, 1200×630 px.",
+    "ru": "Показывается при публикации ссылки, 1200×630 px."
+  },
   "Hech narsa topilmadi.": {
     "en": "Nothing found.",
     "ru": "Ничего не найдено."
@@ -679,6 +691,10 @@
     "en": "WORKING DAYS",
     "ru": "РАБ. ДНЕЙ"
   },
+  "Ijtimoiy tarmoq surati (OG)": {
+    "en": "Social sharing image (OG)",
+    "ru": "Изображение для соцсетей (OG)"
+  },
   "Ikki yoʻnalish": {
     "en": "Two practice areas",
     "ru": "Два направления"
@@ -686,6 +702,10 @@
   "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida.": {
     "en": "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document.",
     "ru": "Два направления: проверка энергопотребления и измерение объёма выполненных строительных работ. Оба — на основании полномочий, подтверждённых государственным документом."
+  },
+  "Inglizcha": {
+    "en": "English",
+    "ru": "Английский"
   },
   "Institutsional": {
     "en": "Institutional",
@@ -803,6 +823,14 @@
     "en": "Frame 15 · facade at dusk",
     "ru": "Кадр 15 · фасад, вечер"
   },
+  "Kadr markazi (vertikal, %)": {
+    "en": "Focal point (vertical, %)",
+    "ru": "Центр кадра (по вертикали, %)"
+  },
+  "Kalit": {
+    "en": "Key",
+    "ru": "Ключ"
+  },
   "Kasbiy javobgarlik — 10 mlrd soʻm, «Imkon-sugʻurta» AJ": {
     "en": "Professional liability — 10 billion soums, Imkon-sugʻurta JSC",
     "ru": "Профессиональная ответственность — 10 млрд сумов, АО «Imkon-sugʻurta»"
@@ -871,6 +899,14 @@
     "en": "Frequently asked questions",
     "ru": "Часто задаваемые вопросы"
   },
+  "Koʻrsatilsin": {
+    "en": "Visible",
+    "ru": "Показывать"
+  },
+  "Koʻzi ojizlar uchun: suratda nima tasvirlangan.": {
+    "en": "For screen readers: what the photo shows.",
+    "ru": "Для незрячих: что изображено на фото."
+  },
   "Kredit mablagʻi hisobiga qurilishda bank odatda bajarilgan hajmning mustaqil tasdigʻini talab qiladi.": {
     "en": "For construction funded by a loan, the bank usually requires independent confirmation of the completed volume.",
     "ru": "При строительстве за счёт кредитных средств банк, как правило, требует независимого подтверждения выполненного объёма."
@@ -878,6 +914,14 @@
   "Kuchga kirdi": {
     "en": "In force since",
     "ru": "Вступил в силу"
+  },
+  "Kvadrat PNG, 180×180 px.": {
+    "en": "Square PNG, 180×180 px.",
+    "ru": "Квадратный PNG, 180×180 px."
+  },
+  "Kvadrat PNG, kamida 88×88 px. Boʻsh boʻlsa standart logotip.": {
+    "en": "Square PNG, at least 88×88 px. If empty, the default logo is used.",
+    "ru": "Квадратный PNG, не менее 88×88 px. Если пусто — стандартный логотип."
   },
   "Lavozim": {
     "en": "Position",
@@ -910,6 +954,14 @@
   "Litsenziyalar": {
     "en": "Licences",
     "ru": "Лицензии"
+  },
+  "Logotip (pastki qism, oq)": {
+    "en": "Logo (footer, white)",
+    "ru": "Логотип (подвал, белый)"
+  },
+  "Logotip (sarlavha)": {
+    "en": "Logo (header)",
+    "ru": "Логотип (шапка)"
   },
   "Logotip belgisi": {
     "en": "Logo mark",
@@ -991,6 +1043,10 @@
     "en": "Route",
     "ru": "Маршрут"
   },
+  "Masalan: «Energoaudit»": {
+    "en": "For example: “Energy audit”",
+    "ru": "Например: «Энергоаудит»"
+  },
   "Masʼul": {
     "en": "Contact person",
     "ru": "Ответственный"
@@ -1058,6 +1114,10 @@
   "Mijozning oʻz jumlasi": {
     "en": "The client's own words",
     "ru": "Формулировка самого клиента"
+  },
+  "Mobil ekranda surat kesilganda qaysi qism koʻrinsin: 0 — yuqori, 100 — past.": {
+    "en": "Which part of the photo stays visible when cropped on mobile: 0 — top, 100 — bottom.",
+    "ru": "Какая часть фото видна при обрезке на мобильном: 0 — верх, 100 — низ."
   },
   "Model": {
     "en": "Model",
@@ -1271,6 +1331,10 @@
     "en": "Similar projects",
     "ru": "Похожие работы"
   },
+  "Oʻzbekcha": {
+    "en": "Uzbek",
+    "ru": "Узбекский"
+  },
   "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi": {
     "en": "Member of the Uzbekistan Association of Consulting Engineers (UZACE)",
     "ru": "Член Ассоциации инженеров-консультантов Узбекистана (UZACE)"
@@ -1443,6 +1507,10 @@
     "en": "Figures row",
     "ru": "Строка цифр"
   },
+  "Rasm hajmi %(mb)d MB dan oshmasligi kerak.": {
+    "en": "Image size must not exceed %(mb)d MB.",
+    "ru": "Размер изображения не должен превышать %(mb)d МБ."
+  },
   "Rasmiy nomi": {
     "en": "Official name",
     "ru": "Официальное название"
@@ -1479,9 +1547,17 @@
     "en": "For the Russian page. If empty, Latin script is used.",
     "ru": "Для русской страницы. Если пусто, используется латиница."
   },
+  "Ruscha": {
+    "en": "Russian",
+    "ru": "Русский"
+  },
   "STIR": {
     "en": "TIN",
     "ru": "ИНН"
+  },
+  "Sahifa matni": {
+    "en": "Page text",
+    "ru": "Текст страницы"
   },
   "Sahifa topilmadi": {
     "en": "Page not found",
@@ -1514,6 +1590,14 @@
   "Savollar": {
     "en": "Questions",
     "ru": "Вопросы"
+  },
+  "Sayt matni": {
+    "en": "Site text",
+    "ru": "Текст сайта"
+  },
+  "Sayt matnlari": {
+    "en": "Site texts",
+    "ru": "Тексты сайта"
   },
   "Sayt sozlamalari": {
     "en": "Site settings",
@@ -1623,6 +1707,10 @@
     "en": "With scans",
     "ru": "Со сканами"
   },
+  "Slayd": {
+    "en": "Slide",
+    "ru": "Слайд"
+  },
   "Smeta": {
     "en": "Estimate",
     "ru": "Смета"
@@ -1662,6 +1750,14 @@
   "Sugʻurta": {
     "en": "Insurance",
     "ru": "Страхование"
+  },
+  "Surat": {
+    "en": "Photo",
+    "ru": "Фото"
+  },
+  "Surat tavsifi (alt)": {
+    "en": "Photo description (alt)",
+    "ru": "Описание фото (alt)"
   },
   "TTT Audit bilan bogʻlanish: Fargʻonadagi ofis manzili xaritada, telefonlar, e-pochta va murojaat formasi.": {
     "en": "Contact TTT Audit: the Fergana office address on the map, phone numbers, e-mail and the request form.",
@@ -1787,6 +1883,10 @@
     "en": "Full list",
     "ru": "Полный список"
   },
+  "Toʻq fonda koʻrinadigan oq variant, kamida 144×144 px.": {
+    "en": "White version for dark backgrounds, at least 144×144 px.",
+    "ru": "Белый вариант для тёмного фона, не менее 144×144 px."
+  },
   "Toʻq grafit, amber urgʻu, fotografiya yetakchi": {
     "en": "Dark graphite, amber accent, photography led",
     "ru": "Тёмный графит, янтарный акцент, ставка на фотографию"
@@ -1866,6 +1966,14 @@
   "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik": {
     "en": "Cooperation with the Inspectorate for Control over the Use of Electricity, Oil Products and Gas under the Cabinet of Ministers",
     "ru": "Сотрудничество с Инспекцией по контролю за использованием электроэнергии, нефтепродуктов и газа при Кабинете Министров"
+  },
+  "Vertikal 4:5 nisbat, kamida 1280×1600 px, JPG.": {
+    "en": "Portrait 4:5, at least 1280×1600 px, JPG.",
+    "ru": "Вертикальный формат 4:5, не менее 1280×1600 px, JPG."
+  },
+  "Vidjet matni (forma, kalkulyator)": {
+    "en": "Widget text (form, calculator)",
+    "ru": "Текст виджета (форма, калькулятор)"
   },
   "Viloyat": {
     "en": "Region",
@@ -1982,6 +2090,10 @@
   "Yopish": {
     "en": "Close",
     "ru": "Закрыть"
+  },
+  "Yorliq": {
+    "en": "Label",
+    "ru": "Метка"
   },
   "Yoʻl": {
     "en": "Breadcrumb",

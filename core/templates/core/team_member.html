@@ -25,9 +25,9 @@
 {% if certificates %}<section class="block" id="sertifikatlar">
   <div class="sh sh--sm"><p class="sh__k">{% translate "Malaka" %}</p><div><h2>{% translate "Sertifikatlar" %}</h2></div></div>
   <div class="certs">{% for c in certificates %}<article class="cert">
-    {% if c.scan %}<a class="cert__img" href="{{ c.scan.url }}" data-lightbox data-alt="{{ c.title }}"><img src="{{ c.scan.url }}" alt="{{ c.title }}" loading="lazy"></a>{% endif %}
-    <h3 class="cert__t">{{ c.title }}</h3>
-    {% if c.issuer %}<p class="cert__iss">{{ c.issuer }}</p>{% endif %}
+    {% if c.scan %}<a class="cert__img" href="{{ c.scan.url }}" data-lightbox data-alt="{{ c|tr:"title" }}"><img src="{{ c.scan.url }}" alt="{{ c|tr:"title" }}" loading="lazy"></a>{% endif %}
+    <h3 class="cert__t">{{ c|tr:"title" }}</h3>
+    {% if c.issuer %}<p class="cert__iss">{{ c|tr:"issuer" }}</p>{% endif %}
     <p class="cert__meta">{% if c.number %}<span>{% if "№" not in c.number %}№ {% endif %}{{ c.number }}</span>{% endif %}{% if c.issued_on %}<span>{% translate "Berilgan" %}: {{ c.issued_on|date:"d.m.Y" }}</span>{% endif %}{% if c.valid_until %}<span>{% translate "Amal qiladi" %}: {{ c.valid_until|date:"d.m.Y" }}</span>{% endif %}</p>
     {% if c|tr:"scope" %}<p class="cert__scope">{{ c|tr:"scope" }}</p>{% endif %}
   </article>{% endfor %}</div>

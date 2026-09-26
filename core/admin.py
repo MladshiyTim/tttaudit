@@ -1,11 +1,19 @@
+import re
+
+from django import forms
 from django.contrib import admin
 from django.urls import reverse
-from django.utils.html import format_html
+from django.utils.html import format_html, format_html_join
 
 from .models import (
     Branch, Client, Credential, Direction, Instrument, Lead, LegalAct, Post, Project,
-    ProjectLocation, Service, SiteSettings, StaffCertificate, Stat, TeamMember,
+    ProjectLocation, Service, SiteSettings, SiteText, Slide, StaffCertificate, Stat, TeamMember,
 )
+from .sitetext import LANGS, default_for
+
+# Har qanday konversiya turi: forms.py da `%(mb)d` ham bor
+PY_PLACEHOLDER = re.compile(r"%\((\w+)\)[sdifr]")
+JS_PLACEHOLDER = re.compile(r"\{(\w+)\}")
 
 
 class ServiceInline(admin.TabularInline):
@@ -34,6 +42,7 @@ class SiteSettingsAdmin(admin.ModelAdmin):
             "hero_text_uz", "hero_text_ru", "hero_text_en",
             "hero_image", "report_turnaround_days",
         ]}),
+        ("Brend rasmlari", {"fields": ["logo_mark", "logo_footer", "favicon", "og_image"]}),
         ("Kompaniya sahifasi", {"fields": [
             "about_uz", "about_ru", "about_en",
             "quality_policy_uz", "quality_policy_ru", "quality_policy_en",
@@ -122,7 +131,8 @@ class InstrumentAdmin(admin.ModelAdmin):
 class StaffCertificateInline(admin.StackedInline):
     model = StaffCertificate
     extra = 0
-    fields = [("title", "order"), ("issuer", "number"), ("issued_on", "valid_until"), "scan",
+    fields = [("title", "order"), ("title_ru", "title_en"), ("issuer", "number"), ("issuer_ru", "issuer_en"),
+              ("issued_on", "valid_until"), "scan",
               "scope_uz", "scope_ru", "scope_en"]
 
 
@@ -180,3 +190,76 @@ class LeadAdmin(admin.ModelAdmin):
         if not obj.pk or not obj.attachment:
             return "—"
         return format_html('<a href="{}">{}</a>', reverse("lead_attachment", args=[obj.pk]), "Yuklab olish")
+
+
+class SiteTextForm(forms.ModelForm):
+    """Qayta yozuvda standart matndagi oʻrinbosarlar (%(n)s yoki {n}) aynan saqlanishi shart."""
+
+    class Meta:
+        model = SiteText
+        fields = ["text_uz", "text_ru", "text_en"]
+        widgets = {f"text_{lang}": forms.Textarea(attrs={"rows": 3, "cols": 90}) for lang in LANGS}
+
+    def clean(self):
+        cleaned = super().clean()
+        pattern = JS_PLACEHOLDER if self.instance.kind == SiteText.KIND_WIDGET else PY_PLACEHOLDER
+        expected = set(pattern.findall(self.instance.key if self.instance.kind == SiteText.KIND_UI
+                                       else default_for(self.instance.kind, self.instance.key).get("uz", "")))
+        for lang in LANGS:
+            value = cleaned.get(f"text_{lang}") or ""
+            if not value:
+                continue
+            found = set(pattern.findall(value))
+            if found != expected:
+                self.add_error(f"text_{lang}", "Oʻrinbosarlar standart matndagidek boʻlishi kerak: "
+                               + (", ".join(sorted(expected)) or "oʻrinbosarsiz"))
+            elif pattern is PY_PLACEHOLDER and "%" in PY_PLACEHOLDER.sub("", value).replace("%%", ""):
+                self.add_error(f"text_{lang}", "Yakka «%» belgisini «%%» deb yozing.")
+        return cleaned
+
+
+@admin.register(SiteText)
+class SiteTextAdmin(admin.ModelAdmin):
+    """Saytdagi barcha interfeys matnlari. Boʻsh maydon — standart tarjima."""
+
+    form = SiteTextForm
+    list_display = ["short_key", "kind", "is_overridden", "updated_at"]
+    list_filter = ["kind"]
+    search_fields = ["key", "text_uz", "text_ru", "text_en"]
+    readonly_fields = ["key", "kind", "defaults"]
+    fieldsets = [
+        (None, {"fields": ["kind", "key", "defaults"]}),
+        ("Qayta yozuv (boʻsh qoldirilsa — standart matn)", {"fields": ["text_uz", "text_ru", "text_en"]}),
+    ]
+
+    def has_add_permission(self, request):
+        # Roʻyxat `sync_site_content` buyrugʻi bilan shablonlardan toʻldiriladi
+        return False
+
+    @admin.display(description="Matn")
+    def short_key(self, obj):
+        return obj.key if len(obj.key) <= 90 else obj.key[:90] + "…"
+
+    @admin.display(description="Oʻzgartirilgan", boolean=True)
+    def is_overridden(self, obj):
+        return any(obj.value(lang) for lang in LANGS)
+
+    @admin.display(description="Standart matn")
+    def defaults(self, obj):
+        values = default_for(obj.kind, obj.key)
+        return format_html_join("", "<p><b>{}:</b> {}</p>", ((lang, values.get(lang, "")) for lang in LANGS))
+
+
+@admin.register(Slide)
+class SlideAdmin(admin.ModelAdmin):
+    list_display = ["thumb", "kicker_uz", "text_uz", "is_active", "order"]
+    list_display_links = ["thumb", "kicker_uz"]
+    list_editable = ["is_active", "order"]
+    fields = ["image", "focus_y", ("kicker_uz", "kicker_ru", "kicker_en"), "text_uz", "text_ru", "text_en",
+              "alt_uz", "alt_ru", "alt_en", ("is_active", "order")]
+
+    @admin.display(description="Surat")
+    def thumb(self, obj):
+        if not obj.image:
+            return "—"
+        return format_html('<img src="{}" alt="" style="height:60px;border-radius:4px">', obj.image.url)

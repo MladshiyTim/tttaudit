@@ -11,7 +11,7 @@
   </div>
   <aside class="aside">
     {% if service.deliverables %}<div class="basis"><h2>{% translate "Natijada olasiz" %}</h2><ul>{% for item in service|tr_list:"deliverables" %}<li>{{ item }}</li>{% endfor %}</ul></div>{% endif %}
-    {% if legal_acts %}<div class="aside__box"><h2>{% translate "Meʼyoriy asos" %}</h2><ul>{% for a in legal_acts %}<li><span class="tag">{{ a.number }}</span><br>{{ a|tr:"title" }}</li>{% endfor %}</ul><p class="aside__more"><a class="more" href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %} →</a></p></div>{% endif %}
+    {% if legal_acts %}<div class="aside__box"><h2>{% translate "Meʼyoriy asos" %}</h2><ul>{% for a in legal_acts %}<li><span class="tag">{% translate a.number %}</span><br>{{ a|tr:"title" }}</li>{% endfor %}</ul><p class="aside__more"><a class="more" href="{% url 'core:legislation' %}">{% translate "Qonunchilik" %} →</a></p></div>{% endif %}
     <div class="aside__box"><h2>{% translate "Shu yoʻnalishdagi boshqa xizmatlar" %}</h2><ul>{% for s in siblings %}<li><a href="{{ s.get_absolute_url }}">{{ s|tr:"title" }}</a></li>{% endfor %}</ul></div>
     <a class="btn" href="{% url 'core:request' %}">{% translate "Murojaat yuborish" %}</a>
   </aside>

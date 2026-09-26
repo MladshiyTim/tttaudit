@@ -377,7 +377,8 @@ class Command(BaseCommand):
                 full_name=name_latin or row["name_uz"] or STAFF_LATIN_NAMES.get(key) or row["name_ru"],
                 full_name_ru=name_ru,
                 role_uz=row["role_uz"], role_ru=row["role_ru"], role_en=row["role_en"],
-                certificates_uz=row.get("cert_uz", ""), dept=row["dept"],
+                certificates_uz=row.get("cert_uz", ""), certificates_ru=row.get("cert_ru", ""),
+                certificates_en=row.get("cert_en", ""), dept=row["dept"],
                 is_leadership=any(word in role_ru for word in LEADERSHIP_WORDS), order=order,
             )
             if row.get("photo"):
@@ -403,6 +404,8 @@ class Command(BaseCommand):
             orders[member.pk] = orders.get(member.pk, -1) + 1
             obj = StaffCertificate(
                 member=member, title=entry["title"][:255], issuer=(entry.get("issuer") or "")[:255],
+                title_ru=(entry.get("title_ru") or "")[:255], title_en=(entry.get("title_en") or "")[:255],
+                issuer_ru=(entry.get("issuer_ru") or "")[:255], issuer_en=(entry.get("issuer_en") or "")[:255],
                 number=(entry.get("number") or "")[:80], issued_on=parse_date(entry.get("issued_on")),
                 valid_until=parse_date(entry.get("valid_until")), order=orders[member.pk],
                 scope_uz=entry.get("scope_uz") or "", scope_ru=entry.get("scope_ru") or "",
@@ -420,7 +423,7 @@ class Command(BaseCommand):
             rows.append(Project(
                 slug=f"{p['dept']}-{index:03d}", direction=directions[DEPT_TO_DIRECTION[p["dept"]]],
                 order=index, year=p.get("year"), client=p.get("client", ""),
-                title_uz=p["title_uz"][:200], title_ru=p["title_ru"][:200], title_en="",
+                title_uz=p["title_uz"][:200], title_ru=p["title_ru"][:200], title_en=p.get("title_en", "")[:200],
             ))
         Project.objects.bulk_create(rows)
 

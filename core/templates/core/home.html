@@ -26,8 +26,13 @@
       </div>{% endfor %}
     </div>
   </div>
-  {% translate "Energoaudit" as k_energy %}{% translate "Nazorat oʻlchovi" as k_measure %}
   <div class="hero__shot slides" data-slides tabindex="0" aria-roledescription="carousel" aria-label="{% translate "Yoʻnalishlar suratlarda" %}">
+    {% if slides %}{% for s in slides %}<figure class="slide{% if forloop.first %} is-active{% endif %}" data-slide>
+      <img src="{{ s.image.url }}" sizes="(max-width: 900px) 100vw, 480px" width="640" height="800" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %} alt="{{ s|tr:"alt" }}" style="object-position:50% {{ s.focus_y }}%">
+      <figcaption class="slide__cap"><b>{{ s|tr:"kicker" }}</b> <span>{{ s|tr:"text" }}</span></figcaption>
+    </figure>
+    {% endfor %}{% else %}{# Admin paneldagi slaydlar boʻsh boʻlsa — standart suratlar #}
+    {% translate "Energoaudit" as k_energy %}{% translate "Nazorat oʻlchovi" as k_measure %}
     {% translate "Tok qisqichli oʻlchagich bilan taqsimlash shkafi shinalarida oʻlchov" as alt %}{% translate "elektr isteʼmolini taqsimlash shkafida oʻlchash" as text %}
     {% include "core/_slide.html" with name="energy-clamp-meter" first=True kicker=k_energy %}
     {% translate "Qurilish maydonida GNSS qabul qilgichli reyka bilan oʻlchayotgan mutaxassis" as alt %}{% translate "qurilish maydonida koordinata va balandliklarni oʻlchash" as text %}
@@ -40,8 +45,9 @@
     {% include "core/_slide.html" with name="energy-pipe-gauges" kicker=k_energy %}
     {% translate "Qurilayotgan bino va minorali kran oldida shtativdagi geodezik asbob" as alt %}{% translate "bajarilgan hajmni obyektda oʻlchash" as text %}
     {% include "core/_slide.html" with name="site-survey-tripod" kicker=k_measure %}
+    {% endif %}
     <div class="slides__nav" data-slides-nav hidden>
-      <span class="slides__count num"><span data-slides-index>01</span> / 06</span>
+      <span class="slides__count num"><span data-slides-index>01</span> / {% if slides %}{{ slides|length|stringformat:"02d" }}{% else %}06{% endif %}</span>
       <button type="button" class="slides__btn" data-slides-prev aria-label="{% translate "Oldingi surat" %}"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
       <button type="button" class="slides__btn" data-slides-next aria-label="{% translate "Keyingi surat" %}"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
     </div>

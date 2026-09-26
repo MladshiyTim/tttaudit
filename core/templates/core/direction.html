@@ -13,7 +13,7 @@
   <aside class="basis">
     <h2>{% translate "Asos" %}</h2>
     <p>{% if is_energy %}{% translate "Vakolat: Energosamaradorlik milliy agentligi reestri (VM qarori № 673)" %} · {% blocktranslate with n=site.staff_energy %}{{ n }} nafar energoaudit mutaxassisi{% endblocktranslate %}{% else %}{% translate "Vakolat: Qurilish vazirligi litsenziyasi № 518159" %} · {% blocktranslate with n=site.staff_supervision %}{{ n }} nafar texnik nazorat xodimi{% endblocktranslate %}{% endif %}</p>
-    {% if legal_acts %}<ul>{% for a in legal_acts %}<li><b>{{ a.number }}</b>{{ a|tr:"title" }}{% if a.lex_url %} · <a href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</li>{% endfor %}</ul>{% endif %}
+    {% if legal_acts %}<ul>{% for a in legal_acts %}<li><b>{% translate a.number %}</b>{{ a|tr:"title" }}{% if a.lex_url %} · <a href="{{ a.lex_url }}" rel="noopener" target="_blank">lex.uz</a>{% endif %}</li>{% endfor %}</ul>{% endif %}
     {% if direction|tr:"legal_note" %}<p class="basis__note">{{ direction|tr:"legal_note" }}</p>{% endif %}
   </aside>
 </div>

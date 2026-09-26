@@ -19,10 +19,14 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 # Railway / Render o'z domenini muhit o'zgaruvchisida beradi
-for _var in ("RAILWAY_PUBLIC_DOMAIN", "RENDER_EXTERNAL_HOSTNAME"):
-    _host = os.environ.get(_var)
-    if _host and _host not in ALLOWED_HOSTS:
-        ALLOWED_HOSTS.append(_host)
+PLATFORM_HOSTS = [
+    os.environ[_var] for _var in ("RAILWAY_PUBLIC_DOMAIN", "RENDER_EXTERNAL_HOSTNAME") if os.environ.get(_var)
+]
+# Railway healthcheck shu Host sarlavhasi bilan keladi (docs.railway.com: healthchecks).
+# Bu host faqat Railway ichki tarmogʻidan keladi; tashqi trafik edge orqali oʻz domeni bilan.
+if os.environ.get("RAILWAY_ENVIRONMENT"):
+    PLATFORM_HOSTS.append("healthcheck.railway.app")
+ALLOWED_HOSTS += [host for host in PLATFORM_HOSTS if host not in ALLOWED_HOSTS]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -41,6 +45,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "core.sitetext.SiteTextMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -108,10 +113,11 @@ STATICFILES_DIRS = [BASE_DIR / "frontend" / "dist"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# Railway'da volume shu papkaga ulanadi (standart /app/media); boshqa yoʻl boʻlsa DJANGO_MEDIA_ROOT
+MEDIA_ROOT = Path(os.environ.get("DJANGO_MEDIA_ROOT") or BASE_DIR / "media")
 # /media/ ostida faqat shu papkalar ommaga xizmat qilinadi (DEBUG va prodda bir xil).
 # Qolganlari — xususan leads/ (mijoz yuklagan fayllar) — 404; ular faqat admin orqali yuklab olinadi.
-PUBLIC_MEDIA_PREFIXES = ("credentials", "team", "instruments", "projects", "directions", "hero")
+PUBLIC_MEDIA_PREFIXES = ("credentials", "team", "instruments", "projects", "directions", "hero", "branding", "slides")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -150,6 +156,8 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 if not DEBUG:
     # Lokal prod-rejim testi uchun DJANGO_SSL_REDIRECT=0 bilan o'chiriladi.
     SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SSL_REDIRECT", "1") == "1"
+    # Platforma healthcheck'i ichki HTTP orqali keladi — unga 301 emas, 200 kerak
+    SECURE_REDIRECT_EXEMPT = [r"^healthz$"]
     # HSTS ehtiyotkorlik bilan: domen faqat HTTPS ekani tasdiqlangach 31536000 ga koʻtariladi
     SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_HSTS_SECONDS", "3600"))
     SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get("DJANGO_HSTS_INCLUDE_SUBDOMAINS", "0") == "1"
@@ -158,9 +166,14 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     CSRF_TRUSTED_ORIGINS = [
-        origin
+        origin.strip()
         for origin in os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
-        if origin
+        if origin.strip()
+    ]
+    # *.up.railway.app domenida admin kirishi va formalar CSRF 403 bermasin
+    CSRF_TRUSTED_ORIGINS += [
+        f"https://{host}" for host in PLATFORM_HOSTS
+        if host != "healthcheck.railway.app" and f"https://{host}" not in CSRF_TRUSTED_ORIGINS
     ]
     STORAGES = {
         "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},

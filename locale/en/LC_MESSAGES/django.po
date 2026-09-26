@@ -266,6 +266,10 @@ msgstr "Head office, Fergana"
 msgid "Bosh sahifa"
 msgstr "Home"
 
+#: core/site_models.py
+msgid "Bosh sahifa slaydlari"
+msgstr "Home page slides"
+
 #: core/models.py
 msgid "Bosh sahifada"
 msgstr "On the home page"
@@ -299,6 +303,10 @@ msgstr "If empty, the document is not shown on the site. Fill in the number, tit
 #: core/models.py
 msgid "Boʻsh boʻlsa saytda koʻrsatilmaydi. Faqat mijoz tasdiqlagan raqam."
 msgstr "If empty, it is not shown on the site. Only a figure confirmed by the client."
+
+#: core/models.py
+msgid "Brauzer belgisi (favicon)"
+msgstr "Browser icon (favicon)"
 
 #: core/models.py
 msgid "Brauzer yorligʻi va qidiruv natijasi uchun. Geroy gapidan farq qiladi: bu yerda kalit soʻzlar boʻlishi kerak."
@@ -527,6 +535,10 @@ msgstr "Before each tranche"
 msgid "Har qatorda bitta"
 msgstr "One per line"
 
+#: core/models.py
+msgid "Havola ulashilganda chiqadi, 1200×630 px."
+msgstr "Shown when a link is shared, 1200×630 px."
+
 #: core/templates/core/registry.html
 msgid "Hech narsa topilmadi."
 msgstr "Nothing found."
@@ -578,6 +590,10 @@ msgstr "Documents"
 msgid "Hujjatlarimiz uchinchi shaxsga beriladimi?"
 msgstr "Are our documents shared with third parties?"
 
+#: core/models.py
+msgid "Ijtimoiy tarmoq surati (OG)"
+msgstr "Social sharing image (OG)"
+
 #: core/templates/core/home.html
 #: core/templates/core/services.html
 msgid "Ikki yoʻnalish"
@@ -586,6 +602,10 @@ msgstr "Two practice areas"
 #: core/templates/core/services.html
 msgid "Ikki yoʻnalish: energiya isteʼmolini tekshirish va qurilishda bajarilgan ish hajmini oʻlchash. Ikkalasi ham davlat hujjati bilan tasdiqlangan vakolat asosida."
 msgstr "Two practice areas: checking energy consumption and measuring the volume of completed construction work. Both are based on authority confirmed by a state document."
+
+#: core/site_models.py
+msgid "Inglizcha"
+msgstr "English"
 
 #: core/templates/core/direction.html
 #: core/templates/core/registry.html
@@ -637,6 +657,7 @@ msgstr "Voluntary control measurement"
 
 #: core/templates/core/_lead.html
 #: core/models.py
+#: core/site_models.py
 msgid "Izoh"
 msgstr "Comment"
 
@@ -674,6 +695,14 @@ msgstr "Place not stated"
 msgid "Juda koʻp soʻrov. Birozdan soʻng urinib koʻring yoki qoʻngʻiroq qiling."
 msgstr "Too many requests. Try again later or call us."
 
+#: core/site_models.py
+msgid "Kadr markazi (vertikal, %)"
+msgstr "Focal point (vertical, %)"
+
+#: core/site_models.py
+msgid "Kalit"
+msgstr "Key"
+
 #: core/templates/core/requisites.html
 msgid "Kasbiy javobgarlik — 10 mlrd soʻm, «Imkon-sugʻurta» AJ"
 msgstr "Professional liability — 10 billion soums, Imkon-sugʻurta JSC"
@@ -706,9 +735,25 @@ msgstr "Regions with the most projects"
 msgid "Koʻp soʻraladigan savollar"
 msgstr "Frequently asked questions"
 
+#: core/site_models.py
+msgid "Koʻrsatilsin"
+msgstr "Visible"
+
+#: core/site_models.py
+msgid "Koʻzi ojizlar uchun: suratda nima tasvirlangan."
+msgstr "For screen readers: what the photo shows."
+
 #: core/compliance.py
 msgid "Kredit mablagʻi hisobiga qurilishda bank odatda bajarilgan hajmning mustaqil tasdigʻini talab qiladi."
 msgstr "For construction funded by a loan, the bank usually requires independent confirmation of the completed volume."
+
+#: core/models.py
+msgid "Kvadrat PNG, 180×180 px."
+msgstr "Square PNG, 180×180 px."
+
+#: core/models.py
+msgid "Kvadrat PNG, kamida 88×88 px. Boʻsh boʻlsa standart logotip."
+msgstr "Square PNG, at least 88×88 px. If empty, the default logo is used."
 
 #: core/templates/core/team_member.html
 msgid "Lavozim"
@@ -734,6 +779,14 @@ msgstr "Licence and certificates"
 #: core/templates/core/credentials.html
 msgid "Litsenziya, reestr, sertifikatlar"
 msgstr "Licence, registry, certificates"
+
+#: core/models.py
+msgid "Logotip (pastki qism, oq)"
+msgstr "Logo (footer, white)"
+
+#: core/models.py
+msgid "Logotip (sarlavha)"
+msgstr "Logo (header)"
 
 #: core/models.py
 msgid "Logotip belgisi"
@@ -811,6 +864,10 @@ msgstr "Article"
 msgid "Marshrut"
 msgstr "Route"
 
+#: core/site_models.py
+msgid "Masalan: «Energoaudit»"
+msgstr "For example: “Energy audit”"
+
 #: core/models.py
 msgid "Masʼul"
 msgstr "Contact person"
@@ -865,6 +922,10 @@ msgstr "Client"
 #: core/models.py
 msgid "Mijozlar"
 msgstr "Clients"
+
+#: core/site_models.py
+msgid "Mobil ekranda surat kesilganda qaysi qism koʻrinsin: 0 — yuqori, 100 — past."
+msgstr "Which part of the photo stays visible when cropped on mobile: 0 — top, 100 — bottom."
 
 #: core/models.py
 msgid "Model"
@@ -1046,6 +1107,10 @@ msgstr "Measurement range"
 msgid "Oʻlchov va koʻrik tomonlar ishtirokida, qiyoslangan asboblar bilan."
 msgstr "Measurement and inspection are carried out with the parties present, using verified instruments."
 
+#: core/site_models.py
+msgid "Oʻzbekcha"
+msgstr "Uzbek"
+
 #: core/templates/core/company.html
 msgid "Oʻzbekiston muhandis-konsultantlar uyushmasi (UZACE) aʼzosi"
 msgstr "Member of the Uzbekistan Association of Consulting Engineers (UZACE)"
@@ -1203,6 +1268,10 @@ msgstr "Act number"
 msgid "Raqamlar chizigʻi"
 msgstr "Figures row"
 
+#: core/models.py
+msgid "Rasm hajmi %(mb)d MB dan oshmasligi kerak."
+msgstr "Image size must not exceed %(mb)d MB."
+
 #: core/templates/core/requisites.html
 msgid "Rasmiy nomi"
 msgstr "Official name"
@@ -1239,12 +1308,20 @@ msgstr "Rating"
 msgid "Rus sahifasi uchun. Boʻsh boʻlsa lotin yozuvi ishlatiladi."
 msgstr "For the Russian page. If empty, Latin script is used."
 
+#: core/site_models.py
+msgid "Ruscha"
+msgstr "Russian"
+
 #: core/templates/core/base.html
 #: core/templates/core/home.html
 #: core/templates/core/requisites.html
 #: core/models.py
 msgid "STIR"
 msgstr "TIN"
+
+#: core/site_models.py
+msgid "Sahifa matni"
+msgstr "Page text"
 
 #: core/templates/core/404.html
 msgid "Sahifa topilmadi"
@@ -1278,6 +1355,14 @@ msgstr "Trade, transport and services"
 #: core/templates/core/service.html
 msgid "Savollar"
 msgstr "Questions"
+
+#: core/site_models.py
+msgid "Sayt matni"
+msgstr "Site text"
+
+#: core/site_models.py
+msgid "Sayt matnlari"
+msgstr "Site texts"
 
 #: core/models.py
 msgid "Sayt sozlamalari"
@@ -1340,6 +1425,10 @@ msgstr "Scan available at the head office"
 msgid "Skanlar bilan"
 msgstr "With scans"
 
+#: core/site_models.py
+msgid "Slayd"
+msgstr "Slide"
+
 #: core/models.py
 msgid "Smeta qiymati"
 msgstr "Estimate value"
@@ -1368,6 +1457,14 @@ msgstr "At the request of the court or the parties"
 #: core/models.py
 msgid "Sugʻurta"
 msgstr "Insurance"
+
+#: core/site_models.py
+msgid "Surat"
+msgstr "Photo"
+
+#: core/site_models.py
+msgid "Surat tavsifi (alt)"
+msgstr "Photo description (alt)"
 
 #: core/templates/core/contact.html
 msgid "TTT Audit bilan bogʻlanish: Fargʻonadagi ofis manzili xaritada, telefonlar, e-pochta va murojaat formasi."
@@ -1480,11 +1577,16 @@ msgstr "Full registry"
 msgid "Toʻliq roʻyxat"
 msgstr "Full list"
 
+#: core/models.py
+msgid "Toʻq fonda koʻrinadigan oq variant, kamida 144×144 px."
+msgstr "White version for dark backgrounds, at least 144×144 px."
+
 #: core/compliance.py
 msgid "Transh oldidan hajm tekshiruvi"
 msgstr "Volume check before a tranche"
 
 #: core/templates/core/company.html
+#: core/site_models.py
 msgid "Turi"
 msgstr "Type"
 
@@ -1535,6 +1637,14 @@ msgstr "Authority: Ministry of Construction licence No. 518159"
 #: core/templates/core/company.html
 msgid "Vazirlar Mahkamasi huzuridagi Elektr energiyasi, neft mahsulotlari va gazdan foydalanishni nazorat qilish inspeksiyasi bilan hamkorlik"
 msgstr "Cooperation with the Inspectorate for Control over the Use of Electricity, Oil Products and Gas under the Cabinet of Ministers"
+
+#: core/site_models.py
+msgid "Vertikal 4:5 nisbat, kamida 1280×1600 px, JPG."
+msgstr "Portrait 4:5, at least 1280×1600 px, JPG."
+
+#: core/site_models.py
+msgid "Vidjet matni (forma, kalkulyator)"
+msgstr "Widget text (form, calculator)"
 
 #: core/templates/core/_lead.html
 #: core/models.py
@@ -1649,6 +1759,10 @@ msgstr "Closed"
 #: core/templates/core/base.html
 msgid "Yopish"
 msgstr "Close"
+
+#: core/site_models.py
+msgid "Yorliq"
+msgstr "Label"
 
 #: core/templates/core/_lead.html
 #: core/templates/core/_uzmap.html
